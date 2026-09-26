@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "V9/V10/V11 candidates, P01 control, F01 user-confirmed result, source CPU checks, bounded device-probe source",
+  "scope": "V9/V10/V11 sources and labelled feedback through R01; independent R02/R03 experimental descendants",
   "platform_source_identity": "user-labelled filenames; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -44,6 +44,36 @@
       "path": "BMMS_V11_R01_提交包.zip",
       "bytes": 63534,
       "sha256": "f5b0ddfbe0821bc26d7cd6fa77c805f86e20acb9cefdbc0d9c5e857d867699a8"
+    },
+    {
+      "path": "BMMS_V11_R02_R03/CPU_CHECKS.json",
+      "bytes": 4317,
+      "sha256": "d037e2a1a69b4908b342822ed9752b53c60f7949dd013e3281225e91cb09bfd7"
+    },
+    {
+      "path": "BMMS_V11_R02_R03/MANIFEST.json",
+      "bytes": 1287,
+      "sha256": "fea2c91d411d96b72c89c74da51c111d1d61128be0c37381b63b68fa2de223b0"
+    },
+    {
+      "path": "BMMS_V11_R02_R03/R02_MACRO_RING.asc",
+      "bytes": 140994,
+      "sha256": "7e0c3e51e763170973c97d85836b1d217c0746da063352c5e392459a669220e5"
+    },
+    {
+      "path": "BMMS_V11_R02_R03/R03_RESIDUAL_DENSE.asc",
+      "bytes": 153225,
+      "sha256": "233cb1d95ab788338958f6747a662578c5b1ee0e7e05ba8bef9d26f832c04fac"
+    },
+    {
+      "path": "BMMS_V11_R02_R03/README.md",
+      "bytes": 2235,
+      "sha256": "0864ed354a2c8f732a5a536dd9337012833a46e7e67e9e0a135496344eed434d"
+    },
+    {
+      "path": "BMMS_V11_R02_R03_提交包.zip",
+      "bytes": 68730,
+      "sha256": "1f24788789e35b056510f0c4f56501d56e13d226905824821641af1e0d4693a7"
     },
     {
       "path": "BMMS_V11_SubmitPack/CPU_CHECKS.json",
@@ -187,13 +217,13 @@
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 5033,
-      "sha256": "7deb9d136a5f59ca700fd1d7ea3c87f9ae2f70c6e42079ea480aa0936d97192a"
+      "bytes": 4710,
+      "sha256": "c0f8dd5b8e3dcddaf9f8402b35e6925d7194e1cc83abf61ca85a75e07a32f866"
     },
     {
       "path": "README.md",
-      "bytes": 1325,
-      "sha256": "da814edf209dc326a18bc4332e684e871797867bfa65afe0c9e5952102142b77"
+      "bytes": 1452,
+      "sha256": "9d48bd0e25a83e1a1afe292849c4d129724f60d8fcfc3a0927838ac12965b440"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -284,6 +314,91 @@
       "path": "V10_results/2026-09-26_f01_submission/measurements.csv",
       "bytes": 830,
       "sha256": "e9982d37b6bf40bc044a2717c699f054318ae186b700337d99ef3f6c2a1c735f"
+    },
+    {
+      "path": "V11_followup/CHECKS.json",
+      "bytes": 4317,
+      "sha256": "d037e2a1a69b4908b342822ed9752b53c60f7949dd013e3281225e91cb09bfd7"
+    },
+    {
+      "path": "V11_followup/DESIGN.md",
+      "bytes": 4079,
+      "sha256": "db6229af96ccd7c3438b4d3783b3e21e478f36d4a12d3e1ffb281170bb8354f6"
+    },
+    {
+      "path": "V11_followup/PACKAGE_CHECKS.json",
+      "bytes": 310,
+      "sha256": "a525ade2da2ab758f1962fec825518daf2a82ae001788fed9a7d1804c65bc40c"
+    },
+    {
+      "path": "V11_followup/R01_CPU_RESULT.json",
+      "bytes": 6500,
+      "sha256": "714a2962c7c949bf32e97397ef145f86ae53501810865884fbf91f64a90fa0bd"
+    },
+    {
+      "path": "V11_followup/R02_CPU_RESULT.json",
+      "bytes": 6500,
+      "sha256": "54733ddebbb80ee93afa4d6f0a614148dcc678429404335757b347d1003ca7f4"
+    },
+    {
+      "path": "V11_followup/R02_MACRO_RING.diff",
+      "bytes": 11869,
+      "sha256": "5bfa47c3c6a10e8ced447ea77553ee8943dad5557c899b2189cd3dd873f8f394"
+    },
+    {
+      "path": "V11_followup/R03_CPU_RESULT.json",
+      "bytes": 6502,
+      "sha256": "e0e4dcadf2a050e68c74590472307e9818374692b9cfc40f82ec6c53ff0d5ec3"
+    },
+    {
+      "path": "V11_followup/R03_RESIDUAL_DENSE.diff",
+      "bytes": 14495,
+      "sha256": "018bb21ff34b60c438630e0c2ff809d07c386138e75c48a832a977ff5dd9ca58"
+    },
+    {
+      "path": "V11_followup/archive.py",
+      "bytes": 2059,
+      "sha256": "910fd41a33a184025302f6fe9acb788a5c51837c72cd3eb6a0e3c873db422708"
+    },
+    {
+      "path": "V11_followup/build.py",
+      "bytes": 8155,
+      "sha256": "6abadca5dfe9e00b44dc575041bc6a46651e87236da9ecd37e8090855ebf53c4"
+    },
+    {
+      "path": "V11_followup/macro_ring_fragment.asc",
+      "bytes": 17682,
+      "sha256": "cfbf6c467c92e48774c4d2133aa911a037c11e3bbdb705c0e1284031a4b9406c"
+    },
+    {
+      "path": "V11_followup/package.py",
+      "bytes": 3114,
+      "sha256": "50955dea539e74bb70678ef9d3017da5d9a063f9e904a7e708a7997a94d7fe9c"
+    },
+    {
+      "path": "V11_followup/record_r01.py",
+      "bytes": 5484,
+      "sha256": "4ecfed9920c731b9ee67964841e3df18c9eefec6cb555dd8cfe7b967a2198e6a"
+    },
+    {
+      "path": "V11_followup/residual_dense_fragment.asc",
+      "bytes": 12638,
+      "sha256": "562af52fab731d0ad681ffc4bc4d3ae21e4a9f7b9fb75495afa5c22ea9e05b00"
+    },
+    {
+      "path": "V11_followup/ring_audit.hpp",
+      "bytes": 2864,
+      "sha256": "addbe0ff969742305ef396b27cf63dead2fde0b69f8141989cc8646e429a6412"
+    },
+    {
+      "path": "V11_followup/run_checks.py",
+      "bytes": 11458,
+      "sha256": "2c47ade0ab82560c585daf9e475edd5e0b88be2b9c1ebc25b6f94967ce40a7ac"
+    },
+    {
+      "path": "V11_followup/update_audit.py",
+      "bytes": 6687,
+      "sha256": "93850df34627735785826522c4bf06cb064a4702a04a18b21439c6566a45765a"
     },
     {
       "path": "V11_impl/CHECKS.json",
@@ -409,6 +524,26 @@
       "path": "V11_impl/update_audit.py",
       "bytes": 6880,
       "sha256": "c670496a82de1079c17264f44bb01878241cff042bc86fafc4882aacc42045c5"
+    },
+    {
+      "path": "V11_results/2026-09-26_r01_submission/AUDIT.md",
+      "bytes": 2880,
+      "sha256": "7de5f6b8b58957087af4683bfdace47f2333e6290e9ec9b9fa3f698d8c81f1b9"
+    },
+    {
+      "path": "V11_results/2026-09-26_r01_submission/R01_user_screenshot.png",
+      "bytes": 132327,
+      "sha256": "ae386ac0c46f9d8c8f434d3677b53cea2f75b39be00d27f5cf6476fd3cdf8c0d"
+    },
+    {
+      "path": "V11_results/2026-09-26_r01_submission/RESULT.json",
+      "bytes": 5588,
+      "sha256": "557621f0f9d2b438878924bf03bb7c5aca57638db361df6f29003f5b98e73670"
+    },
+    {
+      "path": "V11_results/2026-09-26_r01_submission/measurements.csv",
+      "bytes": 1352,
+      "sha256": "5b3c288fedf039ada594bd9dd6edc61dd1f0859a9d994227d0949a76498c4b1a"
     },
     {
       "path": "V9_design/blocked_oracle.py",
@@ -844,6 +979,11 @@
       "path": "audit_current/AUDIT_BEFORE_V11.md",
       "bytes": 22997,
       "sha256": "b2f3056992b31f2711f4a8b900c90f8065f2fc7399da2c6e4b4552f05378aca6"
+    },
+    {
+      "path": "audit_current/AUDIT_R01_DELIVERY.md",
+      "bytes": 5033,
+      "sha256": "7deb9d136a5f59ca700fd1d7ea3c87f9ae2f70c6e42079ea480aa0936d97192a"
     },
     {
       "path": "audit_current/README_BEFORE_V11.md",

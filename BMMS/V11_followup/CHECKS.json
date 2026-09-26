@@ -1,0 +1,124 @@
+{
+  "scope": "real source CPU layout/event/ownership model; not hardware simulation",
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "all_outputs_compared_bitwise": true,
+  "known_numerical_limitations_remain": true,
+  "fixture": {
+    "B": 1,
+    "M": 128,
+    "N": 256,
+    "K": 256,
+    "cores": 1
+  },
+  "negative_control": {
+    "early_free_rejected": true,
+    "exit_code": 1,
+    "stderr": "STRUCTURAL_FAIL dense_2_fp1600_1_128_256_256_1_0: ring freed before all published data was read"
+  },
+  "runs": {
+    "R01": {
+      "source_runs": 169,
+      "repeat_pairs": 85,
+      "plan_checks": 4494,
+      "guard_checks": 7560,
+      "r01_route_runs": 0,
+      "residual_route_runs": 0,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "known_precision_limitations": 3,
+      "pipe_m_barriers": 6880,
+      "traffic_fixture": {
+        "gm_bytes": 196608,
+        "gm_calls": 2,
+        "l0_bytes": 196608,
+        "l0_calls": 64,
+        "mmads": 16,
+        "publishes": 4,
+        "ready_packets": 4,
+        "free_signals": 8,
+        "c_read_elements": 32768,
+        "c_write_bytes": 131072
+      },
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false
+    },
+    "R02": {
+      "source_runs": 169,
+      "repeat_pairs": 85,
+      "plan_checks": 4494,
+      "guard_checks": 7560,
+      "r01_route_runs": 0,
+      "residual_route_runs": 0,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "known_precision_limitations": 3,
+      "pipe_m_barriers": 6880,
+      "traffic_fixture": {
+        "gm_bytes": 196608,
+        "gm_calls": 2,
+        "l0_bytes": 196608,
+        "l0_calls": 64,
+        "mmads": 16,
+        "publishes": 4,
+        "ready_packets": 1,
+        "free_signals": 2,
+        "c_read_elements": 32768,
+        "c_write_bytes": 131072
+      },
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false
+    },
+    "R03": {
+      "source_runs": 169,
+      "repeat_pairs": 85,
+      "plan_checks": 4494,
+      "guard_checks": 7560,
+      "r01_route_runs": 96,
+      "residual_route_runs": 76,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "known_precision_limitations": 3,
+      "pipe_m_barriers": 4424,
+      "traffic_fixture": {
+        "gm_bytes": 196608,
+        "gm_calls": 2,
+        "l0_bytes": 196608,
+        "l0_calls": 64,
+        "mmads": 16,
+        "publishes": 4,
+        "ready_packets": 4,
+        "free_signals": 8,
+        "c_read_elements": 32768,
+        "c_write_bytes": 131072
+      },
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false
+    }
+  },
+  "sources": {
+    "R02_MACRO_RING.asc": "7e0c3e51e763170973c97d85836b1d217c0746da063352c5e392459a669220e5",
+    "R03_RESIDUAL_DENSE.asc": "233cb1d95ab788338958f6747a662578c5b1ee0e7e05ba8bef9d26f832c04fac"
+  },
+  "artifacts": {
+    "V11_followup/build.py": "6abadca5dfe9e00b44dc575041bc6a46651e87236da9ecd37e8090855ebf53c4",
+    "V11_followup/run_checks.py": "2c47ade0ab82560c585daf9e475edd5e0b88be2b9c1ebc25b6f94967ce40a7ac",
+    "V11_followup/ring_audit.hpp": "addbe0ff969742305ef396b27cf63dead2fde0b69f8141989cc8646e429a6412",
+    "V11_followup/macro_ring_fragment.asc": "cfbf6c467c92e48774c4d2133aa911a037c11e3bbdb705c0e1284031a4b9406c",
+    "V11_followup/residual_dense_fragment.asc": "562af52fab731d0ad681ffc4bc4d3ae21e4a9f7b9fb75495afa5c22ea9e05b00",
+    "V11_impl/run_checks.py": "ba63f61063ba74aac83104d4b830aa9c913920cfc8ed13ddb124bc231f8929eb",
+    "V11_impl/checks_tail.cpp": "e262ae4c2a95875ae797b305d5f42286585795670a4cb4ab4b4e763bf975918e",
+    "V11_impl/reuse_fragment.asc": "a19c2d3b59b1fc5b1b06af52db56cd0efe4b25c9476d658deb79308d0fff4231",
+    "V9_impl/dense_fragment.asc": "e2455c63a4a1da3eed20ab770f73181c14539aa501443b3826fdfd38972d1698",
+    "V9_impl/source_checks.cpp": "0932b5fc38f116b14c4857cafbab208e02abe09e0642a3305d80e71f6644a078",
+    "V9_impl/prepare_cpu.py": "b5b53558f5a4873971bfa115a5e5382b0d01c2a133cedd7ede90962de6bd8f52",
+    "V9_impl/cube_model.hpp": "dd03742bded1885f5c18e91a984113788b1266e06fe5428f897b1fff017884ab",
+    "next_stage/cpu_shim.hpp": "d8066077cf7d32371119ff83f715d4c39fd66c1fb452c4be161b5b26a4ab8b14"
+  }
+}

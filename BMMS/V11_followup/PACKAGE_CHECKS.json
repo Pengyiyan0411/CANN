@@ -1,0 +1,10 @@
+{
+  "archive": "BMMS_V11_R02_R03_提交包.zip",
+  "sha256": "1f24788789e35b056510f0c4f56501d56e13d226905824821641af1e0d4693a7",
+  "bytes": 68730,
+  "members": 5,
+  "R01_source_restored_from_each_variant": true,
+  "independent_variants": true,
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false
+}

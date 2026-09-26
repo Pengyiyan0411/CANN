@@ -1,0 +1,199 @@
+--- R01
++++ R02_MACRO_RING
+@@ -1,4 +1,4 @@
+-// R01_REUSE_2X2: P01 fallbacks + V11 macro operand reuse. Device validation pending.
++// R02_MACRO_RING: independent R01 descendant; macro-level output publication.
+ // V8.3.1 probe P01 ROWMAX_EPILOGUE: shape-adaptive small-K Cube scheduler + reduction-aware epilogue + vector-tree [K,L] GEMV.
+ // Parent V8.0d is retained verbatim except its dispatcher name; V8.3 changes only the native small-K module/dispatcher.
+ // Not compiled with Bisheng / not NPU-validated in this environment.
+@@ -2430,12 +2430,13 @@
+ #ifndef BMMS83_ENABLE_TREE
+ #define BMMS83_ENABLE_TREE 1
+ #endif
+-// V11 R01: real 2x2 operand reuse, K1=256 / K0=64.
++// V11 R02: publish a completed 2x2 macro tile using one ring credit.
+ // Experimental source: CANN compilation, precision and performance need a device.
+-#ifndef BMMS11_REUSE_FRAGMENT_INCLUDED
+-#define BMMS11_REUSE_FRAGMENT_INCLUDED
+-namespace bmms11 {
++#ifndef BMMS11R2_REUSE_FRAGMENT_INCLUDED
++#define BMMS11R2_REUSE_FRAGMENT_INCLUDED
++namespace bmms11r2 {
+ constexpr int32_t TM=64,TN=128,AM=128,BN=256,K1=256,K0=64;
++constexpr int32_t MACRO_ELEMS=4*TM*TN;
+ constexpr uint16_t READY=4,FREE=6;
+ using Plan=bmms83::NativePlan;
+ using bmms83::MinI;
+@@ -2454,7 +2455,7 @@
+     p.tasks=B*p.pM*p.pN;p.blocks=bmms83::MinH(cores,p.tasks);
+     return p;
+ }
+-static inline uint64_t RingBytes(const Plan& p){return uint64_t(p.blocks)*2*TM*TN*4ULL;}
++static inline uint64_t RingBytes(const Plan& p){return uint64_t(p.blocks)*2*MACRO_ELEMS*4ULL;}
+ static inline uint64_t PartialBytes(const Plan& p){return uint64_t(p.B)*p.pN*p.M*4ULL;}
+ static inline uint64_t WorkspaceBytes(const Plan& p){return RingBytes(p)+PartialBytes(p);}
+ 
+@@ -2553,18 +2554,21 @@
+         for(int s=0;s<MinI(2,l0Count);++s)AscendC::WaitFlag<AscendC::HardEvent::M_MTE1>(l0Free[s]);
+         AscendC::SetFlag<AscendC::HardEvent::M_FIX>(cReady);
+         AscendC::WaitFlag<AscendC::HardEvent::M_FIX>(cReady);
++        const int macroSlot=seq&1;
++        // One slot owns the WHOLE macro. No AIV wait between its Fixpipes.
++        if(seq>=2)AscendC::CrossCoreWaitFlag<0x2>(FREE+macroSlot);
+         for(int mo=0;mo<ar;mo+=TM){
+             const int mr=MinI(TM,ar-mo);
+             for(int no=0;no<br;no+=TN){
+-                const int nr=MinI(TN,br-no),ci=(mo/TM)*2+no/TN,slot=seq&1;
+-                if(seq>=2)AscendC::CrossCoreWaitFlag<0x2>(FREE+slot);
++                const int nr=MinI(TN,br-no),ci=(mo/TM)*2+no/TN;
+                 AscendC::FixpipeParamsV220 f{};f.nSize=nr;f.mSize=mr;f.srcStride=mr;
+                 f.dstStride=TN;f.ndNum=1;f.quantPre=QuantMode_t::NoQuant;
+-                AscendC::Fixpipe<float,float>(ring[(int64_t(group)*2+slot)*TM*TN],cBuf.template Get<float>()[ci*TM*TN],f);
+-                AscendC::CrossCoreSetFlag<0x2,PIPE_FIX>(READY+slot);++seq;
++                AscendC::Fixpipe<float,float>(ring[(int64_t(group)*2+macroSlot)*MACRO_ELEMS+ci*TM*TN],cBuf.template Get<float>()[ci*TM*TN],f);
+             }
+         }
+         AscendC::SetFlag<AscendC::HardEvent::FIX_M>(cFree);cPending=true;
++        // READY on FIX covers every live micro-tile written above.
++        AscendC::CrossCoreSetFlag<0x2,PIPE_FIX>(READY+macroSlot);++seq;
+     }
+ public:
+     __aicore__ inline void Init(GM_ADDR x,GM_ADDR z,GM_ADDR r,const Plan& plan,AscendC::TPipe* pipe){
+@@ -2578,7 +2582,7 @@
+         cReady=pipe->AllocEventID<AscendC::HardEvent::M_FIX>();cFree=pipe->AllocEventID<AscendC::HardEvent::FIX_M>();
+         a.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(x),int64_t(p.B)*p.M*p.K);
+         b.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(z),int64_t(p.B)*p.K*p.N);
+-        ring.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(r),int64_t(p.blocks)*2*TM*TN);
++        ring.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(r),int64_t(p.blocks)*2*MACRO_ELEMS);
+         pipe->InitBuffer(a1Buf,2*AM*K1*sizeof(T));pipe->InitBuffer(b1Buf,2*K1*BN*sizeof(T));
+         pipe->InitBuffer(a2Buf,2*AM*K0*sizeof(T));pipe->InitBuffer(b2Buf,2*K0*BN*sizeof(T));
+         pipe->InitBuffer(cBuf,4*TM*TN*sizeof(float));
+@@ -2616,7 +2620,7 @@
+ public:
+     __aicore__ inline void Init(GM_ADDR r,GM_ADDR pt,GM_ADDR y,const Plan& plan,AscendC::TPipe* pipe){
+         p=plan;pipe_=pipe;
+-        ring.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(r),int64_t(p.blocks)*2*TM*TN);
++        ring.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(r),int64_t(p.blocks)*2*MACRO_ELEMS);
+         part.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(pt),int64_t(p.B)*p.pN*p.M);
+         out.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(y),p.B);
+         pipe->InitBuffer(cq,1,(TM/2)*TN*4);pipe->InitBuffer(oq,1,32);
+@@ -2639,22 +2643,23 @@
+                 const int ar=MinI(AM,mEnd-mBase);
+                 AscendC::Duplicate(run,bmmmaxsum_v43::NEG_INF,ar);AscendC::PipeBarrier<PIPE_V>();
+                 for(int nBase=nBegin;nBase<nEnd;nBase+=BN){
+-                    const int br=MinI(BN,nEnd-nBase);
++                    const int br=MinI(BN,nEnd-nBase),ringSlot=seq&1;
++                    AscendC::CrossCoreWaitFlag<0x2>(READY+ringSlot);
+                     for(int mo=0;mo<ar;mo+=TM){
+                         const int mr=MinI(TM,ar-mo),vr=mr/2;
+                         AscendC::Duplicate(acc,bmmmaxsum_v43::NEG_INF,vr*TN);AscendC::PipeBarrier<PIPE_V>();
+                         for(int no=0;no<br;no+=TN){
+-                            const int nr=MinI(TN,br-no),ringSlot=seq&1;
+-                            AscendC::CrossCoreWaitFlag<0x2>(READY+ringSlot);
++                            const int nr=MinI(TN,br-no),ci=(mo/TM)*2+no/TN;
+                             auto c=cq.AllocTensor<float>();
+                             AscendC::Duplicate(c,bmmmaxsum_v43::NEG_INF,vr*TN);
+                             bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
+-                            const int64_t off=(int64_t(group)*2+ringSlot)*TM*TN+sub*vr*TN;
++                            const int64_t off=(int64_t(group)*2+ringSlot)*MACRO_ELEMS+ci*TM*TN+sub*vr*TN;
+                             AscendC::DataCopyExtParams cp{static_cast<uint16_t>(vr),uint32_t(nr*4),uint32_t((TN-nr)*4),uint32_t((TN-nr)/8),0};
+                             AscendC::DataCopyPadExtParams<float> pd{false,0,0,0.0f};
+                             AscendC::DataCopyPad(c,ring[off],cp,pd);cq.EnQue(c);c=cq.DeQue<float>();
+-                            AscendC::CrossCoreSetFlag<0x2,PIPE_MTE2>(FREE+ringSlot);
+-                            AscendC::Max(acc,acc,c,vr*TN);AscendC::PipeBarrier<PIPE_V>();cq.FreeTensor(c);++seq;
++                            // Each AIV releases only after its LAST live micro-tile read.
++                            if(mo+mr==ar&&no+nr==br)AscendC::CrossCoreSetFlag<0x2,PIPE_MTE2>(FREE+ringSlot);
++                            AscendC::Max(acc,acc,c,vr*TN);AscendC::PipeBarrier<PIPE_V>();cq.FreeTensor(c);
+                         }
+                         AscendC::BinaryRepeatParams rp{1,1,1,16,16,16};
+                         AscendC::Max(acc,acc,acc[64],64,vr,rp);AscendC::PipeBarrier<PIPE_V>();
+@@ -2662,6 +2667,7 @@
+                         AscendC::PipeBarrier<PIPE_V>();
+                         AscendC::Max(run[mo+sub*vr],run[mo+sub*vr],rows,vr);AscendC::PipeBarrier<PIPE_V>();
+                     }
++                    ++seq;
+                 }
+                 bmms71::Fence<AscendC::HardEvent::V_MTE3>(*pipe_);
+                 for(int mo=0;mo<ar;mo+=TM){
+@@ -2690,7 +2696,7 @@
+ 
+ 
+ 
+-#ifndef BMMS11_CPU_TEST
++#ifndef BMMS11R2_CPU_TEST
+ template<class T,bool TA,bool TB>
+ __aicore__ inline void Entry(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR ring,GM_ADDR partial,Plan p){
+     AscendC::TPipe pipe;
+@@ -2698,21 +2704,21 @@
+     if ASCEND_IS_AIV {RowMaxConsumer op;op.Init(ring,partial,y,p,&pipe);op.Process();}
+ }
+ #endif
+-} // namespace bmms11
+-// BMMS11_CPU_EXTRACT_END
+-
+-#define BMMS11_KERNEL(NAME,T,TA,TB) \
+-__schedmode__(1) __global__ __mix__(1,2) void NAME(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR ring,GM_ADDR part,bmms11::Plan p){bmms11::Entry<T,TA,TB>(a,b,y,ring,part,p);}
+-BMMS11_KERNEL(bmms11_f16_nn,half,false,false)
+-BMMS11_KERNEL(bmms11_f16_nt,half,false,true)
+-BMMS11_KERNEL(bmms11_f16_tn,half,true,false)
+-BMMS11_KERNEL(bmms11_f16_tt,half,true,true)
+-BMMS11_KERNEL(bmms11_b16_nn,bfloat16_t,false,false)
+-BMMS11_KERNEL(bmms11_b16_nt,bfloat16_t,false,true)
+-BMMS11_KERNEL(bmms11_b16_tn,bfloat16_t,true,false)
+-BMMS11_KERNEL(bmms11_b16_tt,bfloat16_t,true,true)
+-#undef BMMS11_KERNEL
+-namespace bmms11 {
++} // namespace bmms11r2
++// BMMS11R2_CPU_EXTRACT_END
++
++#define BMMS11R2_KERNEL(NAME,T,TA,TB) \
++__schedmode__(1) __global__ __mix__(1,2) void NAME(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR ring,GM_ADDR part,bmms11r2::Plan p){bmms11r2::Entry<T,TA,TB>(a,b,y,ring,part,p);}
++BMMS11R2_KERNEL(bmms11r2_f16_nn,half,false,false)
++BMMS11R2_KERNEL(bmms11r2_f16_nt,half,false,true)
++BMMS11R2_KERNEL(bmms11r2_f16_tn,half,true,false)
++BMMS11R2_KERNEL(bmms11r2_f16_tt,half,true,true)
++BMMS11R2_KERNEL(bmms11r2_b16_nn,bfloat16_t,false,false)
++BMMS11R2_KERNEL(bmms11r2_b16_nt,bfloat16_t,false,true)
++BMMS11R2_KERNEL(bmms11r2_b16_tn,bfloat16_t,true,false)
++BMMS11R2_KERNEL(bmms11r2_b16_tt,bfloat16_t,true,true)
++#undef BMMS11R2_KERNEL
++namespace bmms11r2 {
+ static inline bool TryLaunch(GM_ADDR a,GM_ADDR b,GM_ADDR y,int32_t B,int32_t M,int32_t N,int32_t K,
+     int32_t dtype,bool ta,bool tb,int32_t cores,aclrtStream stream){
+     if((dtype!=1&&dtype!=2)||!Eligible(B,M,N,K,cores))return false;
+@@ -2721,18 +2727,18 @@
+     const auto p=MakePlan(B,M,N,K,cores);uint8_t* ws=nullptr;
+     if(aclrtMalloc(reinterpret_cast<void**>(&ws),WorkspaceBytes(p),ACL_MEM_MALLOC_HUGE_FIRST)!=ACL_SUCCESS)std::abort();
+     uint8_t* partial=ws+RingBytes(p);
+-#define BMMS11_LAUNCH(NAME) NAME<<<p.blocks,nullptr,stream>>>(a,b,y,ws,partial,p)
++#define BMMS11R2_LAUNCH(NAME) NAME<<<p.blocks,nullptr,stream>>>(a,b,y,ws,partial,p)
+     if(dtype==1){
+-        if(!ta&&!tb){BMMS11_LAUNCH(bmms11_f16_nn);}else if(!ta&&tb){BMMS11_LAUNCH(bmms11_f16_nt);}
+-        else if(ta&&!tb){BMMS11_LAUNCH(bmms11_f16_tn);}else{BMMS11_LAUNCH(bmms11_f16_tt);}
++        if(!ta&&!tb){BMMS11R2_LAUNCH(bmms11r2_f16_nn);}else if(!ta&&tb){BMMS11R2_LAUNCH(bmms11r2_f16_nt);}
++        else if(ta&&!tb){BMMS11R2_LAUNCH(bmms11r2_f16_tn);}else{BMMS11R2_LAUNCH(bmms11r2_f16_tt);}
+     }else{
+-        if(!ta&&!tb){BMMS11_LAUNCH(bmms11_b16_nn);}else if(!ta&&tb){BMMS11_LAUNCH(bmms11_b16_nt);}
+-        else if(ta&&!tb){BMMS11_LAUNCH(bmms11_b16_tn);}else{BMMS11_LAUNCH(bmms11_b16_tt);}
+-    }
+-#undef BMMS11_LAUNCH
++        if(!ta&&!tb){BMMS11R2_LAUNCH(bmms11r2_b16_nn);}else if(!ta&&tb){BMMS11R2_LAUNCH(bmms11r2_b16_nt);}
++        else if(ta&&!tb){BMMS11R2_LAUNCH(bmms11r2_b16_tn);}else{BMMS11R2_LAUNCH(bmms11r2_b16_tt);}
++    }
++#undef BMMS11R2_LAUNCH
+     if(aclrtSynchronizeStream(stream)!=ACL_SUCCESS)std::abort();if(aclrtFree(ws)!=ACL_SUCCESS)std::abort();return true;
+ }
+-} // namespace bmms11
++} // namespace bmms11r2
+ #endif
+ 
+ extern "C" void run_kernel(GM_ADDR a,const TensorGroupInfo& ia,GM_ADDR b,const TensorGroupInfo& ib,GM_ADDR y,const TensorGroupInfo& iy,
+@@ -2744,7 +2750,7 @@
+     const int64_t B=x.shape[0],M=x.shape[ta?2:1],K=x.shape[ta?1:2],N=z.shape[tb?1:2];
+     if(B<1||B>64||M<1||M>8192||N<1||N>8192||K<32||K>8192||K%8||z.shape[0]!=B||z.shape[tb?2:1]!=K||o.shape[0]!=B||B*M*K>(1LL<<26)||B*N*K>(1LL<<26))std::abort();
+     const int cores=availableCoreNum>0&&availableCoreNum<=64?int(availableCoreNum):1;
+-    if(bmms11::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;
++    if(bmms11r2::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;
+     const auto family=bmms8::Classify(B,M,N,K,ta,tb);
+     const bool tree=BMMS83_ENABLE_TREE&&(family==bmms8::Family::M1_NContig||family==bmms8::Family::N1_MContig);
+     const bool native=BMMS83_ENABLE_NATIVE&&bmms83::NativeEligible(M,N,K)&&

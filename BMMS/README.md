@@ -1,25 +1,28 @@
-# BatchMatmulMaxSum：V11 R01
+# BatchMatmulMaxSum：R01反馈后提交R02/R03
 
-最新决策：F01停止作为全域主线，恢复P01分支；R01重写密集输入复用。
-用户确认F01截图15/15 Pass，同T21.1215分；P01历史同T32.0956分。
-本轮没有测试环境，**先提交R01**。R01尚未CANN编译或NPU测试，性能待测。
+R01已获用户明确标注的15/15 Pass。同T复算31.8536，P01历史32.0956。
+点9–11有改善，点12回退抵消大部分收益。用户无测试环境，本轮继续平台提交。
 
-- [R01提交文件](BMMS_V11_SubmitPack/R01_REUSE_2X2.asc) / [提交说明](BMMS_V11_SubmitPack/README.md)
-- [R01提交包](BMMS_V11_R01_提交包.zip)
-- [当前审计报告](BatchMatmulMaxSum_当前审计报告_2026-09-26.md)
-- [新路线设计](V11_impl/DESIGN.md) / [CPU检查](V11_impl/CHECKS.json)
-- [F01已确认结果](V10_results/2026-09-26_f01_submission/AUDIT.md)
-- [备用限时设备诊断](V11_impl/device_probe/README.md)
+1. [R02_MACRO_RING.asc](BMMS_V11_R02_R03/R02_MACRO_RING.asc)：减少宏块输出同步。
+2. [R03_RESIDUAL_DENSE.asc](BMMS_V11_R02_R03/R03_RESIDUAL_DENSE.asc)：保留原R01，补公开shape差集。
 
-R01：153次普通源码CPU运行、4494个计划检查通过；3个已知极端数值反例保留。
-CPU模型不认证CANN、真实硬件同步或性能。比赛仍只替换官方 `code/kernel.asc`。
+两版独立，不要拼接；每次只替换官方 `code/kernel.asc`。
+[提交包](BMMS_V11_R02_R03_提交包.zip) / [提交说明](BMMS_V11_R02_R03/README.md)。
 
-复现离线检查：
+- [当前审计](BatchMatmulMaxSum_当前审计报告_2026-09-26.md)
+- [R01结果和逐点分数](V11_results/2026-09-26_r01_submission/AUDIT.md)
+- [新实验设计](V11_followup/DESIGN.md) / [检查记录](V11_followup/CHECKS.json)
+- [冻结R01源码](BMMS_V11_SubmitPack/R01_REUSE_2X2.asc)
+- [F01历史反馈](V10_results/2026-09-26_f01_submission/AUDIT.md)
+
+新候选每版169次普通源码CPU运行通过，所测输出与R01逐位一致；3个极端数值限制保留。
+本地无CANN/NPU，不能把CPU模型通过称为设备通过或提速。平台结果待返回。
+
 ```bash
-python V11_impl/build.py
-python V11_impl/run_checks.py
+python V11_followup/build.py
+python V11_followup/run_checks.py
+python V11_followup/package.py
 ```
 
-远端归档：[CANN/v11](https://github.com/Pengyiyan0411/CANN/tree/v11/BMMS)。
-V9/v10分支和原始实验包不变。下游实现细节与老版结论见
-[V11前完整审计](audit_current/AUDIT_BEFORE_V11.md) 和 [旧README](audit_current/README_BEFORE_V11.md)。
+归档：[CANN/v11](https://github.com/Pengyiyan0411/CANN/tree/v11/BMMS)。
+R01交付时点的说明见 [历史快照](audit_current/AUDIT_R01_DELIVERY.md)。

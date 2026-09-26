@@ -1,0 +1,31 @@
+{
+  "base": "R01_REUSE_2X2",
+  "base_sha256": "dc372a48a8b38dcb3ee1c782f93842624945cfe0627b04b2112e70d0a949663e",
+  "independent_siblings": true,
+  "R01_platform_evidence": "user explicitly labelled 15/15 Pass; no platform source digest",
+  "R02_ring_bytes_per_group": 262144,
+  "R01_ring_bytes_per_group": 65536,
+  "known_numerical_limitations_remain": true,
+  "variants": [
+    {
+      "name": "R02_MACRO_RING",
+      "file": "R02_MACRO_RING.asc",
+      "sha256": "7e0c3e51e763170973c97d85836b1d217c0746da063352c5e392459a669220e5",
+      "fragment_sha256": "cfbf6c467c92e48774c4d2133aa911a037c11e3bbdb705c0e1284031a4b9406c",
+      "changes": "macro-level C publication; same R01 dispatch and arithmetic",
+      "cann_compiled_locally": false,
+      "npu_tested_locally": false,
+      "submitted_result_received": false
+    },
+    {
+      "name": "R03_RESIDUAL_DENSE",
+      "file": "R03_RESIDUAL_DENSE.asc",
+      "sha256": "233cb1d95ab788338958f6747a662578c5b1ee0e7e05ba8bef9d26f832c04fac",
+      "fragment_sha256": "562af52fab731d0ad681ffc4bc4d3ae21e4a9f7b9fb75495afa5c22ea9e05b00",
+      "changes": "R01 then D01 residual; small-output PIPE_M dependency",
+      "cann_compiled_locally": false,
+      "npu_tested_locally": false,
+      "submitted_result_received": false
+    }
+  ]
+}

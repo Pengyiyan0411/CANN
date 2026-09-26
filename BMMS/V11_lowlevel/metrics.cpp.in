@@ -1,0 +1,11 @@
+std::string metrics(){
+    std::ostringstream os;
+    os<<"{\"gm_bytes\":"<<Traffic::gmInputBytes.load()<<",\"l0_bytes\":"<<Traffic::l0Bytes.load()
+      <<",\"l0_calls\":"<<Traffic::l0Copies.load()<<",\"mmads\":"<<Traffic::mmads.load()
+      <<",\"fixpipes\":"<<Traffic::publishes.load()<<",\"c_write_bytes\":"<<Traffic::cWriteBytes.load()
+      <<",\"ready\":"<<RingAudit::lastReady<<",\"free\":"<<RingAudit::lastFree
+      <<",\"duplicate_elements\":"<<OpStats::duplicateElements.load()
+      <<",\"reduce_calls\":"<<OpStats::reduceCalls.load()<<",\"reduce_rows\":"<<OpStats::reduceRows.load()
+      <<",\"manual_v_mte2\":"<<OpStats::manualVToMte2.load()<<"}";
+    return os.str();
+}

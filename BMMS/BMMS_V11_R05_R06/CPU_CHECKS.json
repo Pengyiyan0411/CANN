@@ -1,0 +1,359 @@
+{
+  "scope": "actual-source CPU model and logical API counts; not CANN compilation, hardware simulation or timing",
+  "sources": {
+    "R05_DEFERRED_MAX.asc": "ad5f140cdd401097975c65da5ffee8ba8922e66066cac1bfd73651619f7227aa",
+    "R06_MACRO_MMAD.asc": "435c3ff5e91f084bea95bf52423efe2e8d55db4c9b13d7f3225e8f8d4fd276a8"
+  },
+  "composition": {
+    "independent_R04_descendants": true,
+    "dispatch_and_workspace_unchanged": true,
+    "R05_only_two_consumers_changed": true,
+    "R06_only_macro_producer_changed": true,
+    "fallback_other_than_shared_native_consumer_preserved": true
+  },
+  "ordinary_outputs_equal_bitwise": true,
+  "known_numerical_limitations_remain": true,
+  "negative_controls": {
+    "NEGATIVE_PADDING": {
+      "rejected": true,
+      "returncode": 1,
+      "stderr": "STRUCTURAL_FAIL dense_2_fp1600_1_16_16_352_1_0: UB uninitialized read"
+    },
+    "NEGATIVE_PACKING": {
+      "rejected": true,
+      "returncode": 1,
+      "stderr": "STRUCTURAL_FAIL incorrect output after broken L0C stride"
+    }
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "model_refinements": [
+    "queue allocation clears initializedness",
+    "M_FIX wait drains pending M instruction",
+    "LoadData/Mmad local offset alignment checked",
+    "vector and arena counters"
+  ],
+  "runs": {
+    "R04": {
+      "source_runs": 256,
+      "repeat_pairs": 128,
+      "plan_checks": 4494,
+      "mixed_route_sequence": [
+        "macro",
+        "residual",
+        "macro",
+        "residual"
+      ],
+      "mixed_ring_bytes_per_group": [
+        262144,
+        65536,
+        262144,
+        65536
+      ],
+      "mixed_ready_packets": [
+        1,
+        4,
+        1,
+        4
+      ],
+      "guard_checks": 7560,
+      "small_k_route_runs": 77,
+      "fixtures": {
+        "macro_wide": {
+          "gm_bytes": 786432,
+          "l0_bytes": 786432,
+          "l0_calls": 256,
+          "mmads": 64,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 4,
+          "free": 8,
+          "duplicate_elements": 196864,
+          "reduce_calls": 16,
+          "reduce_rows": 512,
+          "manual_v_mte2": 33
+        },
+        "residual_wide": {
+          "gm_bytes": 1572864,
+          "l0_bytes": 1572864,
+          "l0_calls": 384,
+          "mmads": 32,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 16,
+          "free": 32,
+          "duplicate_elements": 163968,
+          "reduce_calls": 8,
+          "reduce_rows": 256,
+          "manual_v_mte2": 33
+        },
+        "native_wide": {
+          "gm_bytes": 147456,
+          "l0_bytes": 786432,
+          "l0_calls": 384,
+          "mmads": 64,
+          "fixpipes": 64,
+          "c_write_bytes": 2097152,
+          "ready": 64,
+          "free": 128,
+          "duplicate_elements": 655872,
+          "reduce_calls": 32,
+          "reduce_rows": 1024,
+          "manual_v_mte2": 129
+        }
+      },
+      "peak_arena_bytes": [
+        132256,
+        393216,
+        32768,
+        65536,
+        131072
+      ],
+      "macro_route_runs": 103,
+      "residual_route_runs": 79,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "known_precision_limitations": 3,
+      "pipe_m_barriers": 4524,
+      "traffic_fixture": {
+        "gm_bytes": 196608,
+        "gm_calls": 2,
+        "l0_bytes": 196608,
+        "l0_calls": 64,
+        "mmads": 16,
+        "publishes": 4,
+        "ready_packets": 1,
+        "free_signals": 2,
+        "c_read_elements": 32768,
+        "c_write_bytes": 131072
+      },
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false
+    },
+    "R05": {
+      "source_runs": 256,
+      "repeat_pairs": 128,
+      "plan_checks": 4494,
+      "mixed_route_sequence": [
+        "macro",
+        "residual",
+        "macro",
+        "residual"
+      ],
+      "mixed_ring_bytes_per_group": [
+        262144,
+        65536,
+        262144,
+        65536
+      ],
+      "mixed_ready_packets": [
+        1,
+        4,
+        1,
+        4
+      ],
+      "guard_checks": 7560,
+      "small_k_route_runs": 77,
+      "fixtures": {
+        "macro_wide": {
+          "gm_bytes": 786432,
+          "l0_bytes": 786432,
+          "l0_calls": 256,
+          "mmads": 64,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 4,
+          "free": 8,
+          "duplicate_elements": 16384,
+          "reduce_calls": 4,
+          "reduce_rows": 128,
+          "manual_v_mte2": 1
+        },
+        "residual_wide": {
+          "gm_bytes": 1572864,
+          "l0_bytes": 1572864,
+          "l0_calls": 384,
+          "mmads": 32,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 16,
+          "free": 32,
+          "duplicate_elements": 8192,
+          "reduce_calls": 2,
+          "reduce_rows": 64,
+          "manual_v_mte2": 1
+        },
+        "native_wide": {
+          "gm_bytes": 147456,
+          "l0_bytes": 786432,
+          "l0_calls": 384,
+          "mmads": 64,
+          "fixpipes": 64,
+          "c_write_bytes": 2097152,
+          "ready": 64,
+          "free": 128,
+          "duplicate_elements": 32768,
+          "reduce_calls": 8,
+          "reduce_rows": 256,
+          "manual_v_mte2": 1
+        }
+      },
+      "peak_arena_bytes": [
+        181280,
+        393216,
+        32768,
+        65536,
+        131072
+      ],
+      "macro_route_runs": 103,
+      "residual_route_runs": 79,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "known_precision_limitations": 3,
+      "pipe_m_barriers": 4524,
+      "traffic_fixture": {
+        "gm_bytes": 196608,
+        "gm_calls": 2,
+        "l0_bytes": 196608,
+        "l0_calls": 64,
+        "mmads": 16,
+        "publishes": 4,
+        "ready_packets": 1,
+        "free_signals": 2,
+        "c_read_elements": 32768,
+        "c_write_bytes": 131072
+      },
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false
+    },
+    "R06": {
+      "source_runs": 256,
+      "repeat_pairs": 128,
+      "plan_checks": 4494,
+      "mixed_route_sequence": [
+        "macro",
+        "residual",
+        "macro",
+        "residual"
+      ],
+      "mixed_ring_bytes_per_group": [
+        262144,
+        65536,
+        262144,
+        65536
+      ],
+      "mixed_ready_packets": [
+        1,
+        4,
+        1,
+        4
+      ],
+      "guard_checks": 7560,
+      "small_k_route_runs": 77,
+      "fixtures": {
+        "macro_wide": {
+          "gm_bytes": 786432,
+          "l0_bytes": 786432,
+          "l0_calls": 128,
+          "mmads": 16,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 4,
+          "free": 8,
+          "duplicate_elements": 196864,
+          "reduce_calls": 16,
+          "reduce_rows": 512,
+          "manual_v_mte2": 33
+        },
+        "residual_wide": {
+          "gm_bytes": 1572864,
+          "l0_bytes": 1572864,
+          "l0_calls": 384,
+          "mmads": 32,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 16,
+          "free": 32,
+          "duplicate_elements": 163968,
+          "reduce_calls": 8,
+          "reduce_rows": 256,
+          "manual_v_mte2": 33
+        },
+        "native_wide": {
+          "gm_bytes": 147456,
+          "l0_bytes": 786432,
+          "l0_calls": 384,
+          "mmads": 64,
+          "fixpipes": 64,
+          "c_write_bytes": 2097152,
+          "ready": 64,
+          "free": 128,
+          "duplicate_elements": 655872,
+          "reduce_calls": 32,
+          "reduce_rows": 1024,
+          "manual_v_mte2": 129
+        }
+      },
+      "peak_arena_bytes": [
+        132256,
+        393216,
+        32768,
+        65536,
+        131072
+      ],
+      "macro_route_runs": 103,
+      "residual_route_runs": 79,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "known_precision_limitations": 3,
+      "pipe_m_barriers": 3336,
+      "traffic_fixture": {
+        "gm_bytes": 196608,
+        "gm_calls": 2,
+        "l0_bytes": 196608,
+        "l0_calls": 32,
+        "mmads": 4,
+        "publishes": 4,
+        "ready_packets": 1,
+        "free_signals": 2,
+        "c_read_elements": 32768,
+        "c_write_bytes": 131072
+      },
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false
+    }
+  },
+  "artifacts": {
+    "V11_followup/build.py": "6abadca5dfe9e00b44dc575041bc6a46651e87236da9ecd37e8090855ebf53c4",
+    "V11_followup/run_checks.py": "2c47ade0ab82560c585daf9e475edd5e0b88be2b9c1ebc25b6f94967ce40a7ac",
+    "V11_followup/ring_audit.hpp": "addbe0ff969742305ef396b27cf63dead2fde0b69f8141989cc8646e429a6412",
+    "V11_followup/macro_ring_fragment.asc": "cfbf6c467c92e48774c4d2133aa911a037c11e3bbdb705c0e1284031a4b9406c",
+    "V11_followup/residual_dense_fragment.asc": "562af52fab731d0ad681ffc4bc4d3ae21e4a9f7b9fb75495afa5c22ea9e05b00",
+    "V11_impl/run_checks.py": "ba63f61063ba74aac83104d4b830aa9c913920cfc8ed13ddb124bc231f8929eb",
+    "V11_impl/checks_tail.cpp": "e262ae4c2a95875ae797b305d5f42286585795670a4cb4ab4b4e763bf975918e",
+    "V11_impl/reuse_fragment.asc": "a19c2d3b59b1fc5b1b06af52db56cd0efe4b25c9476d658deb79308d0fff4231",
+    "V9_impl/dense_fragment.asc": "e2455c63a4a1da3eed20ab770f73181c14539aa501443b3826fdfd38972d1698",
+    "V9_impl/source_checks.cpp": "0932b5fc38f116b14c4857cafbab208e02abe09e0642a3305d80e71f6644a078",
+    "V9_impl/prepare_cpu.py": "b5b53558f5a4873971bfa115a5e5382b0d01c2a133cedd7ede90962de6bd8f52",
+    "V9_impl/cube_model.hpp": "dd03742bded1885f5c18e91a984113788b1266e06fe5428f897b1fff017884ab",
+    "next_stage/cpu_shim.hpp": "d8066077cf7d32371119ff83f715d4c39fd66c1fb452c4be161b5b26a4ab8b14",
+    "V11_merge/build.py": "db00eb43fcfa0b3c980463b2c63d804b9f2f8df4197a89508e06e36230bf3a40",
+    "V11_merge/run_checks.py": "8efef06166ea3404c3eb61db6119aec2ee2c1d6406e31c61c1104cdc21ee4092",
+    "V11_merge/residual_dense_fragment.asc": "3b7873abc424fb9549c4409ed31ecd46971b0dbcd6ed55346107b394f7e2baff",
+    "V11_followup/R03_CPU_RESULT.json": "e0e4dcadf2a050e68c74590472307e9818374692b9cfc40f82ec6c53ff0d5ec3",
+    "V11_followup/R02_CPU_RESULT.json": "54733ddebbb80ee93afa4d6f0a614148dcc678429404335757b347d1003ca7f4",
+    "V11_lowlevel/run_checks.py": "f3df7ee474ebf99cf059b9bca514abbf4ef99f64db44e9aec4d87506ba350366",
+    "V11_lowlevel/build.py": "5af10e5cef7d3456cc53917e62c05c433c486acb084721591bc01247686cca10",
+    "V11_lowlevel/metrics.cpp.in": "db3ecdadd3db9e6b0105b87a0970a012225752b1d224be20b058ddbc5270847a",
+    "V11_lowlevel/r05_macro_consumer.asc": "e008677c8d6e8d5c678a349a7f5f38cc6d6aa1a8eabbfbb398e0a3ba6e74f61b",
+    "V11_lowlevel/r05_micro_consumer.asc": "b3837e823a35a7c3533936897242f474a40b1fc00ccb1b48cff1b27cd91df3ac",
+    "V11_lowlevel/r06_macro_fragment.asc": "7cd00710a1bf87b5c2c326f52e3c0fa900caa9e763771d4e2743761300c09dde",
+    "V11_merge/R04_CPU_RESULT.json": "03bd21935b30797c1804fba600cc7bdca69ca77f6a1e449a2a22dfd99849d8d4"
+  }
+}

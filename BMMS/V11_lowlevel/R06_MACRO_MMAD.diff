@@ -1,0 +1,102 @@
+--- R04
++++ R06_MACRO_MMAD
+@@ -1,4 +1,4 @@
+-// R04_MACRO_RING_RESIDUAL: combine user-confirmed R02 and the disjoint R03 residual branch.
++// R06_MACRO_MMAD: independent R04 descendant; one full-macro MMAD per K0; packed L0 operands.
+ // V8.3.1 probe P01 ROWMAX_EPILOGUE: shape-adaptive small-K Cube scheduler + reduction-aware epilogue + vector-tree [K,L] GEMV.
+ // Parent V8.0d is retained verbatim except its dispatcher name; V8.3 changes only the native small-K module/dispatcher.
+ // Not compiled with Bisheng / not NPU-validated in this environment.
+@@ -2430,7 +2430,7 @@
+ #ifndef BMMS83_ENABLE_TREE
+ #define BMMS83_ENABLE_TREE 1
+ #endif
+-// V11 R02: publish a completed 2x2 macro tile using one ring credit.
++// V11 R06: full 128x256 MMAD with the existing macro ring publication.
+ // Experimental source: CANN compilation, precision and performance need a device.
+ #ifndef BMMS11R2_REUSE_FRAGMENT_INCLUDED
+ #define BMMS11R2_REUSE_FRAGMENT_INCLUDED
+@@ -2493,22 +2493,34 @@
+         auto sb=b1Buf.template Get<T>()[s1*K1*BN];
+         auto da=a2Buf.template Get<T>()[s0*AM*K0];
+         auto db=b2Buf.template Get<T>()[s0*K0*BN];
+-        AscendC::LoadData2DParams la{};la.repeatTimes=kr0/16;
+-        la.srcStride=TA?1:ar/16;la.ifTranspose=TA;
+-        for(int mo=0;mo<ar;mo+=TM){
+-            const int mr=MinI(TM,ar-mo);
+-            for(int i=0;i<mr/16;++i){
+-                const int off=TA?(mo/16+i)*kr1*16+kk*16:(kk/16)*ar*16+(mo+i*16)*16;
+-                AscendC::LoadData(da[(mo/TM)*TM*K0+i*kr0*16],sa[off],la);
++        AscendC::LoadData2DParams la{};la.ifTranspose=TA;
++        // Pack the whole A macro for Mmad(m=ar,k=kr0), with no per-micro padding.
++        if(ar>kr0){
++            la.repeatTimes=ar/16;la.srcStride=TA?kr1/16:1;la.dstGap=kr0/16-1;
++            for(int j=0;j<kr0/16;++j){
++                const int off=TA?(kk+j*16)*16:(kk/16+j)*ar*16;
++                AscendC::LoadData(da[j*256],sa[off],la);
+             }
+-        }
+-        AscendC::LoadData2DParams lb{};lb.repeatTimes=MinI(TN,br)/16;
+-        lb.srcStride=TB?1:kr1/16;lb.ifTranspose=!TB;
+-        for(int no=0;no<br;no+=TN){
+-            const int nr=MinI(TN,br-no);lb.repeatTimes=nr/16;
++        }else{
++            la.repeatTimes=kr0/16;la.srcStride=TA?1:ar/16;
++            for(int i=0;i<ar/16;++i){
++                const int off=TA?i*kr1*16+kk*16:(kk/16)*ar*16+i*256;
++                AscendC::LoadData(da[i*kr0*16],sa[off],la);
++            }
++        }
++        AscendC::LoadData2DParams lb{};lb.ifTranspose=!TB;
++        // Pack the whole B macro for Mmad(n=br), using the shorter loop axis.
++        if(br<kr0){
++            lb.repeatTimes=kr0/16;lb.srcStride=TB?br/16:1;lb.dstGap=br/16-1;
++            for(int i=0;i<br/16;++i){
++                const int off=TB?(kk/16)*br*16+i*256:i*kr1*16+kk*16;
++                AscendC::LoadData(db[i*256],sb[off],lb);
++            }
++        }else{
++            lb.repeatTimes=br/16;lb.srcStride=TB?1:kr1/16;
+             for(int j=0;j<kr0/16;++j){
+-                const int off=TB?(kk/16+j)*br*16+no*16:(no/16)*kr1*16+(kk+j*16)*16;
+-                AscendC::LoadData(db[(no/TN)*K0*TN+j*nr*16],sb[off],lb);
++                const int off=TB?(kk/16+j)*br*16:(kk+j*16)*16;
++                AscendC::LoadData(db[j*br*16],sb[off],lb);
+             }
+         }
+         AscendC::SetFlag<AscendC::HardEvent::MTE1_M>(l0Ready[s0]);
+@@ -2536,17 +2548,12 @@
+                 if(cPending){AscendC::WaitFlag<AscendC::HardEvent::FIX_M>(cFree);cPending=false;}
+                 auto aa=a2Buf.template Get<T>()[s0*AM*K0];
+                 auto bb=b2Buf.template Get<T>()[s0*K0*BN];
+-                for(int mo=0;mo<ar;mo+=TM){
+-                    const int mr=MinI(TM,ar-mo);
+-                    for(int no=0;no<br;no+=TN){
+-                        const int nr=MinI(TN,br-no),ci=(mo/TM)*2+no/TN;
+-                        auto cc=cBuf.template Get<float>()[ci*TM*TN];
+-                        AscendC::MmadParams q{};q.m=mr;q.n=nr;q.k=kr0;q.cmatrixInitVal=(l0Count==0);
+-                        AscendC::Mmad(cc,aa[(mo/TM)*TM*K0],bb[(no/TN)*K0*TN],q);
+-                        if((mr/16)*(nr/16)<10)AscendC::PipeBarrier<PIPE_M>();
+-                    }
+-                }
+-                // Reused A/B stay owned by M until all four output MMADs complete.
++                // One instruction covers the complete macro; K accumulation order is unchanged.
++                auto cc=cBuf.template Get<float>();
++                AscendC::MmadParams q{};q.m=ar;q.n=br;q.k=kr0;q.cmatrixInitVal=(l0Count==0);
++                AscendC::Mmad(cc,aa,bb,q);
++                if((ar/16)*(br/16)<10)AscendC::PipeBarrier<PIPE_M>();
++                // Both complete operands stay owned by M until the macro MMAD completes.
+                 AscendC::SetFlag<AscendC::HardEvent::M_MTE1>(l0Free[s0]);++l0Count;
+             }
+         }
+@@ -2561,9 +2568,9 @@
+             const int mr=MinI(TM,ar-mo);
+             for(int no=0;no<br;no+=TN){
+                 const int nr=MinI(TN,br-no),ci=(mo/TM)*2+no/TN;
+-                AscendC::FixpipeParamsV220 f{};f.nSize=nr;f.mSize=mr;f.srcStride=mr;
++                AscendC::FixpipeParamsV220 f{};f.nSize=nr;f.mSize=mr;f.srcStride=ar;
+                 f.dstStride=TN;f.ndNum=1;f.quantPre=QuantMode_t::NoQuant;
+-                AscendC::Fixpipe<float,float>(ring[(int64_t(group)*2+macroSlot)*MACRO_ELEMS+ci*TM*TN],cBuf.template Get<float>()[ci*TM*TN],f);
++                AscendC::Fixpipe<float,float>(ring[(int64_t(group)*2+macroSlot)*MACRO_ELEMS+ci*TM*TN],cBuf.template Get<float>()[(no/16)*ar*16+mo*16],f);
+             }
+         }
+         AscendC::SetFlag<AscendC::HardEvent::FIX_M>(cFree);cPending=true;

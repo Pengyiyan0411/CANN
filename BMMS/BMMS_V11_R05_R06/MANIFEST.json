@@ -1,0 +1,33 @@
+{
+  "base": "BMMS_V11_R04/R04_MACRO_RING_RESIDUAL.asc",
+  "base_sha256": "f39d584297451a4ef15d559b67879571e3de86e21007f4a02b0b3552a904a09c",
+  "base_platform_identity": "R04 inferred from sole immediately preceding delivery; user said SOTA, no filename",
+  "variants": [
+    {
+      "version": "R05",
+      "file": "R05_DEFERRED_MAX.asc",
+      "sha256": "ad5f140cdd401097975c65da5ffee8ba8922e66066cac1bfd73651619f7227aa",
+      "change": "defer lane max until all N panels are consumed",
+      "cann_compiled_locally": false,
+      "npu_tested_locally": false,
+      "platform_result_received": false
+    },
+    {
+      "version": "R06",
+      "file": "R06_MACRO_MMAD.asc",
+      "sha256": "435c3ff5e91f084bea95bf52423efe2e8d55db4c9b13d7f3225e8f8d4fd276a8",
+      "change": "one full-macro MMAD per K0; packed L0 operands",
+      "cann_compiled_locally": false,
+      "npu_tested_locally": false,
+      "platform_result_received": false
+    }
+  ],
+  "proof": {
+    "independent_R04_descendants": true,
+    "dispatch_and_workspace_unchanged": true,
+    "R05_only_two_consumers_changed": true,
+    "R06_only_macro_producer_changed": true,
+    "fallback_other_than_shared_native_consumer_preserved": true
+  },
+  "known_numerical_limitations_remain": true
+}

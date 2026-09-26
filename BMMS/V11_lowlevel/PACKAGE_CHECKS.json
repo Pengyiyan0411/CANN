@@ -1,0 +1,10 @@
+{
+  "file": "BMMS_V11_R05_R06_提交包.zip",
+  "sha256": "2faf3424d14f457484affe81c65089d179b1f983e3f6f1be74bb834efc376b5e",
+  "bytes": 72138,
+  "members": 5,
+  "independent_R04_descendants": true,
+  "base_sha256": "f39d584297451a4ef15d559b67879571e3de86e21007f4a02b0b3552a904a09c",
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false
+}

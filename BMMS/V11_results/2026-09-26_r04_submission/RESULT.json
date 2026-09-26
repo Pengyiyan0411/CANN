@@ -1,0 +1,197 @@
+{
+  "variant": "R04_MACRO_RING_RESIDUAL",
+  "identity": "contextual inference: sole immediately preceding candidate R04; user labels result SOTA without repeating filename",
+  "explicit_version_label": false,
+  "platform_source_digest_available": false,
+  "local_source_sha256": "f39d584297451a4ef15d559b67879571e3de86e21007f4a02b0b3552a904a09c",
+  "screenshot_sha256": "025264d6a315109907432bf3080322f5c3270143271e8232fba2b7415746cadb",
+  "pass_count": 15,
+  "case_count": 15,
+  "ui_error_is_rounded": true,
+  "T_us": [
+    1.22,
+    1.58,
+    2.16,
+    2.92,
+    2.36,
+    7.23,
+    3.7,
+    17.32,
+    51.77,
+    72.47,
+    74.82,
+    91.2,
+    5.21,
+    7.1,
+    9.04
+  ],
+  "times_us": [
+    2.64,
+    5.58,
+    5.69,
+    6.48,
+    7.25,
+    14.96,
+    10.92,
+    92.45,
+    70.2,
+    108.44,
+    135.29,
+    123.55,
+    18.9,
+    15.28,
+    35.76
+  ],
+  "T9_previous": 51.78,
+  "T9_current": 51.77,
+  "scores_same_current_T": {
+    "P01_historical": 32.08752608668939,
+    "R01": 31.836102092606957,
+    "R02": 33.77234957437085,
+    "R03": 33.315591184562265,
+    "R04_contextual": 34.496451328041886
+  },
+  "rows": [
+    {
+      "case": 1,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 2.64,
+      "R02_us": 2.77,
+      "R03_us": 2.49,
+      "T_us": 1.22
+    },
+    {
+      "case": 2,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 5.58,
+      "R02_us": 5.52,
+      "R03_us": 5.27,
+      "T_us": 1.58
+    },
+    {
+      "case": 3,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 5.69,
+      "R02_us": 5.12,
+      "R03_us": 4.92,
+      "T_us": 2.16
+    },
+    {
+      "case": 4,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 6.48,
+      "R02_us": 6.65,
+      "R03_us": 6.37,
+      "T_us": 2.92
+    },
+    {
+      "case": 5,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 7.25,
+      "R02_us": 7.36,
+      "R03_us": 7.03,
+      "T_us": 2.36
+    },
+    {
+      "case": 6,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 14.96,
+      "R02_us": 14.72,
+      "R03_us": 14.5,
+      "T_us": 7.23
+    },
+    {
+      "case": 7,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 10.92,
+      "R02_us": 13.81,
+      "R03_us": 10.85,
+      "T_us": 3.7
+    },
+    {
+      "case": 8,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 92.45,
+      "R02_us": 91.6,
+      "R03_us": 92.2,
+      "T_us": 17.32
+    },
+    {
+      "case": 9,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 70.2,
+      "R02_us": 69.99,
+      "R03_us": 80.18,
+      "T_us": 51.77
+    },
+    {
+      "case": 10,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 108.44,
+      "R02_us": 108.2,
+      "R03_us": 120.83,
+      "T_us": 72.47
+    },
+    {
+      "case": 11,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 135.29,
+      "R02_us": 134.84,
+      "R03_us": 147.89,
+      "T_us": 74.82
+    },
+    {
+      "case": 12,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 123.55,
+      "R02_us": 123.12,
+      "R03_us": 138.35,
+      "T_us": 91.2
+    },
+    {
+      "case": 13,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 18.9,
+      "R02_us": 18.66,
+      "R03_us": 18.79,
+      "T_us": 5.21
+    },
+    {
+      "case": 14,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 15.28,
+      "R02_us": 15.4,
+      "R03_us": 15.06,
+      "T_us": 7.1
+    },
+    {
+      "case": 15,
+      "status": "Pass",
+      "displayed_error": "0.00%",
+      "R04_us": 35.76,
+      "R02_us": 109.7,
+      "R03_us": 37.08,
+      "T_us": 9.04
+    }
+  ],
+  "hidden_shapes_known": false,
+  "profiler_available": false,
+  "next_experiments": [
+    "R05 deferred N reduction",
+    "R06 full-macro MMAD; independent of R05"
+  ]
+}

@@ -1,0 +1,161 @@
+--- R04
++++ R05_DEFERRED_MAX
+@@ -1,4 +1,4 @@
+-// R04_MACRO_RING_RESIDUAL: combine user-confirmed R02 and the disjoint R03 residual branch.
++// R05_DEFERRED_MAX: independent R04 descendant; defer lane max until all N panels are consumed.
+ // V8.3.1 probe P01 ROWMAX_EPILOGUE: shape-adaptive small-K Cube scheduler + reduction-aware epilogue + vector-tree [K,L] GEMV.
+ // Parent V8.0d is retained verbatim except its dispatcher name; V8.3 changes only the native small-K module/dispatcher.
+ // Not compiled with Bisheng / not NPU-validated in this environment.
+@@ -2214,7 +2214,7 @@
+     AscendC::GlobalTensor<float> ring,part,out;
+     AscendC::TQue<AscendC::TPosition::VECIN,1> cq;
+     AscendC::TQue<AscendC::TPosition::VECOUT,1> oq;
+-    AscendC::TBuf<AscendC::TPosition::VECCALC> groupBuf,rowBuf,sumBuf;
++    AscendC::TBuf<AscendC::TPosition::VECCALC> groupBuf,sumBuf;
+     AscendC::TBuf<AscendC::TPosition::VECOUT> runningBuf;
+     AscendC::TBuf<AscendC::TPosition::VECIN> mergedBuf,tmpBuf;
+ public:
+@@ -2224,14 +2224,14 @@
+         part.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(pt),int64_t(p.B)*p.pN*p.M);
+         out.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(y),p.B);
+         pipe->InitBuffer(cq,1,(TM/2)*TN*4);pipe->InitBuffer(oq,1,32);
+-        pipe->InitBuffer(groupBuf,(TM/2)*TN*4);pipe->InitBuffer(rowBuf,(TM/2)*4);
++        pipe->InitBuffer(groupBuf,(AM/2)*TN*4);
+         pipe->InitBuffer(runningBuf,AM*4);pipe->InitBuffer(mergedBuf,p.M*4);
+         pipe->InitBuffer(tmpBuf,p.M*4);pipe->InitBuffer(sumBuf,p.M*4);
+     }
+     __aicore__ inline void Process(){
+         const int worker=AscendC::GetBlockIdx(),group=worker/2,sub=worker%2;
+         const int perBatch=p.pM*p.pN;
+-        int seq=0;auto acc=groupBuf.Get<float>();auto rows=rowBuf.Get<float>();auto run=runningBuf.Get<float>();
++        int seq=0;auto allMax=groupBuf.Get<float>();auto run=runningBuf.Get<float>();
+         for(int task=group;task<p.tasks;task+=p.blocks){
+             const int batch=task/perBatch,slot=task-batch*perBatch;
+             const int ms=slot/p.pN,ns=slot-ms*p.pN;
+@@ -2241,18 +2241,23 @@
+             const int nBegin=nt0*TN,nEnd=MinI(nt1*TN,p.N);
+             for(int mBase=mBegin;mBase<mEnd;mBase+=AM){
+                 const int ar=MinI(AM,mEnd-mBase);
+-                AscendC::Duplicate(run,bmmmaxsum_v43::NEG_INF,ar);AscendC::PipeBarrier<PIPE_V>();
++                // max over N panels commutes with max over the 128 vector lanes.
++                AscendC::Duplicate(allMax,bmmmaxsum_v43::NEG_INF,(ar/2)*TN);AscendC::PipeBarrier<PIPE_V>();
+                 for(int nBase=nBegin;nBase<nEnd;nBase+=BN){
+                     const int br=MinI(BN,nEnd-nBase);
+                     for(int mo=0;mo<ar;mo+=TM){
+                         const int mr=MinI(TM,ar-mo),vr=mr/2;
+-                        AscendC::Duplicate(acc,bmmmaxsum_v43::NEG_INF,vr*TN);AscendC::PipeBarrier<PIPE_V>();
++                        auto acc=allMax[(mo/2)*TN];
+                         for(int no=0;no<br;no+=TN){
+                             const int nr=MinI(TN,br-no),ringSlot=seq&1;
+                             AscendC::CrossCoreWaitFlag<0x2>(READY+ringSlot);
+                             auto c=cq.AllocTensor<float>();
+-                            AscendC::Duplicate(c,bmmmaxsum_v43::NEG_INF,vr*TN);
+-                            bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++                            // A full-width DMA initializes every consumed element.
++                            // TQue owns reuse; partial rows still need explicit -inf padding.
++                            if(nr<TN){
++                                AscendC::Duplicate(c,bmmmaxsum_v43::NEG_INF,vr*TN);
++                                bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++                            }
+                             const int64_t off=(int64_t(group)*2+ringSlot)*TM*TN+sub*vr*TN;
+                             AscendC::DataCopyExtParams cp{static_cast<uint16_t>(vr),uint32_t(nr*4),uint32_t((TN-nr)*4),uint32_t((TN-nr)/8),0};
+                             AscendC::DataCopyPadExtParams<float> pd{false,0,0,0.0f};
+@@ -2260,12 +2265,16 @@
+                             AscendC::CrossCoreSetFlag<0x2,PIPE_MTE2>(FREE+ringSlot);
+                             AscendC::Max(acc,acc,c,vr*TN);AscendC::PipeBarrier<PIPE_V>();cq.FreeTensor(c);++seq;
+                         }
+-                        AscendC::BinaryRepeatParams rp{1,1,1,16,16,16};
+-                        AscendC::Max(acc,acc,acc[64],64,vr,rp);AscendC::PipeBarrier<PIPE_V>();
+-                        AscendC::WholeReduceMax(rows,acc,64,vr,1,1,16,AscendC::ReduceOrder::ORDER_ONLY_VALUE);
+-                        AscendC::PipeBarrier<PIPE_V>();
+-                        AscendC::Max(run[mo+sub*vr],run[mo+sub*vr],rows,vr);AscendC::PipeBarrier<PIPE_V>();
+                     }
++                }
++                // Destructive lane reduction happens only after the last N panel.
++                for(int mo=0;mo<ar;mo+=TM){
++                    const int vr=MinI(TM,ar-mo)/2;
++                    auto acc=allMax[(mo/2)*TN];
++                    AscendC::BinaryRepeatParams rp{1,1,1,16,16,16};
++                    AscendC::Max(acc,acc,acc[64],64,vr,rp);AscendC::PipeBarrier<PIPE_V>();
++                    AscendC::WholeReduceMax(run[mo+sub*vr],acc,64,vr,1,1,16,AscendC::ReduceOrder::ORDER_ONLY_VALUE);
++                    AscendC::PipeBarrier<PIPE_V>();
+                 }
+                 bmms71::Fence<AscendC::HardEvent::V_MTE3>(*pipe_);
+                 for(int mo=0;mo<ar;mo+=TM){
+@@ -2614,7 +2623,7 @@
+     AscendC::GlobalTensor<float> ring,part,out;
+     AscendC::TQue<AscendC::TPosition::VECIN,1> cq;
+     AscendC::TQue<AscendC::TPosition::VECOUT,1> oq;
+-    AscendC::TBuf<AscendC::TPosition::VECCALC> groupBuf,rowBuf,sumBuf;
++    AscendC::TBuf<AscendC::TPosition::VECCALC> groupBuf,sumBuf;
+     AscendC::TBuf<AscendC::TPosition::VECOUT> runningBuf;
+     AscendC::TBuf<AscendC::TPosition::VECIN> mergedBuf,tmpBuf;
+ public:
+@@ -2624,14 +2633,14 @@
+         part.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(pt),int64_t(p.B)*p.pN*p.M);
+         out.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(y),p.B);
+         pipe->InitBuffer(cq,1,(TM/2)*TN*4);pipe->InitBuffer(oq,1,32);
+-        pipe->InitBuffer(groupBuf,(TM/2)*TN*4);pipe->InitBuffer(rowBuf,(TM/2)*4);
++        pipe->InitBuffer(groupBuf,(AM/2)*TN*4);
+         pipe->InitBuffer(runningBuf,AM*4);pipe->InitBuffer(mergedBuf,p.M*4);
+         pipe->InitBuffer(tmpBuf,p.M*4);pipe->InitBuffer(sumBuf,p.M*4);
+     }
+     __aicore__ inline void Process(){
+         const int worker=AscendC::GetBlockIdx(),group=worker/2,sub=worker%2;
+         const int perBatch=p.pM*p.pN;
+-        int seq=0;auto acc=groupBuf.Get<float>();auto rows=rowBuf.Get<float>();auto run=runningBuf.Get<float>();
++        int seq=0;auto allMax=groupBuf.Get<float>();auto run=runningBuf.Get<float>();
+         for(int task=group;task<p.tasks;task+=p.blocks){
+             const int batch=task/perBatch,slot=task-batch*perBatch;
+             const int ms=slot/p.pN,ns=slot-ms*p.pN;
+@@ -2641,18 +2650,23 @@
+             const int nBegin=nt0*BN,nEnd=MinI(nt1*BN,p.N);
+             for(int mBase=mBegin;mBase<mEnd;mBase+=AM){
+                 const int ar=MinI(AM,mEnd-mBase);
+-                AscendC::Duplicate(run,bmmmaxsum_v43::NEG_INF,ar);AscendC::PipeBarrier<PIPE_V>();
++                // max over N panels commutes with max over the 128 vector lanes.
++                AscendC::Duplicate(allMax,bmmmaxsum_v43::NEG_INF,(ar/2)*TN);AscendC::PipeBarrier<PIPE_V>();
+                 for(int nBase=nBegin;nBase<nEnd;nBase+=BN){
+                     const int br=MinI(BN,nEnd-nBase),ringSlot=seq&1;
+                     AscendC::CrossCoreWaitFlag<0x2>(READY+ringSlot);
+                     for(int mo=0;mo<ar;mo+=TM){
+                         const int mr=MinI(TM,ar-mo),vr=mr/2;
+-                        AscendC::Duplicate(acc,bmmmaxsum_v43::NEG_INF,vr*TN);AscendC::PipeBarrier<PIPE_V>();
++                        auto acc=allMax[(mo/2)*TN];
+                         for(int no=0;no<br;no+=TN){
+                             const int nr=MinI(TN,br-no),ci=(mo/TM)*2+no/TN;
+                             auto c=cq.AllocTensor<float>();
+-                            AscendC::Duplicate(c,bmmmaxsum_v43::NEG_INF,vr*TN);
+-                            bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++                            // A full-width DMA initializes every consumed element.
++                            // TQue owns reuse; partial rows still need explicit -inf padding.
++                            if(nr<TN){
++                                AscendC::Duplicate(c,bmmmaxsum_v43::NEG_INF,vr*TN);
++                                bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++                            }
+                             const int64_t off=(int64_t(group)*2+ringSlot)*MACRO_ELEMS+ci*TM*TN+sub*vr*TN;
+                             AscendC::DataCopyExtParams cp{static_cast<uint16_t>(vr),uint32_t(nr*4),uint32_t((TN-nr)*4),uint32_t((TN-nr)/8),0};
+                             AscendC::DataCopyPadExtParams<float> pd{false,0,0,0.0f};
+@@ -2661,13 +2675,17 @@
+                             if(mo+mr==ar&&no+nr==br)AscendC::CrossCoreSetFlag<0x2,PIPE_MTE2>(FREE+ringSlot);
+                             AscendC::Max(acc,acc,c,vr*TN);AscendC::PipeBarrier<PIPE_V>();cq.FreeTensor(c);
+                         }
+-                        AscendC::BinaryRepeatParams rp{1,1,1,16,16,16};
+-                        AscendC::Max(acc,acc,acc[64],64,vr,rp);AscendC::PipeBarrier<PIPE_V>();
+-                        AscendC::WholeReduceMax(rows,acc,64,vr,1,1,16,AscendC::ReduceOrder::ORDER_ONLY_VALUE);
+-                        AscendC::PipeBarrier<PIPE_V>();
+-                        AscendC::Max(run[mo+sub*vr],run[mo+sub*vr],rows,vr);AscendC::PipeBarrier<PIPE_V>();
+                     }
+                     ++seq;
++                }
++                // Destructive lane reduction happens only after the last N panel.
++                for(int mo=0;mo<ar;mo+=TM){
++                    const int vr=MinI(TM,ar-mo)/2;
++                    auto acc=allMax[(mo/2)*TN];
++                    AscendC::BinaryRepeatParams rp{1,1,1,16,16,16};
++                    AscendC::Max(acc,acc,acc[64],64,vr,rp);AscendC::PipeBarrier<PIPE_V>();
++                    AscendC::WholeReduceMax(run[mo+sub*vr],acc,64,vr,1,1,16,AscendC::ReduceOrder::ORDER_ONLY_VALUE);
++                    AscendC::PipeBarrier<PIPE_V>();
+                 }
+                 bmms71::Fence<AscendC::HardEvent::V_MTE3>(*pipe_);
+                 for(int mo=0;mo<ar;mo+=TM){

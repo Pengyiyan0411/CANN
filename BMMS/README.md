@@ -1,26 +1,27 @@
-# BatchMatmulMaxSum：R02/R03反馈后提交R04
+# BatchMatmulMaxSum：R04反馈后推进R05/R06
 
-R02、R03均由用户确认15/15 Pass。同最新T复算：R02 33.7734，
-R03 33.3163，R01 31.8368，P01历史32.0879。
-R02改善点9–12；R03点15降至37.08μs，点7也改善。
+本轮截图15/15 Pass，按唯一前序交付归属R04，同最新T复算34.4965，
+当前记录内最好。R04同时保留R02大点及R03点15的收益，继续冻结为保底。
 
-下一次提交 [R04_MACRO_RING_RESIDUAL.asc](BMMS_V11_R04/R04_MACRO_RING_RESIDUAL.asc)：
-合并上述两项，不叠加新调参。整体替换官方`code/kernel.asc`。
-[提交包](BMMS_V11_R04_提交包.zip) / [提交说明](BMMS_V11_R04/README.md)。
+两份独立候选已准备好：先提交 [R06_MACRO_MMAD.asc](BMMS_V11_R05_R06/R06_MACRO_MMAD.asc)，
+再提交 [R05_DEFERRED_MAX.asc](BMMS_V11_R05_R06/R05_DEFERRED_MAX.asc)。前者合并整宏块
+Cube指令和L0搬运，后者复用N方向lane max并减少完整C块清填；每次整体替换官方`code/kernel.asc`。
 
+- [提交包](BMMS_V11_R05_R06_提交包.zip) / [使用说明](BMMS_V11_R05_R06/README.md)
 - [当前审计](BatchMatmulMaxSum_当前审计报告_2026-09-26.md)
-- [R02/R03原图、逐点耗时及同T得分](V11_results/2026-09-26_r02_r03_submission/AUDIT.md)
-- [R04设计](V11_merge/DESIGN.md) / [CPU检查证据](V11_merge/CHECKS.json)
-- [冻结R02/R03](BMMS_V11_R02_R03/README.md) / [R01结果](V11_results/2026-09-26_r01_submission/AUDIT.md)
+- [R04截图与同T结果](V11_results/2026-09-26_r04_submission/AUDIT.md)
+- [本轮设计](V11_lowlevel/DESIGN.md) / [源码CPU检查](V11_lowlevel/CHECKS.json)
+- [冻结R04源码](BMMS_V11_R04/R04_MACRO_RING_RESIDUAL.asc) / [历史交付快照](audit_current/AUDIT_R04_DELIVERY.md)
 
-R04本地173次普通源码CPU运行通过，已知3个极端数值限制保留。
-未CANN编译/未运行NPU；父版本Pass不代表R04已通过。用户暂无环境，继续平台提交。
+三版各256次普通源码CPU运行通过，普通输出记录逐位一致，两个负向检查被正确拒绝。
+原有3个极端数值限制保留；未CANN编译/未运行NPU，R05/R06实际成绩待平台反馈。
+模型中的指令调用减少不代表同倍数提速。用户暂无环境，继续平台提交。
 
 ```bash
-python V11_merge/build.py
-python V11_merge/run_checks.py
-python V11_merge/update_docs.py
-python V11_merge/package.py
+python V11_lowlevel/build.py
+python V11_lowlevel/run_checks.py
+python V11_lowlevel/update_docs.py
+python V11_lowlevel/package.py
 ```
 
 归档：[CANN/v11](https://github.com/Pengyiyan0411/CANN/tree/v11/BMMS)。

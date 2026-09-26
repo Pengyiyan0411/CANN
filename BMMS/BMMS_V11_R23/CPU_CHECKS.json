@@ -1,0 +1,188 @@
+{
+  "scope": "actual-source CPU memory/layout/publication/arithmetic model; no CANN/NPU validation",
+  "sources": {
+    "G01_B1_OFF.asc": "cf90c39538bccd9c7712486218eca27c37b6245335221281c8bdb81cc63641a3",
+    "G02_M64_OFF.asc": "831f005ff3c7b94878b3c04dfd37a2b5622a768fc26846c30c1bc7452be4dd63",
+    "G03_N128_OFF.asc": "498a130c299d7cf223eb99967cac98d736df3c060060b5e4c1e8ce750141de49",
+    "G04_MN4096_OFF.asc": "ff650a0d293522cc65abb866ea42be1d941f3fbe4997679bfb143f5887459113",
+    "R14_CONTROL.asc": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe",
+    "R23_K1_CONTROL.asc": "2d78f01236ec15ac2a44d86a9ef70aa3150ee11f4ebf12abfb59ff5554f44e98",
+    "R23_SPLIT_K.asc": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733"
+  },
+  "composition": {
+    "R14_restored_outside_fragment_and_host_hook": true,
+    "eight_fixed_dtype_layout_entries": true,
+    "K1_changes_only_split_count_after_same_guard": true,
+    "four_probes_change_only_R03_eligibility": true,
+    "R22_not_inherited": true
+  },
+  "K1_outputs_equal_R14_bitwise": true,
+  "dyadic_outputs_equal_R14_bitwise": true,
+  "general_inputs_checked_against_FP64_reference": true,
+  "negative_controls": {
+    "K_ORIGIN": {
+      "rejected": true,
+      "stderr": "STRUCTURAL_FAIL wrong K origin corrupts output"
+    },
+    "MAX_K": {
+      "rejected": true,
+      "stderr": "STRUCTURAL_FAIL max before full K sum corrupts output"
+    },
+    "PUBLICATION": {
+      "rejected": true,
+      "stderr": "STRUCTURAL_FAIL f1600_1_16_16_4096_20_0: split partial read before publication barrier"
+    }
+  },
+  "runs": {
+    "R14": {
+      "source_runs": 116,
+      "repeat_checks": 58,
+      "split_route_runs": 0,
+      "fallback_runs": 116,
+      "flow_checks": 116,
+      "strict_misses": 0,
+      "max_abs": 3.81469726562e-06,
+      "fixtures": {
+        "small_long": {
+          "splits": 1,
+          "blocks": 1,
+          "workspace_bytes": 65664,
+          "max_K128_steps_per_task": 32,
+          "gm_input_bytes": 786432,
+          "partial_C_bytes": 8192,
+          "mmad_calls": 32,
+          "fixpipes": 1,
+          "barriers": 1
+        }
+      },
+      "cann_compiled": false,
+      "npu_tested": false
+    },
+    "K1": {
+      "source_runs": 116,
+      "repeat_checks": 58,
+      "split_route_runs": 96,
+      "fallback_runs": 20,
+      "flow_checks": 116,
+      "strict_misses": 0,
+      "max_abs": 3.81469726562e-06,
+      "fixtures": {
+        "small_long": {
+          "splits": 1,
+          "blocks": 1,
+          "workspace_bytes": 32768,
+          "max_K128_steps_per_task": 32,
+          "gm_input_bytes": 786432,
+          "partial_C_bytes": 8192,
+          "mmad_calls": 32,
+          "fixpipes": 1,
+          "barriers": 1
+        }
+      },
+      "cann_compiled": false,
+      "npu_tested": false
+    },
+    "R23": {
+      "source_runs": 116,
+      "repeat_checks": 58,
+      "split_route_runs": 96,
+      "fallback_runs": 20,
+      "flow_checks": 116,
+      "strict_misses": 0,
+      "max_abs": 3.81469726562e-06,
+      "fixtures": {
+        "small_long": {
+          "splits": 8,
+          "blocks": 8,
+          "workspace_bytes": 262144,
+          "max_K128_steps_per_task": 4,
+          "gm_input_bytes": 786432,
+          "partial_C_bytes": 65536,
+          "mmad_calls": 32,
+          "fixpipes": 8,
+          "barriers": 1
+        }
+      },
+      "cann_compiled": false,
+      "npu_tested": false
+    }
+  },
+  "artifacts": {
+    "V11_followup/build.py": "6abadca5dfe9e00b44dc575041bc6a46651e87236da9ecd37e8090855ebf53c4",
+    "V11_followup/run_checks.py": "2c47ade0ab82560c585daf9e475edd5e0b88be2b9c1ebc25b6f94967ce40a7ac",
+    "V11_followup/ring_audit.hpp": "addbe0ff969742305ef396b27cf63dead2fde0b69f8141989cc8646e429a6412",
+    "V11_followup/macro_ring_fragment.asc": "cfbf6c467c92e48774c4d2133aa911a037c11e3bbdb705c0e1284031a4b9406c",
+    "V11_followup/residual_dense_fragment.asc": "562af52fab731d0ad681ffc4bc4d3ae21e4a9f7b9fb75495afa5c22ea9e05b00",
+    "V11_impl/run_checks.py": "ba63f61063ba74aac83104d4b830aa9c913920cfc8ed13ddb124bc231f8929eb",
+    "V11_impl/checks_tail.cpp": "e262ae4c2a95875ae797b305d5f42286585795670a4cb4ab4b4e763bf975918e",
+    "V11_impl/reuse_fragment.asc": "a19c2d3b59b1fc5b1b06af52db56cd0efe4b25c9476d658deb79308d0fff4231",
+    "V9_impl/dense_fragment.asc": "e2455c63a4a1da3eed20ab770f73181c14539aa501443b3826fdfd38972d1698",
+    "V9_impl/source_checks.cpp": "0932b5fc38f116b14c4857cafbab208e02abe09e0642a3305d80e71f6644a078",
+    "V9_impl/prepare_cpu.py": "b5b53558f5a4873971bfa115a5e5382b0d01c2a133cedd7ede90962de6bd8f52",
+    "V9_impl/cube_model.hpp": "dd03742bded1885f5c18e91a984113788b1266e06fe5428f897b1fff017884ab",
+    "next_stage/cpu_shim.hpp": "d8066077cf7d32371119ff83f715d4c39fd66c1fb452c4be161b5b26a4ab8b14",
+    "V11_merge/build.py": "db00eb43fcfa0b3c980463b2c63d804b9f2f8df4197a89508e06e36230bf3a40",
+    "V11_merge/run_checks.py": "8efef06166ea3404c3eb61db6119aec2ee2c1d6406e31c61c1104cdc21ee4092",
+    "V11_merge/residual_dense_fragment.asc": "3b7873abc424fb9549c4409ed31ecd46971b0dbcd6ed55346107b394f7e2baff",
+    "V11_followup/R03_CPU_RESULT.json": "e0e4dcadf2a050e68c74590472307e9818374692b9cfc40f82ec6c53ff0d5ec3",
+    "V11_followup/R02_CPU_RESULT.json": "54733ddebbb80ee93afa4d6f0a614148dcc678429404335757b347d1003ca7f4",
+    "V11_lowlevel/run_checks.py": "f3df7ee474ebf99cf059b9bca514abbf4ef99f64db44e9aec4d87506ba350366",
+    "V11_lowlevel/build.py": "5af10e5cef7d3456cc53917e62c05c433c486acb084721591bc01247686cca10",
+    "V11_lowlevel/metrics.cpp.in": "db3ecdadd3db9e6b0105b87a0970a012225752b1d224be20b058ddbc5270847a",
+    "V11_lowlevel/r05_macro_consumer.asc": "e008677c8d6e8d5c678a349a7f5f38cc6d6aa1a8eabbfbb398e0a3ba6e74f61b",
+    "V11_lowlevel/r05_micro_consumer.asc": "b3837e823a35a7c3533936897242f474a40b1fc00ccb1b48cff1b27cd91df3ac",
+    "V11_lowlevel/r06_macro_fragment.asc": "7cd00710a1bf87b5c2c326f52e3c0fa900caa9e763771d4e2743761300c09dde",
+    "V11_merge/R04_CPU_RESULT.json": "03bd21935b30797c1804fba600cc7bdca69ca77f6a1e449a2a22dfd99849d8d4",
+    "V11_grid_packets/build.py": "d622305b567c057816e1062be5737b11c6abd6d3ae00c56fcd9dfb187cf3302f",
+    "V11_grid_packets/run_checks.py": "8b3b40aad98223d8ee0d56bc0c0072a65804b635d1c52d5de63ece5f9c56c967",
+    "V11_grid_packets/balanced_plan.asc": "e2c855a5df8c5a587453e61ae859827ec2b9684e0e50ab3317270547b6b51763",
+    "V11_grid_packets/r07_macro_fragment.asc": "b115e1f458da275c262f676af8bb02a534146118a49468f2854909dcf75ac7a9",
+    "V11_grid_packets/native_ring.asc": "ae7fc92af8a6ddd86a088970a864638cb7e05920587dfc09dcda4280f3f69f0a",
+    "V11_grid_packets/packet_producer.asc": "8f3c80952b0454de7ddf930d7ec23386c96466127a4120278bc4e952ee5a2bb2",
+    "V11_grid_packets/packet_consumer.asc": "c15f48fb40ae102e5ead9fcbdca5754314d2cc0e127b110ed481848e537fa0ae",
+    "V11_grid_packets/grid_checks.cpp.in": "cacc50720884cede6e9dab79054c6ec5f666307478f88aa89c176da08efccf6c",
+    "V11_lowlevel/R04_CPU_RESULT.json": "cc4e717b512d7112c6609cdeaa4c0bc23a7797b35f17f75835783ac8460c6344",
+    "V11_recovery/build.py": "797d164781c4ce1fcc50f93d8600556124a22779873aaba304f373208561d7ec",
+    "V11_recovery/run_checks.py": "91e9736598692dda9656cf1c7c4b4cab0c349e23d1da2d270db9334ed565a65c",
+    "V11_recovery/one_wave_plan.asc": "5c9d262c3f140d86da61dcc69173e05c79fc34113b6fc224ebc8184a99e9b9c5",
+    "V11_recovery/one_wave_macro_fragment.asc": "c3816d9e99ca3bedbc2ce36632c9cfe1c3c73031533d9900d8ac0155b72b7d20",
+    "V11_recovery/residual_packet_fragment.asc": "be7b430ea5c0901fab90fd3f66fabbd5ec6e5c0b01ea8dcd11a095dc2d032fc4",
+    "V11_grid_packets/R08_CPU_RESULT.json": "230ed509cc513268b6992546db38e4bf2cf4f3b526686e991ffb3e53bff91221",
+    "V11_single_wave/build.py": "b2bb43c37f076ea418d2a03859bf30c5685ae6ad466c310bd5f9c240bf56c68e",
+    "V11_single_wave/run_checks.py": "15fe579c7bdefe5f33edd8fd45671eab3b31440c08c9aa677d0f9b6d87767325",
+    "V11_single_wave/expanded_plan_tail.asc": "86c4719281e5b5f14729f82ec46503fc67e85255a28c9b2b887b0d02033b8e07",
+    "V11_single_wave/expanded_plan.asc": "fed7f2516fa0e69edb2c56b6fc790f1967dc9a6a08140c4d8fb1ad923810a02f",
+    "V11_single_wave/parallel_finish.asc": "9b935b742b84233795c49e722849891f087efe5effdeaae3827dc2a408f498a0",
+    "V11_single_wave/expanded_macro_fragment.asc": "afc84585dded154626a1770af8ec31838fa2e3eca666810e0292b27c1f462f4b",
+    "V11_single_wave/parallel_macro_fragment.asc": "878558b06b09bc2d3c0ed3a29da21a0973e67f21c6824ce4dabf0938aff91d05",
+    "V11_single_wave/reduction_audit.hpp": "d49a88c77b3abf701d6ffc53cdf9aa172ddc56cd3831e15cbc807b7fbdd3c732",
+    "V11_single_wave/reduction_checks.cpp.in": "6a63f1f8675531e6a55625c1aeb2ca65171fbc2f8d1245d61b7d309709dd3960",
+    "V11_recovery/R10_CPU_RESULT.json": "e3bd424bb6d8074eaa704aa4a516b00e3ae30e4a4121678812bba66f43af3632",
+    "V11_flexible_grid/build.py": "31617dd8e97a8a71a3c75d39ba4e1731dd64f684f73faf3448924ad261d6edc3",
+    "V11_flexible_grid/run_checks.py": "a8a91b5706552e1feff078a5b494312278a9f392b0a695b174b95c1cd84c0761",
+    "V11_flexible_grid/flexible_plan_tail.asc": "b137c682977ee547e00822b06eb99ca1378ddec0867dda793f7a70eeecc49321",
+    "V11_flexible_grid/audit_plans.py": "661ba385fded9053d1ca9edf6957292dc7bc386d143581706fe20f824e0dca75",
+    "V11_flexible_grid/grid_checks.cpp.in": "d111c566c204d0e4141bbe69f3a0072fd46d1b5a559ca6eda6ba75f3874db0b0",
+    "V11_flexible_grid/R13_macro_fragment.asc": "e94997b674b3fa03b168363b6e186cf0c538fc7abb0cd74b70fc95fdcf9ee9be",
+    "V11_flexible_grid/R14_macro_fragment.asc": "e2e722cc9366c2080f306805a12c3d53888399db814013b1e6be7f47d56b7313",
+    "V11_single_wave/R11_CPU_RESULT.json": "49f14510318ee89d8e651f43236dea0e0b04e12ae40d4692067beb4af80402e3",
+    "V11_native_specialize/build.py": "bb116232b2333b63297bf125ff3b489c17439fe3aac6ce9e69c77bb5944888e0",
+    "V11_native_specialize/run_checks.py": "b9d0edb4025fceb688ac585754f2f4db7b4d646b5062ccef671ff1ad6f572e1c",
+    "V11_native_specialize/native_cases.cpp.in": "314d6568abaedf606a36f81411fef16a25a6abf21e89d588aa4aec39a2c3321a",
+    "V11_native_specialize/R20_producer.asc": "f5f6fb592c0c535358cdbb49770fd2f135e5d9f00117327af2cf5a0dda82c5ad",
+    "V11_native_specialize/R21_producer.asc": "8b28c5473556a289ea9da0030f3366b70f7587c0678cc75b7c1374c856bbc26e",
+    "V11_a_resident/run_checks.py": "acc2e8c707fe3ea3a99c718c540be5777fc4a151c795766381828996b8ef3020",
+    "V11_a_resident/traffic_audit.hpp": "4d1b5544b4d49b22e464ade95ad3291b070c9dac4d3ab0114533a43e73a562b3",
+    "V11_flexible_grid/R14_CPU_RESULT.json": "d7326f56a22cf61cd4412aca8a9ee4a4a1fab677f9ceaf13dae6747d74ce359c",
+    "V11_split_k/build.py": "a69a9989574cc39b4f6b910054298be85678dd121f276024fa4b2f91b5cf9297",
+    "V11_split_k/run_checks.py": "af8f35a806a381a368350fd29c0b1e6e3cbd09220ca05d8f5a83902dc9668607",
+    "V11_split_k/host_plan.asc": "dd166285ac136ebf162f671fa0183bc1a9179e69be777466f7af82d17f1a714a",
+    "V11_split_k/consumer.asc": "f5d656e62f1520a59c397cfa8b86471beb28a0f745022c74532ba22028c8945d",
+    "V11_split_k/split_k_fragment.asc": "c8d9d4f63792a950414d3b696b7db72b003a281db42c5581a7394b189633c765",
+    "V11_split_k/source_checks.cpp.in": "47ce16041ce90c21d1cccc2cbf6a296528842b4cd8806bc134479ab9e07946f9",
+    "V11_split_k/publication_audit.hpp": "3d467d77e39f64efcf4359166e673fc17c52f7b362bfdfb41b5bf7c612adb465"
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "full_domain_precision_proven": false
+}

@@ -1,0 +1,147 @@
+#define BMMS9_CPU_TEST 1
+#define BMMS11_CPU_TEST 1
+#define BMMS11R2_CPU_TEST 1
+#define BMMS23_CPU_TEST 1
+#include "cube_model.hpp"
+#include "common_extracted.hpp"
+#include "dense_extracted.hpp"
+#include "reuse_extracted.hpp"
+#include "ring_extracted.hpp"
+#include "residual_extracted.hpp"
+#include "split_extracted.hpp"
+#include <random>
+#include <iostream>
+#include <iomanip>
+#include <map>
+#include <sstream>
+
+int ordinary=0,repeats=0,misses=0,splitRuns=0,fallbackRuns=0,flowChecks=0;
+double maxError=0;std::map<std::string,std::vector<uint32_t>> outputs;
+std::map<std::string,std::string> fixtures;
+template<class Fn>void workers(int count,Mock::Context& ctx,Mock::Flags& flags,int aiv,Fn fn,bool reverse){
+    std::mutex mutex;std::string error;std::vector<std::thread> threads;
+    for(int index=0;index<count;++index){int w=reverse?count-1-index:index;
+        threads.emplace_back([&,w]{try{
+            Mock::ctx=&ctx;Mock::flags=&flags;Mock::worker=w;Mock::cube=w>=aiv;
+            Mock::logical=Mock::cube?w-aiv:w;Mock::pairId=Mock::cube?w-aiv:w/2;Mock::subId=Mock::cube?0:w%2;
+            Mock::localFlags={};Mock::smallMmadPending=false;fn(w);
+            for(auto& kind:Mock::localFlags)for(int pending:kind)Mock::need(pending==0,"local credit leaked");
+        }catch(const std::exception&e){std::lock_guard lock(mutex);if(error.empty())error=e.what();ctx.barrier.cancel();flags.cancel();}});
+    }
+    for(auto& t:threads)t.join();if(!error.empty())throw std::runtime_error(error);
+}
+template<class T,bool TA,bool TB>
+void run(int B,int M,int N,int K,int cores,int pattern,bool reverse){
+    std::string key=(std::is_same_v<T,half>?"f16":"b16")+std::to_string(TA)+std::to_string(TB)+"_"+
+        std::to_string(B)+"_"+std::to_string(M)+"_"+std::to_string(N)+"_"+std::to_string(K)+"_"+std::to_string(cores)+"_"+std::to_string(pattern);
+    std::vector<T>a(size_t(B)*M*K),b(size_t(B)*K*N);
+    auto ai=[&](int z,int m,int k){return size_t(z)*M*K+(TA?size_t(k)*M+m:size_t(m)*K+k);};
+    auto bi=[&](int z,int k,int n){return size_t(z)*K*N+(TB?size_t(n)*K+k:size_t(k)*N+n);};
+    std::mt19937 random(7231+B+M+N+K+pattern);std::uniform_int_distribution<int> dyadic(-4,4);
+    std::uniform_real_distribution<float> general(-0.125f,0.125f);
+    for(auto& x:a)x=T(pattern==2?0:pattern==3?general(random):pattern==1?(std::abs(dyadic(random))+1)/32.f:dyadic(random)/32.f);
+    for(auto& x:b)x=T(pattern==2?0:pattern==3?general(random):pattern==1?-(std::abs(dyadic(random))+1)/32.f:dyadic(random)/32.f);
+    auto beforeA=a,beforeB=b;
+    std::vector<float> ca(size_t(B)*M*K),cb(size_t(B)*K*N);
+    for(int z=0;z<B;++z){
+        for(int m=0;m<M;++m)for(int k=0;k<K;++k)ca[(size_t(z)*M+m)*K+k]=float(a[ai(z,m,k)]);
+        for(int k=0;k<K;++k)for(int n=0;n<N;++n)cb[(size_t(z)*K+k)*N+n]=float(b[bi(z,k,n)]);
+    }
+    std::vector<double> gold(B,0);
+    for(int z=0;z<B;++z)for(int m=0;m<M;++m){double row=-INFINITY;
+        for(int n=0;n<N;++n){double v=0;for(int k=0;k<K;++k)v+=double(ca[(size_t(z)*M+m)*K+k])*cb[(size_t(z)*K+k)*N+n];row=std::max(row,v);}
+        gold[z]+=row;
+    }
+    bool selected=SPLIT_VARIANT&&bmms23::Eligible(B,M,N,K,std::is_same_v<T,half>?1:2,cores);
+    auto old=bmms11d::MakePlan(B,M,N,K,cores);bmms23::Plan p{};
+    int blocks=old.blocks;
+    if(selected){p=bmms23::MakePlan(B,M,N,K,cores);if(SPLIT_VARIANT==1){p.splits=1;p.blocks=B*p.mTiles*p.nTiles;}blocks=p.blocks;++splitRuns;}
+    else ++fallbackRuns;
+    std::vector<float> ws((selected?bmms23::WorkspaceBytes(p):bmms11d::WorkspaceBytes(old))/4,NAN),y(B,NAN);
+    Mock::Context ctx(2*blocks);Mock::Flags flags(blocks);
+    ctx.add(a.data(),a.size()*sizeof(T),true);ctx.add(b.data(),b.size()*sizeof(T),true);
+    ctx.add(ws.data(),ws.size()*4,false);ctx.add(y.data(),y.size()*4,false);
+    RingAudit::State ringAudit(ws.data(),blocks,64*128);
+    SplitAudit::State splitAudit(ws.data(),B,M,N,selected?p.splits:1,blocks);
+    RingAudit::active=selected?nullptr:&ringAudit;SplitAudit::active=selected?&splitAudit:nullptr;
+    Traffic::reset();NativeTraffic::reset();OpStats::reset();
+    TrafficAB::begin((uintptr_t)a.data(),a.size()*sizeof(T),(uintptr_t)b.data(),b.size()*sizeof(T));
+    try{
+        workers(3*blocks,ctx,flags,2*blocks,[&](int){AscendC::TPipe pipe;
+            if(Mock::cube){
+                if(selected){bmms23::Producer<T,TA,TB> op;op.Init((GM_ADDR)a.data(),(GM_ADDR)b.data(),(GM_ADDR)ws.data(),p,&pipe);op.Process();}
+                else{bmms11d::StagedProducer<T,TA,TB> op;op.Init((GM_ADDR)a.data(),(GM_ADDR)b.data(),(GM_ADDR)ws.data(),old,&pipe);op.Process();}
+            }else{
+                if(selected){bmms23::Consumer op;op.Init((GM_ADDR)ws.data(),(GM_ADDR)y.data(),p,&pipe);op.Process();}
+                else{bmms83::SmallKConsumer op;op.Init((GM_ADDR)ws.data(),(GM_ADDR)((uint8_t*)ws.data()+bmms11d::RingBytes(old)),(GM_ADDR)y.data(),old,&pipe);op.Process();}
+            }
+        },reverse);
+        flags.drained();if(selected)splitAudit.check();else ringAudit.drained();
+        Mock::need(ctx.barrier.generation==1,"unexpected global barrier count");
+        Mock::need(std::memcmp(beforeA.data(),a.data(),a.size()*sizeof(T))==0&&std::memcmp(beforeB.data(),b.data(),b.size()*sizeof(T))==0,"input mutated");
+        const int mt=(M+63)/64,nt=(N+127)/128,S=selected?p.splits:1;
+        uint64_t expectedA=uint64_t(B)*M*K*nt*sizeof(T),expectedB=uint64_t(B)*N*K*mt*sizeof(T);
+        Mock::need(TrafficAB::aBytes==expectedA&&TrafficAB::bBytes==expectedB,"split GM input bytes mismatch");
+        Mock::need(Traffic::l0Bytes==expectedA+expectedB,"split L0 traffic mismatch");
+        Mock::need(Traffic::publishes==uint64_t(B)*mt*nt*S&&Traffic::cWriteBytes==uint64_t(B)*M*N*S*4,"split partial C bytes mismatch");
+        int kOps=0,maxKOps=0;
+        for(int ks=0;ks<S;++ks){int len=((ks+1)*(K/32)/S-ks*(K/32)/S)*32;kOps+=(len+127)/128;maxKOps=std::max(maxKOps,(len+127)/128);}
+        Mock::need(Traffic::mmads==uint64_t(B)*mt*nt*kOps,"split MMAD count mismatch");++flowChecks;
+        std::vector<uint32_t> bits;
+        for(int z=0;z<B;++z){double expected=float(gold[z]),err=std::abs(double(y[z])-expected);maxError=std::max(maxError,err);
+            double rel=expected==0?(err==0?0:INFINITY):err/std::abs(expected);
+            if(!std::isfinite(y[z])||!(err<1e-4&&rel<1e-4))++misses;
+            bits.push_back(std::bit_cast<uint32_t>(y[z]));}
+        if(outputs.count(key)){Mock::need(outputs[key]==bits,"split result nondeterministic");++repeats;}else outputs[key]=bits;
+        ++ordinary;
+        if(B==1&&M==32&&N==64&&K==4096&&cores==20&&pattern==0&&!TA&&!TB&&std::is_same_v<T,half>){
+            std::ostringstream os;os<<"{\"splits\":"<<S<<",\"blocks\":"<<blocks<<",\"workspace_bytes\":"<<ws.size()*4
+                <<",\"max_K128_steps_per_task\":"<<maxKOps<<",\"gm_input_bytes\":"<<Traffic::gmInputBytes.load()
+                <<",\"partial_C_bytes\":"<<Traffic::cWriteBytes.load()<<",\"mmad_calls\":"<<Traffic::mmads.load()
+                <<",\"fixpipes\":"<<Traffic::publishes.load()<<",\"barriers\":"<<ctx.barrier.generation<<"}";
+            if(fixtures.count("small_long"))Mock::need(fixtures["small_long"]==os.str(),"logical work changed on repeat");fixtures["small_long"]=os.str();
+        }
+    }catch(const std::exception&e){throw std::runtime_error(key+": "+e.what());}
+    RingAudit::active=nullptr;SplitAudit::active=nullptr;
+}
+template<class T>void layouts(int B,int M,int N,int K,int c,int pat,bool rev){
+    run<T,false,false>(B,M,N,K,c,pat,rev);run<T,false,true>(B,M,N,K,c,pat,rev);
+    run<T,true,false>(B,M,N,K,c,pat,rev);run<T,true,true>(B,M,N,K,c,pat,rev);
+}
+int main(){try{
+#ifdef NEGATIVE_K_ORIGIN
+    run<half,true,true>(1,16,16,4128,20,0,false);
+    if(misses)throw std::runtime_error("wrong K origin corrupts output");return 7;
+#endif
+#ifdef NEGATIVE_MAX_K
+    run<half,false,false>(1,16,16,4096,20,0,false);
+    if(misses)throw std::runtime_error("max before full K sum corrupts output");return 7;
+#endif
+#ifdef NEGATIVE_PUBLICATION
+    run<half,false,false>(1,16,16,4096,20,0,true);return 7;
+#endif
+    for(int rev=0;rev<2;++rev){
+        for(int K:{4096,4128,8192}){layouts<half>(1,16,16,K,20,0,rev);layouts<bfloat16_t>(1,16,16,K,20,0,rev);}
+        for(auto d:std::vector<std::array<int,5>>{
+            {1,32,64,4096,20},{1,48,80,4192,20},{1,64,128,8160,20},
+            {1,112,240,4128,20},{3,80,144,4096,32},{3,16,32,6144,20},
+            {1,16,16,4096,2},{1,16,16,4096,4},{1,16,16,4096,8},
+            // Same public shapes, insufficient free groups => original R03.
+            {1,16,16,4096,1},{20,16,16,4096,20},
+            // Outside the narrow long-K interception scope.
+            {1,16,16,4064,20},{1,128,16,4096,20},{1,16,256,4096,20}}){
+            auto[B,M,N,K,c]=d;run<half,false,false>(B,M,N,K,c,0,rev);run<bfloat16_t,true,true>(B,M,N,K,c,0,rev);
+        }
+        for(int pat:{1,2,3}){
+            run<half,false,true>(1,32,48,4160,20,pat,rev);
+            run<bfloat16_t,true,false>(1,48,144,4096,20,pat,rev);
+        }
+    }
+    std::cout<<std::setprecision(12)<<"{\"source_runs\":"<<ordinary<<",\"repeat_checks\":"<<repeats
+        <<",\"split_route_runs\":"<<splitRuns<<",\"fallback_runs\":"<<fallbackRuns<<",\"flow_checks\":"<<flowChecks
+        <<",\"strict_misses\":"<<misses<<",\"max_abs\":"<<maxError<<",\"fixtures\":{";
+    bool first=true;for(auto&[k,v]:fixtures){if(!first)std::cout<<",";first=false;std::cout<<"\""<<k<<"\":"<<v;}
+    std::cout<<"},\"output_bits\":{";first=true;for(auto&[k,v]:outputs){if(!first)std::cout<<",";first=false;std::cout<<"\""<<k<<"\":[";
+        for(size_t i=0;i<v.size();++i){if(i)std::cout<<",";std::cout<<v[i];}std::cout<<"]";}
+    std::cout<<"},\"cann_compiled\":false,\"npu_tested\":false}\n";return misses?2:0;
+}catch(const std::exception&e){std::cerr<<"STRUCTURAL_FAIL "<<e.what()<<"\n";return 1;}}

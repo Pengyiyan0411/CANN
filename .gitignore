@@ -21,3 +21,5 @@ BMMS/V11_native_specialize/cpu_build/
 BMMS/V11_native_specialize/dispatch_build/
 BMMS/V11_shape_dispatch/cpu_build/
 BMMS/V11_shape_dispatch/dispatch_build/
+BMMS/V11_split_k/cpu_build/
+BMMS/V11_split_k/dispatch_build/

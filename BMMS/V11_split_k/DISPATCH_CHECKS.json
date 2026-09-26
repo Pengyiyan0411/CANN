@@ -1,0 +1,44 @@
+{
+  "scope": "actual host and entry bodies with recording stubs, and actual probe eligibility functions; no CANN/NPU compilation",
+  "runs": {
+    "R23": {
+      "actual_host_launch_checks": 48,
+      "unique_device_bindings": 8,
+      "no_launch_fallback_checks": 24,
+      "metadata_plan_checks": 1083600,
+      "selected_plans": 331143,
+      "K_partition_and_task_checks": 19092,
+      "geometry_probe_checks": 36000
+    },
+    "K1": {
+      "actual_host_launch_checks": 48,
+      "unique_device_bindings": 8,
+      "no_launch_fallback_checks": 24,
+      "metadata_plan_checks": 1083600,
+      "selected_plans": 331143,
+      "K_partition_and_task_checks": 19092,
+      "geometry_probe_checks": 36000
+    }
+  },
+  "wrong_dtype_fault_rejected": true,
+  "composition": {
+    "R14_restored_outside_fragment_and_host_hook": true,
+    "eight_fixed_dtype_layout_entries": true,
+    "K1_changes_only_split_count_after_same_guard": true,
+    "four_probes_change_only_R03_eligibility": true,
+    "R22_not_inherited": true
+  },
+  "sources": {
+    "BMMS_V11_R23/G01_B1_OFF.asc": "cf90c39538bccd9c7712486218eca27c37b6245335221281c8bdb81cc63641a3",
+    "BMMS_V11_R23/G02_M64_OFF.asc": "831f005ff3c7b94878b3c04dfd37a2b5622a768fc26846c30c1bc7452be4dd63",
+    "BMMS_V11_R23/G03_N128_OFF.asc": "498a130c299d7cf223eb99967cac98d736df3c060060b5e4c1e8ce750141de49",
+    "BMMS_V11_R23/G04_MN4096_OFF.asc": "ff650a0d293522cc65abb866ea42be1d941f3fbe4997679bfb143f5887459113",
+    "BMMS_V11_R23/R14_CONTROL.asc": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe",
+    "BMMS_V11_R23/R23_K1_CONTROL.asc": "2d78f01236ec15ac2a44d86a9ef70aa3150ee11f4ebf12abfb59ff5554f44e98",
+    "BMMS_V11_R23/R23_SPLIT_K.asc": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733",
+    "V11_split_k/split_k_fragment.asc": "c8d9d4f63792a950414d3b696b7db72b003a281db42c5581a7394b189633c765",
+    "V11_split_k/check_dispatch.py": "22fa7ea075d9b347bd87673eb3f6abbe4e5d7056a09024f3777affb34ed4235d"
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false
+}

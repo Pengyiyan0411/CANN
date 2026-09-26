@@ -1,0 +1,47 @@
+{
+  "source": "user-provided scoped-probe analysis; original new probe files/hashes not provided",
+  "R22_feedback": "no useful improvement; no full result table or compile/Pass status supplied",
+  "case": 15,
+  "normal_R03_us_interval": [
+    36,
+    38
+  ],
+  "case15_probe_us": {
+    "A01_R03_OFF": 112.6,
+    "C512": 108.65,
+    "C1024": 113.67,
+    "C2048": 112.77,
+    "C4096": 112.83,
+    "P02_R03_STRESS": 37.38
+  },
+  "C_mean_us": 111.98,
+  "reported_C_predicate": "bypass R03 if K >= threshold",
+  "reported_B_findings": {
+    "M_min": 16,
+    "M_exclusive_max": 128,
+    "M_alignment": 16,
+    "N_min": 16,
+    "N_exclusive_max": 256,
+    "N_alignment": 16,
+    "B_less_than_cores": true
+  },
+  "working_K_inference": {
+    "min": 4096,
+    "max": 8192,
+    "alignment": 32
+  },
+  "unconfirmed_hypotheses": [
+    "B == 1",
+    "M <= 64",
+    "N <= 128",
+    "M*N <= 4096"
+  ],
+  "case7_C_response": "user reports about 11 us, no fallback shift; supportive cross-case control",
+  "reported_best_column_us": 4.05,
+  "best_column_semantics_independently_verified": false,
+  "probe_sources_hash_verified": false,
+  "complete_15_case_tables_received": false,
+  "baseline": "R14",
+  "next_candidate": "R23_SPLIT_K",
+  "local_cann_or_npu_validation": false
+}

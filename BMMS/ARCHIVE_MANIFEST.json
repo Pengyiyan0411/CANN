@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "Frozen history; R20 compile failed with no log; R14 baseline; R22 host shape-specific fixed kernels; CANN/NPU validation pending",
+  "scope": "Frozen history; R14 baseline; user Case15 long-K diagnosis; R23 Cube Split-K, K1 control and four geometry probes; CANN/NPU validation pending",
   "platform_source_identity": "explicit user version labels where available; R04 inferred from sole preceding candidate; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -416,6 +416,66 @@
       "sha256": "96edb3a3ffc1de1f9d1063b69f9125f9d1ba33e5beae7d0d5642b0d4a941ceef"
     },
     {
+      "path": "BMMS_V11_R23/CPU_CHECKS.json",
+      "bytes": 11391,
+      "sha256": "b82fbf84f0ca3c7203c72401d17e30c14d688146ec66a83102e2eba5dd926859"
+    },
+    {
+      "path": "BMMS_V11_R23/DISPATCH_CHECKS.json",
+      "bytes": 2054,
+      "sha256": "eeacd85075a1b852bec88f6a8e99fb3013007835f79a38577a24e187e21e482f"
+    },
+    {
+      "path": "BMMS_V11_R23/G01_B1_OFF.asc",
+      "bytes": 165393,
+      "sha256": "cf90c39538bccd9c7712486218eca27c37b6245335221281c8bdb81cc63641a3"
+    },
+    {
+      "path": "BMMS_V11_R23/G02_M64_OFF.asc",
+      "bytes": 165395,
+      "sha256": "831f005ff3c7b94878b3c04dfd37a2b5622a768fc26846c30c1bc7452be4dd63"
+    },
+    {
+      "path": "BMMS_V11_R23/G03_N128_OFF.asc",
+      "bytes": 165397,
+      "sha256": "498a130c299d7cf223eb99967cac98d736df3c060060b5e4c1e8ce750141de49"
+    },
+    {
+      "path": "BMMS_V11_R23/G04_MN4096_OFF.asc",
+      "bytes": 165411,
+      "sha256": "ff650a0d293522cc65abb866ea42be1d941f3fbe4997679bfb143f5887459113"
+    },
+    {
+      "path": "BMMS_V11_R23/MANIFEST.json",
+      "bytes": 1347,
+      "sha256": "2fd623d56c67ca8e86ec1898b472382b0d0f9b513b28e3761aac67a5b43384c7"
+    },
+    {
+      "path": "BMMS_V11_R23/R14_CONTROL.asc",
+      "bytes": 165275,
+      "sha256": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe"
+    },
+    {
+      "path": "BMMS_V11_R23/R23_K1_CONTROL.asc",
+      "bytes": 179608,
+      "sha256": "2d78f01236ec15ac2a44d86a9ef70aa3150ee11f4ebf12abfb59ff5554f44e98"
+    },
+    {
+      "path": "BMMS_V11_R23/R23_SPLIT_K.asc",
+      "bytes": 179571,
+      "sha256": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733"
+    },
+    {
+      "path": "BMMS_V11_R23/README.md",
+      "bytes": 3080,
+      "sha256": "fcdfaa27b41b107eae1133e9506626099ade4e5ec2c4f687fe0049d650aff24b"
+    },
+    {
+      "path": "BMMS_V11_R23_提交包.zip",
+      "bytes": 262787,
+      "sha256": "afc63ab806beaf895c948ddc74d67a2b7884b6dc020e37920036e487def121cc"
+    },
+    {
       "path": "BMMS_V11_SubmitPack/CPU_CHECKS.json",
       "bytes": 2623,
       "sha256": "ec3a727a4ec03f5d496989545172f482884d9f7c7a9a4e2726c67e5892bf4487"
@@ -557,13 +617,13 @@
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 4088,
-      "sha256": "4afe31266b98481db90d7961adf1dadbd7b04c22b3af4782662e3ceeeb765218"
+      "bytes": 4429,
+      "sha256": "a70e646948f4355ee65c721a47c95b8ddd0082c983c1e08087d26a9a80936451"
     },
     {
       "path": "README.md",
-      "bytes": 1221,
-      "sha256": "12a25a53b8a46fe1c956f0705080c2d828f71fe7714874da8a2cb483e78fda17"
+      "bytes": 1144,
+      "sha256": "06bf7ee32daf855c0eb54ea20d5d1c506e26c4bdba859b418225e204b4af484d"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -1881,6 +1941,16 @@
       "sha256": "18911e55f2313f942ebbce7017ea727b27801f4f99992f4b152ffa79f308d061"
     },
     {
+      "path": "V11_results/2026-09-27_case15_long_k/AUDIT.md",
+      "bytes": 1237,
+      "sha256": "108c5f7b1436cb7c7e6a74b4127da88367a7bddb6242b957100f319ece7b13d3"
+    },
+    {
+      "path": "V11_results/2026-09-27_case15_long_k/RESULTS.json",
+      "bytes": 1263,
+      "sha256": "81a46ba39a8fce1f982f01e605eeb66df335e3aa146f767ff27c75bb95651a91"
+    },
+    {
       "path": "V11_results/2026-09-27_native_case5/AUDIT.md",
       "bytes": 909,
       "sha256": "74c3bbbaa6e8d5d73560ae75e722a5e06969701e3aab7f5923a274c0270b7997"
@@ -2124,6 +2194,126 @@
       "path": "V11_single_wave/update_docs.py",
       "bytes": 11984,
       "sha256": "10e920cbd735bba5bb92152dd26f5e1f5f77514036699fe516da072624c191bc"
+    },
+    {
+      "path": "V11_split_k/CANN_README.md",
+      "bytes": 1197,
+      "sha256": "7f593eb86e4e5cd5313063136c24ca3d9334e69c609b9023034767840f6c40dd"
+    },
+    {
+      "path": "V11_split_k/CHECKS.json",
+      "bytes": 11391,
+      "sha256": "b82fbf84f0ca3c7203c72401d17e30c14d688146ec66a83102e2eba5dd926859"
+    },
+    {
+      "path": "V11_split_k/DESIGN.md",
+      "bytes": 7864,
+      "sha256": "65275a97655ab14e9cd155fbe48f70a5b3bcfb95b2e85424b87ecfcc6811e921"
+    },
+    {
+      "path": "V11_split_k/DISPATCH_CHECKS.json",
+      "bytes": 2054,
+      "sha256": "eeacd85075a1b852bec88f6a8e99fb3013007835f79a38577a24e187e21e482f"
+    },
+    {
+      "path": "V11_split_k/K1_CPU_RESULT.json",
+      "bytes": 4652,
+      "sha256": "823750ababbdabc9061fb3cb73ca97ae9012988cb9234972cc8ef88cb687ece0"
+    },
+    {
+      "path": "V11_split_k/K1_INPUTS.json",
+      "bytes": 1050,
+      "sha256": "e4e324d71665452acc3e80b7909139c084b268b9344edad0a8a012d32250e00a"
+    },
+    {
+      "path": "V11_split_k/PACKAGE_CHECKS.json",
+      "bytes": 334,
+      "sha256": "0d0a2216bcabc8b8b3fbaddf3e286e0c58a5272e1883803a69f1406d5b1fcd72"
+    },
+    {
+      "path": "V11_split_k/R14_CPU_RESULT.json",
+      "bytes": 4652,
+      "sha256": "fedd1641013978be14039d93fe0965997fa59a2ca93eab8cb8f80fe05cc4deba"
+    },
+    {
+      "path": "V11_split_k/R14_INPUTS.json",
+      "bytes": 1050,
+      "sha256": "c35c89610da63de57ec7a5d4b920f4886ae874727ca72db56856b60104b95e5b"
+    },
+    {
+      "path": "V11_split_k/R23_CPU_RESULT.json",
+      "bytes": 4653,
+      "sha256": "666d40cdae180a0314df8dda9bb7ad8f159f74c8f6708630db830a06a418eb23"
+    },
+    {
+      "path": "V11_split_k/R23_INPUTS.json",
+      "bytes": 1050,
+      "sha256": "7d26ac2373fe3ffdc140b984cdc468fb24bdc6212307cbd2159734a52fd3fa33"
+    },
+    {
+      "path": "V11_split_k/R23_K1_CONTROL.diff",
+      "bytes": 16149,
+      "sha256": "70a4ecb30683a1d7108dec86f384eb79acf71d178a1e91f5f52f115afda1a7c4"
+    },
+    {
+      "path": "V11_split_k/R23_SPLIT_K.diff",
+      "bytes": 16108,
+      "sha256": "3adaa1f689adc4140eba50c60bef6543f88cd0bf1adc61affb713b30dc6577d4"
+    },
+    {
+      "path": "V11_split_k/archive.py",
+      "bytes": 3005,
+      "sha256": "ec69cb0be1e8ec270e0bcdfdc9e82bd7cc38257f3770072e4a039c8bffb2e0da"
+    },
+    {
+      "path": "V11_split_k/build.py",
+      "bytes": 8323,
+      "sha256": "a69a9989574cc39b4f6b910054298be85678dd121f276024fa4b2f91b5cf9297"
+    },
+    {
+      "path": "V11_split_k/check_dispatch.py",
+      "bytes": 10944,
+      "sha256": "22fa7ea075d9b347bd87673eb3f6abbe4e5d7056a09024f3777affb34ed4235d"
+    },
+    {
+      "path": "V11_split_k/consumer.asc",
+      "bytes": 3900,
+      "sha256": "f5d656e62f1520a59c397cfa8b86471beb28a0f745022c74532ba22028c8945d"
+    },
+    {
+      "path": "V11_split_k/host_plan.asc",
+      "bytes": 972,
+      "sha256": "dd166285ac136ebf162f671fa0183bc1a9179e69be777466f7af82d17f1a714a"
+    },
+    {
+      "path": "V11_split_k/package.py",
+      "bytes": 3035,
+      "sha256": "e512b111c6211b8a9139164f24804b3c6af47a303e51c0a832179b3354209088"
+    },
+    {
+      "path": "V11_split_k/publication_audit.hpp",
+      "bytes": 2754,
+      "sha256": "3d467d77e39f64efcf4359166e673fc17c52f7b362bfdfb41b5bf7c612adb465"
+    },
+    {
+      "path": "V11_split_k/run_checks.py",
+      "bytes": 7980,
+      "sha256": "af8f35a806a381a368350fd29c0b1e6e3cbd09220ca05d8f5a83902dc9668607"
+    },
+    {
+      "path": "V11_split_k/source_checks.cpp.in",
+      "bytes": 9838,
+      "sha256": "47ce16041ce90c21d1cccc2cbf6a296528842b4cd8806bc134479ab9e07946f9"
+    },
+    {
+      "path": "V11_split_k/split_k_fragment.asc",
+      "bytes": 14195,
+      "sha256": "c8d9d4f63792a950414d3b696b7db72b003a281db42c5581a7394b189633c765"
+    },
+    {
+      "path": "V11_split_k/update_docs.py",
+      "bytes": 13539,
+      "sha256": "1f623c638483b0fca7ce5ffe87d39936f8cfdf085eefbcbec825f2a85d36a992"
     },
     {
       "path": "V9_design/blocked_oracle.py",
@@ -2614,6 +2804,11 @@
       "path": "audit_current/AUDIT_R20_R21_DELIVERY.md",
       "bytes": 3807,
       "sha256": "934a3940cbedecad6f4aebf34a208bb2275ab310142582f9a31c2d5f2b4dd37a"
+    },
+    {
+      "path": "audit_current/AUDIT_R22_DELIVERY.md",
+      "bytes": 4088,
+      "sha256": "4afe31266b98481db90d7961adf1dadbd7b04c22b3af4782662e3ceeeb765218"
     },
     {
       "path": "audit_current/README_BEFORE_V11.md",

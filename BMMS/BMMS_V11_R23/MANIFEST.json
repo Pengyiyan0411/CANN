@@ -1,0 +1,42 @@
+{
+  "base_sha256": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe",
+  "files": [
+    {
+      "file": "G01_B1_OFF.asc",
+      "sha256": "cf90c39538bccd9c7712486218eca27c37b6245335221281c8bdb81cc63641a3"
+    },
+    {
+      "file": "G02_M64_OFF.asc",
+      "sha256": "831f005ff3c7b94878b3c04dfd37a2b5622a768fc26846c30c1bc7452be4dd63"
+    },
+    {
+      "file": "G03_N128_OFF.asc",
+      "sha256": "498a130c299d7cf223eb99967cac98d736df3c060060b5e4c1e8ce750141de49"
+    },
+    {
+      "file": "G04_MN4096_OFF.asc",
+      "sha256": "ff650a0d293522cc65abb866ea42be1d941f3fbe4997679bfb143f5887459113"
+    },
+    {
+      "file": "R14_CONTROL.asc",
+      "sha256": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe"
+    },
+    {
+      "file": "R23_K1_CONTROL.asc",
+      "sha256": "2d78f01236ec15ac2a44d86a9ef70aa3150ee11f4ebf12abfb59ff5554f44e98"
+    },
+    {
+      "file": "R23_SPLIT_K.asc",
+      "sha256": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733"
+    }
+  ],
+  "composition": {
+    "R14_restored_outside_fragment_and_host_hook": true,
+    "eight_fixed_dtype_layout_entries": true,
+    "K1_changes_only_split_count_after_same_guard": true,
+    "four_probes_change_only_R03_eligibility": true,
+    "R22_not_inherited": true
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false
+}

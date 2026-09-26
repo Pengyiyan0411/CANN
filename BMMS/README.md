@@ -1,25 +1,25 @@
-# BatchMatmulMaxSum：R14 基线，R22 按元数据选择固定内核
+# BatchMatmulMaxSum：R14 基线，R23 小输出长 K 并行
 
-R20 平台编译失败且没有日志。R22 从 R14 重做：短 N 窄列、短 M 宽列、对齐稠密高 M 块；
-host 根据真实形状、K、dtype、布局和并行度选择内核。单文件提交，未覆盖组合保留 R14。
-本地源码模型检查通过，CANN 编译/NPU 性能待提交，R14 仍是已验证基线。
+R23 依据真实 B/M/N/K、dtype/布局和核数选择 Cube Split-K；各段求和成完整 C 后才做 max(N)/sum(M)。
+未命中条件仍走 R14。附单分片对照和四个几何探针。本地源码模型检查通过，CANN/NPU 验证待提交。
 
-- [R22 单文件](BMMS_V11_R22/R22_SHAPE_SWITCH.asc)
-- [提交包](BMMS_V11_R22_提交包.zip)
-- [使用说明](BMMS_V11_R22/README.md)
+- [R23 单文件](BMMS_V11_R23/R23_SPLIT_K.asc)
+- [提交包](BMMS_V11_R23_提交包.zip)
+- [提交与消融说明](BMMS_V11_R23/README.md)
 - [当前审计](BatchMatmulMaxSum_当前审计报告_2026-09-26.md)
-- [分派设计](V11_shape_dispatch/DESIGN.md)
-- [源码检查](V11_shape_dispatch/CHECKS.json)
-- [分派检查](V11_shape_dispatch/DISPATCH_CHECKS.json)
-- [R20 失败反馈](V11_results/2026-09-27_r20_compile_failed/AUDIT.md)
-- [上轮交付快照](audit_current/AUDIT_R20_R21_DELIVERY.md)
+- [Split-K 设计](V11_split_k/DESIGN.md)
+- [源码检查](V11_split_k/CHECKS.json)
+- [分派检查](V11_split_k/DISPATCH_CHECKS.json)
+- [Case15 新证据](V11_results/2026-09-27_case15_long_k/AUDIT.md)
+- [上轮快照](audit_current/AUDIT_R22_DELIVERY.md)
 
 ```powershell
-python V11_shape_dispatch/build.py
-python V11_shape_dispatch/run_checks.py
-python V11_shape_dispatch/check_dispatch.py
-python V11_shape_dispatch/update_docs.py
-python V11_shape_dispatch/package.py
+python V11_split_k/build.py
+python V11_split_k/run_checks.py --resume
+python V11_split_k/check_dispatch.py
+python V11_split_k/update_docs.py
+python V11_split_k/package.py
 ```
 
-旧源码、结果和提交包保持冻结。审计快照生成需要 CANN_archive 中的历史 commit。
+R22 收到定性无收益反馈；R20 编译失败且无日志。旧源码、结果、提交包保持冻结。
+审计快照生成需要 CANN_archive 中的历史 commit。

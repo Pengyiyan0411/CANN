@@ -1,0 +1,66 @@
+--- R10
++++ R11_SINGLE_WAVE_EXPAND
+@@ -1,4 +1,4 @@
+-// R10_SINGLE_WAVE_GRID: independent R08 descendant; pending platform validation.
++// R11_SINGLE_WAVE_EXPAND: independent R10 descendant; pending platform validation.
+ // V8.3.1 probe P01 ROWMAX_EPILOGUE: shape-adaptive small-K Cube scheduler + reduction-aware epilogue + vector-tree [K,L] GEMV.
+ // Parent V8.0d is retained verbatim except its dispatcher name; V8.3 changes only the native small-K module/dispatcher.
+ // Not compiled with Bisheng / not NPU-validated in this environment.
+@@ -2552,7 +2552,7 @@
+     const uint64_t mr=PeakExtent(p.M,AM,p.pM),nr=PeakExtent(p.N,BN,p.pN);
+     return GridPeak{mt*nt,mr*nr,mr*nt+nr*mt};
+ }
+-static inline Plan MakePlan(int32_t B,int32_t M,int32_t N,int32_t K,int32_t cores){
++static inline Plan MakeR10Plan(int32_t B,int32_t M,int32_t N,int32_t K,int32_t cores){
+     Plan p{};p.B=B;p.M=M;p.N=N;p.K=K;
+     p.mTiles=bmms83::UpH(M,AM);p.nTiles=bmms83::UpH(N,BN);
+     cores=bmms83::MaxH(1,cores);
+@@ -2576,6 +2576,48 @@
+            (peak.cells<bestCells||(peak.cells==bestCells&&
+            (peak.input<bestInput||(peak.input==bestInput&&pn<best.pN)))))){
+             best=candidate;bestTiles=peak.tiles;bestCells=peak.cells;bestInput=peak.input;
++        }
++    }
++    return best;
++}
++
++// Used once, only for the old short second wave; not once per candidate.
++static inline GridPeak ExistingPeak(const Plan& p){
++    GridPeak peak{};
++    for(int group=0;group<p.blocks;++group){
++        uint64_t tiles=0,cells=0,input=0;
++        for(int task=group;task<p.tasks;task+=p.blocks){
++            const int slot=task%(p.pM*p.pN),ms=slot/p.pN,ns=slot%p.pN;
++            const int mt0=ms*p.mTiles/p.pM,mt1=(ms+1)*p.mTiles/p.pM;
++            const int nt0=ns*p.nTiles/p.pN,nt1=(ns+1)*p.nTiles/p.pN;
++            const int mr=bmms83::MinH(mt1*AM,p.M)-mt0*AM;
++            const int nr=bmms83::MinH(nt1*BN,p.N)-nt0*BN;
++            tiles+=uint64_t(mt1-mt0)*(nt1-nt0);cells+=uint64_t(mr)*nr;
++            input+=uint64_t(mr)*(nt1-nt0)+uint64_t(nr)*(mt1-mt0);
++        }
++        if(tiles>peak.tiles)peak.tiles=tiles;if(cells>peak.cells)peak.cells=cells;
++        if(input>peak.input)peak.input=input;
++    }
++    return peak;
++}
++static inline Plan MakePlan(int32_t B,int32_t M,int32_t N,int32_t K,int32_t cores){
++    Plan p=MakeR10Plan(B,M,N,K,cores);
++    // Preserve every R10 decision. Only remove an old, incomplete second wave.
++    if(cores<1||cores>64||B>cores||cores%B||p.blocks!=cores||p.tasks<=cores)return p;
++    const GridPeak baseline=ExistingPeak(p);
++    Plan best=p;GridPeak bestPeak=baseline;
++    const int grid=cores/B;
++    for(int pm=1;pm<=bmms83::MinH(p.mTiles,grid);++pm){
++        if(grid%pm)continue;
++        const int pn=grid/pm;if(pn>p.nTiles)continue;
++        Plan candidate=p;candidate.pM=pm;candidate.pN=pn;candidate.tasks=cores;
++        const GridPeak peak=SingleWavePeak(candidate);
++        if(8*peak.tiles>7*baseline.tiles||8*peak.cells>7*baseline.cells||
++           8*peak.input>7*baseline.input)continue;
++        if(peak.tiles<bestPeak.tiles||(peak.tiles==bestPeak.tiles&&
++           (peak.cells<bestPeak.cells||(peak.cells==bestPeak.cells&&
++           (peak.input<bestPeak.input||(peak.input==bestPeak.input&&pn<best.pN)))))){
++            best=candidate;bestPeak=peak;
+         }
+     }
+     return best;

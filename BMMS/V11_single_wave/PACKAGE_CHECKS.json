@@ -1,0 +1,10 @@
+{
+  "file": "BMMS_V11_R11_R12_\u63d0\u4ea4\u5305.zip",
+  "sha256": "c1556bf66884b621decaae992c5acb95870e254e906070e1198c9d505712afc2",
+  "bytes": 113468,
+  "members": 6,
+  "R10_control_unchanged": true,
+  "independent_R10_descendants": true,
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false
+}

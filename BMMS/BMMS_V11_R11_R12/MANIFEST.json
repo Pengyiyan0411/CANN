@@ -1,0 +1,35 @@
+{
+  "base": "BMMS_V11_R09_R10/R10_SINGLE_WAVE_GRID.asc",
+  "base_sha256": "cd8f8d6383ca24d0e46ae14757e1fce8b639da4123cc3a2a0875664564fb3600",
+  "control": {
+    "file": "R10_CONTROL.asc",
+    "sha256": "cd8f8d6383ca24d0e46ae14757e1fce8b639da4123cc3a2a0875664564fb3600"
+  },
+  "variants": [
+    {
+      "version": "R11",
+      "file": "R11_SINGLE_WAVE_EXPAND.asc",
+      "sha256": "425db189f068ad963dadf2c537a96118b33a5035ef47c5e43dad2f81fd0ad223",
+      "platform_result_received": false
+    },
+    {
+      "version": "R12",
+      "file": "R12_PARALLEL_N_MERGE.asc",
+      "sha256": "c8ff69939a58da927f6df5ee1515725d131ab81f20243275c86b65b70e6394c5",
+      "platform_result_received": false
+    }
+  ],
+  "proof": {
+    "independent_R10_descendants": true,
+    "R10_native_and_residual_paths_unchanged": true,
+    "all_dispatch_guards_preserved": true,
+    "R11_existing_R10_decisions_preserved": true,
+    "R11_only_macro_host_plan_changed": true,
+    "R12_host_plan_and_producer_unchanged": true,
+    "R12_full_M_sum_preserved": true,
+    "R09_changes_not_included": true
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "known_numerical_limitations_remain": true
+}

@@ -1,0 +1,181 @@
+{
+  "scope": "local Windows CPU host microbenchmark, not NPU duration or TLE certification",
+  "environment": "Windows-11-10.0.26200-SP0",
+  "compiler": "g++.EXE (Rev13, Built by MSYS2 project) 15.2.0",
+  "samples": 5,
+  "calls_per_sample": 1000,
+  "source_sha256": {
+    "V11_recovery/one_wave_macro_fragment.asc": "c3816d9e99ca3bedbc2ce36632c9cfe1c3c73031533d9900d8ac0155b72b7d20",
+    "V11_single_wave/expanded_macro_fragment.asc": "afc84585dded154626a1770af8ec31838fa2e3eca666810e0292b27c1f462f4b"
+  },
+  "runs": [
+    {
+      "shape": [
+        1,
+        512,
+        768,
+        256
+      ],
+      "cores": 6,
+      "R10_grid": [
+        4,
+        2
+      ],
+      "R11_grid": [
+        2,
+        3
+      ],
+      "R10_tasks": 8,
+      "R11_tasks": 6,
+      "R10_host_median_us": 0.0044,
+      "R11_host_median_us": 0.103
+    },
+    {
+      "shape": [
+        1,
+        1024,
+        1024,
+        256
+      ],
+      "cores": 20,
+      "R10_grid": [
+        8,
+        3
+      ],
+      "R11_grid": [
+        5,
+        4
+      ],
+      "R10_tasks": 24,
+      "R11_tasks": 20,
+      "R10_host_median_us": 0.0043,
+      "R11_host_median_us": 0.2564
+    },
+    {
+      "shape": [
+        1,
+        384,
+        768,
+        256
+      ],
+      "cores": 5,
+      "R10_grid": [
+        3,
+        2
+      ],
+      "R11_grid": [
+        3,
+        2
+      ],
+      "R10_tasks": 6,
+      "R11_tasks": 6,
+      "R10_host_median_us": 0.0043,
+      "R11_host_median_us": 0.0729
+    },
+    {
+      "shape": [
+        1,
+        4096,
+        4096,
+        256
+      ],
+      "cores": 20,
+      "R10_grid": [
+        5,
+        4
+      ],
+      "R11_grid": [
+        5,
+        4
+      ],
+      "R10_tasks": 20,
+      "R11_tasks": 20,
+      "R10_host_median_us": 0.0664,
+      "R11_host_median_us": 0.0627
+    },
+    {
+      "shape": [
+        8,
+        4096,
+        4096,
+        256
+      ],
+      "cores": 20,
+      "R10_grid": [
+        3,
+        1
+      ],
+      "R11_grid": [
+        3,
+        1
+      ],
+      "R10_tasks": 24,
+      "R11_tasks": 24,
+      "R10_host_median_us": 0.0043,
+      "R11_host_median_us": 0.0052
+    },
+    {
+      "shape": [
+        3,
+        896,
+        2048,
+        256
+      ],
+      "cores": 60,
+      "R10_grid": [
+        7,
+        3
+      ],
+      "R11_grid": [
+        5,
+        4
+      ],
+      "R10_tasks": 63,
+      "R11_tasks": 60,
+      "R10_host_median_us": 0.0043,
+      "R11_host_median_us": 0.6347
+    },
+    {
+      "shape": [
+        1,
+        8064,
+        8192,
+        256
+      ],
+      "cores": 64,
+      "R10_grid": [
+        63,
+        2
+      ],
+      "R11_grid": [
+        63,
+        2
+      ],
+      "R10_tasks": 126,
+      "R11_tasks": 126,
+      "R10_host_median_us": 0.0045,
+      "R11_host_median_us": 1.2954
+    },
+    {
+      "shape": [
+        1,
+        8192,
+        8192,
+        256
+      ],
+      "cores": 64,
+      "R10_grid": [
+        64,
+        1
+      ],
+      "R11_grid": [
+        64,
+        1
+      ],
+      "R10_tasks": 64,
+      "R11_tasks": 64,
+      "R10_host_median_us": 0.1207,
+      "R11_host_median_us": 0.122
+    }
+  ]
+}

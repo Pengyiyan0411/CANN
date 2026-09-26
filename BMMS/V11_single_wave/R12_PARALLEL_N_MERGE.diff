@@ -1,0 +1,97 @@
+--- R10
++++ R12_PARALLEL_N_MERGE
+@@ -1,4 +1,4 @@
+-// R10_SINGLE_WAVE_GRID: independent R08 descendant; pending platform validation.
++// R12_PARALLEL_N_MERGE: independent R10 descendant; pending platform validation.
+ // V8.3.1 probe P01 ROWMAX_EPILOGUE: shape-adaptive small-K Cube scheduler + reduction-aware epilogue + vector-tree [K,L] GEMV.
+ // Parent V8.0d is retained verbatim except its dispatcher name; V8.3 changes only the native small-K module/dispatcher.
+ // Not compiled with Bisheng / not NPU-validated in this environment.
+@@ -2582,7 +2582,7 @@
+ }
+ 
+ static inline uint64_t RingBytes(const Plan& p){return uint64_t(p.blocks)*2*MACRO_ELEMS*4ULL;}
+-static inline uint64_t PartialBytes(const Plan& p){return uint64_t(p.B)*p.pN*p.M*4ULL;}
++static inline uint64_t PartialBytes(const Plan& p){return uint64_t(p.B)*(p.pN+1)*p.M*4ULL;}
+ static inline uint64_t WorkspaceBytes(const Plan& p){return RingBytes(p)+PartialBytes(p);}
+ 
+ template<class T,bool TA,bool TB>
+@@ -2747,13 +2747,58 @@
+     __aicore__ inline void Init(GM_ADDR r,GM_ADDR pt,GM_ADDR y,const Plan& plan,AscendC::TPipe* pipe){
+         p=plan;pipe_=pipe;
+         ring.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(r),int64_t(p.blocks)*2*MACRO_ELEMS);
+-        part.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(pt),int64_t(p.B)*p.pN*p.M);
++        part.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(pt),int64_t(p.B)*(p.pN+1)*p.M);
+         out.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(y),p.B);
+         pipe->InitBuffer(cq,1,(TM/2)*TN*4);pipe->InitBuffer(oq,1,32);
+         pipe->InitBuffer(groupBuf,(TM/2)*TN*4);pipe->InitBuffer(rowBuf,(TM/2)*4);
+         pipe->InitBuffer(runningBuf,AM*4);pipe->InitBuffer(mergedBuf,p.M*4);
+         pipe->InitBuffer(tmpBuf,p.M*4);pipe->InitBuffer(sumBuf,p.M*4);
+     }
++    // Public only so the source CPU harness can also exercise the reduction stage in isolation.
++    __aicore__ inline void FinishReduction(){
++        const int worker=AscendC::GetBlockIdx();
++        auto merged=mergedBuf.Get<float>(),tmp=tmpBuf.Get<float>();
++        const bool parallelMerge=p.pN>=4&&p.M>=1024;
++        const int64_t scratchBase=int64_t(p.B)*p.pN*p.M;
++        if(parallelMerge){
++            const int chunks=(p.M+AM-1)/AM;
++            auto accum=runningBuf.Get<float>();
++            for(int job=worker;job<p.B*chunks;job+=2*p.blocks){
++                const int batch=job/chunks,row=(job%chunks)*AM,mr=MinI(AM,p.M-row);
++                const int64_t start=int64_t(batch)*p.pN*p.M+row;
++                AscendC::DataCopyExtParams cp{1,uint32_t(mr*4),0,0,0};
++                AscendC::DataCopyPadExtParams<float> pad{false,0,0,0.0f};
++                AscendC::DataCopyPad(merged,part[start],cp,pad);
++                bmms71::Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
++                for(int ns=1;ns<p.pN;++ns){
++                    AscendC::DataCopyPad(tmp,part[start+int64_t(ns)*p.M],cp,pad);
++                    bmms71::Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
++                    if(ns==1)AscendC::Max(accum,merged,tmp,mr);
++                    else AscendC::Max(accum,accum,tmp,mr);
++                    bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++                }
++                bmms71::Fence<AscendC::HardEvent::V_MTE3>(*pipe_);
++                AscendC::DataCopyPad(part[scratchBase+int64_t(batch)*p.M+row],accum,cp);
++                bmms71::Fence<AscendC::HardEvent::MTE3_V>(*pipe_);
++            }
++            // All AIVs participate, including workers with no row chunk.
++            bmms71::Fence<AscendC::HardEvent::MTE3_MTE2>(*pipe_);
++            AscendC::SyncAll<true>(); // MERGE_COMPLETE_BARRIER
++        }
++        for(int batch=worker;batch<p.B;batch+=2*p.blocks){
++            const int64_t start=parallelMerge?scratchBase+int64_t(batch)*p.M:int64_t(batch)*p.pN*p.M;
++            AscendC::DataCopy(merged,part[start],p.M);bmms71::Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
++            if(!parallelMerge)for(int ns=1;ns<p.pN;++ns){
++                AscendC::DataCopy(tmp,part[start+int64_t(ns)*p.M],p.M);bmms71::Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
++                AscendC::Max(merged,merged,tmp,p.M);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++            }
++            // Keep the original full-M ReduceSum and its input order; never sum per chunk.
++            auto yy=oq.AllocTensor<float>();AscendC::ReduceSum(yy,merged,sumBuf.Get<float>(),p.M);
++            oq.EnQue(yy);yy=oq.DeQue<float>();AscendC::DataCopyExtParams oc{1,4,0,0,0};
++            AscendC::DataCopyPad(out[batch],yy,oc);oq.FreeTensor(yy);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++        }
++    }
++
+     __aicore__ inline void Process(){
+         const int worker=AscendC::GetBlockIdx(),group=worker/2,sub=worker%2;
+         const int perBatch=p.pM*p.pN;
+@@ -2805,18 +2850,7 @@
+             }
+         }
+         bmms71::Fence<AscendC::HardEvent::MTE3_MTE2>(*pipe_);AscendC::SyncAll<true>();
+-        auto merged=mergedBuf.Get<float>(),tmp=tmpBuf.Get<float>();
+-        for(int batch=worker;batch<p.B;batch+=2*p.blocks){
+-            const int64_t start=int64_t(batch)*p.pN*p.M;
+-            AscendC::DataCopy(merged,part[start],p.M);bmms71::Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
+-            for(int ns=1;ns<p.pN;++ns){
+-                AscendC::DataCopy(tmp,part[start+int64_t(ns)*p.M],p.M);bmms71::Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
+-                AscendC::Max(merged,merged,tmp,p.M);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
+-            }
+-            auto yy=oq.AllocTensor<float>();AscendC::ReduceSum(yy,merged,sumBuf.Get<float>(),p.M);
+-            oq.EnQue(yy);yy=oq.DeQue<float>();AscendC::DataCopyExtParams oc{1,4,0,0,0};
+-            AscendC::DataCopyPad(out[batch],yy,oc);oq.FreeTensor(yy);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
+-        }
++        FinishReduction();
+     }
+ };
+ 

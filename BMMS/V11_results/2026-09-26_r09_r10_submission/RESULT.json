@@ -1,0 +1,243 @@
+{
+  "evidence": {
+    "R09": {
+      "feedback_type": "qualitative_user_report",
+      "user_statement": "r09没啥收益",
+      "local_source_sha256": "adbfa14b092c1a5e5563307eaf1f3f3bedfb2c070235625ef62864e514a1c1c0",
+      "platform_source_digest_available": false,
+      "timings_available": false,
+      "pass_count": null,
+      "score": null,
+      "decision": "do not merge"
+    },
+    "R10": {
+      "explicit_user_label": true,
+      "user_statement": "r10收益稳定且明显 典型如下",
+      "status": "Pass",
+      "pass_count": 15,
+      "case_count": 15,
+      "local_source_sha256": "cd8f8d6383ca24d0e46ae14757e1fce8b639da4123cc3a2a0875664564fb3600",
+      "platform_source_digest_available": false,
+      "screenshot_sha256": "b31f8b8abd4bd2dfdcb15848af5132cdf99d9b7fefdea7167cd01e5db8030a7e",
+      "times_us": [
+        2.63,
+        5.54,
+        5.27,
+        6.44,
+        7.49,
+        14.52,
+        10.73,
+        92.14,
+        70.81,
+        84.1,
+        135.77,
+        123.63,
+        16.86,
+        14.26,
+        37.49
+      ],
+      "displayed_error_pct": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "user_reports_stable_benefit": true,
+      "quantitative_screenshots_received": 1,
+      "repeat_count_available": false,
+      "raw_repeat_samples_available": false
+    }
+  },
+  "T_us": [
+    1.22,
+    1.58,
+    2.16,
+    2.92,
+    1.9,
+    7.23,
+    3.7,
+    17.32,
+    51.77,
+    72.47,
+    74.82,
+    91.2,
+    5.21,
+    7.09,
+    9.04
+  ],
+  "T14_previous": 7.1,
+  "T14_current": 7.09,
+  "scores_same_current_T": {
+    "R04": 34.273808524833484,
+    "R05": 34.57693672058072,
+    "R06": 34.103171818637016,
+    "R08": 34.80519177894085,
+    "R10": 36.17075401349409
+  },
+  "rows": [
+    {
+      "case": 1,
+      "R04_us": 2.64,
+      "R05_us": 2.56,
+      "R06_us": 2.42,
+      "R08_us": 2.65,
+      "R10_us": 2.63,
+      "T_us": 1.22,
+      "R10_vs_R08_time_delta_pct": -0.7547169811320753
+    },
+    {
+      "case": 2,
+      "R04_us": 5.58,
+      "R05_us": 5.62,
+      "R06_us": 5.8,
+      "R08_us": 5.39,
+      "R10_us": 5.54,
+      "T_us": 1.58,
+      "R10_vs_R08_time_delta_pct": 2.782931354359941
+    },
+    {
+      "case": 3,
+      "R04_us": 5.69,
+      "R05_us": 5.06,
+      "R06_us": 5.1,
+      "R08_us": 5.36,
+      "R10_us": 5.27,
+      "T_us": 2.16,
+      "R10_vs_R08_time_delta_pct": -1.679104477611959
+    },
+    {
+      "case": 4,
+      "R04_us": 6.48,
+      "R05_us": 6.52,
+      "R06_us": 6.64,
+      "R08_us": 6.44,
+      "R10_us": 6.44,
+      "T_us": 2.92,
+      "R10_vs_R08_time_delta_pct": 0.0
+    },
+    {
+      "case": 5,
+      "R04_us": 7.25,
+      "R05_us": 7.17,
+      "R06_us": 7.77,
+      "R08_us": 7.15,
+      "R10_us": 7.49,
+      "T_us": 1.9,
+      "R10_vs_R08_time_delta_pct": 4.7552447552447585
+    },
+    {
+      "case": 6,
+      "R04_us": 14.96,
+      "R05_us": 14.68,
+      "R06_us": 15.36,
+      "R08_us": 14.48,
+      "R10_us": 14.52,
+      "T_us": 7.23,
+      "R10_vs_R08_time_delta_pct": 0.2762430939226457
+    },
+    {
+      "case": 7,
+      "R04_us": 10.92,
+      "R05_us": 10.93,
+      "R06_us": 11.24,
+      "R08_us": 10.74,
+      "R10_us": 10.73,
+      "T_us": 3.7,
+      "R10_vs_R08_time_delta_pct": -0.09310986964617962
+    },
+    {
+      "case": 8,
+      "R04_us": 92.45,
+      "R05_us": 91.93,
+      "R06_us": 93.65,
+      "R08_us": 91.57,
+      "R10_us": 92.14,
+      "T_us": 17.32,
+      "R10_vs_R08_time_delta_pct": 0.6224746095883082
+    },
+    {
+      "case": 9,
+      "R04_us": 70.2,
+      "R05_us": 70.08,
+      "R06_us": 71.53,
+      "R08_us": 70.95,
+      "R10_us": 70.81,
+      "T_us": 51.77,
+      "R10_vs_R08_time_delta_pct": -0.19732205778717482
+    },
+    {
+      "case": 10,
+      "R04_us": 108.44,
+      "R05_us": 106.27,
+      "R06_us": 108.43,
+      "R08_us": 106.62,
+      "R10_us": 84.1,
+      "T_us": 72.47,
+      "R10_vs_R08_time_delta_pct": -21.121740761583197
+    },
+    {
+      "case": 11,
+      "R04_us": 135.29,
+      "R05_us": 135.44,
+      "R06_us": 136.39,
+      "R08_us": 134.38,
+      "R10_us": 135.77,
+      "T_us": 74.82,
+      "R10_vs_R08_time_delta_pct": 1.0343801160887178
+    },
+    {
+      "case": 12,
+      "R04_us": 123.55,
+      "R05_us": 124.25,
+      "R06_us": 124.78,
+      "R08_us": 123.61,
+      "R10_us": 123.63,
+      "T_us": 91.2,
+      "R10_vs_R08_time_delta_pct": 0.016179920718384366
+    },
+    {
+      "case": 13,
+      "R04_us": 18.9,
+      "R05_us": 18.88,
+      "R06_us": 19.47,
+      "R08_us": 16.57,
+      "R10_us": 16.86,
+      "T_us": 5.21,
+      "R10_vs_R08_time_delta_pct": 1.7501508750754402
+    },
+    {
+      "case": 14,
+      "R04_us": 15.28,
+      "R05_us": 15.3,
+      "R06_us": 15.64,
+      "R08_us": 14.34,
+      "R10_us": 14.26,
+      "T_us": 7.09,
+      "R10_vs_R08_time_delta_pct": -0.557880055788007
+    },
+    {
+      "case": 15,
+      "R04_us": 35.76,
+      "R05_us": 37.38,
+      "R06_us": 37.63,
+      "R08_us": 35.92,
+      "R10_us": 37.49,
+      "T_us": 9.04,
+      "R10_vs_R08_time_delta_pct": 4.370824053452127
+    }
+  ],
+  "working_baseline": "R10",
+  "statistical_confidence_interval_available": false,
+  "R07_runtime_case5_TLE_root_cause_confirmed": false
+}

@@ -1,0 +1,54 @@
+{
+  "device_test": false,
+  "cann_compiled": false,
+  "compiler": "g++.EXE (Rev13, Built by MSYS2 project) 15.2.0",
+  "scope": "Real extracted C++ against explicit CPU memory/layout/event-credit models; not a hardware simulator.",
+  "runs": {
+    "128": {
+      "device_test": false,
+      "cann_compiled": false,
+      "k_block": 128,
+      "source_runs": 288,
+      "repeat_pairs": 144,
+      "plans_checked": 4296,
+      "dense_runs": 208,
+      "splitk_runs": 80,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "exit_code": 0
+    },
+    "64": {
+      "device_test": false,
+      "cann_compiled": false,
+      "k_block": 64,
+      "source_runs": 208,
+      "repeat_pairs": 104,
+      "plans_checked": 4296,
+      "dense_runs": 208,
+      "splitk_runs": 0,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "exit_code": 0
+    }
+  },
+  "source_manifest": {
+    "baseline_sha256": "138cb8066c437f9373eec4e08340b77367eedc8440ebbfeb078944cba874a969",
+    "scope": "Source-extracted CPU model, not a CANN compilation or device run",
+    "dense": {
+      "source_sha256": "e2455c63a4a1da3eed20ab770f73181c14539aa501443b3826fdfd38972d1698",
+      "extracted_sha256": "d26b1f24ecf75a718d3019feadb150d73c537f1ea0da2a6d3c3c75be9bddabed"
+    },
+    "splitk": {
+      "source_sha256": "2f81ac6dfdba00f5a56ae2c0a894bfa99d1cdf658238592c5d6481478f82f2e1",
+      "extracted_sha256": "65834830ebb036fd79a610ff5c37e49903773754b6f0de54f43556f19d79382c"
+    }
+  },
+  "harness_sha256": {
+    "source_checks.cpp": "0932b5fc38f116b14c4857cafbab208e02abe09e0642a3305d80e71f6644a078",
+    "cube_model.hpp": "dd03742bded1885f5c18e91a984113788b1266e06fe5428f897b1fff017884ab",
+    "cpu_shim.hpp": "de12c33c71a866bda28156dad5adfdee20e863760f33c3931963049e8bcd360e",
+    "prepare_cpu.py": "b5b53558f5a4873971bfa115a5e5382b0d01c2a133cedd7ede90962de6bd8f52"
+  }
+}

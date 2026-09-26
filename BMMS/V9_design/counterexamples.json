@@ -1,0 +1,279 @@
+{
+  "scope": "CPU mathematical counterexamples; no NPU run or compiler test",
+  "fp32_c_loss": {
+    "shape": [
+      1,
+      8192,
+      16,
+      32
+    ],
+    "stored_dtype": "float16",
+    "exact_dot_pair": [
+      1.0000000298023224,
+      -1.0
+    ],
+    "repeats": 4096,
+    "golden": 0.0001220703125,
+    "rounded_c_then_exact_sum": 0.0,
+    "abs_error": 0.0001220703125,
+    "rel_error": 1.0,
+    "strict_pass": false,
+    "combined_pass": false
+  },
+  "n_shard_scalar": {
+    "C": [
+      [
+        10.0,
+        9.0
+      ],
+      [
+        9.0,
+        10.0
+      ]
+    ],
+    "golden": 20.0,
+    "max_of_shard_sums": 19.0,
+    "sum_of_shard_sums": 38.0
+  },
+  "split_k_early_max": {
+    "partials": [
+      [
+        10.0,
+        0.0
+      ],
+      [
+        -10.0,
+        1.0
+      ]
+    ],
+    "golden": 1.0,
+    "sum_of_partial_max": 11.0
+  },
+  "n1_naive_fp32": {
+    "stored_dtype": "bfloat16 (exact powers and one)",
+    "values": [
+      16777216.0,
+      1.0,
+      -16777216.0
+    ],
+    "golden": 1.0,
+    "sequential_fp32": 0.0
+  },
+  "finite_bf16_overflow": {
+    "shape": [
+      1,
+      1,
+      1,
+      32
+    ],
+    "nonzero_input": 1.8446744073709552e+19,
+    "fp64_dot": 3.402823669209385e+38,
+    "fp32_finite": false,
+    "fp32_result": "+Inf"
+  },
+  "fp16_output_bound": {
+    "max_abs_y": 2.8794896989447782e+17,
+    "fp32_max": 3.4028234663852886e+38
+  },
+  "blocked_oracle": {
+    "layout_block_comparisons": 24,
+    "comparisons": [
+      {
+        "dtype": "float16",
+        "ta": false,
+        "tb": false,
+        "m_block": 1,
+        "n_block": 1,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "float16",
+        "ta": false,
+        "tb": false,
+        "m_block": 3,
+        "n_block": 7,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "float16",
+        "ta": false,
+        "tb": false,
+        "m_block": 64,
+        "n_block": 128,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "float16",
+        "ta": false,
+        "tb": true,
+        "m_block": 1,
+        "n_block": 1,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "float16",
+        "ta": false,
+        "tb": true,
+        "m_block": 3,
+        "n_block": 7,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "float16",
+        "ta": false,
+        "tb": true,
+        "m_block": 64,
+        "n_block": 128,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "float16",
+        "ta": true,
+        "tb": false,
+        "m_block": 1,
+        "n_block": 1,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "float16",
+        "ta": true,
+        "tb": false,
+        "m_block": 3,
+        "n_block": 7,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "float16",
+        "ta": true,
+        "tb": false,
+        "m_block": 64,
+        "n_block": 128,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "float16",
+        "ta": true,
+        "tb": true,
+        "m_block": 1,
+        "n_block": 1,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "float16",
+        "ta": true,
+        "tb": true,
+        "m_block": 3,
+        "n_block": 7,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "float16",
+        "ta": true,
+        "tb": true,
+        "m_block": 64,
+        "n_block": 128,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": false,
+        "tb": false,
+        "m_block": 1,
+        "n_block": 1,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": false,
+        "tb": false,
+        "m_block": 3,
+        "n_block": 7,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": false,
+        "tb": false,
+        "m_block": 64,
+        "n_block": 128,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": false,
+        "tb": true,
+        "m_block": 1,
+        "n_block": 1,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": false,
+        "tb": true,
+        "m_block": 3,
+        "n_block": 7,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": false,
+        "tb": true,
+        "m_block": 64,
+        "n_block": 128,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": true,
+        "tb": false,
+        "m_block": 1,
+        "n_block": 1,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": true,
+        "tb": false,
+        "m_block": 3,
+        "n_block": 7,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": true,
+        "tb": false,
+        "m_block": 64,
+        "n_block": 128,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": true,
+        "tb": true,
+        "m_block": 1,
+        "n_block": 1,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": true,
+        "tb": true,
+        "m_block": 3,
+        "n_block": 7,
+        "bitwise_equal": true
+      },
+      {
+        "dtype": "bfloat16_decoded",
+        "ta": true,
+        "tb": true,
+        "m_block": 64,
+        "n_block": 128,
+        "bitwise_equal": true
+      }
+    ],
+    "cancellation_preserved": true,
+    "all_negative_correct": true,
+    "rejected_invalid_inputs": 3,
+    "limitation": "CPU oracle tests, not a device precision certification"
+  }
+}

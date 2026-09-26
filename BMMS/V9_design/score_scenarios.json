@@ -1,0 +1,9 @@
+{
+  "note": "Frozen historical T; scenarios are arithmetic, not predictions.",
+  "values": {
+    "P01": 34.05989266288813,
+    "C01": 33.14278376388785,
+    "restore_case15_v7_only": 34.83617806490576,
+    "hypothetical_all_20_percent_faster": 42.98387609894788
+  }
+}

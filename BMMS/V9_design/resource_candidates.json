@@ -1,0 +1,200 @@
+[
+  {
+    "L1_shape": [
+      32,
+      64,
+      128
+    ],
+    "L0_shape": [
+      32,
+      64,
+      32
+    ],
+    "stages_L1_AB": 2,
+    "stages_L0_AB": 2,
+    "stages_L0C": 1,
+    "live_bytes": {
+      "L1": 49152,
+      "L0A": 4096,
+      "L0B": 8192,
+      "L0C": 8192,
+      "UB": 119072
+    },
+    "capacity_bytes": {
+      "L1": 524288,
+      "L0A": 65536,
+      "L0B": 65536,
+      "L0C": 131072,
+      "UB": 196608
+    },
+    "violations": [],
+    "raw_resource_fit": true,
+    "note": "Arithmetic only; API scratch/alignment and compiler allocation still require verification."
+  },
+  {
+    "L1_shape": [
+      64,
+      128,
+      256
+    ],
+    "L0_shape": [
+      64,
+      128,
+      64
+    ],
+    "stages_L1_AB": 2,
+    "stages_L0_AB": 2,
+    "stages_L0C": 1,
+    "live_bytes": {
+      "L1": 196608,
+      "L0A": 16384,
+      "L0B": 32768,
+      "L0C": 32768,
+      "UB": 156192
+    },
+    "capacity_bytes": {
+      "L1": 524288,
+      "L0A": 65536,
+      "L0B": 65536,
+      "L0C": 131072,
+      "UB": 196608
+    },
+    "violations": [],
+    "raw_resource_fit": true,
+    "note": "Arithmetic only; API scratch/alignment and compiler allocation still require verification."
+  },
+  {
+    "L1_shape": [
+      128,
+      128,
+      128
+    ],
+    "L0_shape": [
+      128,
+      128,
+      64
+    ],
+    "stages_L1_AB": 2,
+    "stages_L0_AB": 2,
+    "stages_L0C": 1,
+    "live_bytes": {
+      "L1": 131072,
+      "L0A": 32768,
+      "L0B": 32768,
+      "L0C": 65536,
+      "UB": 205856
+    },
+    "capacity_bytes": {
+      "L1": 524288,
+      "L0A": 65536,
+      "L0B": 65536,
+      "L0C": 131072,
+      "UB": 196608
+    },
+    "violations": [
+      "UB"
+    ],
+    "raw_resource_fit": false,
+    "note": "Arithmetic only; API scratch/alignment and compiler allocation still require verification."
+  },
+  {
+    "L1_shape": [
+      64,
+      256,
+      128
+    ],
+    "L0_shape": [
+      64,
+      256,
+      64
+    ],
+    "stages_L1_AB": 2,
+    "stages_L0_AB": 2,
+    "stages_L0C": 1,
+    "live_bytes": {
+      "L1": 163840,
+      "L0A": 16384,
+      "L0B": 65536,
+      "L0C": 65536,
+      "UB": 205344
+    },
+    "capacity_bytes": {
+      "L1": 524288,
+      "L0A": 65536,
+      "L0B": 65536,
+      "L0C": 131072,
+      "UB": 196608
+    },
+    "violations": [
+      "UB"
+    ],
+    "raw_resource_fit": false,
+    "note": "Arithmetic only; API scratch/alignment and compiler allocation still require verification."
+  },
+  {
+    "L1_shape": [
+      128,
+      256,
+      128
+    ],
+    "L0_shape": [
+      128,
+      256,
+      64
+    ],
+    "stages_L1_AB": 2,
+    "stages_L0_AB": 2,
+    "stages_L0C": 1,
+    "live_bytes": {
+      "L1": 196608,
+      "L0A": 32768,
+      "L0B": 65536,
+      "L0C": 131072,
+      "UB": 304160
+    },
+    "capacity_bytes": {
+      "L1": 524288,
+      "L0A": 65536,
+      "L0B": 65536,
+      "L0C": 131072,
+      "UB": 196608
+    },
+    "violations": [
+      "UB"
+    ],
+    "raw_resource_fit": false,
+    "note": "Arithmetic only; API scratch/alignment and compiler allocation still require verification."
+  },
+  {
+    "L1_shape": [
+      64,
+      128,
+      512
+    ],
+    "L0_shape": [
+      64,
+      128,
+      64
+    ],
+    "stages_L1_AB": 2,
+    "stages_L0_AB": 2,
+    "stages_L0C": 1,
+    "live_bytes": {
+      "L1": 393216,
+      "L0A": 16384,
+      "L0B": 32768,
+      "L0C": 32768,
+      "UB": 156192
+    },
+    "capacity_bytes": {
+      "L1": 524288,
+      "L0A": 65536,
+      "L0B": 65536,
+      "L0C": 131072,
+      "UB": 196608
+    },
+    "violations": [],
+    "raw_resource_fit": true,
+    "note": "Arithmetic only; API scratch/alignment and compiler allocation still require verification."
+  }
+]

@@ -1,0 +1,168 @@
+{
+  "variant": "S01_SMALL_NT_PAIR",
+  "submission_id": null,
+  "compile_error": null,
+  "source_binding": "User identified filename; SHA is local packaged source, not platform-verified",
+  "reported_execution": "15/15 Pass screenshot; raw compilation logs not supplied",
+  "screenshot": "S01_SMALL_NT_PAIR.png",
+  "screenshot_sha256": "629a10aa2675671a90e432004486eeb42e5dabc662837c021a3675cc923f3da7",
+  "error_display": "0.00% on each row; rounded display, not exact-error proof",
+  "rows": [
+    {
+      "case": 1,
+      "status": "Pass",
+      "latency_us": 2.34,
+      "best_us": 1.22,
+      "p01_us": 2.41,
+      "relative_to_p01_percent": -2.904564315352709,
+      "T_used": 1.22,
+      "mean_score_delta_vs_P01": 0.06941021860338216
+    },
+    {
+      "case": 2,
+      "status": "Pass",
+      "latency_us": 5.8,
+      "best_us": 1.58,
+      "p01_us": 5.57,
+      "relative_to_p01_percent": 4.129263913824044,
+      "T_used": 1.58,
+      "mean_score_delta_vs_P01": -0.03849798229806633
+    },
+    {
+      "case": 3,
+      "status": "Pass",
+      "latency_us": 5.22,
+      "best_us": 2.16,
+      "p01_us": 5.23,
+      "relative_to_p01_percent": -0.19120458891014325,
+      "T_used": 2.16,
+      "mean_score_delta_vs_P01": 0.003114567049630305
+    },
+    {
+      "case": 4,
+      "status": "Pass",
+      "latency_us": 6.42,
+      "best_us": 2.92,
+      "p01_us": 6.5,
+      "relative_to_p01_percent": -1.2307692307692353,
+      "T_used": 2.92,
+      "mean_score_delta_vs_P01": 0.02326710613329226
+    },
+    {
+      "case": 5,
+      "status": "Pass",
+      "latency_us": 7.33,
+      "best_us": 2.36,
+      "p01_us": 7.19,
+      "relative_to_p01_percent": 1.947148817802491,
+      "T_used": 2.36,
+      "mean_score_delta_vs_P01": -0.02229418863427905
+    },
+    {
+      "case": 6,
+      "status": "Pass",
+      "latency_us": 14.58,
+      "best_us": 7.23,
+      "p01_us": 14.41,
+      "relative_to_p01_percent": 1.179736294240108,
+      "T_used": 7.23,
+      "mean_score_delta_vs_P01": -0.02615324718386963
+    },
+    {
+      "case": 7,
+      "status": "Pass",
+      "latency_us": 13.6,
+      "best_us": 3.7,
+      "p01_us": 12.83,
+      "relative_to_p01_percent": 6.001558846453614,
+      "T_used": 3.7,
+      "mean_score_delta_vs_P01": -0.05596604135258095
+    },
+    {
+      "case": 8,
+      "status": "Pass",
+      "latency_us": 92.28,
+      "best_us": 17.32,
+      "p01_us": 90.82,
+      "relative_to_p01_percent": 1.6075754239154527,
+      "T_used": 17.32,
+      "mean_score_delta_vs_P01": -0.0100563431318245
+    },
+    {
+      "case": 9,
+      "status": "Pass",
+      "latency_us": 121.44,
+      "best_us": 52.01,
+      "p01_us": 119.83,
+      "relative_to_p01_percent": 1.3435700575815668,
+      "T_used": 52.01,
+      "mean_score_delta_vs_P01": -0.023209008746964816
+    },
+    {
+      "case": 10,
+      "status": "Pass",
+      "latency_us": 142.6,
+      "best_us": 72.47,
+      "p01_us": 141.21,
+      "relative_to_p01_percent": 0.9843495503151223,
+      "T_used": 72.47,
+      "mean_score_delta_vs_P01": -0.022809039514323122
+    },
+    {
+      "case": 11,
+      "status": "Pass",
+      "latency_us": 169.98,
+      "best_us": 74.82,
+      "p01_us": 171.7,
+      "relative_to_p01_percent": -1.0017472335468791,
+      "T_used": 74.82,
+      "mean_score_delta_vs_P01": 0.01795680850367726
+    },
+    {
+      "case": 12,
+      "status": "Pass",
+      "latency_us": 110.66,
+      "best_us": 91.2,
+      "p01_us": 108.87,
+      "relative_to_p01_percent": 1.6441627629282474,
+      "T_used": 91.2,
+      "mean_score_delta_vs_P01": -0.12635206463655965
+    },
+    {
+      "case": 13,
+      "status": "Pass",
+      "latency_us": 19.29,
+      "best_us": 5.21,
+      "p01_us": 17.92,
+      "relative_to_p01_percent": 7.645089285714279,
+      "T_used": 5.21,
+      "mean_score_delta_vs_P01": -0.070788499548573
+    },
+    {
+      "case": 14,
+      "status": "Pass",
+      "latency_us": 15.1,
+      "best_us": 7.1,
+      "p01_us": 14.99,
+      "relative_to_p01_percent": 0.7338225483655814,
+      "T_used": 7.1,
+      "mean_score_delta_vs_P01": -0.014779025750802552
+    },
+    {
+      "case": 15,
+      "status": "Pass",
+      "latency_us": 112.75,
+      "best_us": 9.04,
+      "p01_us": 110.22,
+      "relative_to_p01_percent": 2.2954091816367317,
+      "T_used": 9.04,
+      "mean_score_delta_vs_P01": -0.007206603194217465
+    }
+  ],
+  "source_sha256": "75d6e72c0df02cbff32765688270e239b6868b2a0e646ce0494ff507a2dbab3d",
+  "all_15_pass": true,
+  "computed_score": 31.79126224232799,
+  "score_basis": "provided_current_T",
+  "score_historical_T": 33.642612799755995,
+  "delta_score_vs_P01_current_T": -0.30436334370207874
+}

@@ -1,0 +1,10 @@
+{
+  "package_verified": true,
+  "baseline_unchanged": true,
+  "variants": 4,
+  "archive_entries": 11,
+  "synthetic_recorder_cases": 7,
+  "cann_compiled": false,
+  "npu_tested": false,
+  "archive_sha256": "2ab216063f27e947fcd678e28ec2a1138d16282e473c240b091de2b967524337"
+}

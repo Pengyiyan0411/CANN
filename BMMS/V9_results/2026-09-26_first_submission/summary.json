@@ -1,0 +1,78 @@
+{
+  "evidence": "User screenshots, explicitly labelled D01 and S01",
+  "record_date": "2026-09-26",
+  "submission_ids_provided": false,
+  "platform_source_hash_provided": false,
+  "local_npu_run": false,
+  "current_T_from_both_screenshots": [
+    1.22,
+    1.58,
+    2.16,
+    2.92,
+    2.36,
+    7.23,
+    3.7,
+    17.32,
+    52.01,
+    72.47,
+    74.82,
+    91.2,
+    5.21,
+    7.1,
+    9.04
+  ],
+  "historical_T": [
+    1.22,
+    1.58,
+    2.16,
+    2.92,
+    2.38,
+    7.23,
+    3.7,
+    17.32,
+    52.01,
+    72.47,
+    74.82,
+    91.2,
+    9.37,
+    10.11,
+    9.04
+  ],
+  "historical_P01_latency_us": [
+    2.41,
+    5.57,
+    5.23,
+    6.5,
+    7.19,
+    14.41,
+    12.83,
+    90.82,
+    119.83,
+    141.21,
+    171.7,
+    108.87,
+    17.92,
+    14.99,
+    110.22
+  ],
+  "P01_score_historical_T": 34.05989266288813,
+  "P01_score_current_T": 32.09562558603007,
+  "observations": [
+    {
+      "variant": "D01_DENSE_K128",
+      "source_sha256": "5b5204fc42ac174de5b30bfc20e03094311d56ffa3de2d5b4e5fe536d7580375",
+      "all_15_pass": true,
+      "computed_score": 28.253176125759257,
+      "score_historical_T": 30.15716529578484,
+      "delta_score_vs_P01_current_T": -3.84244946027081
+    },
+    {
+      "variant": "S01_SMALL_NT_PAIR",
+      "source_sha256": "75d6e72c0df02cbff32765688270e239b6868b2a0e646ce0494ff507a2dbab3d",
+      "all_15_pass": true,
+      "computed_score": 31.79126224232799,
+      "score_historical_T": 33.642612799755995,
+      "delta_score_vs_P01_current_T": -0.30436334370207874
+    }
+  ]
+}

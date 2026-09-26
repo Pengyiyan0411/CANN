@@ -1,0 +1,13 @@
+{
+  "status": "OFFLINE_DESIGN_CHECKS_ONLY",
+  "device_tests": 0,
+  "kernel_compilations": 0,
+  "precision_cases": 256,
+  "smoke_cases": 32,
+  "perf_cases": 64,
+  "perf_screen_cases": 16,
+  "shape_contract_checks": 320,
+  "partition_configurations": 7446,
+  "resource_candidates": 6,
+  "raw_resource_fit": 3
+}

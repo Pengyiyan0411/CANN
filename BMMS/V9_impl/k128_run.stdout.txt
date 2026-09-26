@@ -1,0 +1,1 @@
+{"device_test":false,"cann_compiled":false,"k_block":128,"source_runs":288,"repeat_pairs":144,"plans_checked":4296,"dense_runs":208,"splitk_runs":80,"strict_misses":0,"combined_misses":0,"max_abs":0}

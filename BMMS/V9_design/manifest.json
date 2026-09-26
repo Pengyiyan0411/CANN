@@ -1,0 +1,8 @@
+{
+  "precision_cases.jsonl": "23a61bc20b0df4463da57a5374723c209f081993dd6b5d69608870a5781d1f35",
+  "smoke_cases.jsonl": "d926d2062e61dd8e3b59d6d2901f8080b5421e36295ee1dd45e1f8b0ffbfd279",
+  "perf_cases.jsonl": "c6c47bc4bc4c0b9b58364cebc48d9d99b15f8d153ae23506d717d440caa0b538",
+  "perf_screen.jsonl": "96c3e31053ba6801eb2dbb67358cbcd700d23644ab35b3d312902d59486422f8",
+  "resource_candidates.json": "948df3061c18a1d0ab4216b796788d8c5449c78f96ffd2e4d4ab8241f2d957c8",
+  "../next_stage/C00_P01_CONTROL.asc": "138cb8066c437f9373eec4e08340b77367eedc8440ebbfeb078944cba874a969"
+}

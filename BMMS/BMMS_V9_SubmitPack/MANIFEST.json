@@ -1,0 +1,67 @@
+{
+  "purpose": "User-authorized platform experiments; not a certified replacement baseline",
+  "cann_compiled": false,
+  "npu_tested": false,
+  "precision_state": "KNOWN_NUMERICAL_COUNTEREXAMPLES; see README and precision review",
+  "baseline_sha256": "138cb8066c437f9373eec4e08340b77367eedc8440ebbfeb078944cba874a969",
+  "fragments": {
+    "dense": "e2455c63a4a1da3eed20ab770f73181c14539aa501443b3826fdfd38972d1698",
+    "splitk": "2f81ac6dfdba00f5a56ae2c0a894bfa99d1cdf658238592c5d6481478f82f2e1"
+  },
+  "variants": [
+    {
+      "id": "D01_DENSE_K128",
+      "file": "D01_DENSE_K128.asc",
+      "k_block": 128,
+      "small_nt": false,
+      "bytes": 135755,
+      "sha256": "5b5204fc42ac174de5b30bfc20e03094311d56ffa3de2d5b4e5fe536d7580375",
+      "description": "First dense experiment: full-K native producer; original P01 elsewhere.",
+      "entry_hooks": [
+        "if(bmms9d::TryLaunch(a,b,y,int32_t(B),int32_t(M),int32_t(N),int32_t(K),x.dtype,ta,tb,cores,stream))return;"
+      ]
+    },
+    {
+      "id": "D02_DENSE_K64",
+      "file": "D02_DENSE_K64.asc",
+      "k_block": 64,
+      "small_nt": false,
+      "bytes": 135753,
+      "sha256": "9e0f6ea8019494b1667973377740568cfad6a39b75c241b594feab91c3e69495",
+      "description": "Same dense routing/consumer as D01; only K block changes to 64.",
+      "entry_hooks": [
+        "if(bmms9d::TryLaunch(a,b,y,int32_t(B),int32_t(M),int32_t(N),int32_t(K),x.dtype,ta,tb,cores,stream))return;"
+      ]
+    },
+    {
+      "id": "S01_SMALL_NT_PAIR",
+      "file": "S01_SMALL_NT_PAIR.asc",
+      "k_block": null,
+      "small_nt": true,
+      "bytes": 134184,
+      "sha256": "75d6e72c0df02cbff32765688270e239b6868b2a0e646ce0494ff507a2dbab3d",
+      "description": "NT small-output Vector/K-shard path, hi/lo through Max and Sum; P01 elsewhere.",
+      "entry_hooks": [
+        "if(bmms9s::TryLaunch(a,ia,b,ib,y,iy,availableCoreNum,stream,ta,tb))return;"
+      ]
+    },
+    {
+      "id": "M01_DENSE128_PLUS_SMALL",
+      "file": "M01_DENSE128_PLUS_SMALL.asc",
+      "k_block": 128,
+      "small_nt": true,
+      "bytes": 146563,
+      "sha256": "fef6083b1b62e6bd31876354f46087d100e9eaf18c462a258c44e938f106a5ba",
+      "description": "Combined experiment; use only after independent D01/S01 assessment.",
+      "entry_hooks": [
+        "if(bmms9s::TryLaunch(a,ia,b,ib,y,iy,availableCoreNum,stream,ta,tb))return;",
+        "    if(bmms9d::TryLaunch(a,b,y,int32_t(B),int32_t(M),int32_t(N),int32_t(K),x.dtype,ta,tb,cores,stream))return;"
+      ]
+    }
+  ],
+  "control": {
+    "file": "P00_CONTROL_P01.asc",
+    "bytes": 123135,
+    "sha256": "138cb8066c437f9373eec4e08340b77367eedc8440ebbfeb078944cba874a969"
+  }
+}

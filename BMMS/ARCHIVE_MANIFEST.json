@@ -36,6 +36,31 @@
       "sha256": "d7f3d242a2aab8317b49365d09a646eb9fe1762bf5126afe4ce291396e9828da"
     },
     {
+      "path": "BMMS_V9_D04/CPU_CHECKS.json",
+      "bytes": 1980,
+      "sha256": "9632c5421fcc9d3778033f0b50c79ef12baf92ad76924bff85f8b56615093981"
+    },
+    {
+      "path": "BMMS_V9_D04/D04_DENSE_M128_N128.asc",
+      "bytes": 141429,
+      "sha256": "ceb9f79b5909d16b9ecaa598c2e07f83c586a780238ffc0c8d857e878742d98b"
+    },
+    {
+      "path": "BMMS_V9_D04/MANIFEST.json",
+      "bytes": 898,
+      "sha256": "63eb5fd94ab4fcb90c7593d733408c155db52fc609bb2d299c386b65012919eb"
+    },
+    {
+      "path": "BMMS_V9_D04/README.md",
+      "bytes": 3246,
+      "sha256": "44c8a7d48e4f50c2cb016bf54ae3f39c9b01db1272931d37d34b794e2cc4e2a7"
+    },
+    {
+      "path": "BMMS_V9_D04_提交包.zip",
+      "bytes": 35426,
+      "sha256": "9ad2f40d3167893116e4c13a51e17fd23baeda9c76c66f4534ab01b3f47f0c8c"
+    },
+    {
       "path": "BMMS_V9_SubmitPack/CPU_CHECKS.json",
       "bytes": 1952,
       "sha256": "cd8c7ff4be4c7883bb8f7fc300ab7d6bbfc341c190f3e35296820b4f7bb6bdcc"
@@ -202,8 +227,8 @@
     },
     {
       "path": "V9_impl/archive_to_repo.py",
-      "bytes": 2428,
-      "sha256": "4820956a93aad0bc8e0090de6a671a788f8bb3edea4b8092f85bdf7e639cb488"
+      "bytes": 2500,
+      "sha256": "733a244ef103a0064897bc6b6a34ec99fe7488d2f4a4a09a56752cceb18b4a2b"
     },
     {
       "path": "V9_impl/build_candidates.py",
@@ -214,6 +239,11 @@
       "path": "V9_impl/build_d03.py",
       "bytes": 3970,
       "sha256": "4afea2296414f9a4f311628db9fa668606d906fe3a2b198f5da2328b753417db"
+    },
+    {
+      "path": "V9_impl/build_d04.py",
+      "bytes": 4480,
+      "sha256": "ffea7fe30b2952f7f7f9c025c88c746d174d0bbb8df15ccb07a4431d204b2a2e"
     },
     {
       "path": "V9_impl/compiler.stderr.txt",
@@ -261,6 +291,21 @@
       "sha256": "fec7a940db3564de78779d5ee5e6c0a972681345e1f7e51c6257ddf1d403f7e9"
     },
     {
+      "path": "V9_impl/d04_checks.json",
+      "bytes": 1980,
+      "sha256": "9632c5421fcc9d3778033f0b50c79ef12baf92ad76924bff85f8b56615093981"
+    },
+    {
+      "path": "V9_impl/d04_delta.diff",
+      "bytes": 11683,
+      "sha256": "b3498b65f785fd11f9294b90486d7c882761eb9341bb57298c35a433490d4d7e"
+    },
+    {
+      "path": "V9_impl/d04_package_checks.json",
+      "bytes": 384,
+      "sha256": "1bd969f67b7600f16a301a2b77c2663f7fc6430c656790693d2ced6fbc16c914"
+    },
+    {
       "path": "V9_impl/dense_c2_fragment.asc",
       "bytes": 12384,
       "sha256": "c21fe8f9c88b60dcd1e5c716fcf77569dfe08c2702a4dfd9c0577262b8c8631d"
@@ -271,19 +316,29 @@
       "sha256": "e2455c63a4a1da3eed20ab770f73181c14539aa501443b3826fdfd38972d1698"
     },
     {
+      "path": "V9_impl/dense_m128_fragment.asc",
+      "bytes": 17903,
+      "sha256": "3f8ff72e52884ef73e8a814b44e21f59902d71c6e9e0d3f01fd12eb446577010"
+    },
+    {
       "path": "V9_impl/dense_notes.md",
       "bytes": 8106,
       "sha256": "8da1648f5e5a2981df91f95f1ddefc1bbe625d020199571ec6b7498ac5f4cc77"
     },
     {
       "path": "V9_impl/IMPLEMENTATION_STATUS.md",
-      "bytes": 3671,
-      "sha256": "ed4cdada503309d6750e8e0b88b587177f354fe4bcfff78d1c652e996bf0572c"
+      "bytes": 4137,
+      "sha256": "01ae31b2de1bd32b5a2d9b3aa38ab108051980c3ec1823542212461011402a37"
     },
     {
       "path": "V9_impl/ingest_d02_results.py",
       "bytes": 6210,
       "sha256": "348de9786425e3b483202898609c94bff8da2ea592a6e60bd2f2fb1a3e3e46ca"
+    },
+    {
+      "path": "V9_impl/ingest_d03_results.py",
+      "bytes": 6221,
+      "sha256": "364e89d9d0941baf30abf822473be94ffa4af155666fc714a8818f35416629b1"
     },
     {
       "path": "V9_impl/ingest_first_results.py",
@@ -341,6 +396,11 @@
       "sha256": "bd8fe86c85398f2b387771c19ac34c5f9884d9e1d3d02fc7a5dae137ed9959c0"
     },
     {
+      "path": "V9_impl/package_d04.py",
+      "bytes": 3285,
+      "sha256": "0b0896164d10077225764290df37ebd017ea6075a8c6e4e9755947267c049cfa"
+    },
+    {
       "path": "V9_impl/precision_review.md",
       "bytes": 9837,
       "sha256": "729b3886ec164cd217783f8a1af6f4e9cf8edee390676c6fb23c9eb5a6fb20c0"
@@ -379,6 +439,11 @@
       "path": "V9_impl/run_d03_checks.py",
       "bytes": 4222,
       "sha256": "4d496c641f24bc673b888beee538b1eedae4f78484652ab55bb67b82723b47c4"
+    },
+    {
+      "path": "V9_impl/run_d04_checks.py",
+      "bytes": 8419,
+      "sha256": "5be6cf89f0e989c717ed6c5bab7a398ae0f35a65bb56485a41e46765cfe12f78"
     },
     {
       "path": "V9_impl/semantics_results.json",
@@ -444,6 +509,26 @@
       "path": "V9_results/2026-09-26_d02_submission/summary.json",
       "bytes": 690,
       "sha256": "292d1c59485a62ac242329f78396bd265cc4e45f071b7facb63306a3ae132787"
+    },
+    {
+      "path": "V9_results/2026-09-26_d03_submission/AUDIT.md",
+      "bytes": 3402,
+      "sha256": "c88b38acceaf2c5a4e5e85cd29ab3f867d8cf48194e4e1d3a1a88aeb51863fdf"
+    },
+    {
+      "path": "V9_results/2026-09-26_d03_submission/D03_context_inferred.json",
+      "bytes": 5098,
+      "sha256": "d79f6c1ca81ee0e28391570af42a1bd2dd4e9c6e13a63077fef88952f1020b8d"
+    },
+    {
+      "path": "V9_results/2026-09-26_d03_submission/D03_context_inferred.png",
+      "bytes": 134715,
+      "sha256": "a9e2129aaaad5e36b35237689c1bdbcedfe96027b2421b16b77a015163231fbd"
+    },
+    {
+      "path": "V9_results/2026-09-26_d03_submission/summary.json",
+      "bytes": 487,
+      "sha256": "a9264a1f436861d638faada3cf65258eb55983efa493680894a735f672019260"
     },
     {
       "path": "V9_results/2026-09-26_first_submission/AUDIT.md",

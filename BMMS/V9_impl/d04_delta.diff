@@ -1,0 +1,216 @@
+--- D03/dense_c2_fragment.asc
++++ D04/dense_m128_fragment.asc
+@@ -1,18 +1,19 @@
+-// BMMS V9-D03: frozen D01 K128 with two independent L0C slots.
++// BMMS V9-D04: M128/N128/K128 blocks reuse B across more output rows.
+ // Insert after the bmms83 declarations/kernels and before run_kernel.
+ // Source-only candidate: no CANN compile, NPU precision, or timing validation.
+-// Uses the existing bmms83 row-max consumer and its exact tile traversal.
+-#ifndef BMMS9D_DENSE_FRAGMENT_INCLUDED
+-#define BMMS9D_DENSE_FRAGMENT_INCLUDED
+-#ifndef BMMS9D_K_BLOCK
+-#define BMMS9D_K_BLOCK 128
++// Uses a matching M128 row-max consumer; no external CATLASS dependency.
++#ifndef BMMS9R_DENSE_FRAGMENT_INCLUDED
++#define BMMS9R_DENSE_FRAGMENT_INCLUDED
++#ifndef BMMS9R_K_BLOCK
++#define BMMS9R_K_BLOCK 128
+ #endif
+ 
+-namespace bmms9d {
+-constexpr int32_t TM=64, TN=128, AM=256, BN=512, KB=BMMS9D_K_BLOCK;
+-static_assert(KB==64||KB==128,"BMMS9D_K_BLOCK must be 64 or 128");
++namespace bmms9r {
++constexpr int32_t TM=128, TN=128, AM=256, BN=512, KB=BMMS9R_K_BLOCK;
++static_assert(KB==128,"D04 freezes K stage at 128");
+ constexpr uint16_t READY=4, FREE=6;
+ using Plan=bmms83::NativePlan;
++using bmms83::MinI;
+ 
+ static inline bool Eligible(int32_t M,int32_t N,int32_t K){
+     return M>=16&&M<=8192&&N>=16&&N<=8192&&M%16==0&&N%16==0&&
+@@ -115,6 +116,9 @@
+             auto bb=b2Buf.template Get<T>()[stage*KB*TN];
+             AscendC::MmadParams q{};q.m=mr;q.n=nr;q.k=kr;q.cmatrixInitVal=(ki==0);
+             AscendC::Mmad(cc,aa,bb,q);
++            // Small output tiles need an explicit dependency between K MMADs.
++            // See official Mmad documentation and CATLASS v1.4 tile_mmad.hpp.
++            if((mr/16)*(nr/16)<10)AscendC::PipeBarrier<PIPE_M>();
+             AscendC::SetFlag<AscendC::HardEvent::M_MTE1>(l0Free[stage]);
+         }
+         // Drain exactly the outstanding credits, leaving all input slots
+@@ -164,7 +168,7 @@
+             const int mBegin=mt0*TM,mEnd=bmms83::MinI(mt1*TM,p.M);
+             const int nBegin=nt0*TN,nEnd=bmms83::MinI(nt1*TN,p.N);
+             // This AM/BN/mo/no order is a protocol, not just a loop preference:
+-            // it must match bmms83::SmallKConsumer for every task and tail.
++            // it must match this namespace's RowMaxConsumer for every task and tail.
+             for(int mBase=mBegin;mBase<mEnd;mBase+=AM){
+                 const int ar=bmms83::MinI(AM,mEnd-mBase);
+                 for(int nBase=nBegin;nBase<nEnd;nBase+=BN){
+@@ -191,30 +195,114 @@
+     }
+ };
+ 
++class RowMaxConsumer {
++    Plan p;AscendC::TPipe* pipe_;
++    AscendC::GlobalTensor<float> ring,part,out;
++    AscendC::TQue<AscendC::TPosition::VECIN,1> cq;
++    AscendC::TQue<AscendC::TPosition::VECOUT,1> oq;
++    AscendC::TBuf<AscendC::TPosition::VECCALC> groupBuf,rowBuf,sumBuf;
++    AscendC::TBuf<AscendC::TPosition::VECOUT> runningBuf;
++    AscendC::TBuf<AscendC::TPosition::VECIN> mergedBuf,tmpBuf;
++public:
++    __aicore__ inline void Init(GM_ADDR r,GM_ADDR pt,GM_ADDR y,const Plan& plan,AscendC::TPipe* pipe){
++        p=plan;pipe_=pipe;
++        ring.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(r),int64_t(p.blocks)*2*TM*TN);
++        part.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(pt),int64_t(p.B)*p.pN*p.M);
++        out.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(y),p.B);
++        pipe->InitBuffer(cq,1,(TM/2)*TN*4);pipe->InitBuffer(oq,1,32);
++        pipe->InitBuffer(groupBuf,(TM/2)*TN*4);pipe->InitBuffer(rowBuf,(TM/2)*4);
++        pipe->InitBuffer(runningBuf,AM*4);pipe->InitBuffer(mergedBuf,p.M*4);
++        pipe->InitBuffer(tmpBuf,p.M*4);pipe->InitBuffer(sumBuf,p.M*4);
++    }
++    __aicore__ inline void Process(){
++        const int worker=AscendC::GetBlockIdx(),group=worker/2,sub=worker%2;
++        const int perBatch=p.pM*p.pN;
++        int seq=0;auto acc=groupBuf.Get<float>();auto rows=rowBuf.Get<float>();auto run=runningBuf.Get<float>();
++        for(int task=group;task<p.tasks;task+=p.blocks){
++            const int batch=task/perBatch,slot=task-batch*perBatch;
++            const int ms=slot/p.pN,ns=slot-ms*p.pN;
++            const int mt0=ms*p.mTiles/p.pM,mt1=(ms+1)*p.mTiles/p.pM;
++            const int nt0=ns*p.nTiles/p.pN,nt1=(ns+1)*p.nTiles/p.pN;
++            const int mBegin=mt0*TM,mEnd=MinI(mt1*TM,p.M);
++            const int nBegin=nt0*TN,nEnd=MinI(nt1*TN,p.N);
++            for(int mBase=mBegin;mBase<mEnd;mBase+=AM){
++                const int ar=MinI(AM,mEnd-mBase);
++                AscendC::Duplicate(run,bmmmaxsum_v43::NEG_INF,ar);AscendC::PipeBarrier<PIPE_V>();
++                for(int nBase=nBegin;nBase<nEnd;nBase+=BN){
++                    const int br=MinI(BN,nEnd-nBase);
++                    for(int mo=0;mo<ar;mo+=TM){
++                        const int mr=MinI(TM,ar-mo),vr=mr/2;
++                        AscendC::Duplicate(acc,bmmmaxsum_v43::NEG_INF,vr*TN);AscendC::PipeBarrier<PIPE_V>();
++                        for(int no=0;no<br;no+=TN){
++                            const int nr=MinI(TN,br-no),ringSlot=seq&1;
++                            AscendC::CrossCoreWaitFlag<0x2>(READY+ringSlot);
++                            auto c=cq.AllocTensor<float>();
++                            AscendC::Duplicate(c,bmmmaxsum_v43::NEG_INF,vr*TN);
++                            bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++                            const int64_t off=(int64_t(group)*2+ringSlot)*TM*TN+sub*vr*TN;
++                            AscendC::DataCopyExtParams cp{static_cast<uint16_t>(vr),uint32_t(nr*4),uint32_t((TN-nr)*4),uint32_t((TN-nr)/8),0};
++                            AscendC::DataCopyPadExtParams<float> pd{false,0,0,0.0f};
++                            AscendC::DataCopyPad(c,ring[off],cp,pd);cq.EnQue(c);c=cq.DeQue<float>();
++                            AscendC::CrossCoreSetFlag<0x2,PIPE_MTE2>(FREE+ringSlot);
++                            AscendC::Max(acc,acc,c,vr*TN);AscendC::PipeBarrier<PIPE_V>();cq.FreeTensor(c);++seq;
++                        }
++                        AscendC::BinaryRepeatParams rp{1,1,1,16,16,16};
++                        AscendC::Max(acc,acc,acc[64],64,vr,rp);AscendC::PipeBarrier<PIPE_V>();
++                        AscendC::WholeReduceMax(rows,acc,64,vr,1,1,16,AscendC::ReduceOrder::ORDER_ONLY_VALUE);
++                        AscendC::PipeBarrier<PIPE_V>();
++                        AscendC::Max(run[mo+sub*vr],run[mo+sub*vr],rows,vr);AscendC::PipeBarrier<PIPE_V>();
++                    }
++                }
++                bmms71::Fence<AscendC::HardEvent::V_MTE3>(*pipe_);
++                for(int mo=0;mo<ar;mo+=TM){
++                    const int vr=MinI(TM,ar-mo)/2;
++                    const int64_t dst=(int64_t(batch)*p.pN+ns)*p.M+mBase+mo+sub*vr;
++                    AscendC::DataCopy(part[dst],run[mo+sub*vr],vr);
++                }
++                bmms71::Fence<AscendC::HardEvent::MTE3_V>(*pipe_);
++            }
++        }
++        bmms71::Fence<AscendC::HardEvent::MTE3_MTE2>(*pipe_);AscendC::SyncAll<true>();
++        auto merged=mergedBuf.Get<float>(),tmp=tmpBuf.Get<float>();
++        for(int batch=worker;batch<p.B;batch+=2*p.blocks){
++            const int64_t start=int64_t(batch)*p.pN*p.M;
++            AscendC::DataCopy(merged,part[start],p.M);bmms71::Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
++            for(int ns=1;ns<p.pN;++ns){
++                AscendC::DataCopy(tmp,part[start+int64_t(ns)*p.M],p.M);bmms71::Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
++                AscendC::Max(merged,merged,tmp,p.M);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++            }
++            auto yy=oq.AllocTensor<float>();AscendC::ReduceSum(yy,merged,sumBuf.Get<float>(),p.M);
++            oq.EnQue(yy);yy=oq.DeQue<float>();AscendC::DataCopyExtParams oc{1,4,0,0,0};
++            AscendC::DataCopyPad(out[batch],yy,oc);oq.FreeTensor(yy);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++        }
++    }
++};
++
++
+ #ifndef BMMS9_CPU_TEST
+ template<class T,bool TA,bool TB>
+ __aicore__ inline void Entry(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR ring,GM_ADDR partial,Plan p){
+     AscendC::TPipe pipe;
+     if ASCEND_IS_AIC {StagedProducer<T,TA,TB> op;op.Init(a,b,ring,p,&pipe);op.Process();}
+-    if ASCEND_IS_AIV {bmms83::SmallKConsumer op;op.Init(ring,partial,y,p,&pipe);op.Process();}
++    if ASCEND_IS_AIV {RowMaxConsumer op;op.Init(ring,partial,y,p,&pipe);op.Process();}
+ }
+ #endif
+-} // namespace bmms9d
++} // namespace bmms9r
+ // BMMS9_CPU_EXTRACT_END
+ 
+-#define BMMS9D_KERNEL(NAME,T,TA,TB) \
+-__schedmode__(1) __global__ __mix__(1,2) void NAME(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR ring,GM_ADDR part,bmms9d::Plan p){bmms9d::Entry<T,TA,TB>(a,b,y,ring,part,p);}
+-BMMS9D_KERNEL(bmms9d_f16_nn,half,false,false)
+-BMMS9D_KERNEL(bmms9d_f16_nt,half,false,true)
+-BMMS9D_KERNEL(bmms9d_f16_tn,half,true,false)
+-BMMS9D_KERNEL(bmms9d_f16_tt,half,true,true)
+-BMMS9D_KERNEL(bmms9d_b16_nn,bfloat16_t,false,false)
+-BMMS9D_KERNEL(bmms9d_b16_nt,bfloat16_t,false,true)
+-BMMS9D_KERNEL(bmms9d_b16_tn,bfloat16_t,true,false)
+-BMMS9D_KERNEL(bmms9d_b16_tt,bfloat16_t,true,true)
+-#undef BMMS9D_KERNEL
+-
+-namespace bmms9d {
++#define BMMS9R_KERNEL(NAME,T,TA,TB) \
++__schedmode__(1) __global__ __mix__(1,2) void NAME(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR ring,GM_ADDR part,bmms9r::Plan p){bmms9r::Entry<T,TA,TB>(a,b,y,ring,part,p);}
++BMMS9R_KERNEL(bmms9r_f16_nn,half,false,false)
++BMMS9R_KERNEL(bmms9r_f16_nt,half,false,true)
++BMMS9R_KERNEL(bmms9r_f16_tn,half,true,false)
++BMMS9R_KERNEL(bmms9r_f16_tt,half,true,true)
++BMMS9R_KERNEL(bmms9r_b16_nn,bfloat16_t,false,false)
++BMMS9R_KERNEL(bmms9r_b16_nt,bfloat16_t,false,true)
++BMMS9R_KERNEL(bmms9r_b16_tn,bfloat16_t,true,false)
++BMMS9R_KERNEL(bmms9r_b16_tt,bfloat16_t,true,true)
++#undef BMMS9R_KERNEL
++
++namespace bmms9r {
+ static inline bool TryLaunch(GM_ADDR a,GM_ADDR b,GM_ADDR y,
+     int32_t B,int32_t M,int32_t N,int32_t K,int32_t dtype,bool ta,bool tb,
+     int32_t cores,aclrtStream stream){
+@@ -226,22 +314,22 @@
+     uint8_t* ws=nullptr;
+     if(aclrtMalloc(reinterpret_cast<void**>(&ws),WorkspaceBytes(p),ACL_MEM_MALLOC_HUGE_FIRST)!=ACL_SUCCESS)std::abort();
+     uint8_t* partial=ws+RingBytes(p);
+-#define BMMS9D_LAUNCH(NAME) NAME<<<p.blocks,nullptr,stream>>>(a,b,y,ws,partial,p)
++#define BMMS9R_LAUNCH(NAME) NAME<<<p.blocks,nullptr,stream>>>(a,b,y,ws,partial,p)
+     if(dtype==1){
+-        if(!ta&&!tb){BMMS9D_LAUNCH(bmms9d_f16_nn);}
+-        else if(!ta&&tb){BMMS9D_LAUNCH(bmms9d_f16_nt);}
+-        else if(ta&&!tb){BMMS9D_LAUNCH(bmms9d_f16_tn);}
+-        else{BMMS9D_LAUNCH(bmms9d_f16_tt);}
++        if(!ta&&!tb){BMMS9R_LAUNCH(bmms9r_f16_nn);}
++        else if(!ta&&tb){BMMS9R_LAUNCH(bmms9r_f16_nt);}
++        else if(ta&&!tb){BMMS9R_LAUNCH(bmms9r_f16_tn);}
++        else{BMMS9R_LAUNCH(bmms9r_f16_tt);}
+     }else{
+-        if(!ta&&!tb){BMMS9D_LAUNCH(bmms9d_b16_nn);}
+-        else if(!ta&&tb){BMMS9D_LAUNCH(bmms9d_b16_nt);}
+-        else if(ta&&!tb){BMMS9D_LAUNCH(bmms9d_b16_tn);}
+-        else{BMMS9D_LAUNCH(bmms9d_b16_tt);}
+-    }
+-#undef BMMS9D_LAUNCH
++        if(!ta&&!tb){BMMS9R_LAUNCH(bmms9r_b16_nn);}
++        else if(!ta&&tb){BMMS9R_LAUNCH(bmms9r_b16_nt);}
++        else if(ta&&!tb){BMMS9R_LAUNCH(bmms9r_b16_tn);}
++        else{BMMS9R_LAUNCH(bmms9r_b16_tt);}
++    }
++#undef BMMS9R_LAUNCH
+     if(aclrtSynchronizeStream(stream)!=ACL_SUCCESS)std::abort();
+     if(aclrtFree(ws)!=ACL_SUCCESS)std::abort();
+     return true;
+ }
+-} // namespace bmms9d
+-#endif // BMMS9D_DENSE_FRAGMENT_INCLUDED
++} // namespace bmms9r
++#endif // BMMS9R_DENSE_FRAGMENT_INCLUDED

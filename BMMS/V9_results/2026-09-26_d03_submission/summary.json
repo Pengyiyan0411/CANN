@@ -1,0 +1,14 @@
+{
+  "identity_status": "CONTEXT_INFERRED_NOT_EXPLICITLY_LABELLED",
+  "T_unchanged": true,
+  "all_15_pass": true,
+  "scores_same_T": {
+    "P01_historical": 32.09562558603007,
+    "D01": 28.253176125759257,
+    "D02": 26.864737035669968,
+    "D03_context_inferred": 28.449330185178972
+  },
+  "D03_minus_D01": 0.1961540594197153,
+  "decision": "Stop double-L0C variations; implement true B reuse with an M128/N128 producer and matching consumer.",
+  "local_npu_run": false
+}

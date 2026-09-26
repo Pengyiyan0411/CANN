@@ -1,0 +1,9 @@
+{
+  "source_sha256": "ceb9f79b5909d16b9ecaa598c2e07f83c586a780238ffc0c8d857e878742d98b",
+  "archive_sha256": "9ad2f40d3167893116e4c13a51e17fd23baeda9c76c66f4534ab01b3f47f0c8c",
+  "fallback_entry_unchanged_except_namespace": true,
+  "consumer_body_matches_parameterized_P01": true,
+  "source_checks_per_candidate": 283,
+  "local_cann_compiled": false,
+  "npu_tested": false
+}

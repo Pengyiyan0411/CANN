@@ -1,0 +1,31 @@
+{
+  "variant": "D04_DENSE_M128_N128",
+  "file": "D04_DENSE_M128_N128.asc",
+  "sha256": "ceb9f79b5909d16b9ecaa598c2e07f83c586a780238ffc0c8d857e878742d98b",
+  "fragment_sha256": "3f8ff72e52884ef73e8a814b44e21f59902d71c6e9e0d3f01fd12eb446577010",
+  "comparison": "D03_DENSE_K128_C2",
+  "comparison_sha256": "17351577d7a4928d3777c29a547631e52ddf3cf4667528d7a1b4c99be6153fd9",
+  "tile": [
+    128,
+    128,
+    128
+  ],
+  "C_slots": 2,
+  "public_domain_unchanged": true,
+  "changes": [
+    "M tile 64 -> 128 for B reuse",
+    "matching producer/consumer and plan geometry",
+    "small-tile PIPE_M dependency"
+  ],
+  "explicit_bytes": {
+    "L1": 131072,
+    "L0A": 65536,
+    "L0B": 65536,
+    "L0C": 131072,
+    "max_consumer_UB": 165152,
+    "ring_per_group": 131072
+  },
+  "cann_compiled": false,
+  "npu_tested": false,
+  "known_numeric_counterexamples_remain": true
+}

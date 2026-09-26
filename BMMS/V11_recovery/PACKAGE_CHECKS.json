@@ -1,0 +1,10 @@
+{
+  "file": "BMMS_V11_R09_R10_\u63d0\u4ea4\u5305.zip",
+  "sha256": "58ccc49a59ca73bf0f28a6984909949b45af9d1802008193cd199e0fd69ad561",
+  "bytes": 109689,
+  "members": 6,
+  "R08_control_unchanged": true,
+  "independent_R08_descendants": true,
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false
+}

@@ -1,0 +1,83 @@
+--- R08
++++ R09_RESIDUAL_PACKETS
+@@ -1,4 +1,4 @@
+-// R08_NATIVE_PACKETS: independent R04 descendant; pending platform validation.
++// R09_RESIDUAL_PACKETS: independent R08 descendant; pending platform validation.
+ // V8.3.1 probe P01 ROWMAX_EPILOGUE: shape-adaptive small-K Cube scheduler + reduction-aware epilogue + vector-tree [K,L] GEMV.
+ // Parent V8.0d is retained verbatim except its dispatcher name; V8.3 changes only the native small-K module/dispatcher.
+ // Not compiled with Bisheng / not NPU-validated in this environment.
+@@ -2847,6 +2847,7 @@
+ constexpr int32_t TM=64, TN=128, AM=256, BN=512, KB=BMMS11D_K_BLOCK;
+ static_assert(KB==64||KB==128,"BMMS11D_K_BLOCK must be 64 or 128");
+ constexpr uint16_t READY=4, FREE=6;
++constexpr int32_t PACKET_TILES=bmms83::PACKET_TILES;
+ using Plan=bmms83::NativePlan;
+ 
+ static inline bool Eligible(int32_t M,int32_t N,int32_t K){
+@@ -2872,7 +2873,7 @@
+     return p;
+ }
+ 
+-static inline uint64_t RingBytes(const Plan& p){return uint64_t(p.blocks)*2*TM*TN*4ULL;}
++static inline uint64_t RingBytes(const Plan& p){return uint64_t(p.blocks)*2*PACKET_TILES*TM*TN*4ULL;}
+ static inline uint64_t PartialBytes(const Plan& p){return uint64_t(p.B)*p.pN*p.M*4ULL;}
+ static inline uint64_t WorkspaceBytes(const Plan& p){return RingBytes(p)+PartialBytes(p);}
+ 
+@@ -2967,13 +2968,14 @@
+         }
+         AscendC::SetFlag<AscendC::HardEvent::M_FIX>(cReady);
+         AscendC::WaitFlag<AscendC::HardEvent::M_FIX>(cReady);
+-        const int slot=seq&1;
+-        if(seq>=2)AscendC::CrossCoreWaitFlag<0x2>(FREE+slot);
++        const int packet=seq/PACKET_TILES,slot=packet&1,tileSlot=seq%PACKET_TILES;
++        // GM packet ownership is independent of this producer's single L0C buffer.
++        if(tileSlot==0&&packet>=2)AscendC::CrossCoreWaitFlag<0x2>(FREE+slot);
+         AscendC::FixpipeParamsV220 f{};f.nSize=nr;f.mSize=mr;f.srcStride=mr;
+         f.dstStride=TN;f.ndNum=1;f.quantPre=QuantMode_t::NoQuant;
+-        AscendC::Fixpipe<float,float>(ring[(int64_t(group)*2+slot)*TM*TN],cc,f);
++        AscendC::Fixpipe<float,float>(ring[((int64_t(group)*2+slot)*PACKET_TILES+tileSlot)*TM*TN],cc,f);
+         AscendC::SetFlag<AscendC::HardEvent::FIX_M>(cFree);
+-        AscendC::CrossCoreSetFlag<0x2,PIPE_FIX>(READY+slot);
++        if(tileSlot+1==PACKET_TILES)AscendC::CrossCoreSetFlag<0x2,PIPE_FIX>(READY+slot);
+         ++seq;
+     }
+ 
+@@ -2990,7 +2992,7 @@
+         cFree=pipe_->AllocEventID<AscendC::HardEvent::FIX_M>();
+         a.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(x),int64_t(p.B)*p.M*p.K);
+         b.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(z),int64_t(p.B)*p.K*p.N);
+-        ring.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(r),int64_t(p.blocks)*2*TM*TN);
++        ring.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(r),int64_t(p.blocks)*2*PACKET_TILES*TM*TN);
+         pipe->InitBuffer(a1Buf,2*TM*KB*sizeof(T));pipe->InitBuffer(b1Buf,2*KB*TN*sizeof(T));
+         pipe->InitBuffer(a2Buf,2*TM*KB*sizeof(T));pipe->InitBuffer(b2Buf,2*KB*TN*sizeof(T));
+         pipe->InitBuffer(cBuf,TM*TN*sizeof(float));
+@@ -3006,7 +3008,7 @@
+             const int mBegin=mt0*TM,mEnd=bmms83::MinI(mt1*TM,p.M);
+             const int nBegin=nt0*TN,nEnd=bmms83::MinI(nt1*TN,p.N);
+             // This AM/BN/mo/no order is a protocol, not just a loop preference:
+-            // it must match bmms83::SmallKConsumer for every task and tail.
++            // it must match bmms83::SmallKPacketConsumer for every task and tail.
+             for(int mBase=mBegin;mBase<mEnd;mBase+=AM){
+                 const int ar=bmms83::MinI(AM,mEnd-mBase);
+                 for(int nBase=nBegin;nBase<nEnd;nBase+=BN){
+@@ -3020,7 +3022,10 @@
+                 }
+             }
+         }
+-        for(int s=0;s<bmms83::MinI(2,seq);++s)AscendC::CrossCoreWaitFlag<0x2>(FREE+s);
++        // Publish the final short packet before waiting for its consumer credits.
++        if(seq%PACKET_TILES)AscendC::CrossCoreSetFlag<0x2,PIPE_FIX>(READY+((seq/PACKET_TILES)&1));
++        const int packets=(seq+PACKET_TILES-1)/PACKET_TILES;
++        for(int s=0;s<bmms83::MinI(2,packets);++s)AscendC::CrossCoreWaitFlag<0x2>(FREE+s);
+         if(seq>0)AscendC::WaitFlag<AscendC::HardEvent::FIX_M>(cFree);
+         for(int s=0;s<2;++s){
+             pipe_->ReleaseEventID<AscendC::HardEvent::MTE2_MTE1>(l1Ready[s]);
+@@ -3038,7 +3043,7 @@
+ __aicore__ inline void Entry(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR ring,GM_ADDR partial,Plan p){
+     AscendC::TPipe pipe;
+     if ASCEND_IS_AIC {StagedProducer<T,TA,TB> op;op.Init(a,b,ring,p,&pipe);op.Process();}
+-    if ASCEND_IS_AIV {bmms83::SmallKConsumer op;op.Init(ring,partial,y,p,&pipe);op.Process();}
++    if ASCEND_IS_AIV {bmms83::SmallKPacketConsumer op;op.Init(ring,partial,y,p,&pipe);op.Process();}
+ }
+ #endif
+ } // namespace bmms11d

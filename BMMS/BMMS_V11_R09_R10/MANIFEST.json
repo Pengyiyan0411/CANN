@@ -1,0 +1,35 @@
+{
+  "base": "BMMS_V11_R07_R08/R08_NATIVE_PACKETS.asc",
+  "base_sha256": "bc0e6c895ddcec2ca743204f221d6b0d6967b8944cec7b49dd0946775a103b27",
+  "control": {
+    "file": "R08_CONTROL.asc",
+    "sha256": "bc0e6c895ddcec2ca743204f221d6b0d6967b8944cec7b49dd0946775a103b27"
+  },
+  "variants": [
+    {
+      "version": "R09",
+      "file": "R09_RESIDUAL_PACKETS.asc",
+      "sha256": "adbfa14b092c1a5e5563307eaf1f3f3bedfb2c070235625ef62864e514a1c1c0",
+      "platform_result_received": false
+    },
+    {
+      "version": "R10",
+      "file": "R10_SINGLE_WAVE_GRID.asc",
+      "sha256": "cd8f8d6383ca24d0e46ae14757e1fce8b639da4123cc3a2a0875664564fb3600",
+      "platform_result_received": false
+    }
+  ],
+  "proof": {
+    "independent_R08_descendants": true,
+    "R08_native_packet_path_unchanged": true,
+    "all_original_dispatch_guards_preserved": true,
+    "R09_only_residual_output_protocol_changed": true,
+    "R10_only_macro_host_plan_changed": true,
+    "R07_multi_wave_search_not_included": true,
+    "R10_macro_producer_consumer_unchanged": true
+  },
+  "R07_TLE_root_cause_confirmed": false,
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "known_numerical_limitations_remain": true
+}

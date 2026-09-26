@@ -1,0 +1,681 @@
+{
+  "scope": "local Windows CPU exact host MakePlan microbenchmark; neither NPU time nor TLE root cause",
+  "environment": "Windows-11-10.0.26200-SP0",
+  "compiler": "g++.EXE (Rev13, Built by MSYS2 project) 15.2.0",
+  "samples_per_shape": 5,
+  "calls_per_sample": 100,
+  "fragment_sha256": {
+    "R04": "cfbf6c467c92e48774c4d2133aa911a037c11e3bbdb705c0e1284031a4b9406c",
+    "R07": "b115e1f458da275c262f676af8bb02a534146118a49468f2854909dcf75ac7a9",
+    "R10": "c3816d9e99ca3bedbc2ce36632c9cfe1c3c73031533d9900d8ac0155b72b7d20"
+  },
+  "R07_platform_failure_case": 5,
+  "R07_platform_failure_stage": "runtime",
+  "platform_TLE_root_cause_confirmed": false,
+  "runs": {
+    "-O2": [
+      {
+        "shape": [
+          1,
+          384,
+          768,
+          256
+        ],
+        "cores": 5,
+        "R04_grid": [
+          3,
+          2
+        ],
+        "R07_grid": [
+          3,
+          3
+        ],
+        "R07_candidates": 3,
+        "R07_task_visits": 27,
+        "R04_median_host_us": 0.004,
+        "R07_median_host_us": 0.455,
+        "R07_min_host_us": 0.454,
+        "R07_max_host_us": 0.46,
+        "R10_grid": [
+          3,
+          2
+        ],
+        "R10_median_host_us": 0.005,
+        "R10_min_host_us": 0.004,
+        "R10_max_host_us": 0.005
+      },
+      {
+        "shape": [
+          1,
+          1024,
+          1024,
+          256
+        ],
+        "cores": 20,
+        "R04_grid": [
+          8,
+          3
+        ],
+        "R07_grid": [
+          5,
+          4
+        ],
+        "R07_candidates": 6,
+        "R07_task_visits": 173,
+        "R04_median_host_us": 0.005,
+        "R07_median_host_us": 2.312,
+        "R07_min_host_us": 2.311,
+        "R07_max_host_us": 2.389,
+        "R10_grid": [
+          8,
+          3
+        ],
+        "R10_median_host_us": 0.005,
+        "R10_min_host_us": 0.004,
+        "R10_max_host_us": 0.005
+      },
+      {
+        "shape": [
+          1,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 20,
+        "R04_grid": [
+          20,
+          1
+        ],
+        "R07_grid": [
+          5,
+          16
+        ],
+        "R07_candidates": 123,
+        "R07_task_visits": 5828,
+        "R04_median_host_us": 0.005,
+        "R07_median_host_us": 72.535,
+        "R07_min_host_us": 72.336,
+        "R07_max_host_us": 72.994,
+        "R10_grid": [
+          5,
+          4
+        ],
+        "R10_median_host_us": 0.064,
+        "R10_min_host_us": 0.061,
+        "R10_max_host_us": 0.073
+      },
+      {
+        "shape": [
+          8,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 20,
+        "R04_grid": [
+          3,
+          1
+        ],
+        "R07_grid": [
+          5,
+          1
+        ],
+        "R07_candidates": 24,
+        "R07_task_visits": 1344,
+        "R04_median_host_us": 0.005,
+        "R07_median_host_us": 16.503,
+        "R07_min_host_us": 16.485,
+        "R07_max_host_us": 17.002,
+        "R10_grid": [
+          3,
+          1
+        ],
+        "R10_median_host_us": 0.005,
+        "R10_min_host_us": 0.005,
+        "R10_max_host_us": 0.005
+      },
+      {
+        "shape": [
+          24,
+          1024,
+          1024,
+          256
+        ],
+        "cores": 20,
+        "R04_grid": [
+          1,
+          1
+        ],
+        "R07_grid": [
+          3,
+          1
+        ],
+        "R07_candidates": 5,
+        "R07_task_visits": 288,
+        "R04_median_host_us": 0.004,
+        "R07_median_host_us": 3.674,
+        "R07_min_host_us": 3.671,
+        "R07_max_host_us": 3.758,
+        "R10_grid": [
+          1,
+          1
+        ],
+        "R10_median_host_us": 0.004,
+        "R10_min_host_us": 0.004,
+        "R10_max_host_us": 0.005
+      },
+      {
+        "shape": [
+          3,
+          144,
+          528,
+          256
+        ],
+        "cores": 4,
+        "R04_grid": [
+          2,
+          1
+        ],
+        "R07_grid": [
+          2,
+          1
+        ],
+        "R07_candidates": 4,
+        "R07_task_visits": 39,
+        "R04_median_host_us": 0.005,
+        "R07_median_host_us": 0.683,
+        "R07_min_host_us": 0.657,
+        "R07_max_host_us": 0.685,
+        "R10_grid": [
+          2,
+          1
+        ],
+        "R10_median_host_us": 0.006,
+        "R10_min_host_us": 0.005,
+        "R10_max_host_us": 0.006
+      },
+      {
+        "shape": [
+          1,
+          8192,
+          8192,
+          256
+        ],
+        "cores": 20,
+        "R04_grid": [
+          20,
+          1
+        ],
+        "R07_grid": [
+          5,
+          4
+        ],
+        "R07_candidates": 136,
+        "R07_task_visits": 6514,
+        "R04_median_host_us": 0.005,
+        "R07_median_host_us": 80.867,
+        "R07_min_host_us": 80.685,
+        "R07_max_host_us": 87.136,
+        "R10_grid": [
+          5,
+          4
+        ],
+        "R10_median_host_us": 0.066,
+        "R10_min_host_us": 0.065,
+        "R10_max_host_us": 0.068
+      },
+      {
+        "shape": [
+          1,
+          8192,
+          8192,
+          256
+        ],
+        "cores": 32,
+        "R04_grid": [
+          32,
+          1
+        ],
+        "R07_grid": [
+          32,
+          1
+        ],
+        "R07_candidates": 256,
+        "R07_task_visits": 19719,
+        "R04_median_host_us": 0.005,
+        "R07_median_host_us": 245.819,
+        "R07_min_host_us": 238.445,
+        "R07_max_host_us": 252.228,
+        "R10_grid": [
+          32,
+          1
+        ],
+        "R10_median_host_us": 0.081,
+        "R10_min_host_us": 0.08,
+        "R10_max_host_us": 0.087
+      },
+      {
+        "shape": [
+          1,
+          8192,
+          8192,
+          256
+        ],
+        "cores": 64,
+        "R04_grid": [
+          64,
+          1
+        ],
+        "R07_grid": [
+          64,
+          1
+        ],
+        "R07_candidates": 509,
+        "R07_task_visits": 78244,
+        "R04_median_host_us": 0.005,
+        "R07_median_host_us": 971.912,
+        "R07_min_host_us": 935.479,
+        "R07_max_host_us": 986.015,
+        "R10_grid": [
+          64,
+          1
+        ],
+        "R10_median_host_us": 0.125,
+        "R10_min_host_us": 0.124,
+        "R10_max_host_us": 0.125
+      },
+      {
+        "shape": [
+          64,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 64,
+        "R04_grid": [
+          1,
+          1
+        ],
+        "R07_grid": [
+          1,
+          1
+        ],
+        "R07_candidates": 8,
+        "R07_task_visits": 1536,
+        "R04_median_host_us": 0.005,
+        "R07_median_host_us": 18.142,
+        "R07_min_host_us": 18.131,
+        "R07_max_host_us": 18.511,
+        "R10_grid": [
+          1,
+          1
+        ],
+        "R10_median_host_us": 0.013,
+        "R10_min_host_us": 0.012,
+        "R10_max_host_us": 0.013
+      },
+      {
+        "shape": [
+          1,
+          128,
+          256,
+          256
+        ],
+        "cores": 1,
+        "R04_grid": [
+          1,
+          1
+        ],
+        "R07_grid": [
+          1,
+          1
+        ],
+        "R07_candidates": 1,
+        "R07_task_visits": 2,
+        "R04_median_host_us": 0.004,
+        "R07_median_host_us": 0.096,
+        "R07_min_host_us": 0.089,
+        "R07_max_host_us": 0.1,
+        "R10_grid": [
+          1,
+          1
+        ],
+        "R10_median_host_us": 0.013,
+        "R10_min_host_us": 0.012,
+        "R10_max_host_us": 0.014
+      }
+    ],
+    "-O0": [
+      {
+        "shape": [
+          1,
+          384,
+          768,
+          256
+        ],
+        "cores": 5,
+        "R04_grid": [
+          3,
+          2
+        ],
+        "R07_grid": [
+          3,
+          3
+        ],
+        "R07_candidates": 3,
+        "R07_task_visits": 27,
+        "R04_median_host_us": 0.017,
+        "R07_median_host_us": 0.581,
+        "R07_min_host_us": 0.579,
+        "R07_max_host_us": 0.584,
+        "R10_grid": [
+          3,
+          2
+        ],
+        "R10_median_host_us": 0.021,
+        "R10_min_host_us": 0.02,
+        "R10_max_host_us": 0.021
+      },
+      {
+        "shape": [
+          1,
+          1024,
+          1024,
+          256
+        ],
+        "cores": 20,
+        "R04_grid": [
+          8,
+          3
+        ],
+        "R07_grid": [
+          5,
+          4
+        ],
+        "R07_candidates": 6,
+        "R07_task_visits": 173,
+        "R04_median_host_us": 0.017,
+        "R07_median_host_us": 2.799,
+        "R07_min_host_us": 2.785,
+        "R07_max_host_us": 2.904,
+        "R10_grid": [
+          8,
+          3
+        ],
+        "R10_median_host_us": 0.02,
+        "R10_min_host_us": 0.02,
+        "R10_max_host_us": 0.021
+      },
+      {
+        "shape": [
+          1,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 20,
+        "R04_grid": [
+          20,
+          1
+        ],
+        "R07_grid": [
+          5,
+          16
+        ],
+        "R07_candidates": 123,
+        "R07_task_visits": 5828,
+        "R04_median_host_us": 0.027,
+        "R07_median_host_us": 82.363,
+        "R07_min_host_us": 82.144,
+        "R07_max_host_us": 82.611,
+        "R10_grid": [
+          5,
+          4
+        ],
+        "R10_median_host_us": 0.185,
+        "R10_min_host_us": 0.178,
+        "R10_max_host_us": 0.188
+      },
+      {
+        "shape": [
+          8,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 20,
+        "R04_grid": [
+          3,
+          1
+        ],
+        "R07_grid": [
+          5,
+          1
+        ],
+        "R07_candidates": 24,
+        "R07_task_visits": 1344,
+        "R04_median_host_us": 0.025,
+        "R07_median_host_us": 19.14,
+        "R07_min_host_us": 18.8,
+        "R07_max_host_us": 32.314,
+        "R10_grid": [
+          3,
+          1
+        ],
+        "R10_median_host_us": 0.027,
+        "R10_min_host_us": 0.026,
+        "R10_max_host_us": 0.066
+      },
+      {
+        "shape": [
+          24,
+          1024,
+          1024,
+          256
+        ],
+        "cores": 20,
+        "R04_grid": [
+          1,
+          1
+        ],
+        "R07_grid": [
+          3,
+          1
+        ],
+        "R07_candidates": 5,
+        "R07_task_visits": 288,
+        "R04_median_host_us": 0.018,
+        "R07_median_host_us": 4.082,
+        "R07_min_host_us": 4.021,
+        "R07_max_host_us": 5.466,
+        "R10_grid": [
+          1,
+          1
+        ],
+        "R10_median_host_us": 0.021,
+        "R10_min_host_us": 0.02,
+        "R10_max_host_us": 0.025
+      },
+      {
+        "shape": [
+          3,
+          144,
+          528,
+          256
+        ],
+        "cores": 4,
+        "R04_grid": [
+          2,
+          1
+        ],
+        "R07_grid": [
+          2,
+          1
+        ],
+        "R07_candidates": 4,
+        "R07_task_visits": 39,
+        "R04_median_host_us": 0.018,
+        "R07_median_host_us": 0.744,
+        "R07_min_host_us": 0.743,
+        "R07_max_host_us": 0.746,
+        "R10_grid": [
+          2,
+          1
+        ],
+        "R10_median_host_us": 0.02,
+        "R10_min_host_us": 0.019,
+        "R10_max_host_us": 0.023
+      },
+      {
+        "shape": [
+          1,
+          8192,
+          8192,
+          256
+        ],
+        "cores": 20,
+        "R04_grid": [
+          20,
+          1
+        ],
+        "R07_grid": [
+          5,
+          4
+        ],
+        "R07_candidates": 136,
+        "R07_task_visits": 6514,
+        "R04_median_host_us": 0.027,
+        "R07_median_host_us": 94.506,
+        "R07_min_host_us": 92.857,
+        "R07_max_host_us": 97.032,
+        "R10_grid": [
+          5,
+          4
+        ],
+        "R10_median_host_us": 0.191,
+        "R10_min_host_us": 0.188,
+        "R10_max_host_us": 0.241
+      },
+      {
+        "shape": [
+          1,
+          8192,
+          8192,
+          256
+        ],
+        "cores": 32,
+        "R04_grid": [
+          32,
+          1
+        ],
+        "R07_grid": [
+          32,
+          1
+        ],
+        "R07_candidates": 256,
+        "R07_task_visits": 19719,
+        "R04_median_host_us": 0.026,
+        "R07_median_host_us": 277.432,
+        "R07_min_host_us": 267.931,
+        "R07_max_host_us": 294.214,
+        "R10_grid": [
+          32,
+          1
+        ],
+        "R10_median_host_us": 0.228,
+        "R10_min_host_us": 0.189,
+        "R10_max_host_us": 0.233
+      },
+      {
+        "shape": [
+          1,
+          8192,
+          8192,
+          256
+        ],
+        "cores": 64,
+        "R04_grid": [
+          64,
+          1
+        ],
+        "R07_grid": [
+          64,
+          1
+        ],
+        "R07_candidates": 509,
+        "R07_task_visits": 78244,
+        "R04_median_host_us": 0.024,
+        "R07_median_host_us": 1056.929,
+        "R07_min_host_us": 1042.895,
+        "R07_max_host_us": 1079.399,
+        "R10_grid": [
+          64,
+          1
+        ],
+        "R10_median_host_us": 0.308,
+        "R10_min_host_us": 0.304,
+        "R10_max_host_us": 0.318
+      },
+      {
+        "shape": [
+          64,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 64,
+        "R04_grid": [
+          1,
+          1
+        ],
+        "R07_grid": [
+          1,
+          1
+        ],
+        "R07_candidates": 8,
+        "R07_task_visits": 1536,
+        "R04_median_host_us": 0.024,
+        "R07_median_host_us": 21.336,
+        "R07_min_host_us": 20.026,
+        "R07_max_host_us": 23.012,
+        "R10_grid": [
+          1,
+          1
+        ],
+        "R10_median_host_us": 0.057,
+        "R10_min_host_us": 0.056,
+        "R10_max_host_us": 0.069
+      },
+      {
+        "shape": [
+          1,
+          128,
+          256,
+          256
+        ],
+        "cores": 1,
+        "R04_grid": [
+          1,
+          1
+        ],
+        "R07_grid": [
+          1,
+          1
+        ],
+        "R07_candidates": 1,
+        "R07_task_visits": 2,
+        "R04_median_host_us": 0.021,
+        "R07_median_host_us": 0.138,
+        "R07_min_host_us": 0.137,
+        "R07_max_host_us": 0.141,
+        "R10_grid": [
+          1,
+          1
+        ],
+        "R10_median_host_us": 0.053,
+        "R10_min_host_us": 0.052,
+        "R10_max_host_us": 0.055
+      }
+    ]
+  }
+}

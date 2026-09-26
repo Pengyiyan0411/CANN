@@ -1,0 +1,572 @@
+{
+  "scope": "actual-source CPU storage/event/ownership model and exact host planner; not hardware timing or TLE certification",
+  "sources": {
+    "R08_CONTROL.asc": "bc0e6c895ddcec2ca743204f221d6b0d6967b8944cec7b49dd0946775a103b27",
+    "R09_RESIDUAL_PACKETS.asc": "adbfa14b092c1a5e5563307eaf1f3f3bedfb2c070235625ef62864e514a1c1c0",
+    "R10_SINGLE_WAVE_GRID.asc": "cd8f8d6383ca24d0e46ae14757e1fce8b639da4123cc3a2a0875664564fb3600"
+  },
+  "composition": {
+    "independent_R08_descendants": true,
+    "R08_native_packet_path_unchanged": true,
+    "all_original_dispatch_guards_preserved": true,
+    "R09_only_residual_output_protocol_changed": true,
+    "R10_only_macro_host_plan_changed": true,
+    "R07_multi_wave_search_not_included": true,
+    "R10_macro_producer_consumer_unchanged": true
+  },
+  "ordinary_outputs_equal_bitwise": true,
+  "known_numerical_limitations_remain": true,
+  "negative_controls": {
+    "NEGATIVE_RESIDUAL_FREE": {
+      "rejected": true,
+      "exit_code": 1,
+      "stderr": "STRUCTURAL_FAIL dense_2_fp1600_1_64_512_256_1_0: ring freed before all published data was read"
+    },
+    "NEGATIVE_RESIDUAL_FLUSH": {
+      "rejected": true,
+      "exit_code": 1,
+      "stderr": "STRUCTURAL_FAIL dense_2_fp1600_1_16_384_352_1_0: timeout: unmatched flag / deadlock"
+    }
+  },
+  "grid_checks": {
+    "checked": 6758,
+    "extent_checks": 25088,
+    "changed": 107,
+    "examples": [
+      {
+        "shape": [
+          1,
+          1024,
+          512,
+          256
+        ],
+        "cores": 6,
+        "old_grid": [
+          6,
+          1
+        ],
+        "new_grid": [
+          3,
+          2
+        ],
+        "old_peak_tiles": 4,
+        "new_peak_tiles": 3,
+        "old_peak_cells": 131072,
+        "new_peak_cells": 98304,
+        "old_peak_input_units": 1536,
+        "new_peak_input_units": 1152
+      },
+      {
+        "shape": [
+          1,
+          384,
+          768,
+          256
+        ],
+        "cores": 5,
+        "old_grid": [
+          3,
+          2
+        ],
+        "new_grid": [
+          3,
+          2
+        ],
+        "old_peak_tiles": 3,
+        "new_peak_tiles": 3,
+        "old_peak_cells": 98304,
+        "new_peak_cells": 98304,
+        "old_peak_input_units": 1152,
+        "new_peak_input_units": 1152
+      },
+      {
+        "shape": [
+          1,
+          1024,
+          1024,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          8,
+          3
+        ],
+        "new_grid": [
+          8,
+          3
+        ],
+        "old_peak_tiles": 3,
+        "new_peak_tiles": 3,
+        "old_peak_cells": 98304,
+        "new_peak_cells": 98304,
+        "old_peak_input_units": 1152,
+        "new_peak_input_units": 1152
+      },
+      {
+        "shape": [
+          1,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          20,
+          1
+        ],
+        "new_grid": [
+          5,
+          4
+        ],
+        "old_peak_tiles": 32,
+        "new_peak_tiles": 28,
+        "old_peak_cells": 1048576,
+        "new_peak_cells": 917504,
+        "old_peak_input_units": 12288,
+        "new_peak_input_units": 10752
+      },
+      {
+        "shape": [
+          8,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          3,
+          1
+        ],
+        "new_grid": [
+          3,
+          1
+        ],
+        "old_peak_tiles": 352,
+        "new_peak_tiles": 352,
+        "old_peak_cells": 11534336,
+        "new_peak_cells": 11534336,
+        "old_peak_input_units": 135168,
+        "new_peak_input_units": 135168
+      },
+      {
+        "shape": [
+          24,
+          1024,
+          1024,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          1,
+          1
+        ],
+        "new_grid": [
+          1,
+          1
+        ],
+        "old_peak_tiles": 64,
+        "new_peak_tiles": 64,
+        "old_peak_cells": 2097152,
+        "new_peak_cells": 2097152,
+        "old_peak_input_units": 24576,
+        "new_peak_input_units": 24576
+      },
+      {
+        "shape": [
+          3,
+          144,
+          528,
+          256
+        ],
+        "cores": 4,
+        "old_grid": [
+          2,
+          1
+        ],
+        "new_grid": [
+          2,
+          1
+        ],
+        "old_peak_tiles": 6,
+        "new_peak_tiles": 6,
+        "old_peak_cells": 135168,
+        "new_peak_cells": 135168,
+        "old_peak_input_units": 1824,
+        "new_peak_input_units": 1824
+      },
+      {
+        "shape": [
+          1,
+          128,
+          256,
+          256
+        ],
+        "cores": 1,
+        "old_grid": [
+          1,
+          1
+        ],
+        "new_grid": [
+          1,
+          1
+        ],
+        "old_peak_tiles": 1,
+        "new_peak_tiles": 1,
+        "old_peak_cells": 32768,
+        "new_peak_cells": 32768,
+        "old_peak_input_units": 384,
+        "new_peak_input_units": 384
+      }
+    ]
+  },
+  "runs": {
+    "R08": {
+      "source_runs": 444,
+      "repeat_pairs": 222,
+      "plan_checks": 4494,
+      "mixed_route_sequence": [
+        "macro",
+        "residual",
+        "macro",
+        "residual"
+      ],
+      "mixed_ring_bytes_per_group": [
+        262144,
+        65536,
+        262144,
+        65536
+      ],
+      "mixed_ready_packets": [
+        1,
+        4,
+        1,
+        4
+      ],
+      "guard_checks": 7560,
+      "small_k_route_runs": 173,
+      "fixtures": {
+        "macro_wide": {
+          "gm_bytes": 786432,
+          "l0_bytes": 786432,
+          "l0_calls": 256,
+          "mmads": 64,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 4,
+          "free": 8,
+          "duplicate_elements": 196864,
+          "reduce_calls": 16,
+          "reduce_rows": 512,
+          "manual_v_mte2": 33
+        },
+        "residual_wide": {
+          "gm_bytes": 1572864,
+          "l0_bytes": 1572864,
+          "l0_calls": 384,
+          "mmads": 32,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 16,
+          "free": 32,
+          "duplicate_elements": 163968,
+          "reduce_calls": 8,
+          "reduce_rows": 256,
+          "manual_v_mte2": 33
+        },
+        "native_wide": {
+          "gm_bytes": 147456,
+          "l0_bytes": 786432,
+          "l0_calls": 384,
+          "mmads": 64,
+          "fixpipes": 64,
+          "c_write_bytes": 2097152,
+          "ready": 16,
+          "free": 32,
+          "duplicate_elements": 655872,
+          "reduce_calls": 32,
+          "reduce_rows": 1024,
+          "manual_v_mte2": 129
+        }
+      },
+      "peak_arena_bytes": [
+        132256,
+        393216,
+        32768,
+        65536,
+        131072
+      ],
+      "macro_route_runs": 111,
+      "residual_route_runs": 163,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "known_precision_limitations": 3,
+      "pipe_m_barriers": 6644,
+      "traffic_fixture": {
+        "gm_bytes": 196608,
+        "gm_calls": 2,
+        "l0_bytes": 196608,
+        "l0_calls": 64,
+        "mmads": 16,
+        "publishes": 4,
+        "ready_packets": 1,
+        "free_signals": 2,
+        "c_read_elements": 32768,
+        "c_write_bytes": 131072
+      },
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false
+    },
+    "R09": {
+      "source_runs": 444,
+      "repeat_pairs": 222,
+      "plan_checks": 4494,
+      "mixed_route_sequence": [
+        "macro",
+        "residual",
+        "macro",
+        "residual"
+      ],
+      "mixed_ring_bytes_per_group": [
+        262144,
+        262144,
+        262144,
+        262144
+      ],
+      "mixed_ready_packets": [
+        1,
+        4,
+        1,
+        4
+      ],
+      "guard_checks": 7560,
+      "small_k_route_runs": 173,
+      "fixtures": {
+        "macro_wide": {
+          "gm_bytes": 786432,
+          "l0_bytes": 786432,
+          "l0_calls": 256,
+          "mmads": 64,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 4,
+          "free": 8,
+          "duplicate_elements": 196864,
+          "reduce_calls": 16,
+          "reduce_rows": 512,
+          "manual_v_mte2": 33
+        },
+        "residual_wide": {
+          "gm_bytes": 1572864,
+          "l0_bytes": 1572864,
+          "l0_calls": 384,
+          "mmads": 32,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 4,
+          "free": 8,
+          "duplicate_elements": 163968,
+          "reduce_calls": 8,
+          "reduce_rows": 256,
+          "manual_v_mte2": 33
+        },
+        "native_wide": {
+          "gm_bytes": 147456,
+          "l0_bytes": 786432,
+          "l0_calls": 384,
+          "mmads": 64,
+          "fixpipes": 64,
+          "c_write_bytes": 2097152,
+          "ready": 16,
+          "free": 32,
+          "duplicate_elements": 655872,
+          "reduce_calls": 32,
+          "reduce_rows": 1024,
+          "manual_v_mte2": 129
+        }
+      },
+      "peak_arena_bytes": [
+        132256,
+        393216,
+        32768,
+        65536,
+        131072
+      ],
+      "macro_route_runs": 111,
+      "residual_route_runs": 163,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "known_precision_limitations": 3,
+      "pipe_m_barriers": 6644,
+      "traffic_fixture": {
+        "gm_bytes": 196608,
+        "gm_calls": 2,
+        "l0_bytes": 196608,
+        "l0_calls": 64,
+        "mmads": 16,
+        "publishes": 4,
+        "ready_packets": 1,
+        "free_signals": 2,
+        "c_read_elements": 32768,
+        "c_write_bytes": 131072
+      },
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false
+    },
+    "R10": {
+      "source_runs": 444,
+      "repeat_pairs": 222,
+      "plan_checks": 4494,
+      "mixed_route_sequence": [
+        "macro",
+        "residual",
+        "macro",
+        "residual"
+      ],
+      "mixed_ring_bytes_per_group": [
+        262144,
+        65536,
+        262144,
+        65536
+      ],
+      "mixed_ready_packets": [
+        1,
+        4,
+        1,
+        4
+      ],
+      "guard_checks": 7560,
+      "small_k_route_runs": 173,
+      "fixtures": {
+        "macro_wide": {
+          "gm_bytes": 786432,
+          "l0_bytes": 786432,
+          "l0_calls": 256,
+          "mmads": 64,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 4,
+          "free": 8,
+          "duplicate_elements": 196864,
+          "reduce_calls": 16,
+          "reduce_rows": 512,
+          "manual_v_mte2": 33
+        },
+        "residual_wide": {
+          "gm_bytes": 1572864,
+          "l0_bytes": 1572864,
+          "l0_calls": 384,
+          "mmads": 32,
+          "fixpipes": 16,
+          "c_write_bytes": 524288,
+          "ready": 16,
+          "free": 32,
+          "duplicate_elements": 163968,
+          "reduce_calls": 8,
+          "reduce_rows": 256,
+          "manual_v_mte2": 33
+        },
+        "native_wide": {
+          "gm_bytes": 147456,
+          "l0_bytes": 786432,
+          "l0_calls": 384,
+          "mmads": 64,
+          "fixpipes": 64,
+          "c_write_bytes": 2097152,
+          "ready": 16,
+          "free": 32,
+          "duplicate_elements": 655872,
+          "reduce_calls": 32,
+          "reduce_rows": 1024,
+          "manual_v_mte2": 129
+        }
+      },
+      "peak_arena_bytes": [
+        132256,
+        393216,
+        32768,
+        65536,
+        131072
+      ],
+      "macro_route_runs": 111,
+      "residual_route_runs": 163,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "known_precision_limitations": 3,
+      "pipe_m_barriers": 6644,
+      "traffic_fixture": {
+        "gm_bytes": 196608,
+        "gm_calls": 2,
+        "l0_bytes": 196608,
+        "l0_calls": 64,
+        "mmads": 16,
+        "publishes": 4,
+        "ready_packets": 1,
+        "free_signals": 2,
+        "c_read_elements": 32768,
+        "c_write_bytes": 131072
+      },
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false
+    }
+  },
+  "R07_TLE_root_cause_confirmed": false,
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "artifacts": {
+    "V11_followup/build.py": "6abadca5dfe9e00b44dc575041bc6a46651e87236da9ecd37e8090855ebf53c4",
+    "V11_followup/run_checks.py": "2c47ade0ab82560c585daf9e475edd5e0b88be2b9c1ebc25b6f94967ce40a7ac",
+    "V11_followup/ring_audit.hpp": "addbe0ff969742305ef396b27cf63dead2fde0b69f8141989cc8646e429a6412",
+    "V11_followup/macro_ring_fragment.asc": "cfbf6c467c92e48774c4d2133aa911a037c11e3bbdb705c0e1284031a4b9406c",
+    "V11_followup/residual_dense_fragment.asc": "562af52fab731d0ad681ffc4bc4d3ae21e4a9f7b9fb75495afa5c22ea9e05b00",
+    "V11_impl/run_checks.py": "ba63f61063ba74aac83104d4b830aa9c913920cfc8ed13ddb124bc231f8929eb",
+    "V11_impl/checks_tail.cpp": "e262ae4c2a95875ae797b305d5f42286585795670a4cb4ab4b4e763bf975918e",
+    "V11_impl/reuse_fragment.asc": "a19c2d3b59b1fc5b1b06af52db56cd0efe4b25c9476d658deb79308d0fff4231",
+    "V9_impl/dense_fragment.asc": "e2455c63a4a1da3eed20ab770f73181c14539aa501443b3826fdfd38972d1698",
+    "V9_impl/source_checks.cpp": "0932b5fc38f116b14c4857cafbab208e02abe09e0642a3305d80e71f6644a078",
+    "V9_impl/prepare_cpu.py": "b5b53558f5a4873971bfa115a5e5382b0d01c2a133cedd7ede90962de6bd8f52",
+    "V9_impl/cube_model.hpp": "dd03742bded1885f5c18e91a984113788b1266e06fe5428f897b1fff017884ab",
+    "next_stage/cpu_shim.hpp": "d8066077cf7d32371119ff83f715d4c39fd66c1fb452c4be161b5b26a4ab8b14",
+    "V11_merge/build.py": "db00eb43fcfa0b3c980463b2c63d804b9f2f8df4197a89508e06e36230bf3a40",
+    "V11_merge/run_checks.py": "8efef06166ea3404c3eb61db6119aec2ee2c1d6406e31c61c1104cdc21ee4092",
+    "V11_merge/residual_dense_fragment.asc": "3b7873abc424fb9549c4409ed31ecd46971b0dbcd6ed55346107b394f7e2baff",
+    "V11_followup/R03_CPU_RESULT.json": "e0e4dcadf2a050e68c74590472307e9818374692b9cfc40f82ec6c53ff0d5ec3",
+    "V11_followup/R02_CPU_RESULT.json": "54733ddebbb80ee93afa4d6f0a614148dcc678429404335757b347d1003ca7f4",
+    "V11_lowlevel/run_checks.py": "f3df7ee474ebf99cf059b9bca514abbf4ef99f64db44e9aec4d87506ba350366",
+    "V11_lowlevel/build.py": "5af10e5cef7d3456cc53917e62c05c433c486acb084721591bc01247686cca10",
+    "V11_lowlevel/metrics.cpp.in": "db3ecdadd3db9e6b0105b87a0970a012225752b1d224be20b058ddbc5270847a",
+    "V11_lowlevel/r05_macro_consumer.asc": "e008677c8d6e8d5c678a349a7f5f38cc6d6aa1a8eabbfbb398e0a3ba6e74f61b",
+    "V11_lowlevel/r05_micro_consumer.asc": "b3837e823a35a7c3533936897242f474a40b1fc00ccb1b48cff1b27cd91df3ac",
+    "V11_lowlevel/r06_macro_fragment.asc": "7cd00710a1bf87b5c2c326f52e3c0fa900caa9e763771d4e2743761300c09dde",
+    "V11_merge/R04_CPU_RESULT.json": "03bd21935b30797c1804fba600cc7bdca69ca77f6a1e449a2a22dfd99849d8d4",
+    "V11_grid_packets/build.py": "d622305b567c057816e1062be5737b11c6abd6d3ae00c56fcd9dfb187cf3302f",
+    "V11_grid_packets/run_checks.py": "8b3b40aad98223d8ee0d56bc0c0072a65804b635d1c52d5de63ece5f9c56c967",
+    "V11_grid_packets/balanced_plan.asc": "e2c855a5df8c5a587453e61ae859827ec2b9684e0e50ab3317270547b6b51763",
+    "V11_grid_packets/r07_macro_fragment.asc": "b115e1f458da275c262f676af8bb02a534146118a49468f2854909dcf75ac7a9",
+    "V11_grid_packets/native_ring.asc": "ae7fc92af8a6ddd86a088970a864638cb7e05920587dfc09dcda4280f3f69f0a",
+    "V11_grid_packets/packet_producer.asc": "8f3c80952b0454de7ddf930d7ec23386c96466127a4120278bc4e952ee5a2bb2",
+    "V11_grid_packets/packet_consumer.asc": "c15f48fb40ae102e5ead9fcbdca5754314d2cc0e127b110ed481848e537fa0ae",
+    "V11_grid_packets/grid_checks.cpp.in": "cacc50720884cede6e9dab79054c6ec5f666307478f88aa89c176da08efccf6c",
+    "V11_lowlevel/R04_CPU_RESULT.json": "cc4e717b512d7112c6609cdeaa4c0bc23a7797b35f17f75835783ac8460c6344",
+    "V11_recovery/build.py": "797d164781c4ce1fcc50f93d8600556124a22779873aaba304f373208561d7ec",
+    "V11_recovery/run_checks.py": "91e9736598692dda9656cf1c7c4b4cab0c349e23d1da2d270db9334ed565a65c",
+    "V11_recovery/one_wave_plan.asc": "5c9d262c3f140d86da61dcc69173e05c79fc34113b6fc224ebc8184a99e9b9c5",
+    "V11_recovery/one_wave_macro_fragment.asc": "c3816d9e99ca3bedbc2ce36632c9cfe1c3c73031533d9900d8ac0155b72b7d20",
+    "V11_recovery/residual_packet_fragment.asc": "be7b430ea5c0901fab90fd3f66fabbd5ec6e5c0b01ea8dcd11a095dc2d032fc4",
+    "V11_grid_packets/R08_CPU_RESULT.json": "230ed509cc513268b6992546db38e4bf2cf4f3b526686e991ffb3e53bff91221"
+  },
+  "post_test_nonsemantic_edits": [
+    {
+      "path": "V11_recovery/build.py",
+      "tested_sha256": "8b586ecc33940ba148e00f73e5351633f24d483d8ab24db5159425544ed522d7",
+      "packaged_sha256": "797d164781c4ce1fcc50f93d8600556124a22779873aaba304f373208561d7ec",
+      "change": "removed one empty line at EOF",
+      "python_ast_identical": true
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+// BMMS V10: one streaming Matmul + row-max kernel, with optional selective Split-N.
+// CANN 9 / Atlas A2, default SDK MIX mode. One real launch per runtime call.
+// LocalTensor output may stage through SDK GM; no application C workspace.
+// Offline-checked source candidate; CANN compilation and NPU timing are pending.
+#include <cstdint>
+#include <cstdlib>
+#include "acl/acl.h"
+#include "kernel_operator.h"
+#include "lib/matmul_intf.h"
+#include "lib/matmul/bmm_tiling.h"
+
+#define BMMS10_SPLIT_N @SPLIT_N@
+#define BMMS10_TILE_M @TILE_M@
+#define BMMS10_TILE_N @TILE_N@
+
+// BMMS10_CPU_BEGIN
+namespace bmms10 {
+constexpr float NEG_INF = -__builtin_inff();
+constexpr uint64_t SYSTEM_BYTES = 16ULL * 1024 * 1024;
+constexpr int32_t SUM_SLOT = 16;  // 64-byte independent GM write slots
+
+struct Plan {
+    int32_t B, M, N, K, tileM, tileN, mTiles, nTiles;
+    int32_t pM, pN, tasks, blocks, maxMTiles, maxNTiles, paddedM, direct;
+};
+
+__aicore__ inline int32_t MinI(int32_t x, int32_t y) { return x < y ? x : y; }
+static inline int32_t MinH(int32_t x, int32_t y) { return x < y ? x : y; }
+static inline int32_t MaxH(int32_t x, int32_t y) { return x > y ? x : y; }
+static inline int32_t DivUp(int32_t x, int32_t y) { return (x + y - 1) / y; }
+
+static inline Plan MakePlan(int32_t B, int32_t M, int32_t N, int32_t K,
+                            int32_t cores) {
+    Plan p{};
+    p.B=B; p.M=M; p.N=N; p.K=K;
+    p.tileM=MinH(BMMS10_TILE_M, DivUp(M,16)*16);
+    p.tileN=MinH(BMMS10_TILE_N, DivUp(N,16)*16);
+    p.mTiles=DivUp(M,p.tileM); p.nTiles=DivUp(N,p.tileN);
+    p.pM=B>=cores ? 1 : MinH(p.mTiles,DivUp(cores,B));
+    p.pN=1;
+    if (BMMS10_SPLIT_N && B*p.mTiles<cores && N>=1024) {
+        p.pM=p.mTiles;
+        p.pN=MinH(DivUp(cores,B*p.mTiles),p.nTiles/2);
+        if (p.pN<1) p.pN=1;
+    }
+    p.tasks=B*p.pM*p.pN; p.blocks=MinH(cores,p.tasks);
+    p.maxMTiles=DivUp(p.mTiles,p.pM); p.maxNTiles=DivUp(p.nTiles,p.pN);
+    p.paddedM=DivUp(M,16)*16; p.direct=p.pM==1 && p.pN==1;
+    return p;
+}
+
+static inline uint64_t PartialBytes(const Plan& p) {
+    if (p.direct) return 0;
+    return p.pN==1 ? uint64_t(p.B)*p.pM*SUM_SLOT*sizeof(float)
+                  : uint64_t(p.B)*p.pN*p.paddedM*sizeof(float);
+}
+
+static inline int32_t MergeElems(const Plan& p) {
+    return p.direct ? 0 : (p.pN==1 ? p.pM*SUM_SLOT : p.paddedM);
+}
+
+static inline int32_t ScratchElems(const Plan& p) {
+    return MaxH(MaxH(p.maxMTiles*8,p.tileM),MergeElems(p));
+}
+
+static inline uint64_t AppUBBytes(const Plan& p) {
+    return 4ULL*(p.tileM*p.tileN + 2*p.tileM + p.maxMTiles*8 +
+        ScratchElems(p) + 2*p.tileN + p.tileM + p.tileM*8 +
+        MergeElems(p) + (p.pN>1 ? p.paddedM : 0) + SUM_SLOT);
+}
+
+static inline bool ValidPlan(const Plan& p,int32_t cores) {
+    return p.blocks>0 && p.blocks<=cores && p.pM>=1 && p.pM<=p.mTiles &&
+        p.pN>=1 && p.pN<=p.nTiles && p.tasks==p.B*p.pM*p.pN &&
+        p.tileM%16==0 && p.tileN%16==0 && p.tileM<=128 && p.tileN<=256 &&
+        p.tileM*p.tileN<=16384 && AppUBBytes(p)<=120*1024 &&
+        PartialBytes(p)<=2*1024*1024;
+}
+
+template<AscendC::HardEvent E>
+__aicore__ inline void Fence(AscendC::TPipe& pipe) {
+    const auto id=static_cast<event_t>(pipe.FetchEventID(E));
+    AscendC::SetFlag<E>(id); AscendC::WaitFlag<E>(id);
+}
+
+template<class T,bool TA,bool TB>
+class StreamingDevice {
+public:
+    using AType=matmul::MatmulType<AscendC::TPosition::GM,CubeFormat::ND,T,TA>;
+    using BType=matmul::MatmulType<AscendC::TPosition::GM,CubeFormat::ND,T,TB>;
+    using CType=matmul::MatmulType<AscendC::TPosition::VECIN,CubeFormat::ND,float>;
+    matmul::Matmul<AType,BType,CType> mm;
+    TCubeTiling tiling;
+
+    __aicore__ inline void Init(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR partials,
+                                const Plan& plan,AscendC::TPipe* pipe) {
+        p=plan; pipe_=pipe;
+        ga.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(a),int64_t(p.B)*p.M*p.K);
+        gb.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(b),int64_t(p.B)*p.N*p.K);
+        gy.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(y),p.B);
+        const int64_t partialFloats=p.direct ? 0 : (p.pN==1 ?
+            int64_t(p.B)*p.pM*SUM_SLOT : int64_t(p.B)*p.pN*p.paddedM);
+        gp.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(partials),partialFloats);
+        pipe->InitBuffer(cQueue,1,p.tileM*p.tileN*sizeof(float));
+        pipe->InitBuffer(rowMaxBuf,p.tileM*sizeof(float));
+        pipe->InitBuffer(tileMaxBuf,p.tileM*sizeof(float));
+        pipe->InitBuffer(tileSumBuf,p.maxMTiles*8*sizeof(float));
+        // Keep host-only helpers out of the device call graph.
+        int32_t mergeElems=p.direct ? 0 : (p.pN==1 ? p.pM*SUM_SLOT : p.paddedM);
+        int32_t scratchElems=p.maxMTiles*8;
+        if (scratchElems<p.tileM) scratchElems=p.tileM;
+        if (scratchElems<mergeElems) scratchElems=mergeElems;
+        pipe->InitBuffer(scratchBuf,scratchElems*sizeof(float));
+        pipe->InitBuffer(tailRowBuf,p.tileN*sizeof(float));
+        pipe->InitBuffer(colIndexBuf,p.tileN*sizeof(int32_t));
+        pipe->InitBuffer(rowIndexBuf,p.tileM*sizeof(int32_t));
+        pipe->InitBuffer(tailMaxBuf,p.tileM*8*sizeof(float));
+        if (mergeElems) pipe->InitBuffer(mergeBuf,mergeElems*sizeof(float));
+        if (p.pN>1) pipe->InitBuffer(mergeTmpBuf,p.paddedM*sizeof(float));
+        pipe->InitBuffer(outQueue,1,SUM_SLOT*sizeof(float));
+
+        auto ci=colIndexBuf.Get<int32_t>();
+        auto ri=rowIndexBuf.Get<int32_t>();
+        AscendC::CreateVecIndex(ci,int32_t(0),p.tileN);
+        AscendC::CreateVecIndex(ri,int32_t(0),p.tileM);
+        AscendC::PipeBarrier<PIPE_V>();
+        AscendC::Muls(ci,ci,int32_t(sizeof(float)),p.tileN);
+        AscendC::Muls(ri,ri,int32_t(8*sizeof(float)),p.tileM);
+        AscendC::PipeBarrier<PIPE_V>();
+    }
+
+    __aicore__ inline void Process() {
+        const int32_t worker=static_cast<int32_t>(AscendC::GetBlockIdx());
+        for (int32_t task=worker;task<p.tasks;task+=p.blocks) {
+            const int32_t batch=task/(p.pM*p.pN);
+            const int32_t ms=(task%(p.pM*p.pN))/p.pN, ns=task%p.pN;
+            const int32_t mb=ms*p.mTiles/p.pM, me=(ms+1)*p.mTiles/p.pM;
+            const int32_t nb=ns*p.nTiles/p.pN, ne=(ns+1)*p.nTiles/p.pN;
+            const int32_t n0=nb*p.tileN, cols=MinI(ne*p.tileN,p.N)-n0;
+            auto tileSums=tileSumBuf.Get<float>();
+            if (p.pN==1) {
+                AscendC::Duplicate(tileSums,0.0f,p.maxMTiles*8);
+                AscendC::PipeBarrier<PIPE_V>();
+            }
+            for (int32_t mt=mb;mt<me;++mt) {
+                const int32_t m0=mt*p.tileM, rows=MinI(p.tileM,p.M-m0);
+                ComputeM(batch,m0,n0,rows,cols);
+                auto maxima=rowMaxBuf.Get<float>();
+                if (p.pN==1) {
+                    AscendC::ReduceSum(tileSums[(mt-mb)*8],maxima,
+                                      scratchBuf.Get<float>(),rows);
+                    AscendC::PipeBarrier<PIPE_V>();
+                } else {
+                    const int64_t dst=(int64_t(batch)*p.pN+ns)*p.paddedM+m0;
+                    Fence<AscendC::HardEvent::V_MTE3>(*pipe_);
+                    AscendC::DataCopyExtParams cp{1,uint32_t(rows*sizeof(float)),0,0,0};
+                    AscendC::DataCopyPad(gp[dst],maxima,cp);
+                    Fence<AscendC::HardEvent::MTE3_V>(*pipe_);
+                }
+            }
+            if (p.pN==1) WriteTaskSum(batch,ms,(me-mb)*8);
+        }
+        if (p.direct) return; // Uniform across the launch.
+        Fence<AscendC::HardEvent::MTE3_MTE2>(*pipe_);
+        // Only AIV clients participate; AIC partners run the SDK Matmul server.
+        AscendC::SyncAll<true>();
+        for (int32_t batch=worker;batch<p.B;batch+=p.blocks) FinishBatch(batch);
+    }
+
+private:
+    __aicore__ inline void ComputeM(int32_t batch,int32_t m0,int32_t n0,
+                                    int32_t rows,int32_t cols) {
+        auto maxima=rowMaxBuf.Get<float>();
+        AscendC::Duplicate(maxima,NEG_INF,rows);
+        AscendC::PipeBarrier<PIPE_V>();
+        const int64_t ao=int64_t(batch)*p.M*p.K+(TA ? int64_t(m0) : int64_t(m0)*p.K);
+        const int64_t bo=int64_t(batch)*p.N*p.K+(TB ? int64_t(n0)*p.K : int64_t(n0));
+        mm.SetOrgShape(p.M,p.N,p.K,p.K);
+        mm.SetTensorA(ga[ao],TA); mm.SetTensorB(gb[bo],TB);
+        mm.SetSingleShape(rows,cols,p.K);
+        int32_t n=0;
+        while (mm.template Iterate<true>()) {
+            auto c=cQueue.AllocTensor<float>();
+            mm.template GetTensorC<true>(c,0,true);
+            cQueue.EnQue(c); c=cQueue.DeQue<float>();
+            const int32_t liveN=MinI(p.tileN,cols-n);
+            RowMax(c,rows,liveN);
+            AscendC::Max(maxima,maxima,tileMaxBuf.Get<float>(),rows);
+            AscendC::PipeBarrier<PIPE_V>();
+            cQueue.FreeTensor(c);
+            n+=p.tileN;
+        }
+        mm.End(); // Full K completed before every RowMax; no split-K.
+    }
+
+    __aicore__ inline void RowMax(const AscendC::LocalTensor<float>& c,
+                                  int32_t rows,int32_t cols) {
+        auto dst=tileMaxBuf.Get<float>();
+        // Sequential ND output is compact: the tail row pitch is cols.
+        if (cols%8==0) {
+            AscendC::BinaryRepeatParams rp{1,1,1,static_cast<uint8_t>(cols/8),
+                static_cast<uint8_t>(cols/8),static_cast<uint8_t>(cols/8)};
+            for (int32_t off=64;off<cols;off+=64) {
+                AscendC::Max(c,c,c[off],MinI(64,cols-off),rows,rp);
+                AscendC::PipeBarrier<PIPE_V>();
+            }
+            AscendC::WholeReduceMax(dst,c,MinI(64,cols),rows,1,1,cols/8,
+                                   AscendC::ReduceOrder::ORDER_ONLY_VALUE);
+            AscendC::PipeBarrier<PIPE_V>();
+            return;
+        }
+        // Non-32B row starts cannot be passed to a Vector row reduction.
+        // Gather only real entries into an aligned row; padding stays -INF.
+        auto line=tailRowBuf.Get<float>();
+        auto sparse=tailMaxBuf.Get<float>();
+        auto ci=colIndexBuf.Get<int32_t>().template ReinterpretCast<uint32_t>();
+        auto ri=rowIndexBuf.Get<int32_t>().template ReinterpretCast<uint32_t>();
+        AscendC::Duplicate(line,NEG_INF,p.tileN);
+        AscendC::PipeBarrier<PIPE_V>();
+        for (int32_t m=0;m<rows;++m) {
+            AscendC::Gather(line,c,ci,uint32_t(m*cols*sizeof(float)),cols);
+            AscendC::PipeBarrier<PIPE_V>();
+            for (int32_t off=64;off<p.tileN;off+=64) {
+                AscendC::Max(line,line,line[off],MinI(64,p.tileN-off));
+                AscendC::PipeBarrier<PIPE_V>();
+            }
+            AscendC::WholeReduceMax(sparse[m*8],line,MinI(p.tileN,64),1,1,1,8,
+                                   AscendC::ReduceOrder::ORDER_ONLY_VALUE);
+            AscendC::PipeBarrier<PIPE_V>();
+        }
+        AscendC::Gather(dst,sparse,ri,0,rows);
+        AscendC::PipeBarrier<PIPE_V>();
+    }
+
+    __aicore__ inline void WriteTaskSum(int32_t batch,int32_t ms,int32_t count) {
+        auto out=outQueue.AllocTensor<float>();
+        AscendC::Duplicate(out,0.0f,SUM_SLOT);
+        AscendC::PipeBarrier<PIPE_V>();
+        AscendC::ReduceSum(out,tileSumBuf.Get<float>(),scratchBuf.Get<float>(),count);
+        outQueue.EnQue(out); out=outQueue.DeQue<float>();
+        if (p.direct) {
+            AscendC::DataCopyExtParams cp{1,sizeof(float),0,0,0};
+            AscendC::DataCopyPad(gy[batch],out,cp);
+        } else {
+            AscendC::DataCopy(gp[(int64_t(batch)*p.pM+ms)*SUM_SLOT],out,SUM_SLOT);
+        }
+        outQueue.FreeTensor(out);
+        AscendC::PipeBarrier<PIPE_V>();
+    }
+
+    __aicore__ inline void FinishBatch(int32_t batch) {
+        auto merged=mergeBuf.Get<float>();
+        AscendC::DataCopyPadExtParams<float> noPad{false,0,0,0.0f};
+        int32_t count;
+        if (p.pN==1) {
+            count=p.pM*SUM_SLOT;
+            AscendC::DataCopy(merged,gp[int64_t(batch)*count],count);
+            Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
+        } else {
+            count=p.M;
+            const int64_t first=int64_t(batch)*p.pN*p.paddedM;
+            AscendC::DataCopyExtParams cp{1,uint32_t(p.M*sizeof(float)),0,0,0};
+            AscendC::DataCopyPad(merged,gp[first],cp,noPad);
+            Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
+            auto tmp=mergeTmpBuf.Get<float>();
+            for (int32_t ns=1;ns<p.pN;++ns) {
+                AscendC::DataCopyPad(tmp,gp[first+int64_t(ns)*p.paddedM],cp,noPad);
+                Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
+                AscendC::Max(merged,merged,tmp,p.M);
+                AscendC::PipeBarrier<PIPE_V>();
+                Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
+            }
+        }
+        auto out=outQueue.AllocTensor<float>();
+        AscendC::ReduceSum(out,merged,scratchBuf.Get<float>(),count);
+        outQueue.EnQue(out); out=outQueue.DeQue<float>();
+        AscendC::DataCopyExtParams cp{1,sizeof(float),0,0,0};
+        AscendC::DataCopyPad(gy[batch],out,cp);
+        outQueue.FreeTensor(out);
+        Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
+    }
+
+    Plan p;
+    AscendC::TPipe* pipe_;
+    AscendC::GlobalTensor<T> ga,gb;
+    AscendC::GlobalTensor<float> gy,gp;
+    AscendC::TQue<AscendC::TPosition::VECIN,1> cQueue;
+    AscendC::TQue<AscendC::TPosition::VECOUT,1> outQueue;
+    AscendC::TBuf<AscendC::TPosition::VECCALC> rowMaxBuf,tileMaxBuf,tileSumBuf,scratchBuf;
+    AscendC::TBuf<AscendC::TPosition::VECCALC> tailRowBuf,colIndexBuf,rowIndexBuf,tailMaxBuf;
+    AscendC::TBuf<AscendC::TPosition::VECCALC> mergeBuf,mergeTmpBuf;
+};
+} // namespace bmms10
+// BMMS10_CPU_END
+
+namespace bmms10 {
+static inline bool GetTiling(const Plan& p,int32_t dtype,bool ta,bool tb,
+                             int32_t kb,TCubeTiling& td) {
+    matmul_tiling::MultiCoreMatmulTiling t;
+    // The application assigns independent single-core Matmul tasks itself.
+    if (t.SetDim(1)==-1) return false;
+    const auto dt=dtype==2 ? matmul_tiling::DataType::DT_BFLOAT16
+                           : matmul_tiling::DataType::DT_FLOAT16;
+    t.SetAType(matmul_tiling::TPosition::GM,matmul_tiling::CubeFormat::ND,dt,ta);
+    t.SetBType(matmul_tiling::TPosition::GM,matmul_tiling::CubeFormat::ND,dt,tb);
+    t.SetCType(matmul_tiling::TPosition::VECIN,matmul_tiling::CubeFormat::ND,
+               matmul_tiling::DataType::DT_FLOAT);
+    const int32_t sm=MinH(p.M,p.tileM), sn=MinH(p.N,p.maxNTiles*p.tileN);
+    t.SetOrgShape(p.M,p.N,p.K); t.SetShape(sm,sn,p.K);
+    if (t.SetSingleShape(sm,sn,p.K)==-1) return false;
+    if (t.SetFixSplit(p.tileM,p.tileN,kb)==-1) return false;
+    if (t.SetTraverse(matmul_tiling::MatrixTraverse::FIRSTN)==-1) return false;
+    t.EnableBias(false); t.SetBufferSpace(-1,-1,64*1024);
+    if (t.GetTiling(td)==-1) return false;
+    return td.usedCoreNum==1 && td.baseM==p.tileM && td.baseN==p.tileN &&
+        td.baseK>0 && td.singleCoreM>=sm && td.singleCoreN>=sn &&
+        td.singleCoreK>=p.K;
+}
+
+template<class T,bool TA,bool TB>
+__aicore__ inline void Entry(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR partials,
+                            TCubeTiling td,Plan p) {
+    AscendC::TPipe pipe;
+    StreamingDevice<T,TA,TB> op; op.tiling=td;
+    REGIST_MATMUL_OBJ(&pipe,GetSysWorkSpacePtr(),op.mm,&op.tiling);
+    if ASCEND_IS_AIV {
+        op.Init(a,b,y,partials,p,&pipe); op.Process();
+    }
+}
+}
+
+#define BMMS10_ENTRY(NAME,TYPE,TA,TB)                                     \
+__schedmode__(1) __global__ __mix__(1,1) void NAME(                        \
+    GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR partials,                        \
+    __kfc_workspace__ GM_ADDR workspace,TCubeTiling td,bmms10::Plan p)     \
+{ bmms10::Entry<TYPE,TA,TB>(a,b,y,partials,td,p); }
+BMMS10_ENTRY(bmms10_f16_nn,half,false,false)
+BMMS10_ENTRY(bmms10_f16_nt,half,false,true)
+BMMS10_ENTRY(bmms10_f16_tn,half,true,false)
+BMMS10_ENTRY(bmms10_f16_tt,half,true,true)
+BMMS10_ENTRY(bmms10_b16_nn,bfloat16_t,false,false)
+BMMS10_ENTRY(bmms10_b16_nt,bfloat16_t,false,true)
+BMMS10_ENTRY(bmms10_b16_tn,bfloat16_t,true,false)
+BMMS10_ENTRY(bmms10_b16_tt,bfloat16_t,true,true)
+#undef BMMS10_ENTRY
+
+extern "C" void run_kernel(GM_ADDR a,const TensorGroupInfo& ia,
+    GM_ADDR b,const TensorGroupInfo& ib,GM_ADDR y,const TensorGroupInfo& iy,
+    int64_t availableCoreNum,aclrtStream stream,bool ta,bool tb) {
+    using namespace bmms10;
+    if (ia.numTensors!=1 || ib.numTensors!=1 || iy.numTensors!=1) std::abort();
+    const auto& ai=ia.tensors[0]; const auto& bi=ib.tensors[0]; const auto& yi=iy.tensors[0];
+    if (ai.numDims!=3 || bi.numDims!=3 || yi.numDims!=1 ||
+        (ai.dtype!=1 && ai.dtype!=2) || bi.dtype!=ai.dtype || yi.dtype!=0) std::abort();
+    const int64_t B=ai.shape[0], M=ai.shape[ta ? 2 : 1];
+    const int64_t K=ai.shape[ta ? 1 : 2], N=bi.shape[tb ? 1 : 2];
+    if (B<1 || B>64 || M<1 || M>8192 || N<1 || N>8192 || K<32 || K>8192 ||
+        K%8 || bi.shape[0]!=B || bi.shape[tb ? 2 : 1]!=K || yi.shape[0]!=B ||
+        B*M*K>(1LL<<26) || B*N*K>(1LL<<26)) std::abort();
+    const int32_t cores=availableCoreNum>0 && availableCoreNum<=64 ?
+        static_cast<int32_t>(availableCoreNum) : 1;
+    Plan p=MakePlan(B,M,N,K,cores);
+    if (!ValidPlan(p,cores)) std::abort();
+    TCubeTiling td{};
+    const int32_t alignedK=DivUp(p.K,16)*16;
+    if (!GetTiling(p,ai.dtype,ta,tb,MinH(128,alignedK),td)) {
+        td=TCubeTiling{};
+        if (!GetTiling(p,ai.dtype,ta,tb,MinH(64,alignedK),td)) std::abort();
+    }
+    uint8_t* workspace=nullptr;
+    if (aclrtMalloc(reinterpret_cast<void**>(&workspace),SYSTEM_BYTES+PartialBytes(p),
+                    ACL_MEM_MALLOC_HUGE_FIRST)!=ACL_SUCCESS) std::abort();
+    auto partials=workspace+SYSTEM_BYTES;
+#define BMMS10_LAUNCH(NAME) \
+    NAME<<<p.blocks,nullptr,stream>>>(a,b,y,partials,workspace,td,p)
+    if (ai.dtype==1) {
+        if (!ta && !tb) { BMMS10_LAUNCH(bmms10_f16_nn); }
+        else if (!ta && tb) { BMMS10_LAUNCH(bmms10_f16_nt); }
+        else if (ta && !tb) { BMMS10_LAUNCH(bmms10_f16_tn); }
+        else { BMMS10_LAUNCH(bmms10_f16_tt); }
+    } else {
+        if (!ta && !tb) { BMMS10_LAUNCH(bmms10_b16_nn); }
+        else if (!ta && tb) { BMMS10_LAUNCH(bmms10_b16_nt); }
+        else if (ta && !tb) { BMMS10_LAUNCH(bmms10_b16_tn); }
+        else { BMMS10_LAUNCH(bmms10_b16_tt); }
+    }
+#undef BMMS10_LAUNCH
+    if (aclrtSynchronizeStream(stream)!=ACL_SUCCESS) std::abort();
+    if (aclrtFree(workspace)!=ACL_SUCCESS) std::abort();
+}

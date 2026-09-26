@@ -1,0 +1,8 @@
+{
+  "archive": "BMMS_V10_提交包.zip",
+  "sha256": "be172dc67f226a501aedfbbfc0aca9228f1223ea48d7fd0de3a44e14de4e15c8",
+  "bytes": 14298,
+  "f01_f02_only_dispatch_difference": true,
+  "cann_compiled": false,
+  "npu_tested": false
+}

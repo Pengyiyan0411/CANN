@@ -1,0 +1,32 @@
+{
+  "family": "V10",
+  "user_plan": "V10_impl/USER_PLAN.md",
+  "source_template_sha256": "6b2a166eb0ac7ff1e8ee4f96b355de85d5445ef638deb529d39fbdd3889cc23b",
+  "cann_compiled": false,
+  "npu_tested": false,
+  "platform_submitted": false,
+  "variants": [
+    {
+      "variant": "F01_STREAM_M",
+      "file": "F01_STREAM_M.asc",
+      "sha256": "82bc0f92d9eb1ffdb092d5fb076e43f05080f62859e64e2b0a66e52c770b930c",
+      "bytes": 18380,
+      "split_n": false,
+      "tile_mn": [
+        64,
+        128
+      ]
+    },
+    {
+      "variant": "F02_STREAM_MN",
+      "file": "F02_STREAM_MN.asc",
+      "sha256": "011e67c1dc86089e301f2faa5fb593073cf3e29636cefcb4f246623b5c806035",
+      "bytes": 18381,
+      "split_n": true,
+      "tile_mn": [
+        64,
+        128
+      ]
+    }
+  ]
+}

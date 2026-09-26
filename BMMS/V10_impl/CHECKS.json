@@ -1,0 +1,66 @@
+{
+  "scope": "source-extracted CPU semantics, bounds, ownership and planning",
+  "compiler": "g++.EXE (Rev13, Built by MSYS2 project) 15.2.0",
+  "cann_compiled": false,
+  "npu_tested": false,
+  "full_domain_precision_accepted": false,
+  "runs": {
+    "F01_STREAM_M": {
+      "ordinary_source_runs": 512,
+      "bitwise_repeat_pairs": 256,
+      "plan_checks": 8190,
+      "max_application_ub_bytes": 44928,
+      "max_partial_bytes": 5120,
+      "ordinary_strict_misses": 0,
+      "max_abs": 4.76837158203e-07,
+      "max_rel": 9.24937099653e-07,
+      "known_precision_limitations_reproduced": 3,
+      "routes": {
+        "batch_direct": 320,
+        "split_m": 192
+      },
+      "known_limit_cases": [
+        "f16_nn_1_2_1_32_c20_p4",
+        "b16_nn_1_2_1_32_c20_p4",
+        "b16_nn_1_2_1_32_c20_p5"
+      ],
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false,
+      "output_bits_sha256": "56cb2aefde6336a86b06b0eb42622525413e0532280f56f738467465c315a1ee",
+      "source_sha256": "82bc0f92d9eb1ffdb092d5fb076e43f05080f62859e64e2b0a66e52c770b930c"
+    },
+    "F02_STREAM_MN": {
+      "ordinary_source_runs": 512,
+      "bitwise_repeat_pairs": 256,
+      "plan_checks": 8190,
+      "max_application_ub_bytes": 61280,
+      "max_partial_bytes": 29568,
+      "ordinary_strict_misses": 0,
+      "max_abs": 4.76837158203e-07,
+      "max_rel": 9.24937099653e-07,
+      "known_precision_limitations_reproduced": 3,
+      "routes": {
+        "batch_direct": 208,
+        "split_m": 144,
+        "split_n": 160
+      },
+      "known_limit_cases": [
+        "f16_nn_1_2_1_32_c20_p4",
+        "b16_nn_1_2_1_32_c20_p4",
+        "b16_nn_1_2_1_32_c20_p5"
+      ],
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false,
+      "output_bits_sha256": "56cb2aefde6336a86b06b0eb42622525413e0532280f56f738467465c315a1ee",
+      "source_sha256": "011e67c1dc86089e301f2faa5fb593073cf3e29636cefcb4f246623b5c806035"
+    }
+  },
+  "cross_variant_bitwise_different_cases": 0,
+  "artifacts": {
+    "V10_impl/source_checks.cpp": "91f5bab9edc330f5fd8fcfe881b1d7f3ff4e37ba90e758e4d8f870705201b89e",
+    "V10_impl/run_checks.py": "53011cb16d62f860fd5431689499d4be5c86288491609aa883628909f89bcf76",
+    "next_stage/cpu_shim.hpp": "d8066077cf7d32371119ff83f715d4c39fd66c1fb452c4be161b5b26a4ab8b14"
+  }
+}

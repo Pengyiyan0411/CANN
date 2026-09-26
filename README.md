@@ -1,6 +1,16 @@
 # CANN
 
-BatchMatmulMaxSum 算子开发归档。当前 V9 源码、实验结果与检查脚本位于本仓库 `v9` 分支的 [BMMS](BMMS) 目录；此前版本保留在各历史分支。
+BatchMatmulMaxSum 算子开发归档。当前用户精简方案实现位于 `v10` 分支，V9 的源码和平台结果保留在 `v9` 分支；此前版本保留在各历史分支。
+
+## 当前交付：V10
+
+- [F01_STREAM_M.asc](BMMS/BMMS_V10_SubmitPack/F01_STREAM_M.asc)：Batch / Split-M 流式融合。
+- [F02_STREAM_MN.asc](BMMS/BMMS_V10_SubmitPack/F02_STREAM_MN.asc)：只增加选择性 Split-N。
+- [提交包](BMMS/BMMS_V10_提交包.zip)、[使用说明](BMMS/BMMS_V10_SubmitPack/README.md)、[设计](BMMS/V10_impl/DESIGN.md)、[检查证据](BMMS/V10_impl/CHECKS.json)。
+
+两份文件都整体替换官方 `code/kernel.asc`。每版512次正常源码CPU模型运行和8190个planner检查通过；已有3个极端数值反例保留。尚未CANN编译或运行NPU，不能承诺平台Pass或加速。先提交F01，再提交F02；第三轮等真实结果后做定向优化。
+
+P01已有局部输出接口，本轮不是首次移除完整C分配。SDK局部输出可能经GM暂存；V10实际改变调度、partialY归约和尾块处理。D04保留旧路线对照。
 
 ## 当前结果
 
@@ -18,7 +28,7 @@ T的点5、13、14已经更新，不能直接与旧34.0599分比较。完整原�
 
 最新未标注截图紧接D03交付，先按D03分析，**不是用户明确标注**。见 [D03后续截图审计](BMMS/V9_results/2026-09-26_d03_submission/AUDIT.md)。停止缩小K和C槽数扫描，P01保底，暂缓M01组合。
 
-下一次提交 [D04_DENSE_M128_N128.asc](BMMS/BMMS_V9_D04/D04_DENSE_M128_N128.asc)：增大M块以复用B，同时调整producer/consumer与小块同步。D03/D04各283次源码CPU模型检查通过；一个公开控制例的逻辑输入读量减少1/3，非性能预测。D04尚未CANN编译或上卡。完整替换官方 `code/kernel.asc`，沿用其余工程，详见 [D04说明](BMMS/BMMS_V9_D04/README.md)。
+保留对照 [D04_DENSE_M128_N128.asc](BMMS/BMMS_V9_D04/D04_DENSE_M128_N128.asc)：增大M块以复用B，同时调整producer/consumer与小块同步。D03/D04各283次源码CPU模型检查通过；一个公开控制例的逻辑输入读量减少1/3，非性能预测。D04尚未CANN编译或上卡，详见 [D04说明](BMMS/BMMS_V9_D04/README.md)。
 
 ## 源码与证据
 
@@ -42,6 +52,9 @@ python BMMS/V9_impl/test_semantics.py
 python BMMS/V9_impl/run_checks.py
 python BMMS/V9_impl/run_d03_checks.py
 python BMMS/V9_impl/run_d04_checks.py
+python BMMS/V10_impl/build.py
+python BMMS/V10_impl/run_checks.py
+python BMMS/V10_impl/package.py
 ```
 
 数学审查脚本退出0表示普通断言与已知失败均被正确复现，`candidate_precision_accepted=false`仍保留。重新运行会更新对应本地检查产物；原平台截图与提交源不应修改。

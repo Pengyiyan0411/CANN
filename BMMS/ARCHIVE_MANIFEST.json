@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
-  "branch": "v9",
-  "scope": "V9 single-file candidates, P01 control, reproducible offline checks, user-labelled platform evidence",
+  "branch": "v10",
+  "scope": "V9/V10 single-file candidates, P01 control, reproducible offline checks, labelled/inferred platform evidence",
   "platform_source_identity": "user-labelled filenames; no platform source digest provided",
   "excluded": "compiler binaries, caches, external CATLASS checkout, unrelated historical versions",
   "files": [
@@ -9,6 +9,41 @@
       "path": "BatchMatmulMaxSum_V9_冲榜路线设计.md",
       "bytes": 16093,
       "sha256": "bd4cf72456c01b28875d7a8ca1e8f7f1c1016da2eb16ef3a2b54f3eb9b9d14d7"
+    },
+    {
+      "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
+      "bytes": 22997,
+      "sha256": "b2f3056992b31f2711f4a8b900c90f8065f2fc7399da2c6e4b4552f05378aca6"
+    },
+    {
+      "path": "BMMS_V10_SubmitPack/CPU_CHECKS.json",
+      "bytes": 2442,
+      "sha256": "1a386c6ba25e1b76a8565b4c341f6bc796a5964c3483554c0bda30ac8ee0fab7"
+    },
+    {
+      "path": "BMMS_V10_SubmitPack/F01_STREAM_M.asc",
+      "bytes": 18380,
+      "sha256": "82bc0f92d9eb1ffdb092d5fb076e43f05080f62859e64e2b0a66e52c770b930c"
+    },
+    {
+      "path": "BMMS_V10_SubmitPack/F02_STREAM_MN.asc",
+      "bytes": 18381,
+      "sha256": "011e67c1dc86089e301f2faa5fb593073cf3e29636cefcb4f246623b5c806035"
+    },
+    {
+      "path": "BMMS_V10_SubmitPack/MANIFEST.json",
+      "bytes": 813,
+      "sha256": "ab35ea13ced16c804c89a1cfd4ba9903d8545659ea346b044890708b22d5d2a5"
+    },
+    {
+      "path": "BMMS_V10_SubmitPack/README.md",
+      "bytes": 3207,
+      "sha256": "538cc27e097420fa76f278468a29abca27f1fed6bf9a97b1a850080424620c64"
+    },
+    {
+      "path": "BMMS_V10_提交包.zip",
+      "bytes": 14298,
+      "sha256": "be172dc67f226a501aedfbbfc0aca9228f1223ea48d7fd0de3a44e14de4e15c8"
     },
     {
       "path": "BMMS_V9_D03/CPU_CHECKS.json",
@@ -136,6 +171,81 @@
       "sha256": "d8066077cf7d32371119ff83f715d4c39fd66c1fb452c4be161b5b26a4ab8b14"
     },
     {
+      "path": "README.md",
+      "bytes": 6481,
+      "sha256": "3487d448bfaa633d2bfc63d9d8ca21e378360d551a70fac04831b1d8660467da"
+    },
+    {
+      "path": "V10_impl/API_EVIDENCE.json",
+      "bytes": 1416,
+      "sha256": "721556182a3d55f5db5df837155e9097ff6c6695b7f5fa2f68c19fde775fe57f"
+    },
+    {
+      "path": "V10_impl/archive.py",
+      "bytes": 2470,
+      "sha256": "3f320a2ecc5146200ed3ae1fe1e33b21d79bf9310e2b179cc5f034f56f8b2b34"
+    },
+    {
+      "path": "V10_impl/build.py",
+      "bytes": 1865,
+      "sha256": "788b03898bf768d96eff1b726142c1517d1e87ee35dfd20c4ee99b8baef73077"
+    },
+    {
+      "path": "V10_impl/CHECKS.json",
+      "bytes": 2442,
+      "sha256": "1a386c6ba25e1b76a8565b4c341f6bc796a5964c3483554c0bda30ac8ee0fab7"
+    },
+    {
+      "path": "V10_impl/DESIGN.md",
+      "bytes": 5447,
+      "sha256": "166543b4afe44208f4aec8b008a13f015356ed59c6f83957a82abe12660aad69"
+    },
+    {
+      "path": "V10_impl/F01_STREAM_M_CPU_RESULT.json",
+      "bytes": 29338,
+      "sha256": "f7f120b605d2ce0f231de025b7c4462758269dfefab18c7b24b4c3cea7f3bc6b"
+    },
+    {
+      "path": "V10_impl/F02_STREAM_MN_CPU_RESULT.json",
+      "bytes": 29360,
+      "sha256": "4da79e91ff12d89d963bd85bc6c817b25724cf83ca5661d7467f48db2ff9316f"
+    },
+    {
+      "path": "V10_impl/package.py",
+      "bytes": 2727,
+      "sha256": "637c6577b1ccbe594d5bc8b4f79b6403a7f19b4022080a284314e47f5aa152dd"
+    },
+    {
+      "path": "V10_impl/PACKAGE_CHECKS.json",
+      "bytes": 241,
+      "sha256": "34e3b7a8e20f9f5139e56cd975bf9bafcc966f1995b690fa81a285b87f4cdbc3"
+    },
+    {
+      "path": "V10_impl/run_checks.py",
+      "bytes": 3964,
+      "sha256": "53011cb16d62f860fd5431689499d4be5c86288491609aa883628909f89bcf76"
+    },
+    {
+      "path": "V10_impl/source_checks.cpp",
+      "bytes": 8802,
+      "sha256": "91f5bab9edc330f5fd8fcfe881b1d7f3ff4e37ba90e758e4d8f870705201b89e"
+    },
+    {
+      "path": "V10_impl/streaming.asc.in",
+      "bytes": 18328,
+      "sha256": "6b2a166eb0ac7ff1e8ee4f96b355de85d5445ef638deb529d39fbdd3889cc23b"
+    },
+    {
+      "path": "V10_impl/TESTCASES.md",
+      "bytes": 2074,
+      "sha256": "9639aa7a310afb7fe4ff283444342c8afaef8e87ac1d28706be2984d9069501d"
+    },
+    {
+      "path": "V10_impl/USER_PLAN.md",
+      "bytes": 6267,
+      "sha256": "3dd84ca544910d106d2af854e30b4f7d8b0d99c6360f06bf3816e2b78b789f57"
+    },
+    {
       "path": "V9_design/blocked_oracle.py",
       "bytes": 4858,
       "sha256": "0c2c688f28119167fa8a249229144807982913ca075ba360e9b9441b7eb5deb5"
@@ -227,8 +337,8 @@
     },
     {
       "path": "V9_impl/archive_to_repo.py",
-      "bytes": 2500,
-      "sha256": "733a244ef103a0064897bc6b6a34ec99fe7488d2f4a4a09a56752cceb18b4a2b"
+      "bytes": 3154,
+      "sha256": "d03a75a177397fb6144f8f9e6f6853c05e41803c5b5b9e51c4abde115579267c"
     },
     {
       "path": "V9_impl/build_candidates.py",
@@ -327,8 +437,8 @@
     },
     {
       "path": "V9_impl/IMPLEMENTATION_STATUS.md",
-      "bytes": 4137,
-      "sha256": "01ae31b2de1bd32b5a2d9b3aa38ab108051980c3ec1823542212461011402a37"
+      "bytes": 4319,
+      "sha256": "012be37a1b967b25eebe223a75b967f82c143ed9121cdbe5765547552a3131f5"
     },
     {
       "path": "V9_impl/ingest_d02_results.py",

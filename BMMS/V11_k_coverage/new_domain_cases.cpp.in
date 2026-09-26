@@ -1,0 +1,30 @@
+    for(int rev=0;rev<2;++rev){
+#if K_VARIANT==15
+        const std::vector<int> ks={96,160,192,224};
+#else
+        const std::vector<int> ks={48,80,112,144,240,272,528};
+#endif
+        for(int K:ks){
+            // Both input types, all four physical layouts, macro/tile tails and repeated launch order.
+            // Changing input sign also prevents treating padded N lanes as zero-valued real outputs.
+            layouts<half>({1,144,272,K,2},0,rev);
+            layouts<bfloat16_t>({1,144,272,K,2},1,rev);
+            layouts<half>({3,80,144,K,2},1,rev);
+            layouts<bfloat16_t>({3,80,144,K,2},0,rev);
+        }
+#if K_VARIANT==15
+        const std::vector<int> shortKs={160,192,224};
+#else
+        const std::vector<int> shortKs={144,272,8176};
+#endif
+        for(int K:shortKs){
+            // Small-output PIPE_M dependency, compact last fractal, long-K upper boundary.
+            layouts<half>({1,16,16,K,1},0,rev);
+            layouts<bfloat16_t>({1,16,16,K,1},1,rev);
+        }
+        // One L0 operation, empty second L1 slot, zero-valued result and no false extra event wait.
+#if K_VARIANT==16
+        layouts<half>({1,16,32,48,1},2,rev);
+        layouts<bfloat16_t>({1,16,32,48,1},0,rev);
+#endif
+    }

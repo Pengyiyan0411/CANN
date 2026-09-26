@@ -1,0 +1,37 @@
+--- R11
++++ R15_K32_GAPS
+@@ -1,4 +1,4 @@
+-// R11_SINGLE_WAVE_EXPAND: independent R10 descendant; pending platform validation.
++// R15_K32_GAPS: independent R11 K-domain extension; pending platform validation.
+ // V8.3.1 probe P01 ROWMAX_EPILOGUE: shape-adaptive small-K Cube scheduler + reduction-aware epilogue + vector-tree [K,L] GEMV.
+ // Parent V8.0d is retained verbatim except its dispatcher name; V8.3 changes only the native small-K module/dispatcher.
+ // Not compiled with Bisheng / not NPU-validated in this environment.
+@@ -2534,7 +2534,7 @@
+ using bmms83::MinI;
+ static inline bool Eligible(int32_t B,int32_t M,int32_t N,int32_t K,int32_t cores){
+     return B>=1&&B<=64&&cores>=1&&cores<=64&&M>=AM&&M<=8192&&N>=BN&&N<=8192&&
+-        K>=K1&&K<=8192&&M%16==0&&N%16==0&&K%32==0&&
++        K>=96&&K!=128&&K%32==0&&K<=8192&&M%16==0&&N%16==0&&
+         int64_t(B)*M*K<=(1LL<<26)&&int64_t(B)*N*K<=(1LL<<26)&&
+         int64_t(B)*bmms83::UpH(M,AM)*bmms83::UpH(N,BN)>=cores;
+ }
+@@ -2927,7 +2927,7 @@
+ 
+ static inline bool Eligible(int32_t M,int32_t N,int32_t K){
+     return M>=16&&M<=8192&&N>=16&&N<=8192&&M%16==0&&N%16==0&&
+-        K>=256&&K<=8192&&K%32==0;
++        K>=96&&K!=128&&K%32==0&&K<=8192;
+ }
+ 
+ static inline bool ResidualEligible(int32_t B,int32_t M,int32_t N,int32_t K,int32_t cores){
+@@ -2966,8 +2966,8 @@
+     int32_t seq=0;
+ 
+     // Compact ND2NZ tiles use their actual kr/mr/nr extents; each ping-pong
+-    // slot still reserves the maximum KB tile size. K tail stays a multiple
+-    // of 32: 32/64 for KB64; 32/64/96/128 for KB128.
++    // slot still reserves the maximum KB tile size. Every active K extent
++    // is a whole 16-element fractal; the host guard selects supported tails.
+     __aicore__ inline void LoadStage(int batch,int m0,int n0,int mr,int nr,int k0,int kr,int stage){
+         auto dstA=a1Buf.template Get<T>()[stage*TM*KB];
+         auto dstB=b1Buf.template Get<T>()[stage*KB*TN];

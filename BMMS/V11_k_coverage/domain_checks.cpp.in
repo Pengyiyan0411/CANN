@@ -1,0 +1,38 @@
+int domainChecks=0,newMacroChecks=0,newResidualChecks=0,protectedChecks=0;
+bool addedK(int K){
+#if K_VARIANT==15
+    return K==96||K==160||K==192||K==224;
+#else
+    return K>=48&&K<=8176&&K%32==16;
+#endif
+}
+void checkDomain(int B,int M,int N,int K,int cores){
+    bool valid=B>=1&&B<=64&&cores>=1&&cores<=64&&M>=16&&M<=8192&&N>=16&&N<=8192&&
+        M%16==0&&N%16==0&&int64_t(B)*M*K<=(1LL<<26)&&int64_t(B)*N*K<=(1LL<<26);
+    bool oldK=K>=256&&K<=8192&&K%32==0;
+    bool eligible=valid&&(oldK||addedK(K));
+    bool macro=eligible&&M>=128&&N>=256&&int64_t(B)*((M+127)/128)*((N+255)/256)>=cores;
+    bool actualMacro=bmms11r2::Eligible(B,M,N,K,cores);
+    bool actualResidual=bmms11d::ResidualEligible(B,M,N,K,cores);
+    Mock::need(actualMacro==macro&&actualResidual==(eligible&&!macro),"K guard domain mismatch");
+    Mock::need(!(actualMacro&&actualResidual),"manual routes overlap");
+    // Use the extracted production classifier. Raw eligibility alone is not TryLaunch.
+    const auto family=bmms8::Classify(B,M,N,K,false,false);
+    bool protectedFamily=family==bmms8::Family::Tiny||family==bmms8::Family::Resident;
+    if(protectedFamily){++protectedChecks;Mock::need(M<128||N<256,"unexpected protected macro");}
+    const bool effectiveMacro=actualMacro&&!protectedFamily,effectiveResidual=actualResidual&&!protectedFamily;
+    if(addedK(K)&&valid&&!protectedFamily){
+        Mock::need(effectiveMacro||effectiveResidual,"new K coverage gap");
+        if(effectiveMacro)++newMacroChecks;else ++newResidualChecks;
+    }
+    if(K==32||K==64||K==128||M==1||N==1)
+        Mock::need(!effectiveMacro&&!effectiveResidual,"stole existing specialized route");
+    ++domainChecks;
+}
+void domainChecksAll(){
+    for(int B:{0,1,3,64,65})for(int M:{1,16,32,80,128,144,8192,8193})
+    for(int N:{1,16,32,128,256,272,8192,8193})for(int c:{0,1,2,20,64,65})
+        for(int K=24;K<=8200;K+=8)checkDomain(B,M,N,K,c);
+    for(int K:{-1,0,15,31,33,47,49,8191,8193})checkDomain(1,144,272,K,2);
+    Mock::need(newMacroChecks>0&&newResidualChecks>0&&protectedChecks>0,"domain check omitted a route");
+}

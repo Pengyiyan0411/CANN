@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "V9/V10/V11 history; explicitly labelled R11/R12 15-pass results; observed R11 baseline; independent R13 multi-wave and R14 single-wave reduced-launch candidates with frozen R11 control",
+  "scope": "V9/V10/V11 history; labelled R13/R14 pass results without proven gain; R11 baseline; independent R15 K32 gaps and R16 K16 tails coverage experiments",
   "platform_source_identity": "explicit user version labels where available; R04 inferred from sole preceding candidate; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -271,6 +271,41 @@
       "sha256": "308b70d0e1d288da90447a8002d938b1c86e6308d51fbd1974db93c7914ad5b9"
     },
     {
+      "path": "BMMS_V11_R15_R16/CPU_CHECKS.json",
+      "bytes": 27163,
+      "sha256": "e442e7d0d672829771d14b89b0ab136a5d02fdce3bb0e827e73461b0b07c1b99"
+    },
+    {
+      "path": "BMMS_V11_R15_R16/MANIFEST.json",
+      "bytes": 1192,
+      "sha256": "901d6ad58edc822aef0d1ede6765d27a22dc5f6028eb5c32fc8733c2537e3ee0"
+    },
+    {
+      "path": "BMMS_V11_R15_R16/R11_CONTROL.asc",
+      "bytes": 163786,
+      "sha256": "425db189f068ad963dadf2c537a96118b33a5035ef47c5e43dad2f81fd0ad223"
+    },
+    {
+      "path": "BMMS_V11_R15_R16/R15_K32_GAPS.asc",
+      "bytes": 163821,
+      "sha256": "1d1d14c8245ec9af2e9dd6134f299f8692a8b9ba84556d844a68df6252a29f25"
+    },
+    {
+      "path": "BMMS_V11_R15_R16/R16_K16_TAILS.asc",
+      "bytes": 163854,
+      "sha256": "71bc08485e3f3d73c0eeccb9d0a869d79ad1d8264941f7ab933a106022bf15e0"
+    },
+    {
+      "path": "BMMS_V11_R15_R16/README.md",
+      "bytes": 1327,
+      "sha256": "494d3938054de00a3ade021bb2281fe3cd8eb934c80106d1cfd0674be6c303ca"
+    },
+    {
+      "path": "BMMS_V11_R15_R16_提交包.zip",
+      "bytes": 113376,
+      "sha256": "810fe08c2659157e2d67f2d03c4220a1a6373b1593372b5b27a200cf9a4d8873"
+    },
+    {
       "path": "BMMS_V11_SubmitPack/CPU_CHECKS.json",
       "bytes": 2623,
       "sha256": "ec3a727a4ec03f5d496989545172f482884d9f7c7a9a4e2726c67e5892bf4487"
@@ -412,13 +447,13 @@
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 6079,
-      "sha256": "8c3b2bf2dd7e67af7c583ee2a065dc359bdc31df45d4cf4331622cffd9f660d8"
+      "bytes": 5446,
+      "sha256": "a5f272a6a6f1431f0295307aaa03df6fc4d1d733922e5ab166eb0c6d2ddfd561"
     },
     {
       "path": "README.md",
-      "bytes": 1865,
-      "sha256": "cbcdba0bf4fd0a7adad731c12e89c859c43dbed03c895e1da0589cbd0afe7ca6"
+      "bytes": 1525,
+      "sha256": "49e49a2db1ce1b1e2ef944c3449661956ac8f4670762402e3615779f5f11f05e"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -946,6 +981,106 @@
       "sha256": "c670496a82de1079c17264f44bb01878241cff042bc86fafc4882aacc42045c5"
     },
     {
+      "path": "V11_k_coverage/CANN_README.md",
+      "bytes": 1568,
+      "sha256": "27b9ae075f9c5602efdd1c75f407d551fdf7cb7c54a96cee73686c3daedb7c17"
+    },
+    {
+      "path": "V11_k_coverage/CHECKS.json",
+      "bytes": 27163,
+      "sha256": "e442e7d0d672829771d14b89b0ab136a5d02fdce3bb0e827e73461b0b07c1b99"
+    },
+    {
+      "path": "V11_k_coverage/DESIGN.md",
+      "bytes": 5575,
+      "sha256": "de04bd02ccd8f66824ee0788384f871b55ca4a3aab8a53aa40a661d0774320d6"
+    },
+    {
+      "path": "V11_k_coverage/PACKAGE_CHECKS.json",
+      "bytes": 308,
+      "sha256": "fb2754a95825762fd91bd47a41e6cc6879fb701b52bc3607dee245a5e553b882"
+    },
+    {
+      "path": "V11_k_coverage/R15_CPU_RESULT.json",
+      "bytes": 31063,
+      "sha256": "55d407837c769ca229318545d97e0143b8320cc849698b0c8c2e60acd6dccd57"
+    },
+    {
+      "path": "V11_k_coverage/R15_K32_GAPS.diff",
+      "bytes": 1932,
+      "sha256": "b23791ef7559cfa2c5508e92b99b9636742d4d6eaf86052a45b1628965880c62"
+    },
+    {
+      "path": "V11_k_coverage/R15_macro_fragment.asc",
+      "bytes": 21516,
+      "sha256": "b6a0593a5d20ae32e5dc35480a1a8754490a150ac408c7ee2bbbd181e2dcb00f"
+    },
+    {
+      "path": "V11_k_coverage/R15_residual_fragment.asc",
+      "bytes": 12669,
+      "sha256": "59d9f2fcbaf8fba44cbbef7d6780a3561c49d8c87c41194c45e8f5fe7fe392d1"
+    },
+    {
+      "path": "V11_k_coverage/R16_CPU_RESULT.json",
+      "bytes": 35535,
+      "sha256": "0f9f7a33d056b67abfca004ed1de83b43c887ee71485bc6bac27e80ce683c6ea"
+    },
+    {
+      "path": "V11_k_coverage/R16_K16_TAILS.diff",
+      "bytes": 1966,
+      "sha256": "b033bfae7e932cb91304d4e4d944004cbe91c61ba21828dad23537e0ff6f278d"
+    },
+    {
+      "path": "V11_k_coverage/R16_macro_fragment.asc",
+      "bytes": 21532,
+      "sha256": "1a75e4d536d80b148fc98eb412271b9991c0caf294d4530bc3e878806a3ea807"
+    },
+    {
+      "path": "V11_k_coverage/R16_residual_fragment.asc",
+      "bytes": 12685,
+      "sha256": "79631d6c6f4cf51e56b337874074bc506f34ec433c6fb6467e8edc471d7753b3"
+    },
+    {
+      "path": "V11_k_coverage/archive.py",
+      "bytes": 2924,
+      "sha256": "88d2bffcb06fd13190f6ff9785d6487d0d52af86715cdc5558b04c2c1ae79525"
+    },
+    {
+      "path": "V11_k_coverage/build.py",
+      "bytes": 4242,
+      "sha256": "c30f74833cc3e576eda72e30735b27a60171205e843f11a80f2b9b1e5628dcbb"
+    },
+    {
+      "path": "V11_k_coverage/domain_checks.cpp.in",
+      "bytes": 2088,
+      "sha256": "e8de53ac7ba83958c4833708be8fc66485ad371a48d3402109d3c35f4925921f"
+    },
+    {
+      "path": "V11_k_coverage/new_domain_cases.cpp.in",
+      "bytes": 1227,
+      "sha256": "8221a34534d685ab4438152c2b801a95457c58b0b422c91c82a8dc3ddc4ee7be"
+    },
+    {
+      "path": "V11_k_coverage/package.py",
+      "bytes": 2796,
+      "sha256": "956262e88e22723b1ed3f72372a3d717e514ef442eaa4c420859b777cfa68864"
+    },
+    {
+      "path": "V11_k_coverage/record_results.py",
+      "bytes": 4619,
+      "sha256": "52af0f2a1fb72548800c00ff235b01fac50289d250e942959092bab3f8bd3e1e"
+    },
+    {
+      "path": "V11_k_coverage/run_checks.py",
+      "bytes": 7232,
+      "sha256": "687ad0bfac08dd3503dce48e40ee34ab3c450351bd6d65e3d9bfe86a28d4a62e"
+    },
+    {
+      "path": "V11_k_coverage/update_docs.py",
+      "bytes": 9607,
+      "sha256": "4a6286cd380730d549fa92ab4ecb876edc9b862fcd51f4be9ee4209b57a95d95"
+    },
+    {
       "path": "V11_lowlevel/CANN_README.md",
       "bytes": 1306,
       "sha256": "16ee4b17de80314cb6f2e089de83dee14c28bddd05578203057ed94c0c02a90c"
@@ -1364,6 +1499,31 @@
       "path": "V11_results/2026-09-26_r11_r12_submission/measurements.csv",
       "bytes": 1429,
       "sha256": "74580ea905d54390a9d604a49b3be58111a29a9b3f22fd1b02b449d0978e3dd6"
+    },
+    {
+      "path": "V11_results/2026-09-26_r13_r14_submission/AUDIT.md",
+      "bytes": 2101,
+      "sha256": "54ff2fc010f1fb7967b667c81442e9c2d98c1e5203a65e0e2541fca2e069c157"
+    },
+    {
+      "path": "V11_results/2026-09-26_r13_r14_submission/R13_user_screenshot.png",
+      "bytes": 144123,
+      "sha256": "d7afbee7769387b8b5b30ed2c2620a53037ef7f0b0f669179a1251dc52a9f28c"
+    },
+    {
+      "path": "V11_results/2026-09-26_r13_r14_submission/R14_user_screenshot.png",
+      "bytes": 143502,
+      "sha256": "afe788ce1624c1a489de6bc501f0d27383d1dac407a7a26bafdf35095f904c7c"
+    },
+    {
+      "path": "V11_results/2026-09-26_r13_r14_submission/RESULT.json",
+      "bytes": 8333,
+      "sha256": "ea1f449e651817019e1258720d1ef1a84c51069ab7f0236d973844eb500e10d2"
+    },
+    {
+      "path": "V11_results/2026-09-26_r13_r14_submission/measurements.csv",
+      "bytes": 1607,
+      "sha256": "18911e55f2313f942ebbce7017ea727b27801f4f99992f4b152ffa79f308d061"
     },
     {
       "path": "V11_single_wave/CANN_README.md",
@@ -1959,6 +2119,11 @@
       "path": "audit_current/AUDIT_R11_R12_DELIVERY.md",
       "bytes": 5792,
       "sha256": "031cf03f7d72ffc7bf34493d41082a93c3db97b40f6c3a6dd8a46e8b739869eb"
+    },
+    {
+      "path": "audit_current/AUDIT_R13_R14_DELIVERY.md",
+      "bytes": 6079,
+      "sha256": "8c3b2bf2dd7e67af7c583ee2a065dc359bdc31df45d4cf4331622cffd9f660d8"
     },
     {
       "path": "audit_current/README_BEFORE_V11.md",

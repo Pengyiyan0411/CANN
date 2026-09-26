@@ -1,0 +1,35 @@
+{
+  "base": "BMMS_V11_R11_R12/R11_SINGLE_WAVE_EXPAND.asc",
+  "base_sha256": "425db189f068ad963dadf2c537a96118b33a5035ef47c5e43dad2f81fd0ad223",
+  "control": {
+    "file": "R11_CONTROL.asc",
+    "sha256": "425db189f068ad963dadf2c537a96118b33a5035ef47c5e43dad2f81fd0ad223"
+  },
+  "variants": [
+    {
+      "version": "R15",
+      "file": "R15_K32_GAPS.asc",
+      "sha256": "1d1d14c8245ec9af2e9dd6134f299f8692a8b9ba84556d844a68df6252a29f25",
+      "platform_result_received": false
+    },
+    {
+      "version": "R16",
+      "file": "R16_K16_TAILS.asc",
+      "sha256": "71bc08485e3f3d73c0eeccb9d0a869d79ad1d8264941f7ab933a106022bf15e0",
+      "platform_result_received": false
+    }
+  ],
+  "proof": {
+    "independent_R11_descendants": true,
+    "changes": "two K guards and one explanatory comment only",
+    "all_device_instructions_and_planners_unchanged": true,
+    "existing_manual_domains_preserved": true,
+    "native_32_64_128_preserved": true,
+    "Tiny_Resident_and_skinny_preserved": true,
+    "R13_R14_changes_not_included": true,
+    "new_domains_disjoint": true
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "known_numerical_limitations_remain": true
+}

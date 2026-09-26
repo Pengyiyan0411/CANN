@@ -1,0 +1,19 @@
+    for(int rev=0;rev<2;++rev){
+        for(int K:{256,512}){
+            // All layouts/dtypes; M/N tails and all-negative row maxima.
+            layouts<half>({1,144,528,K,2},0,rev);
+            layouts<bfloat16_t>({1,144,528,K,2},1,rev);
+            // A must refresh at both M transitions and later batches on the same group.
+            layouts<half>({3,144,528,K,2},0,rev);
+            layouts<bfloat16_t>({3,144,528,K,2},2,rev);
+            dense<half,true,true>(1,272,784,K,1,0,rev);
+            dense<bfloat16_t,true,false>(1,272,784,K,1,1,rev);
+            // Multiple N shards, each scanning two macros.
+            dense<half,false,true>(1,128,1024,K,2,0,rev);
+            dense<bfloat16_t,true,false>(1,128,1024,K,2,1,rev);
+            // Mixed 1/2 macro shards and single-macro tasks must retain the old producer.
+            dense<half,true,true>(1,128,768,K,2,0,rev);
+            dense<bfloat16_t,false,false>(1,128,256,K,1,0,rev);
+        }
+        dense<half,false,false>(1,128,1024,512,1,0,rev);
+    }

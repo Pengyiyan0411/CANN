@@ -1,0 +1,43 @@
+{
+  "base": "BMMS_V11_R13_R14/R14_FLEX_SINGLE_WAVE.asc",
+  "base_sha256": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe",
+  "control": {
+    "file": "R14_CONTROL.asc",
+    "sha256": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe"
+  },
+  "variants": [
+    {
+      "version": "R17",
+      "file": "R17_R14_K32_GAPS.asc",
+      "sha256": "5582d77e80c2b9c80aa3247ce694485e6adfea9639ed79a1d70be229badc97ec",
+      "platform_result_received": false
+    },
+    {
+      "version": "R18",
+      "file": "R18_R14_K16_TAILS.asc",
+      "sha256": "07cc37d915c68fe00ba7e7396c97b2ef19226dcc981e6331a6d66ec3ade217c5",
+      "platform_result_received": false
+    },
+    {
+      "version": "R19",
+      "file": "R19_R14_A_RESIDENT.asc",
+      "sha256": "dc54132a5bb6790656b950092d93ee22625887fe119ba02f7cea012384bea06a",
+      "platform_result_received": false
+    }
+  ],
+  "proof": {
+    "independent_R14_descendants": true,
+    "R17_R18_rebase_existing_R15_R16_guards": true,
+    "R19_no_K_coverage_extension": true,
+    "R14_planners_preserved": true,
+    "consumers_and_ring_protocols_preserved": true,
+    "original_producer_fallback_preserved": true,
+    "R19_MMAD_sequence_and_output_publish_body_preserved": true,
+    "R19_gate": "K in {256,512} and floor(nTiles/pN) >= 2",
+    "input_plan_source_archived": true
+  },
+  "input_plan_sha256": "be05d0b3822a5879728008a79df4ae3ea173cb03f44d88e047cf193a6000b32c",
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "known_numerical_limitations_remain": true
+}

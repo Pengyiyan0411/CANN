@@ -1,0 +1,52 @@
+--- R11
++++ R14_FLEX_SINGLE_WAVE
+@@ -1,4 +1,4 @@
+-// R11_SINGLE_WAVE_EXPAND: independent R10 descendant; pending platform validation.
++// R14_FLEX_SINGLE_WAVE: independent R11 descendant; pending platform validation.
+ // V8.3.1 probe P01 ROWMAX_EPILOGUE: shape-adaptive small-K Cube scheduler + reduction-aware epilogue + vector-tree [K,L] GEMV.
+ // Parent V8.0d is retained verbatim except its dispatcher name; V8.3 changes only the native small-K module/dispatcher.
+ // Not compiled with Bisheng / not NPU-validated in this environment.
+@@ -2600,7 +2600,7 @@
+     }
+     return peak;
+ }
+-static inline Plan MakePlan(int32_t B,int32_t M,int32_t N,int32_t K,int32_t cores){
++static inline Plan MakeR11Plan(int32_t B,int32_t M,int32_t N,int32_t K,int32_t cores){
+     Plan p=MakeR10Plan(B,M,N,K,cores);
+     // Preserve every R10 decision. Only remove an old, incomplete second wave.
+     if(cores<1||cores>64||B>cores||cores%B||p.blocks!=cores||p.tasks<=cores)return p;
+@@ -2623,6 +2623,34 @@
+     return best;
+ }
+ 
++// Every candidate is a single wave using at least 3/4 of the available groups.
++// Candidate cost is closed form; only the original multi-wave plan is walked once.
++static inline Plan MakePlan(int32_t B,int32_t M,int32_t N,int32_t K,int32_t cores){
++    Plan p=MakeR11Plan(B,M,N,K,cores);
++    if(cores<2||cores>64||B>cores||p.blocks!=cores)return p;
++    if(p.tasks!=cores)return p;
++    const GridPeak baseline=p.tasks==p.blocks?SingleWavePeak(p):ExistingPeak(p);
++    Plan best=p;GridPeak bestPeak=baseline;
++    const int minGroups=(3*cores+3)/4;
++    for(int pm=1;pm<=bmms83::MinH(p.mTiles,(cores-1)/B);++pm){
++        const int lo=bmms83::MaxH(1,bmms83::UpH(minGroups,B*pm));
++        const int hi=bmms83::MinH(p.nTiles,(cores-1)/(B*pm));
++        for(int pn=lo;pn<=hi;++pn){
++            Plan candidate=p;candidate.pM=pm;candidate.pN=pn;
++            candidate.tasks=B*pm*pn;candidate.blocks=candidate.tasks;
++            const GridPeak peak=SingleWavePeak(candidate);
++            if(8*peak.tiles>7*baseline.tiles||8*peak.cells>7*baseline.cells||
++               8*peak.input>7*baseline.input)continue;
++            if(peak.tiles<bestPeak.tiles||(peak.tiles==bestPeak.tiles&&
++               (peak.cells<bestPeak.cells||(peak.cells==bestPeak.cells&&
++               (peak.input<bestPeak.input||(peak.input==bestPeak.input&&
++               (pn<best.pN||(pn==best.pN&&candidate.blocks>best.blocks)))))))){
++                best=candidate;bestPeak=peak;
++            }
++        }
++    }
++    return best;
++}
+ static inline uint64_t RingBytes(const Plan& p){return uint64_t(p.blocks)*2*MACRO_ELEMS*4ULL;}
+ static inline uint64_t PartialBytes(const Plan& p){return uint64_t(p.B)*p.pN*p.M*4ULL;}
+ static inline uint64_t WorkspaceBytes(const Plan& p){return RingBytes(p)+PartialBytes(p);}

@@ -1,0 +1,366 @@
+{
+  "scope": "local CPU host cost; not NPU timing or TLE certification",
+  "environment": "Windows-11-10.0.26200-SP0",
+  "compiler": "g++.EXE (Rev13, Built by MSYS2 project) 15.2.0",
+  "samples": 5,
+  "calls_per_sample": 1000,
+  "source_sha256": {
+    "V11_single_wave/expanded_macro_fragment.asc": "afc84585dded154626a1770af8ec31838fa2e3eca666810e0292b27c1f462f4b",
+    "V11_flexible_grid/R13_macro_fragment.asc": "e94997b674b3fa03b168363b6e186cf0c538fc7abb0cd74b70fc95fdcf9ee9be",
+    "V11_flexible_grid/R14_macro_fragment.asc": "e2e722cc9366c2080f306805a12c3d53888399db814013b1e6be7f47d56b7313"
+  },
+  "runs": [
+    {
+      "shape": [
+        1,
+        896,
+        768,
+        256
+      ],
+      "cores": 8,
+      "plans": {
+        "R11": {
+          "pM": 7,
+          "pN": 2,
+          "tasks": 14,
+          "blocks": 8,
+          "host_median_us": 0.1567
+        },
+        "R13": {
+          "pM": 7,
+          "pN": 1,
+          "tasks": 7,
+          "blocks": 7,
+          "host_median_us": 0.3267
+        },
+        "R14": {
+          "pM": 7,
+          "pN": 2,
+          "tasks": 14,
+          "blocks": 8,
+          "host_median_us": 0.1566
+        }
+      }
+    },
+    {
+      "shape": [
+        1,
+        880,
+        752,
+        288
+      ],
+      "cores": 8,
+      "plans": {
+        "R11": {
+          "pM": 7,
+          "pN": 2,
+          "tasks": 14,
+          "blocks": 8,
+          "host_median_us": 0.1567
+        },
+        "R13": {
+          "pM": 7,
+          "pN": 1,
+          "tasks": 7,
+          "blocks": 7,
+          "host_median_us": 0.3264
+        },
+        "R14": {
+          "pM": 7,
+          "pN": 2,
+          "tasks": 14,
+          "blocks": 8,
+          "host_median_us": 0.1564
+        }
+      }
+    },
+    {
+      "shape": [
+        3,
+        1024,
+        256,
+        256
+      ],
+      "cores": 20,
+      "plans": {
+        "R11": {
+          "pM": 7,
+          "pN": 1,
+          "tasks": 21,
+          "blocks": 20,
+          "host_median_us": 0.0051
+        },
+        "R13": {
+          "pM": 6,
+          "pN": 1,
+          "tasks": 18,
+          "blocks": 18,
+          "host_median_us": 0.2378
+        },
+        "R14": {
+          "pM": 7,
+          "pN": 1,
+          "tasks": 21,
+          "blocks": 20,
+          "host_median_us": 0.0057
+        }
+      }
+    },
+    {
+      "shape": [
+        3,
+        1008,
+        256,
+        288
+      ],
+      "cores": 20,
+      "plans": {
+        "R11": {
+          "pM": 7,
+          "pN": 1,
+          "tasks": 21,
+          "blocks": 20,
+          "host_median_us": 0.006
+        },
+        "R13": {
+          "pM": 6,
+          "pN": 1,
+          "tasks": 18,
+          "blocks": 18,
+          "host_median_us": 0.239
+        },
+        "R14": {
+          "pM": 7,
+          "pN": 1,
+          "tasks": 21,
+          "blocks": 20,
+          "host_median_us": 0.0056
+        }
+      }
+    },
+    {
+      "shape": [
+        1,
+        384,
+        1792,
+        256
+      ],
+      "cores": 8,
+      "plans": {
+        "R11": {
+          "pM": 2,
+          "pN": 4,
+          "tasks": 8,
+          "blocks": 8,
+          "host_median_us": 0.1073
+        },
+        "R13": {
+          "pM": 2,
+          "pN": 4,
+          "tasks": 8,
+          "blocks": 8,
+          "host_median_us": 0.1072
+        },
+        "R14": {
+          "pM": 1,
+          "pN": 7,
+          "tasks": 7,
+          "blocks": 7,
+          "host_median_us": 0.1401
+        }
+      }
+    },
+    {
+      "shape": [
+        1,
+        368,
+        1776,
+        288
+      ],
+      "cores": 8,
+      "plans": {
+        "R11": {
+          "pM": 2,
+          "pN": 4,
+          "tasks": 8,
+          "blocks": 8,
+          "host_median_us": 0.1069
+        },
+        "R13": {
+          "pM": 2,
+          "pN": 4,
+          "tasks": 8,
+          "blocks": 8,
+          "host_median_us": 0.1072
+        },
+        "R14": {
+          "pM": 1,
+          "pN": 7,
+          "tasks": 7,
+          "blocks": 7,
+          "host_median_us": 0.1398
+        }
+      }
+    },
+    {
+      "shape": [
+        8,
+        4096,
+        4096,
+        256
+      ],
+      "cores": 20,
+      "plans": {
+        "R11": {
+          "pM": 3,
+          "pN": 1,
+          "tasks": 24,
+          "blocks": 20,
+          "host_median_us": 0.0054
+        },
+        "R13": {
+          "pM": 2,
+          "pN": 1,
+          "tasks": 16,
+          "blocks": 16,
+          "host_median_us": 0.2584
+        },
+        "R14": {
+          "pM": 3,
+          "pN": 1,
+          "tasks": 24,
+          "blocks": 20,
+          "host_median_us": 0.0056
+        }
+      }
+    },
+    {
+      "shape": [
+        1,
+        4096,
+        4096,
+        256
+      ],
+      "cores": 20,
+      "plans": {
+        "R11": {
+          "pM": 5,
+          "pN": 4,
+          "tasks": 20,
+          "blocks": 20,
+          "host_median_us": 0.0678
+        },
+        "R13": {
+          "pM": 5,
+          "pN": 4,
+          "tasks": 20,
+          "blocks": 20,
+          "host_median_us": 0.061
+        },
+        "R14": {
+          "pM": 5,
+          "pN": 4,
+          "tasks": 20,
+          "blocks": 20,
+          "host_median_us": 0.1868
+        }
+      }
+    },
+    {
+      "shape": [
+        1,
+        1024,
+        1024,
+        256
+      ],
+      "cores": 20,
+      "plans": {
+        "R11": {
+          "pM": 5,
+          "pN": 4,
+          "tasks": 20,
+          "blocks": 20,
+          "host_median_us": 0.256
+        },
+        "R13": {
+          "pM": 5,
+          "pN": 4,
+          "tasks": 20,
+          "blocks": 20,
+          "host_median_us": 0.256
+        },
+        "R14": {
+          "pM": 5,
+          "pN": 4,
+          "tasks": 20,
+          "blocks": 20,
+          "host_median_us": 0.3035
+        }
+      }
+    },
+    {
+      "shape": [
+        1,
+        8064,
+        8192,
+        256
+      ],
+      "cores": 64,
+      "plans": {
+        "R11": {
+          "pM": 63,
+          "pN": 2,
+          "tasks": 126,
+          "blocks": 64,
+          "host_median_us": 1.2936
+        },
+        "R13": {
+          "pM": 63,
+          "pN": 2,
+          "tasks": 126,
+          "blocks": 64,
+          "host_median_us": 2.9199
+        },
+        "R14": {
+          "pM": 63,
+          "pN": 2,
+          "tasks": 126,
+          "blocks": 64,
+          "host_median_us": 1.2927
+        }
+      }
+    },
+    {
+      "shape": [
+        1,
+        8192,
+        8192,
+        256
+      ],
+      "cores": 64,
+      "plans": {
+        "R11": {
+          "pM": 64,
+          "pN": 1,
+          "tasks": 64,
+          "blocks": 64,
+          "host_median_us": 0.1219
+        },
+        "R13": {
+          "pM": 64,
+          "pN": 1,
+          "tasks": 64,
+          "blocks": 64,
+          "host_median_us": 0.122
+        },
+        "R14": {
+          "pM": 64,
+          "pN": 1,
+          "tasks": 64,
+          "blocks": 64,
+          "host_median_us": 0.574
+        }
+      }
+    }
+  ]
+}

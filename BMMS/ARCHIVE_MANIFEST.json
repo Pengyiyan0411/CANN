@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "V9/V10/V11 history; R10 user-reported stable benefit and 15-pass typical screenshot; independent R11 short-wave grid and R12 parallel N-merge candidates with frozen R10 control",
+  "scope": "V9/V10/V11 history; explicitly labelled R11/R12 15-pass results; observed R11 baseline; independent R13 multi-wave and R14 single-wave reduced-launch candidates with frozen R11 control",
   "platform_source_identity": "explicit user version labels where available; R04 inferred from sole preceding candidate; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -236,6 +236,41 @@
       "sha256": "c1556bf66884b621decaae992c5acb95870e254e906070e1198c9d505712afc2"
     },
     {
+      "path": "BMMS_V11_R13_R14/CPU_CHECKS.json",
+      "bytes": 50659,
+      "sha256": "a0652e4768967d451763d342b055225ad9ab8e60a6887fd31a0412c2c4addd53"
+    },
+    {
+      "path": "BMMS_V11_R13_R14/MANIFEST.json",
+      "bytes": 1276,
+      "sha256": "3680e52123da99c9fbcb74b92e249794d8dff64e107b26efd435cb98e747302a"
+    },
+    {
+      "path": "BMMS_V11_R13_R14/R11_CONTROL.asc",
+      "bytes": 163786,
+      "sha256": "425db189f068ad963dadf2c537a96118b33a5035ef47c5e43dad2f81fd0ad223"
+    },
+    {
+      "path": "BMMS_V11_R13_R14/R13_FLEX_SHORT_WAVE.asc",
+      "bytes": 165274,
+      "sha256": "d28d7c6694df278a4f54931fbf89a754eb52dbe343d1aad65ba7afa06985ae5c"
+    },
+    {
+      "path": "BMMS_V11_R13_R14/R14_FLEX_SINGLE_WAVE.asc",
+      "bytes": 165275,
+      "sha256": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe"
+    },
+    {
+      "path": "BMMS_V11_R13_R14/README.md",
+      "bytes": 2097,
+      "sha256": "8cdccfc93a4ac8a996b306d2f1051e971312b8bb56d641576fcf0004388664f1"
+    },
+    {
+      "path": "BMMS_V11_R13_R14_提交包.zip",
+      "bytes": 115670,
+      "sha256": "308b70d0e1d288da90447a8002d938b1c86e6308d51fbd1974db93c7914ad5b9"
+    },
+    {
       "path": "BMMS_V11_SubmitPack/CPU_CHECKS.json",
       "bytes": 2623,
       "sha256": "ec3a727a4ec03f5d496989545172f482884d9f7c7a9a4e2726c67e5892bf4487"
@@ -377,13 +412,13 @@
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 5792,
-      "sha256": "031cf03f7d72ffc7bf34493d41082a93c3db97b40f6c3a6dd8a46e8b739869eb"
+      "bytes": 6079,
+      "sha256": "8c3b2bf2dd7e67af7c583ee2a065dc359bdc31df45d4cf4331622cffd9f660d8"
     },
     {
       "path": "README.md",
-      "bytes": 1715,
-      "sha256": "6d381f891e7eb2c9bec755cbd21b1dfe8a59dafa88bd6dfe8fe83c82a98a2b62"
+      "bytes": 1865,
+      "sha256": "cbcdba0bf4fd0a7adad731c12e89c859c43dbed03c895e1da0589cbd0afe7ca6"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -474,6 +509,121 @@
       "path": "V10_results/2026-09-26_f01_submission/measurements.csv",
       "bytes": 830,
       "sha256": "e9982d37b6bf40bc044a2717c699f054318ae186b700337d99ef3f6c2a1c735f"
+    },
+    {
+      "path": "V11_flexible_grid/CANN_README.md",
+      "bytes": 1278,
+      "sha256": "f6ee1e7dd30fb60dece3438f635f9a0f8e11089d3fd38f2f017ce1a1b98c3ee0"
+    },
+    {
+      "path": "V11_flexible_grid/CHECKS.json",
+      "bytes": 50659,
+      "sha256": "a0652e4768967d451763d342b055225ad9ab8e60a6887fd31a0412c2c4addd53"
+    },
+    {
+      "path": "V11_flexible_grid/DESIGN.md",
+      "bytes": 6686,
+      "sha256": "1d1fbeb4036e5bb36a32b06e5a2a98142c5d941136fb5209a66ddea0fdd33496"
+    },
+    {
+      "path": "V11_flexible_grid/GRID_CHECKS.json",
+      "bytes": 13017,
+      "sha256": "e7f3162d7044868e9d3ea90f4563162818856c1b111c2b52a5bb173e64b9805b"
+    },
+    {
+      "path": "V11_flexible_grid/HOST_BENCH.json",
+      "bytes": 6937,
+      "sha256": "9fac3d6ab68f371309dbc9f3279fc56ab684e14ca7468c907c5df3ff2cab2eb0"
+    },
+    {
+      "path": "V11_flexible_grid/PACKAGE_CHECKS.json",
+      "bytes": 308,
+      "sha256": "9a834b517418cca81ff286bd06a69291921a99a51e429b4dfc411fecb09394d0"
+    },
+    {
+      "path": "V11_flexible_grid/R11_CPU_RESULT.json",
+      "bytes": 24570,
+      "sha256": "02cb1ce94e440d7796df5b775dbb47ac06b6a113909bcdea144c9522083be25d"
+    },
+    {
+      "path": "V11_flexible_grid/R13_CPU_RESULT.json",
+      "bytes": 24570,
+      "sha256": "f2ae29d500d77e6dfb196641a8e2919aa31e39c2feafcf1fc9b9adf449a06431"
+    },
+    {
+      "path": "V11_flexible_grid/R13_FLEX_SHORT_WAVE.diff",
+      "bytes": 2807,
+      "sha256": "28d131bf7460abfe847300fac195759cf708cb034178ee68fec52b1371e533e3"
+    },
+    {
+      "path": "V11_flexible_grid/R13_macro_fragment.asc",
+      "bytes": 22999,
+      "sha256": "e94997b674b3fa03b168363b6e186cf0c538fc7abb0cd74b70fc95fdcf9ee9be"
+    },
+    {
+      "path": "V11_flexible_grid/R14_CPU_RESULT.json",
+      "bytes": 24570,
+      "sha256": "d7326f56a22cf61cd4412aca8a9ee4a4a1fab677f9ceaf13dae6747d74ce359c"
+    },
+    {
+      "path": "V11_flexible_grid/R14_FLEX_SINGLE_WAVE.diff",
+      "bytes": 2809,
+      "sha256": "266f4a41187338c88c9152320ae01d253032bb9769786ad8710c640e2a04cdd9"
+    },
+    {
+      "path": "V11_flexible_grid/R14_macro_fragment.asc",
+      "bytes": 22999,
+      "sha256": "e2e722cc9366c2080f306805a12c3d53888399db814013b1e6be7f47d56b7313"
+    },
+    {
+      "path": "V11_flexible_grid/archive.py",
+      "bytes": 2962,
+      "sha256": "6469d1c269b5b54075a6574633c24f0829ebfa1d879da10210396aa7b124ac4c"
+    },
+    {
+      "path": "V11_flexible_grid/audit_plans.py",
+      "bytes": 2644,
+      "sha256": "661ba385fded9053d1ca9edf6957292dc7bc386d143581706fe20f824e0dca75"
+    },
+    {
+      "path": "V11_flexible_grid/bench_plans.py",
+      "bytes": 3316,
+      "sha256": "ea7d3e139ef98efd41917091c5a44f4cdb08108bdee6ee5bd3739a28de0860c0"
+    },
+    {
+      "path": "V11_flexible_grid/build.py",
+      "bytes": 3427,
+      "sha256": "31617dd8e97a8a71a3c75d39ba4e1731dd64f684f73faf3448924ad261d6edc3"
+    },
+    {
+      "path": "V11_flexible_grid/flexible_plan_tail.asc",
+      "bytes": 1490,
+      "sha256": "b137c682977ee547e00822b06eb99ca1378ddec0867dda793f7a70eeecc49321"
+    },
+    {
+      "path": "V11_flexible_grid/grid_checks.cpp.in",
+      "bytes": 5591,
+      "sha256": "d111c566c204d0e4141bbe69f3a0072fd46d1b5a559ca6eda6ba75f3874db0b0"
+    },
+    {
+      "path": "V11_flexible_grid/package.py",
+      "bytes": 3036,
+      "sha256": "e9df09047dca505ced672a8774fc6655111d7af8f6f1bec2038700bb956ae872"
+    },
+    {
+      "path": "V11_flexible_grid/record_results.py",
+      "bytes": 5343,
+      "sha256": "266cbbfa0cb53aadea7c4ea5bc449185a2992dae57f798ca85dc19d2381285e8"
+    },
+    {
+      "path": "V11_flexible_grid/run_checks.py",
+      "bytes": 7725,
+      "sha256": "a8a91b5706552e1feff078a5b494312278a9f392b0a695b174b95c1cd84c0761"
+    },
+    {
+      "path": "V11_flexible_grid/update_docs.py",
+      "bytes": 12090,
+      "sha256": "7daa4f1e4073025c86aba7877b3c6a91b6585ba3b4d3669120dbb6d88384e60f"
     },
     {
       "path": "V11_followup/CHECKS.json",
@@ -1191,6 +1341,31 @@
       "sha256": "2b69262a41ce3645537d978babd42114da646995653be5775e35a11a3ac74845"
     },
     {
+      "path": "V11_results/2026-09-26_r11_r12_submission/AUDIT.md",
+      "bytes": 2383,
+      "sha256": "00efce97b88b1e9408ebd641a6c7334ea1f58b00081fa7301179592caa1b9cc0"
+    },
+    {
+      "path": "V11_results/2026-09-26_r11_r12_submission/R11_user_screenshot.png",
+      "bytes": 143061,
+      "sha256": "8eadfd7877e61723a864cdc311d3f1ef908a4ea418ea3b67b2212a86dc4dd16b"
+    },
+    {
+      "path": "V11_results/2026-09-26_r11_r12_submission/R12_user_screenshot.png",
+      "bytes": 140272,
+      "sha256": "852f7b2c3f54f87546e2d5cde876aed7476c23a13f95e745bc9d32475f0f9bc0"
+    },
+    {
+      "path": "V11_results/2026-09-26_r11_r12_submission/RESULT.json",
+      "bytes": 7969,
+      "sha256": "1c2caf1f13197afe1de6b480a66a21cdd73c7b55d1816a544f16958ebae07647"
+    },
+    {
+      "path": "V11_results/2026-09-26_r11_r12_submission/measurements.csv",
+      "bytes": 1429,
+      "sha256": "74580ea905d54390a9d604a49b3be58111a29a9b3f22fd1b02b449d0978e3dd6"
+    },
+    {
       "path": "V11_single_wave/CANN_README.md",
       "bytes": 1271,
       "sha256": "b68de440c43ed70cdd08d314a4fcbe7c27a5e0e5867e566a36ff27dc22bd6260"
@@ -1779,6 +1954,11 @@
       "path": "audit_current/AUDIT_R09_R10_DELIVERY.md",
       "bytes": 6765,
       "sha256": "fe5bb8657ed9adcac0025ad0022795696445bd0155a3289311b07a0eaf7dd653"
+    },
+    {
+      "path": "audit_current/AUDIT_R11_R12_DELIVERY.md",
+      "bytes": 5792,
+      "sha256": "031cf03f7d72ffc7bf34493d41082a93c3db97b40f6c3a6dd8a46e8b739869eb"
     },
     {
       "path": "audit_current/README_BEFORE_V11.md",

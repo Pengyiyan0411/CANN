@@ -1,0 +1,639 @@
+{
+  "checked_shapes": 8272,
+  "independent_oracles": 42,
+  "core_guard_checks": 24,
+  "max_candidate_pairs": 69,
+  "changed": {
+    "R13": 1112,
+    "R14": 34
+  },
+  "examples": {
+    "R13": [
+      {
+        "shape": [
+          1,
+          384,
+          4864,
+          256
+        ],
+        "cores": 32,
+        "old_grid": [
+          3,
+          11
+        ],
+        "new_grid": [
+          3,
+          10
+        ],
+        "old_tasks": 33,
+        "new_tasks": 30,
+        "old_blocks": 32,
+        "new_blocks": 30,
+        "old_peak_tiles": 3,
+        "new_peak_tiles": 2,
+        "old_peak_cells": 98304,
+        "new_peak_cells": 65536,
+        "old_peak_input_units": 1152,
+        "new_peak_input_units": 768
+      },
+      {
+        "shape": [
+          1,
+          896,
+          768,
+          256
+        ],
+        "cores": 8,
+        "old_grid": [
+          7,
+          2
+        ],
+        "new_grid": [
+          7,
+          1
+        ],
+        "old_tasks": 14,
+        "new_tasks": 7,
+        "old_blocks": 8,
+        "new_blocks": 7,
+        "old_peak_tiles": 4,
+        "new_peak_tiles": 3,
+        "old_peak_cells": 131072,
+        "new_peak_cells": 98304,
+        "old_peak_input_units": 1536,
+        "new_peak_input_units": 1152
+      },
+      {
+        "shape": [
+          1,
+          896,
+          1792,
+          256
+        ],
+        "cores": 8,
+        "old_grid": [
+          7,
+          2
+        ],
+        "new_grid": [
+          7,
+          1
+        ],
+        "old_tasks": 14,
+        "new_tasks": 7,
+        "old_blocks": 8,
+        "new_blocks": 7,
+        "old_peak_tiles": 8,
+        "new_peak_tiles": 7,
+        "old_peak_cells": 262144,
+        "new_peak_cells": 229376,
+        "old_peak_input_units": 3072,
+        "new_peak_input_units": 2688
+      },
+      {
+        "shape": [
+          1,
+          896,
+          1792,
+          256
+        ],
+        "cores": 32,
+        "old_grid": [
+          7,
+          5
+        ],
+        "new_grid": [
+          7,
+          4
+        ],
+        "old_tasks": 35,
+        "new_tasks": 28,
+        "old_blocks": 32,
+        "new_blocks": 28,
+        "old_peak_tiles": 4,
+        "new_peak_tiles": 2,
+        "old_peak_cells": 131072,
+        "new_peak_cells": 65536,
+        "old_peak_input_units": 1536,
+        "new_peak_input_units": 768
+      },
+      {
+        "shape": [
+          1,
+          896,
+          4864,
+          256
+        ],
+        "cores": 64,
+        "old_grid": [
+          7,
+          10
+        ],
+        "new_grid": [
+          7,
+          7
+        ],
+        "old_tasks": 70,
+        "new_tasks": 49,
+        "old_blocks": 64,
+        "new_blocks": 49,
+        "old_peak_tiles": 4,
+        "new_peak_tiles": 3,
+        "old_peak_cells": 131072,
+        "new_peak_cells": 98304,
+        "old_peak_input_units": 1536,
+        "new_peak_input_units": 1152
+      },
+      {
+        "shape": [
+          1,
+          1152,
+          1792,
+          256
+        ],
+        "cores": 32,
+        "old_grid": [
+          9,
+          4
+        ],
+        "new_grid": [
+          9,
+          3
+        ],
+        "old_tasks": 36,
+        "new_tasks": 27,
+        "old_blocks": 32,
+        "new_blocks": 27,
+        "old_peak_tiles": 4,
+        "new_peak_tiles": 3,
+        "old_peak_cells": 131072,
+        "new_peak_cells": 98304,
+        "old_peak_input_units": 1536,
+        "new_peak_input_units": 1152
+      }
+    ],
+    "R14": [
+      {
+        "shape": [
+          1,
+          384,
+          1792,
+          256
+        ],
+        "cores": 8,
+        "old_grid": [
+          2,
+          4
+        ],
+        "new_grid": [
+          1,
+          7
+        ],
+        "old_tasks": 8,
+        "new_tasks": 7,
+        "old_blocks": 8,
+        "new_blocks": 7,
+        "old_peak_tiles": 4,
+        "new_peak_tiles": 3,
+        "old_peak_cells": 131072,
+        "new_peak_cells": 98304,
+        "old_peak_input_units": 1536,
+        "new_peak_input_units": 1152
+      },
+      {
+        "shape": [
+          1,
+          384,
+          4864,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          2,
+          10
+        ],
+        "new_grid": [
+          1,
+          19
+        ],
+        "old_tasks": 20,
+        "new_tasks": 19,
+        "old_blocks": 20,
+        "new_blocks": 19,
+        "old_peak_tiles": 4,
+        "new_peak_tiles": 3,
+        "old_peak_cells": 131072,
+        "new_peak_cells": 98304,
+        "old_peak_input_units": 1536,
+        "new_peak_input_units": 1152
+      },
+      {
+        "shape": [
+          1,
+          896,
+          4864,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          4,
+          5
+        ],
+        "new_grid": [
+          1,
+          19
+        ],
+        "old_tasks": 20,
+        "new_tasks": 19,
+        "old_blocks": 20,
+        "new_blocks": 19,
+        "old_peak_tiles": 8,
+        "new_peak_tiles": 7,
+        "old_peak_cells": 262144,
+        "new_peak_cells": 229376,
+        "old_peak_input_units": 3072,
+        "new_peak_input_units": 2688
+      },
+      {
+        "shape": [
+          1,
+          896,
+          4864,
+          256
+        ],
+        "cores": 32,
+        "old_grid": [
+          4,
+          8
+        ],
+        "new_grid": [
+          7,
+          4
+        ],
+        "old_tasks": 32,
+        "new_tasks": 28,
+        "old_blocks": 32,
+        "new_blocks": 28,
+        "old_peak_tiles": 6,
+        "new_peak_tiles": 5,
+        "old_peak_cells": 196608,
+        "new_peak_cells": 163840,
+        "old_peak_input_units": 2304,
+        "new_peak_input_units": 1920
+      },
+      {
+        "shape": [
+          1,
+          1152,
+          512,
+          256
+        ],
+        "cores": 7,
+        "old_grid": [
+          7,
+          1
+        ],
+        "new_grid": [
+          3,
+          2
+        ],
+        "old_tasks": 7,
+        "new_tasks": 6,
+        "old_blocks": 7,
+        "new_blocks": 6,
+        "old_peak_tiles": 4,
+        "new_peak_tiles": 3,
+        "old_peak_cells": 131072,
+        "new_peak_cells": 98304,
+        "old_peak_input_units": 1536,
+        "new_peak_input_units": 1152
+      },
+      {
+        "shape": [
+          1,
+          1152,
+          768,
+          256
+        ],
+        "cores": 7,
+        "old_grid": [
+          7,
+          1
+        ],
+        "new_grid": [
+          2,
+          3
+        ],
+        "old_tasks": 7,
+        "new_tasks": 6,
+        "old_blocks": 7,
+        "new_blocks": 6,
+        "old_peak_tiles": 6,
+        "new_peak_tiles": 5,
+        "old_peak_cells": 196608,
+        "new_peak_cells": 163840,
+        "old_peak_input_units": 2304,
+        "new_peak_input_units": 1920
+      }
+    ]
+  },
+  "regression_examples": [
+    {
+      "R13": {
+        "shape": [
+          1,
+          512,
+          768,
+          256
+        ],
+        "cores": 6,
+        "old_grid": [
+          2,
+          3
+        ],
+        "new_grid": [
+          2,
+          3
+        ],
+        "old_tasks": 6,
+        "new_tasks": 6,
+        "old_blocks": 6,
+        "new_blocks": 6,
+        "old_peak_tiles": 2,
+        "new_peak_tiles": 2,
+        "old_peak_cells": 65536,
+        "new_peak_cells": 65536,
+        "old_peak_input_units": 768,
+        "new_peak_input_units": 768
+      },
+      "R14": {
+        "shape": [
+          1,
+          512,
+          768,
+          256
+        ],
+        "cores": 6,
+        "old_grid": [
+          2,
+          3
+        ],
+        "new_grid": [
+          2,
+          3
+        ],
+        "old_tasks": 6,
+        "new_tasks": 6,
+        "old_blocks": 6,
+        "new_blocks": 6,
+        "old_peak_tiles": 2,
+        "new_peak_tiles": 2,
+        "old_peak_cells": 65536,
+        "new_peak_cells": 65536,
+        "old_peak_input_units": 768,
+        "new_peak_input_units": 768
+      }
+    },
+    {
+      "R13": {
+        "shape": [
+          1,
+          1024,
+          1024,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          5,
+          4
+        ],
+        "new_grid": [
+          5,
+          4
+        ],
+        "old_tasks": 20,
+        "new_tasks": 20,
+        "old_blocks": 20,
+        "new_blocks": 20,
+        "old_peak_tiles": 2,
+        "new_peak_tiles": 2,
+        "old_peak_cells": 65536,
+        "new_peak_cells": 65536,
+        "old_peak_input_units": 768,
+        "new_peak_input_units": 768
+      },
+      "R14": {
+        "shape": [
+          1,
+          1024,
+          1024,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          5,
+          4
+        ],
+        "new_grid": [
+          5,
+          4
+        ],
+        "old_tasks": 20,
+        "new_tasks": 20,
+        "old_blocks": 20,
+        "new_blocks": 20,
+        "old_peak_tiles": 2,
+        "new_peak_tiles": 2,
+        "old_peak_cells": 65536,
+        "new_peak_cells": 65536,
+        "old_peak_input_units": 768,
+        "new_peak_input_units": 768
+      }
+    },
+    {
+      "R13": {
+        "shape": [
+          1,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          5,
+          4
+        ],
+        "new_grid": [
+          5,
+          4
+        ],
+        "old_tasks": 20,
+        "new_tasks": 20,
+        "old_blocks": 20,
+        "new_blocks": 20,
+        "old_peak_tiles": 28,
+        "new_peak_tiles": 28,
+        "old_peak_cells": 917504,
+        "new_peak_cells": 917504,
+        "old_peak_input_units": 10752,
+        "new_peak_input_units": 10752
+      },
+      "R14": {
+        "shape": [
+          1,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          5,
+          4
+        ],
+        "new_grid": [
+          5,
+          4
+        ],
+        "old_tasks": 20,
+        "new_tasks": 20,
+        "old_blocks": 20,
+        "new_blocks": 20,
+        "old_peak_tiles": 28,
+        "new_peak_tiles": 28,
+        "old_peak_cells": 917504,
+        "new_peak_cells": 917504,
+        "old_peak_input_units": 10752,
+        "new_peak_input_units": 10752
+      }
+    },
+    {
+      "R13": {
+        "shape": [
+          8,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          3,
+          1
+        ],
+        "new_grid": [
+          2,
+          1
+        ],
+        "old_tasks": 24,
+        "new_tasks": 16,
+        "old_blocks": 20,
+        "new_blocks": 16,
+        "old_peak_tiles": 352,
+        "new_peak_tiles": 256,
+        "old_peak_cells": 11534336,
+        "new_peak_cells": 8388608,
+        "old_peak_input_units": 135168,
+        "new_peak_input_units": 98304
+      },
+      "R14": {
+        "shape": [
+          8,
+          4096,
+          4096,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          3,
+          1
+        ],
+        "new_grid": [
+          3,
+          1
+        ],
+        "old_tasks": 24,
+        "new_tasks": 24,
+        "old_blocks": 20,
+        "new_blocks": 20,
+        "old_peak_tiles": 352,
+        "new_peak_tiles": 352,
+        "old_peak_cells": 11534336,
+        "new_peak_cells": 11534336,
+        "old_peak_input_units": 135168,
+        "new_peak_input_units": 135168
+      }
+    },
+    {
+      "R13": {
+        "shape": [
+          1,
+          1152,
+          4864,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          5,
+          4
+        ],
+        "new_grid": [
+          5,
+          4
+        ],
+        "old_tasks": 20,
+        "new_tasks": 20,
+        "old_blocks": 20,
+        "new_blocks": 20,
+        "old_peak_tiles": 10,
+        "new_peak_tiles": 10,
+        "old_peak_cells": 327680,
+        "new_peak_cells": 327680,
+        "old_peak_input_units": 3840,
+        "new_peak_input_units": 3840
+      },
+      "R14": {
+        "shape": [
+          1,
+          1152,
+          4864,
+          256
+        ],
+        "cores": 20,
+        "old_grid": [
+          5,
+          4
+        ],
+        "new_grid": [
+          5,
+          4
+        ],
+        "old_tasks": 20,
+        "new_tasks": 20,
+        "old_blocks": 20,
+        "new_blocks": 20,
+        "old_peak_tiles": 10,
+        "new_peak_tiles": 10,
+        "old_peak_cells": 327680,
+        "new_peak_cells": 327680,
+        "old_peak_input_units": 3840,
+        "new_peak_input_units": 3840
+      }
+    }
+  ],
+  "negative_controls": {
+    "kept_old_launch_count": {
+      "rejected": true,
+      "exit_code": 1,
+      "stderr": "inconsistent launch/tasks"
+    },
+    "dropped_last_task": {
+      "rejected": true,
+      "exit_code": 1,
+      "stderr": "inconsistent launch/tasks"
+    }
+  },
+  "source_sha256": {
+    "V11_single_wave/expanded_macro_fragment.asc": "afc84585dded154626a1770af8ec31838fa2e3eca666810e0292b27c1f462f4b",
+    "V11_flexible_grid/R13_macro_fragment.asc": "e94997b674b3fa03b168363b6e186cf0c538fc7abb0cd74b70fc95fdcf9ee9be",
+    "V11_flexible_grid/R14_macro_fragment.asc": "e2e722cc9366c2080f306805a12c3d53888399db814013b1e6be7f47d56b7313"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "archive": "BMMS_V11_R04_提交包.zip",
+  "sha256": "81dabb76f306bb4c41ab0981f7ca01aa6be47210004436973d6b1fde7ba7bbe0",
+  "bytes": 37072,
+  "members": 4,
+  "source_sha256": "f39d584297451a4ef15d559b67879571e3de86e21007f4a02b0b3552a904a09c",
+  "composition": {
+    "R02_body_preserved": true,
+    "R03_residual_only_eligible_namespace_changed": true,
+    "runtime_dispatch_order": [
+      "R02_macro_ring",
+      "R03_residual_dense",
+      "P01_fallback"
+    ],
+    "new_tuning_or_arithmetic_changes": false
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false
+}

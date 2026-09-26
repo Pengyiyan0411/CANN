@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+set(CMAKE_ASC_RUN_MODE "npu" CACHE STRING "Ascend execution mode")
+set(CMAKE_ASC_ARCHITECTURES "dav-2201" CACHE STRING "Target A2 architecture")
+find_package(ASC REQUIRED)
+project(bmms_ab LANGUAGES ASC CXX)
+add_executable(bench main.asc)
+target_link_libraries(bench PRIVATE tiling_api register platform m dl)
+target_compile_options(bench PRIVATE $<$<COMPILE_LANGUAGE:ASC>:--npu-arch=${CMAKE_ASC_ARCHITECTURES}>)

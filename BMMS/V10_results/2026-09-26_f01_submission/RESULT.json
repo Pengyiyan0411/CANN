@@ -1,0 +1,155 @@
+{
+  "variant": "F01_STREAM_M",
+  "identity": "explicitly confirmed by user; platform source hash unavailable",
+  "local_source_sha256": "82bc0f92d9eb1ffdb092d5fb076e43f05080f62859e64e2b0a66e52c770b930c",
+  "screenshot_sha256": "56768624ca9bf31418a261cf3918606e203370db21b49b159cfd36224b6b0cbb",
+  "pass_count": 15,
+  "case_count": 15,
+  "ui_error_is_rounded": true,
+  "rows": [
+    {
+      "case": 1,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 11.16,
+      "p01_historical_us": 2.41,
+      "T_us": 1.22,
+      "f01_over_p01": 4.630705394190871
+    },
+    {
+      "case": 2,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 11.85,
+      "p01_historical_us": 5.57,
+      "T_us": 1.58,
+      "f01_over_p01": 2.127468581687612
+    },
+    {
+      "case": 3,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 9.88,
+      "p01_historical_us": 5.23,
+      "T_us": 2.16,
+      "f01_over_p01": 1.8891013384321225
+    },
+    {
+      "case": 4,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 12.3,
+      "p01_historical_us": 6.5,
+      "T_us": 2.92,
+      "f01_over_p01": 1.8923076923076925
+    },
+    {
+      "case": 5,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 10.2,
+      "p01_historical_us": 7.19,
+      "T_us": 2.36,
+      "f01_over_p01": 1.418636995827538
+    },
+    {
+      "case": 6,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 17.44,
+      "p01_historical_us": 14.41,
+      "T_us": 7.23,
+      "f01_over_p01": 1.2102706453851493
+    },
+    {
+      "case": 7,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 15.11,
+      "p01_historical_us": 12.83,
+      "T_us": 3.7,
+      "f01_over_p01": 1.1777084957131723
+    },
+    {
+      "case": 8,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 138.17,
+      "p01_historical_us": 90.82,
+      "T_us": 17.32,
+      "f01_over_p01": 1.5213609337150407
+    },
+    {
+      "case": 9,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 182.53,
+      "p01_historical_us": 119.83,
+      "T_us": 52.01,
+      "f01_over_p01": 1.5232412584494701
+    },
+    {
+      "case": 10,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 257.41,
+      "p01_historical_us": 141.21,
+      "T_us": 72.47,
+      "f01_over_p01": 1.8228878974576872
+    },
+    {
+      "case": 11,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 320.81,
+      "p01_historical_us": 171.7,
+      "T_us": 74.82,
+      "f01_over_p01": 1.8684333139196274
+    },
+    {
+      "case": 12,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 285.61,
+      "p01_historical_us": 108.87,
+      "T_us": 91.2,
+      "f01_over_p01": 2.62340405988794
+    },
+    {
+      "case": 13,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 35.13,
+      "p01_historical_us": 17.92,
+      "T_us": 5.21,
+      "f01_over_p01": 1.9603794642857142
+    },
+    {
+      "case": 14,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 204.04,
+      "p01_historical_us": 14.99,
+      "T_us": 7.1,
+      "f01_over_p01": 13.611741160773848
+    },
+    {
+      "case": 15,
+      "pass_status": "Pass",
+      "display_error": "0.00%",
+      "f01_us": 31.17,
+      "p01_historical_us": 110.22,
+      "T_us": 9.04,
+      "f01_over_p01": 0.28279804028307026
+    }
+  ],
+  "score_formula": "mean(100 / (1 + log(time/T)/log(1.5)))",
+  "f01_score_same_T": 21.121478953039496,
+  "p01_historical_score_same_T": 32.09562558603007,
+  "delta": -10.974146632990571,
+  "regressed_cases": 14,
+  "paired_same_run_baseline": false,
+  "hidden_shapes_known": false,
+  "profiler_available": false,
+  "decision": "retire F01 as global mainline; F02 remains untested; rebuild dense route on P01 fallbacks"
+}

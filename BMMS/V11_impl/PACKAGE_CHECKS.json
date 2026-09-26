@@ -1,0 +1,17 @@
+{
+  "submission": {
+    "file": "BMMS_V11_R01_提交包.zip",
+    "sha256": "f5b0ddfbe0821bc26d7cd6fa77c805f86e20acb9cefdbc0d9c5e857d867699a8",
+    "bytes": 63534,
+    "members": 5
+  },
+  "diagnostic": {
+    "file": "BMMS_V11_P01_R01_限时诊断包.zip",
+    "sha256": "8f55e7b137e9d4b3d4f5de1cdd626f57f3ff08a83b1bb6c0a12937c6fecd7d5a",
+    "bytes": 71703,
+    "members": 8
+  },
+  "fallback_restored_exactly": true,
+  "cann_compiled": false,
+  "npu_tested": false
+}

@@ -1,0 +1,18 @@
+{
+  "prepare_only_inputs_verified": 22,
+  "quantized_physical_layout_golden_verified": true,
+  "synthetic_parser_separates_task_types": true,
+  "parser_discards_11_warmup_records": true,
+  "device_execution_performed": false,
+  "cann_compiled": false,
+  "files": {
+    "V11_impl/device_probe/CMakeLists.txt": "7784981ab2691665a70c4ae3b50eb2cbbc305e58462101c24e1c84f336c43956",
+    "V11_impl/device_probe/main.asc": "aecf0afc5f3535f0cb36a1227c49d0e7a4a285d33e7d0e72e0c845af9206112f",
+    "V11_impl/device_probe/P01_CONTROL.asc": "138cb8066c437f9373eec4e08340b77367eedc8440ebbfeb078944cba874a969",
+    "V11_impl/device_probe/precision_gate.py": "c6b145e9857c8fdcd49e9619cb87d43dcde1fbc29411edf0ceb13f54590585de",
+    "V11_impl/device_probe/profile_summary.py": "104413a6860434baa83b0cc7dd73a1f0064a754e5ecadc5c5ab56315cd68a7b4",
+    "V11_impl/device_probe/R01_REUSE_2X2.asc": "dc372a48a8b38dcb3ee1c782f93842624945cfe0627b04b2112e70d0a949663e",
+    "V11_impl/device_probe/README.md": "e6ea1b59e367514f640c497c5ccff1e91255cb60dfd262d3aecd5ece2c653794",
+    "V11_impl/device_probe/run_probe.py": "f7f7d8b2afe08428f322ffa0d380092a22665e11ed5e4a5e96f16decd62aed20"
+  }
+}

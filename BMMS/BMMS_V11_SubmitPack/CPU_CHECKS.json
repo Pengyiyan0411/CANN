@@ -1,0 +1,73 @@
+{
+  "source_sha256": "dc372a48a8b38dcb3ee1c782f93842624945cfe0627b04b2112e70d0a949663e",
+  "scope": "actual source CPU layout/arithmetic/event model; not NPU simulation",
+  "cann_compiled": false,
+  "npu_tested": false,
+  "full_domain_precision_accepted": false,
+  "fixture": {
+    "B": 1,
+    "M": 128,
+    "N": 256,
+    "K": 256,
+    "cores": 1
+  },
+  "fixture_outputs_match_bitwise": true,
+  "runs": {
+    "R01": {
+      "source_runs": 153,
+      "repeat_pairs": 77,
+      "plan_checks": 4494,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "known_precision_limitations": 3,
+      "pipe_m_barriers": 6520,
+      "traffic_fixture": {
+        "gm_bytes": 196608,
+        "gm_calls": 2,
+        "l0_bytes": 196608,
+        "l0_calls": 64,
+        "mmads": 16,
+        "publishes": 4,
+        "c_write_bytes": 131072
+      },
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false
+    },
+    "D01": {
+      "source_runs": 1,
+      "repeat_pairs": 0,
+      "plan_checks": 0,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "known_precision_limitations": 0,
+      "pipe_m_barriers": 0,
+      "traffic_fixture": {
+        "gm_bytes": 393216,
+        "gm_calls": 16,
+        "l0_bytes": 393216,
+        "l0_calls": 96,
+        "mmads": 8,
+        "publishes": 4,
+        "c_write_bytes": 131072
+      },
+      "cann_compiled": false,
+      "npu_tested": false,
+      "full_domain_precision_accepted": false
+    }
+  },
+  "artifacts": {
+    "V11_impl/reuse_fragment.asc.in": "f31b973710ff859d86f547337496c0c8b6f594a5b20718710c02fbcad9c68b0e",
+    "V11_impl/reuse_fragment.asc": "a19c2d3b59b1fc5b1b06af52db56cd0efe4b25c9476d658deb79308d0fff4231",
+    "V11_impl/build.py": "2563e5d3b4960aa9207b93faddd62c1742f50ee930e1fd2614a6d1cdf77cbe01",
+    "V11_impl/run_checks.py": "ba63f61063ba74aac83104d4b830aa9c913920cfc8ed13ddb124bc231f8929eb",
+    "V11_impl/checks_tail.cpp": "e262ae4c2a95875ae797b305d5f42286585795670a4cb4ab4b4e763bf975918e",
+    "V9_impl/prepare_cpu.py": "b5b53558f5a4873971bfa115a5e5382b0d01c2a133cedd7ede90962de6bd8f52",
+    "V9_impl/source_checks.cpp": "0932b5fc38f116b14c4857cafbab208e02abe09e0642a3305d80e71f6644a078",
+    "V9_impl/cube_model.hpp": "dd03742bded1885f5c18e91a984113788b1266e06fe5428f897b1fff017884ab",
+    "next_stage/cpu_shim.hpp": "d8066077cf7d32371119ff83f715d4c39fd66c1fb452c4be161b5b26a4ab8b14",
+    "next_stage/C00_P01_CONTROL.asc": "138cb8066c437f9373eec4e08340b77367eedc8440ebbfeb078944cba874a969"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_runs": 1,
+  "repeat_pairs": 0,
+  "plan_checks": 0,
+  "strict_misses": 0,
+  "combined_misses": 0,
+  "max_abs": 0,
+  "known_precision_limitations": 0,
+  "pipe_m_barriers": 0,
+  "traffic_fixture": {
+    "gm_bytes": 393216,
+    "gm_calls": 16,
+    "l0_bytes": 393216,
+    "l0_calls": 96,
+    "mmads": 8,
+    "publishes": 4,
+    "c_write_bytes": 131072
+  },
+  "output_bits": {
+    "dense_2_fp1600_1_128_256_256_1_0": [
+      1108679936
+    ]
+  },
+  "cann_compiled": false,
+  "npu_tested": false,
+  "full_domain_precision_accepted": false
+}

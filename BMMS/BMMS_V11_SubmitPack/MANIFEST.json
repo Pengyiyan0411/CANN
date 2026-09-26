@@ -1,0 +1,33 @@
+{
+  "variant": "R01_REUSE_2X2",
+  "file": "R01_REUSE_2X2.asc",
+  "sha256": "dc372a48a8b38dcb3ee1c782f93842624945cfe0627b04b2112e70d0a949663e",
+  "baseline": {
+    "file": "P01_CONTROL.asc",
+    "sha256": "138cb8066c437f9373eec4e08340b77367eedc8440ebbfeb078944cba874a969"
+  },
+  "fallback_body_restored_exactly": true,
+  "source_template_sha256": "f31b973710ff859d86f547337496c0c8b6f594a5b20718710c02fbcad9c68b0e",
+  "fragment_sha256": "a19c2d3b59b1fc5b1b06af52db56cd0efe4b25c9476d658deb79308d0fff4231",
+  "micro_mnk": [
+    64,
+    128,
+    64
+  ],
+  "macro_mnk": [
+    128,
+    256,
+    256
+  ],
+  "explicit_bytes": {
+    "L1": 393216,
+    "L0A": 32768,
+    "L0B": 65536,
+    "L0C": 131072,
+    "max_consumer_UB": 131744,
+    "ring_per_group": 65536
+  },
+  "cann_compiled": false,
+  "npu_tested": false,
+  "known_precision_counterexamples_remain": true
+}

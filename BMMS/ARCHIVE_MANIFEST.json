@@ -1,20 +1,10 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
-  "branch": "v10",
-  "scope": "V9/V10 single-file candidates, P01 control, reproducible offline checks, labelled/inferred platform evidence",
+  "branch": "v11",
+  "scope": "V9/V10/V11 candidates, P01 control, F01 user-confirmed result, source CPU checks, bounded device-probe source",
   "platform_source_identity": "user-labelled filenames; no platform source digest provided",
-  "excluded": "compiler binaries, caches, external CATLASS checkout, unrelated historical versions",
+  "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
-    {
-      "path": "BatchMatmulMaxSum_V9_冲榜路线设计.md",
-      "bytes": 16093,
-      "sha256": "bd4cf72456c01b28875d7a8ca1e8f7f1c1016da2eb16ef3a2b54f3eb9b9d14d7"
-    },
-    {
-      "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 22997,
-      "sha256": "b2f3056992b31f2711f4a8b900c90f8065f2fc7399da2c6e4b4552f05378aca6"
-    },
     {
       "path": "BMMS_V10_SubmitPack/CPU_CHECKS.json",
       "bytes": 2442,
@@ -44,6 +34,41 @@
       "path": "BMMS_V10_提交包.zip",
       "bytes": 14298,
       "sha256": "be172dc67f226a501aedfbbfc0aca9228f1223ea48d7fd0de3a44e14de4e15c8"
+    },
+    {
+      "path": "BMMS_V11_P01_R01_限时诊断包.zip",
+      "bytes": 71703,
+      "sha256": "8f55e7b137e9d4b3d4f5de1cdd626f57f3ff08a83b1bb6c0a12937c6fecd7d5a"
+    },
+    {
+      "path": "BMMS_V11_R01_提交包.zip",
+      "bytes": 63534,
+      "sha256": "f5b0ddfbe0821bc26d7cd6fa77c805f86e20acb9cefdbc0d9c5e857d867699a8"
+    },
+    {
+      "path": "BMMS_V11_SubmitPack/CPU_CHECKS.json",
+      "bytes": 2623,
+      "sha256": "ec3a727a4ec03f5d496989545172f482884d9f7c7a9a4e2726c67e5892bf4487"
+    },
+    {
+      "path": "BMMS_V11_SubmitPack/MANIFEST.json",
+      "bytes": 889,
+      "sha256": "03eda59419c4ff82146702cc9d7c075fa3056c0e879776adb6974fd9735059a4"
+    },
+    {
+      "path": "BMMS_V11_SubmitPack/P01_CONTROL.asc",
+      "bytes": 123135,
+      "sha256": "138cb8066c437f9373eec4e08340b77367eedc8440ebbfeb078944cba874a969"
+    },
+    {
+      "path": "BMMS_V11_SubmitPack/R01_REUSE_2X2.asc",
+      "bytes": 140488,
+      "sha256": "dc372a48a8b38dcb3ee1c782f93842624945cfe0627b04b2112e70d0a949663e"
+    },
+    {
+      "path": "BMMS_V11_SubmitPack/README.md",
+      "bytes": 2192,
+      "sha256": "659407ce5535bede1c5e24c2955594f265acce11b234c7ce1e37ba6ced7081be"
     },
     {
       "path": "BMMS_V9_D03/CPU_CHECKS.json",
@@ -136,11 +161,6 @@
       "sha256": "3f020dc3ce5ee396a1332c7b530829610c3951a3b7feb548456ffe71b4fce5ea"
     },
     {
-      "path": "BMMS_V9_SubmitPack/record_results.py",
-      "bytes": 3635,
-      "sha256": "1731d56700d24ae9ed497493f63abe6dd5c5c2b188d0e623e878e58f6d33e3f1"
-    },
-    {
       "path": "BMMS_V9_SubmitPack/RESULTS_TEMPLATE.md",
       "bytes": 949,
       "sha256": "1e151777a1a756e38761841a678dabd531a7acdbf7fde65e19bdb0a95fb88470"
@@ -151,44 +171,34 @@
       "sha256": "75d6e72c0df02cbff32765688270e239b6868b2a0e646ce0494ff507a2dbab3d"
     },
     {
+      "path": "BMMS_V9_SubmitPack/record_results.py",
+      "bytes": 3635,
+      "sha256": "1731d56700d24ae9ed497493f63abe6dd5c5c2b188d0e623e878e58f6d33e3f1"
+    },
+    {
       "path": "BMMS_V9_提交实验包.zip",
       "bytes": 171007,
       "sha256": "2ab216063f27e947fcd678e28ec2a1138d16282e473c240b091de2b967524337"
     },
     {
-      "path": "cann.md",
-      "bytes": 9898,
-      "sha256": "e336b4498dfa871bdbc4a9a07b2f3e9e4f0c5049a0828ec3def7ae1219da6e90"
+      "path": "BatchMatmulMaxSum_V9_冲榜路线设计.md",
+      "bytes": 16093,
+      "sha256": "bd4cf72456c01b28875d7a8ca1e8f7f1c1016da2eb16ef3a2b54f3eb9b9d14d7"
     },
     {
-      "path": "next_stage/C00_P01_CONTROL.asc",
-      "bytes": 123135,
-      "sha256": "138cb8066c437f9373eec4e08340b77367eedc8440ebbfeb078944cba874a969"
-    },
-    {
-      "path": "next_stage/cpu_shim.hpp",
-      "bytes": 20623,
-      "sha256": "d8066077cf7d32371119ff83f715d4c39fd66c1fb452c4be161b5b26a4ab8b14"
+      "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
+      "bytes": 5033,
+      "sha256": "7deb9d136a5f59ca700fd1d7ea3c87f9ae2f70c6e42079ea480aa0936d97192a"
     },
     {
       "path": "README.md",
-      "bytes": 6481,
-      "sha256": "3487d448bfaa633d2bfc63d9d8ca21e378360d551a70fac04831b1d8660467da"
+      "bytes": 1325,
+      "sha256": "da814edf209dc326a18bc4332e684e871797867bfa65afe0c9e5952102142b77"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
       "bytes": 1416,
       "sha256": "721556182a3d55f5db5df837155e9097ff6c6695b7f5fa2f68c19fde775fe57f"
-    },
-    {
-      "path": "V10_impl/archive.py",
-      "bytes": 2470,
-      "sha256": "3f320a2ecc5146200ed3ae1fe1e33b21d79bf9310e2b179cc5f034f56f8b2b34"
-    },
-    {
-      "path": "V10_impl/build.py",
-      "bytes": 1865,
-      "sha256": "788b03898bf768d96eff1b726142c1517d1e87ee35dfd20c4ee99b8baef73077"
     },
     {
       "path": "V10_impl/CHECKS.json",
@@ -211,14 +221,34 @@
       "sha256": "4da79e91ff12d89d963bd85bc6c817b25724cf83ca5661d7467f48db2ff9316f"
     },
     {
-      "path": "V10_impl/package.py",
-      "bytes": 2727,
-      "sha256": "637c6577b1ccbe594d5bc8b4f79b6403a7f19b4022080a284314e47f5aa152dd"
-    },
-    {
       "path": "V10_impl/PACKAGE_CHECKS.json",
       "bytes": 241,
       "sha256": "34e3b7a8e20f9f5139e56cd975bf9bafcc966f1995b690fa81a285b87f4cdbc3"
+    },
+    {
+      "path": "V10_impl/TESTCASES.md",
+      "bytes": 2074,
+      "sha256": "9639aa7a310afb7fe4ff283444342c8afaef8e87ac1d28706be2984d9069501d"
+    },
+    {
+      "path": "V10_impl/USER_PLAN.md",
+      "bytes": 6267,
+      "sha256": "3dd84ca544910d106d2af854e30b4f7d8b0d99c6360f06bf3816e2b78b789f57"
+    },
+    {
+      "path": "V10_impl/archive.py",
+      "bytes": 2470,
+      "sha256": "3f320a2ecc5146200ed3ae1fe1e33b21d79bf9310e2b179cc5f034f56f8b2b34"
+    },
+    {
+      "path": "V10_impl/build.py",
+      "bytes": 1865,
+      "sha256": "788b03898bf768d96eff1b726142c1517d1e87ee35dfd20c4ee99b8baef73077"
+    },
+    {
+      "path": "V10_impl/package.py",
+      "bytes": 2727,
+      "sha256": "637c6577b1ccbe594d5bc8b4f79b6403a7f19b4022080a284314e47f5aa152dd"
     },
     {
       "path": "V10_impl/run_checks.py",
@@ -236,14 +266,149 @@
       "sha256": "6b2a166eb0ac7ff1e8ee4f96b355de85d5445ef638deb529d39fbdd3889cc23b"
     },
     {
-      "path": "V10_impl/TESTCASES.md",
-      "bytes": 2074,
-      "sha256": "9639aa7a310afb7fe4ff283444342c8afaef8e87ac1d28706be2984d9069501d"
+      "path": "V10_results/2026-09-26_f01_submission/AUDIT.md",
+      "bytes": 2390,
+      "sha256": "895fd4e84a164cd25ca95f40f820d959549633bba1a1a965cac6df83ab6be26a"
     },
     {
-      "path": "V10_impl/USER_PLAN.md",
-      "bytes": 6267,
-      "sha256": "3dd84ca544910d106d2af854e30b4f7d8b0d99c6360f06bf3816e2b78b789f57"
+      "path": "V10_results/2026-09-26_f01_submission/F01_user_screenshot.png",
+      "bytes": 145914,
+      "sha256": "56768624ca9bf31418a261cf3918606e203370db21b49b159cfd36224b6b0cbb"
+    },
+    {
+      "path": "V10_results/2026-09-26_f01_submission/RESULT.json",
+      "bytes": 4097,
+      "sha256": "ebacebf7dfcab60b35bfb40f5152c37ac59b47c4cd6a641fcfaad4c7703c14e0"
+    },
+    {
+      "path": "V10_results/2026-09-26_f01_submission/measurements.csv",
+      "bytes": 830,
+      "sha256": "e9982d37b6bf40bc044a2717c699f054318ae186b700337d99ef3f6c2a1c735f"
+    },
+    {
+      "path": "V11_impl/CHECKS.json",
+      "bytes": 2623,
+      "sha256": "ec3a727a4ec03f5d496989545172f482884d9f7c7a9a4e2726c67e5892bf4487"
+    },
+    {
+      "path": "V11_impl/D01_CPU_RESULT.json",
+      "bytes": 574,
+      "sha256": "d0687863a39dde6037e0649f9ccc65096b18d17915e90274969dc675dfc6119a"
+    },
+    {
+      "path": "V11_impl/DESIGN.md",
+      "bytes": 5887,
+      "sha256": "dfbe53f24cfbbf5743c90fbd06e2fb5d7e2fcfbe2e9b39265fea96b72b13bcf0"
+    },
+    {
+      "path": "V11_impl/PACKAGE_CHECKS.json",
+      "bytes": 484,
+      "sha256": "e8ec399b1bdf01726e71f9a905b28a338955584ea8634c73c4a9c53e3c585845"
+    },
+    {
+      "path": "V11_impl/PROBE_OFFLINE_CHECKS.json",
+      "bytes": 1182,
+      "sha256": "9a4b9e397ec1004324840bf61b1d824dc94e87daaeba5d28a0c6e415f539ee1a"
+    },
+    {
+      "path": "V11_impl/R01_CPU_RESULT.json",
+      "bytes": 6020,
+      "sha256": "26c3765bc855f70bbee2ea7bdf5355a4661c00381d76527d75a0f3d7fd23701f"
+    },
+    {
+      "path": "V11_impl/TESTCASES.md",
+      "bytes": 1536,
+      "sha256": "f939d6f19c7f71ff0c52216ff0afbae5dc453abfb7aa52e49edf68f6cc99abbf"
+    },
+    {
+      "path": "V11_impl/archive.py",
+      "bytes": 2440,
+      "sha256": "c93c1790436ae3264dde3e4167f45a3feb0e78ceaca5ae4150667492c41c1603"
+    },
+    {
+      "path": "V11_impl/build.py",
+      "bytes": 2784,
+      "sha256": "2563e5d3b4960aa9207b93faddd62c1742f50ee930e1fd2614a6d1cdf77cbe01"
+    },
+    {
+      "path": "V11_impl/checks_tail.cpp",
+      "bytes": 4052,
+      "sha256": "e262ae4c2a95875ae797b305d5f42286585795670a4cb4ab4b4e763bf975918e"
+    },
+    {
+      "path": "V11_impl/device_probe/CMakeLists.txt",
+      "bytes": 449,
+      "sha256": "7784981ab2691665a70c4ae3b50eb2cbbc305e58462101c24e1c84f336c43956"
+    },
+    {
+      "path": "V11_impl/device_probe/P01_CONTROL.asc",
+      "bytes": 123135,
+      "sha256": "138cb8066c437f9373eec4e08340b77367eedc8440ebbfeb078944cba874a969"
+    },
+    {
+      "path": "V11_impl/device_probe/R01_REUSE_2X2.asc",
+      "bytes": 140488,
+      "sha256": "dc372a48a8b38dcb3ee1c782f93842624945cfe0627b04b2112e70d0a949663e"
+    },
+    {
+      "path": "V11_impl/device_probe/README.md",
+      "bytes": 2646,
+      "sha256": "e6ea1b59e367514f640c497c5ccff1e91255cb60dfd262d3aecd5ece2c653794"
+    },
+    {
+      "path": "V11_impl/device_probe/main.asc",
+      "bytes": 5066,
+      "sha256": "aecf0afc5f3535f0cb36a1227c49d0e7a4a285d33e7d0e72e0c845af9206112f"
+    },
+    {
+      "path": "V11_impl/device_probe/precision_gate.py",
+      "bytes": 1675,
+      "sha256": "c6b145e9857c8fdcd49e9619cb87d43dcde1fbc29411edf0ceb13f54590585de"
+    },
+    {
+      "path": "V11_impl/device_probe/profile_summary.py",
+      "bytes": 3393,
+      "sha256": "104413a6860434baa83b0cc7dd73a1f0064a754e5ecadc5c5ab56315cd68a7b4"
+    },
+    {
+      "path": "V11_impl/device_probe/run_probe.py",
+      "bytes": 11902,
+      "sha256": "f7f7d8b2afe08428f322ffa0d380092a22665e11ed5e4a5e96f16decd62aed20"
+    },
+    {
+      "path": "V11_impl/offline_pack_checks.py",
+      "bytes": 3474,
+      "sha256": "9116f7d06ed1a0eeaac46300cf99a646b9ef999173f726c269d36c1d4e226229"
+    },
+    {
+      "path": "V11_impl/package.py",
+      "bytes": 2909,
+      "sha256": "46eb628dc9994644e9f6802f2a6e62dff98843c7be39897b359787100e54b06f"
+    },
+    {
+      "path": "V11_impl/record_f01.py",
+      "bytes": 4525,
+      "sha256": "cf484b1f1ebc91f2be35893a7c6b5982da6412e827cc2f68f686e74e9b4f1856"
+    },
+    {
+      "path": "V11_impl/reuse_fragment.asc",
+      "bytes": 17171,
+      "sha256": "a19c2d3b59b1fc5b1b06af52db56cd0efe4b25c9476d658deb79308d0fff4231"
+    },
+    {
+      "path": "V11_impl/reuse_fragment.asc.in",
+      "bytes": 11912,
+      "sha256": "f31b973710ff859d86f547337496c0c8b6f594a5b20718710c02fbcad9c68b0e"
+    },
+    {
+      "path": "V11_impl/run_checks.py",
+      "bytes": 9556,
+      "sha256": "ba63f61063ba74aac83104d4b830aa9c913920cfc8ed13ddb124bc231f8929eb"
+    },
+    {
+      "path": "V11_impl/update_audit.py",
+      "bytes": 6880,
+      "sha256": "c670496a82de1079c17264f44bb01878241cff042bc86fafc4882aacc42045c5"
     },
     {
       "path": "V9_design/blocked_oracle.py",
@@ -334,6 +499,11 @@
       "path": "V9_design/test_cases.md",
       "bytes": 4122,
       "sha256": "137901c605117a34309868843ea7c75d8348053f5083a51d3d153acdb9b2eec3"
+    },
+    {
+      "path": "V9_impl/IMPLEMENTATION_STATUS.md",
+      "bytes": 4319,
+      "sha256": "012be37a1b967b25eebe223a75b967f82c143ed9121cdbe5765547552a3131f5"
     },
     {
       "path": "V9_impl/archive_to_repo.py",
@@ -434,11 +604,6 @@
       "path": "V9_impl/dense_notes.md",
       "bytes": 8106,
       "sha256": "8da1648f5e5a2981df91f95f1ddefc1bbe625d020199571ec6b7498ac5f4cc77"
-    },
-    {
-      "path": "V9_impl/IMPLEMENTATION_STATUS.md",
-      "bytes": 4319,
-      "sha256": "012be37a1b967b25eebe223a75b967f82c143ed9121cdbe5765547552a3131f5"
     },
     {
       "path": "V9_impl/ingest_d02_results.py",
@@ -656,11 +821,6 @@
       "sha256": "7c16ce4290b24f6feaf5129d0b481860edeb592df83bbd9c874f457ea20f5fb0"
     },
     {
-      "path": "V9_results/2026-09-26_first_submission/per_case_comparison.csv",
-      "bytes": 2701,
-      "sha256": "1392928f3aad3a5894dfcbeb2b2a81db4eacb86a6011fa9718fb73b685311bb7"
-    },
-    {
       "path": "V9_results/2026-09-26_first_submission/S01_SMALL_NT_PAIR.json",
       "bytes": 4797,
       "sha256": "2dcebe5d5d14b5e3aa2b1f04b4703b175652764ee9e3678db7eeecdf443e5c2f"
@@ -671,9 +831,39 @@
       "sha256": "629a10aa2675671a90e432004486eeb42e5dabc662837c021a3675cc923f3da7"
     },
     {
+      "path": "V9_results/2026-09-26_first_submission/per_case_comparison.csv",
+      "bytes": 2701,
+      "sha256": "1392928f3aad3a5894dfcbeb2b2a81db4eacb86a6011fa9718fb73b685311bb7"
+    },
+    {
       "path": "V9_results/2026-09-26_first_submission/summary.json",
       "bytes": 1603,
       "sha256": "5ca8b89b5bd6c5ed33a75e1599392758735c01cfb948b82144276f10657f98c4"
+    },
+    {
+      "path": "audit_current/AUDIT_BEFORE_V11.md",
+      "bytes": 22997,
+      "sha256": "b2f3056992b31f2711f4a8b900c90f8065f2fc7399da2c6e4b4552f05378aca6"
+    },
+    {
+      "path": "audit_current/README_BEFORE_V11.md",
+      "bytes": 6481,
+      "sha256": "3487d448bfaa633d2bfc63d9d8ca21e378360d551a70fac04831b1d8660467da"
+    },
+    {
+      "path": "cann.md",
+      "bytes": 9898,
+      "sha256": "e336b4498dfa871bdbc4a9a07b2f3e9e4f0c5049a0828ec3def7ae1219da6e90"
+    },
+    {
+      "path": "next_stage/C00_P01_CONTROL.asc",
+      "bytes": 123135,
+      "sha256": "138cb8066c437f9373eec4e08340b77367eedc8440ebbfeb078944cba874a969"
+    },
+    {
+      "path": "next_stage/cpu_shim.hpp",
+      "bytes": 20623,
+      "sha256": "d8066077cf7d32371119ff83f715d4c39fd66c1fb452c4be161b5b26a4ab8b14"
     }
   ]
 }

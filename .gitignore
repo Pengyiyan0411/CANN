@@ -19,3 +19,5 @@ BMMS/V11_k_coverage/cpu_build/
 BMMS/V11_a_resident/cpu_build/
 BMMS/V11_native_specialize/cpu_build/
 BMMS/V11_native_specialize/dispatch_build/
+BMMS/V11_shape_dispatch/cpu_build/
+BMMS/V11_shape_dispatch/dispatch_build/

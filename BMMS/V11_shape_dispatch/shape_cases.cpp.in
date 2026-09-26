@@ -1,0 +1,30 @@
+    // Every dtype/layout/K binding is executed using the selected production geometry.
+    for(int rev=0;rev<2;++rev){
+        for(int K:{32,64,128}){
+            for(auto d:std::vector<std::array<int,5>>{
+                {1,48,16,K,1},{3,272,32,K,3},
+                {1,128,128,K,1},{3,384,256,K,3}}){
+                layouts<half>(d,0,rev);layouts<bfloat16_t>(d,0,rev);
+            }
+        }
+        for(int K:{32,64})for(auto d:std::vector<std::array<int,5>>{
+            {1,16,256,K,1},{3,32,768,K,3}}){
+            layouts<half>(d,0,rev);layouts<bfloat16_t>(d,0,rev);
+        }
+        // Partial packets, multiple M panels, and N-shard final merge.
+        for(auto d:std::vector<std::array<int,5>>{
+            {1,256,16,128,1},{1,32,512,64,1},{1,256,512,64,1},
+            {3,80,16,128,2},{1,8192,32,32,4},{1,128,1024,32,3},
+            // These larger-tile candidates lose core groups and must fall back.
+            {1,16,256,64,20},{1,128,128,64,20},
+            // Unsupported large-K and incomplete dense/ShortM geometry fall back.
+            {1,16,512,128,2},{1,32,272,32,1},{1,144,256,64,2}}){
+            dense<half,false,false>(d[0],d[1],d[2],d[3],d[4],0,rev);
+            dense<bfloat16_t,true,true>(d[0],d[1],d[2],d[3],d[4],0,rev);
+        }
+        for(int pat:{1,2})for(auto d:std::vector<std::array<int,5>>{
+            {1,80,16,128,1},{1,32,512,64,1},{1,256,128,128,1}}){
+            dense<half,false,true>(d[0],d[1],d[2],d[3],d[4],pat,rev);
+            dense<bfloat16_t,true,false>(d[0],d[1],d[2],d[3],d[4],pat,rev);
+        }
+    }

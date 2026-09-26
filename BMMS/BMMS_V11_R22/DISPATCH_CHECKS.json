@@ -1,0 +1,23 @@
+{
+  "actual_host_launch_checks": 150,
+  "unique_device_bindings": 64,
+  "no_launch_fallback_checks": 86,
+  "metadata_plan_checks": 2016,
+  "invalid_guard_checks": 14,
+  "occupancy_fallbacks": 123,
+  "route_counts": [
+    891,
+    480,
+    146,
+    499
+  ],
+  "scope": "actual host policy, workspace sizing, launch bindings and entry bodies with recording stubs; no CANN/NPU compile",
+  "wrong_dtype_fault_rejected": true,
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "sources": {
+    "BMMS_V11_R13_R14/R14_FLEX_SINGLE_WAVE.asc": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe",
+    "BMMS_V11_R22/R22_SHAPE_SWITCH.asc": "a554b3997e7fea9207e48f5d4482f9f9d176266dfdaf263c7eb5ffcd6d4f371e",
+    "V11_shape_dispatch/check_dispatch.py": "78c4c6d75eaabe904e69141b638ad3ee30cc16a75af5fa82db0465af85e31050"
+  }
+}

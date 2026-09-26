@@ -1,0 +1,25 @@
+{
+  "base": "BMMS_V11_R13_R14/R14_FLEX_SINGLE_WAVE.asc",
+  "base_sha256": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe",
+  "control": {
+    "file": "R14_CONTROL.asc",
+    "sha256": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe"
+  },
+  "candidate": {
+    "version": "R22",
+    "file": "R22_SHAPE_SWITCH.asc",
+    "sha256": "a554b3997e7fea9207e48f5d4482f9f9d176266dfdaf263c7eb5ffcd6d4f371e",
+    "platform_result_received": false
+  },
+  "composition": {
+    "R14_preserved_outside_inserted_fragment_and_one_host_call": true,
+    "all_strategy_selection_on_host": true,
+    "three_fixed_device_geometries": true,
+    "64_independent_kernel_bindings": true,
+    "original_R14_fallback": true,
+    "R20_R21_device_code_not_reused": true
+  },
+  "R20_status": "compile_failed_no_log_root_cause_unconfirmed",
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false
+}

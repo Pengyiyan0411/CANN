@@ -1,0 +1,10 @@
+{
+  "file": "BMMS_V11_R22_\u63d0\u4ea4\u5305.zip",
+  "sha256": "96edb3a3ffc1de1f9d1063b69f9125f9d1ba33e5beae7d0d5642b0d4a941ceef",
+  "bytes": 84449,
+  "members": 6,
+  "R14_control_unchanged": true,
+  "R22_from_R14": true,
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false
+}

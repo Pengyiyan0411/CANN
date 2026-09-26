@@ -1,0 +1,14 @@
+{
+  "source": "user report",
+  "version": "R20",
+  "status": "compile_failed",
+  "compile_log_available": false,
+  "first_error_known": false,
+  "root_cause_confirmed": false,
+  "timings_available": false,
+  "source_risk": "host-only UseWideN called from device NativeEntry; not a confirmed diagnosis of the platform error",
+  "R21_platform_status_known": false,
+  "next_candidate": "R22_SHAPE_SWITCH",
+  "baseline": "R14",
+  "user_requested": "switch strategies using specific input metadata, not a broad Native producer replacement"
+}

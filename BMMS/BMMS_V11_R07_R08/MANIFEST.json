@@ -1,0 +1,33 @@
+{
+  "base": "BMMS_V11_R04/R04_MACRO_RING_RESIDUAL.asc",
+  "base_sha256": "f39d584297451a4ef15d559b67879571e3de86e21007f4a02b0b3552a904a09c",
+  "control": {
+    "file": "R04_CONTROL.asc",
+    "sha256": "f39d584297451a4ef15d559b67879571e3de86e21007f4a02b0b3552a904a09c"
+  },
+  "variants": [
+    {
+      "version": "R07",
+      "file": "R07_BALANCED_GRID.asc",
+      "sha256": "d5fea8e8abd3bd7ecf7b76388e3f35c2086c0a0004238ec8523a9a2497746c45",
+      "platform_result_received": false
+    },
+    {
+      "version": "R08",
+      "file": "R08_NATIVE_PACKETS.asc",
+      "sha256": "bc0e6c895ddcec2ca743204f221d6b0d6967b8944cec7b49dd0946775a103b27",
+      "platform_result_received": false
+    }
+  ],
+  "proof": {
+    "independent_R04_descendants": true,
+    "R07_only_macro_host_plan_changed": true,
+    "R08_only_native_small_K_output_protocol_changed": true,
+    "shared_residual_consumer_preserved": true,
+    "all_original_dispatch_guards_preserved": true,
+    "R05_R06_changes_not_included": true
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "known_numerical_limitations_remain": true
+}

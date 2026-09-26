@@ -1,0 +1,151 @@
+--- R14
++++ R21_NATIVE_L0_REUSE
+@@ -1,4 +1,4 @@
+-// R14_FLEX_SINGLE_WAVE: independent R11 descendant; pending platform validation.
++// R21_NATIVE_L0_REUSE: independent R14 Native-only experiment; pending platform validation.
+ // V8.3.1 probe P01 ROWMAX_EPILOGUE: shape-adaptive small-K Cube scheduler + reduction-aware epilogue + vector-tree [K,L] GEMV.
+ // Parent V8.0d is retained verbatim except its dispatcher name; V8.3 changes only the native small-K module/dispatcher.
+ // Not compiled with Bisheng / not NPU-validated in this environment.
+@@ -2069,6 +2069,7 @@
+ // lifetimes are independent from the two GM-slot credits.
+ template<class T,bool TA,bool TB,int TK>
+ class SmallKProducer {
++    static_assert(TK==32||TK==64||TK==128,"fixed small K only");
+     AscendC::TPipe* pipe_; NativePlan p;
+     AscendC::GlobalTensor<T> a,b;AscendC::GlobalTensor<float> ring;
+     AscendC::TBuf<AscendC::TPosition::A1> a1Buf;
+@@ -2076,8 +2077,31 @@
+     AscendC::TBuf<AscendC::TPosition::A2> a2Buf;
+     AscendC::TBuf<AscendC::TPosition::B2> b2Buf;
+     AscendC::TBuf<AscendC::TPosition::CO1> cBuf;
+-    int32_t seq=0;
++    int32_t seq=0;bool reuseA=false,abPending[2]={false,false};
+     AscendC::TEventID bReady[3],bFree[3],abReady[2],abFree[2],cReady[2],cFree[2];
++
++    // Destination is ZZ: [M/16][K/16][16][16]. Choose the shorter instruction loop.
++    __aicore__ inline void LoadA0(int mo,int mr,int ar,AscendC::LocalTensor<T> dstA){
++        auto srcA=a1Buf.template Get<T>();AscendC::LoadData2DParams la{};la.ifTranspose=TA;
++        if(mr<=TK){
++            la.repeatTimes=TK/16;la.srcStride=TA?1:ar/16;
++            for(int i=0;i<mr/16;++i){
++                const int off=TA?(mo/16+i)*TK*16:(mo/16+i)*256;
++                AscendC::LoadData(dstA[i*TK*16],srcA[off],la);
++            }
++        }else{
++            la.repeatTimes=mr/16;la.srcStride=TA?TK/16:1;la.dstGap=TK/16-1;
++            for(int j=0;j<TK/16;++j){
++                const int off=TA?(mo/16)*TK*16+j*256:j*ar*16+mo*16;
++                AscendC::LoadData(dstA[j*256],srcA[off],la);
++            }
++        }
++    }
++    __aicore__ inline void DrainA0(){
++        for(int s=0;s<2;++s)if(abPending[s]){
++            AscendC::WaitFlag<AscendC::HardEvent::M_MTE1>(abFree[s]);abPending[s]=false;
++        }
++    }
+ 
+     __aicore__ inline void LoadA(int batch,int m0,int mr){
+         auto dst=a1Buf.template Get<T>();AscendC::Nd2NzParams q{};q.ndNum=1;
+@@ -2087,6 +2111,7 @@
+         AscendC::DataCopy(dst,a[off],q);
+         AscendC::SetFlag<AscendC::HardEvent::MTE2_MTE1>(bReady[2]);
+         AscendC::WaitFlag<AscendC::HardEvent::MTE2_MTE1>(bReady[2]);
++        if(reuseA)LoadA0(0,mr,mr,a2Buf.template Get<T>());
+     }
+     __aicore__ inline void LoadB(int batch,int n0,int nr,int stage){
+         auto dst=b1Buf.template Get<T>()[stage*TK*BN];AscendC::Nd2NzParams q{};q.ndNum=1;
+@@ -2097,35 +2122,37 @@
+         AscendC::SetFlag<AscendC::HardEvent::MTE2_MTE1>(bReady[stage]);
+     }
+     __aicore__ inline void LoadL0(int mo,int no,int mr,int nr,int ar,int br,int stage,int slot){
+-        auto srcA=a1Buf.template Get<T>();auto srcB=b1Buf.template Get<T>()[stage*TK*BN];
+-        auto dstA=a2Buf.template Get<T>()[slot*TM*TK];auto dstB=b2Buf.template Get<T>()[slot*TK*TN];
+-        AscendC::LoadData2DParams la{};la.repeatTimes=TK/16;
+-        la.srcStride=TA?1:ar/16;la.ifTranspose=TA;
+-        for(int i=0;i<mr/16;++i){
+-            const int off=TA?(mo/16+i)*TK*16:(mo/16+i)*256;
+-            AscendC::LoadData(dstA[i*TK*16],srcA[off],la);
+-        }
+-        AscendC::LoadData2DParams lb{};lb.repeatTimes=nr/16;
+-        lb.srcStride=TB?1:TK/16;lb.ifTranspose=!TB;
+-        for(int j=0;j<TK/16;++j){
+-            const int off=TB?j*br*16+(no/16)*256:(no/16)*TK*16+j*256;
+-            AscendC::LoadData(dstB[j*nr*16],srcB[off],lb);
++        auto srcB=b1Buf.template Get<T>()[stage*TK*BN];
++        auto dstB=b2Buf.template Get<T>()[slot*TK*TN];
++        if(!reuseA)LoadA0(mo,mr,ar,a2Buf.template Get<T>()[slot*TM*TK]);
++        AscendC::LoadData2DParams lb{};lb.ifTranspose=!TB;
++        // Destination is ZN: [K/16][N/16][16][16]. Short-N benefits at K64/K128.
++        if(nr<TK){
++            lb.repeatTimes=TK/16;lb.srcStride=TB?br/16:1;lb.dstGap=nr/16-1;
++            for(int j=0;j<nr/16;++j){
++                const int off=TB?(no/16+j)*256:(no/16+j)*TK*16;
++                AscendC::LoadData(dstB[j*256],srcB[off],lb);
++            }
++        }else{
++            lb.repeatTimes=nr/16;lb.srcStride=TB?1:TK/16;
++            for(int j=0;j<TK/16;++j){
++                const int off=TB?j*br*16+(no/16)*256:(no/16)*TK*16+j*256;
++                AscendC::LoadData(dstB[j*nr*16],srcB[off],lb);
++            }
+         }
+         AscendC::SetFlag<AscendC::HardEvent::MTE1_M>(abReady[slot]);
+         AscendC::WaitFlag<AscendC::HardEvent::MTE1_M>(abReady[slot]);
+     }
+     __aicore__ inline void Emit(int group,int mo,int no,int mr,int nr,int ar,int br,int stage){
+         const int slot=seq&1;
+-        if(seq>=2){
+-            AscendC::WaitFlag<AscendC::HardEvent::M_MTE1>(abFree[slot]);
+-            AscendC::WaitFlag<AscendC::HardEvent::FIX_M>(cFree[slot]);
+-        }
++        if(abPending[slot]){AscendC::WaitFlag<AscendC::HardEvent::M_MTE1>(abFree[slot]);abPending[slot]=false;}
++        if(seq>=2)AscendC::WaitFlag<AscendC::HardEvent::FIX_M>(cFree[slot]);
+         LoadL0(mo,no,mr,nr,ar,br,stage,slot);
+-        auto aa=a2Buf.template Get<T>()[slot*TM*TK];auto bb=b2Buf.template Get<T>()[slot*TK*TN];
++        auto aa=a2Buf.template Get<T>()[reuseA?mo*TK:slot*TM*TK];auto bb=b2Buf.template Get<T>()[slot*TK*TN];
+         auto cc=cBuf.template Get<float>()[slot*TM*TN];
+         AscendC::MmadParams q{};q.m=mr;q.n=nr;q.k=TK;q.cmatrixInitVal=true;
+         AscendC::Mmad(cc,aa,bb,q);
+-        AscendC::SetFlag<AscendC::HardEvent::M_MTE1>(abFree[slot]);
++        AscendC::SetFlag<AscendC::HardEvent::M_MTE1>(abFree[slot]);abPending[slot]=true;
+         AscendC::SetFlag<AscendC::HardEvent::M_FIX>(cReady[slot]);
+         AscendC::WaitFlag<AscendC::HardEvent::M_FIX>(cReady[slot]);
+         const int packet=seq/PACKET_TILES,packetSlot=packet&1,tileSlot=seq%PACKET_TILES;
+@@ -2141,6 +2168,8 @@
+ public:
+     __aicore__ inline void Init(GM_ADDR x,GM_ADDR z,GM_ADDR r,const NativePlan& plan,AscendC::TPipe* pipe){
+         p=plan;pipe_=pipe;
++        // Cache only if EVERY N shard consumes at least two microtiles.
++        reuseA=(p.pN>0&&p.nTiles>=2*p.pN);
+         for(int i=0;i<3;++i){
+             bReady[i]=pipe_->AllocEventID<AscendC::HardEvent::MTE2_MTE1>();
+             bFree[i]=pipe_->AllocEventID<AscendC::HardEvent::MTE1_MTE2>();
+@@ -2155,7 +2184,7 @@
+         b.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(z),int64_t(p.B)*TK*p.N);
+         ring.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(r),int64_t(p.blocks)*2*PACKET_TILES*TM*TN);
+         pipe->InitBuffer(a1Buf,AM*TK*sizeof(T));pipe->InitBuffer(b1Buf,2*TK*BN*sizeof(T));
+-        pipe->InitBuffer(a2Buf,2*TM*TK*sizeof(T));pipe->InitBuffer(b2Buf,2*TK*TN*sizeof(T));
++        pipe->InitBuffer(a2Buf,(reuseA?AM:2*TM)*TK*sizeof(T));pipe->InitBuffer(b2Buf,2*TK*TN*sizeof(T));
+         pipe->InitBuffer(cBuf,2*TM*TN*sizeof(float));
+     }
+     __aicore__ inline void Process(){
+@@ -2189,6 +2218,8 @@
+                     }
+                     AscendC::SetFlag<AscendC::HardEvent::MTE1_MTE2>(bFree[stage]);
+                 }
++                // Fence all readers before the next M stage replaces the resident L0A.
++                if(reuseA)DrainA0();
+                 const int panelCount=(nEnd-nBegin+BN-1)/BN,used=MinI(2,panelCount);
+                 for(int st=0;st<used;++st)AscendC::WaitFlag<AscendC::HardEvent::MTE1_MTE2>(bFree[st]);
+                 AscendC::SetFlag<AscendC::HardEvent::MTE1_MTE2>(bFree[2]);
+@@ -2199,8 +2230,8 @@
+         if(seq%PACKET_TILES)AscendC::CrossCoreSetFlag<0x2,PIPE_FIX>(READY+((seq/PACKET_TILES)&1));
+         const int packets=(seq+PACKET_TILES-1)/PACKET_TILES;
+         for(int s=0;s<MinI(2,packets);++s)AscendC::CrossCoreWaitFlag<0x2>(FREE+s);
++        DrainA0();
+         for(int s=0;s<MinI(2,seq);++s){
+-            AscendC::WaitFlag<AscendC::HardEvent::M_MTE1>(abFree[s]);
+             AscendC::WaitFlag<AscendC::HardEvent::FIX_M>(cFree[s]);
+         }
+         for(int i=0;i<3;++i){

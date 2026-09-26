@@ -1,0 +1,11 @@
+{
+  "selector_checks": 2080,
+  "actual_entry_checks": 99840,
+  "actual_plan_checks": 6912,
+  "multi_N_plans": 3103,
+  "scope": "actual R20 NativeEntry with stubs; unchanged R14 host plan; metadata selector only",
+  "sources": {
+    "BMMS_V11_R13_R14/R14_FLEX_SINGLE_WAVE.asc": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe",
+    "BMMS_V11_R20_R21/R20_NATIVE_WIDE_N.asc": "d85131ed674b313772d39138b05b0c7f1e94ee6886f64dd037d26243db6eab26"
+  }
+}

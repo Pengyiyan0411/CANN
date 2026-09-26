@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "V9/V10/V11 frozen history; user-selected R14 baseline; independent R17/R18 coverage rebases and R19 K256/K512 resident-A experiment, pending platform validation",
+  "scope": "Frozen V9/V10/V11 history; R14 baseline; user Native Case 5 diagnosis; independent R20 wide-N MMAD and R21 L0 reuse candidates, awaiting platform validation",
   "platform_source_identity": "explicit user version labels where available; R04 inferred from sole preceding candidate; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -346,6 +346,41 @@
       "sha256": "81775b5968e9c0f9e9b551ff861acf94a229357f19b7ffa6af9c67c3240fd85c"
     },
     {
+      "path": "BMMS_V11_R20_R21/CPU_CHECKS.json",
+      "bytes": 44411,
+      "sha256": "522ad3cb2eaa8673ff89e2990f81f078de11c537ecb88d9e33efe85779c1c74d"
+    },
+    {
+      "path": "BMMS_V11_R20_R21/MANIFEST.json",
+      "bytes": 1099,
+      "sha256": "67eea11e964844ecb9e87909495b6623f7981b41a44111642914572bc0711c8b"
+    },
+    {
+      "path": "BMMS_V11_R20_R21/R14_CONTROL.asc",
+      "bytes": 165275,
+      "sha256": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe"
+    },
+    {
+      "path": "BMMS_V11_R20_R21/R20_NATIVE_WIDE_N.asc",
+      "bytes": 174060,
+      "sha256": "d85131ed674b313772d39138b05b0c7f1e94ee6886f64dd037d26243db6eab26"
+    },
+    {
+      "path": "BMMS_V11_R20_R21/R21_NATIVE_L0_REUSE.asc",
+      "bytes": 166821,
+      "sha256": "c8fbb9f96a454a6956f02637bc63d807d2ee0d6e8cd01ba3aec8794af901d499"
+    },
+    {
+      "path": "BMMS_V11_R20_R21/README.md",
+      "bytes": 1637,
+      "sha256": "b454bf93371cb27988c83667d67feee3126ddb54fb8097239a40cfdfe54a610d"
+    },
+    {
+      "path": "BMMS_V11_R20_R21_提交包.zip",
+      "bytes": 116467,
+      "sha256": "c5ee8f05d236a363abdac6cfe470712539d011f0c66f4f27eb23d094032d18cc"
+    },
+    {
       "path": "BMMS_V11_SubmitPack/CPU_CHECKS.json",
       "bytes": 2623,
       "sha256": "ec3a727a4ec03f5d496989545172f482884d9f7c7a9a4e2726c67e5892bf4487"
@@ -487,13 +522,13 @@
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 5275,
-      "sha256": "4bee189f392268c74c5dd551cf4626651dc5d6c0b4b25801ff9033ad5aece431"
+      "bytes": 3807,
+      "sha256": "934a3940cbedecad6f4aebf34a208bb2275ab310142582f9a31c2d5f2b4dd37a"
     },
     {
       "path": "README.md",
-      "bytes": 1471,
-      "sha256": "402c54879ad6703b5ec60d21ddbfacda0d9d149e49c814b07eaeaf97926759d8"
+      "bytes": 1293,
+      "sha256": "727323b4a791363f4344e3da48471b7e8f63b9947f2042ba0d13e33274ae296e"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -1416,6 +1451,116 @@
       "sha256": "bc9301d7db285b1200a95637c75068b59b67d8728852b19bacd7ef8f79b4a275"
     },
     {
+      "path": "V11_native_specialize/CANN_README.md",
+      "bytes": 1336,
+      "sha256": "ff53d8ae8553c47f2dc7fb0010050ffcdddd0823ff9f0d7122bf8a61b6fc9862"
+    },
+    {
+      "path": "V11_native_specialize/CHECKS.json",
+      "bytes": 44411,
+      "sha256": "522ad3cb2eaa8673ff89e2990f81f078de11c537ecb88d9e33efe85779c1c74d"
+    },
+    {
+      "path": "V11_native_specialize/DESIGN.md",
+      "bytes": 6839,
+      "sha256": "443edbc5855f234412feb5e7ee515894e8262209fc2e8f5d95f9e86c582b8e6e"
+    },
+    {
+      "path": "V11_native_specialize/DISPATCH_CHECKS.json",
+      "bytes": 464,
+      "sha256": "374f4c9becec50e1e85e63b1acd90e9e4e5ec82688f3a5eb63b3a6dab4e1eb95"
+    },
+    {
+      "path": "V11_native_specialize/PACKAGE_CHECKS.json",
+      "bytes": 308,
+      "sha256": "79d43599d68288dff0dc51ab0a7f3f5248444f54f14d8046ea4c7144fafeee07"
+    },
+    {
+      "path": "V11_native_specialize/R14_CPU_RESULT.json",
+      "bytes": 32736,
+      "sha256": "ef8d0ae5fa561939b152e6f6bac9d9c66448590e9b4141d7b08182f5fed50070"
+    },
+    {
+      "path": "V11_native_specialize/R14_INPUTS.json",
+      "bytes": 955,
+      "sha256": "dd7a61b8a6c8a9b4e3dac0d7326ec667292a25d3435eb5a43067be074f606528"
+    },
+    {
+      "path": "V11_native_specialize/R20_CPU_RESULT.json",
+      "bytes": 32731,
+      "sha256": "7969bc82e1479d4b0de5446ce35fe14d85f6f24be4a27922a88d5746a232e2ca"
+    },
+    {
+      "path": "V11_native_specialize/R20_INPUTS.json",
+      "bytes": 955,
+      "sha256": "a9fa60d9ecc850c9e3ea369ff1c4a37d19b44e90c2dd7f35ba5d21fbb79084cb"
+    },
+    {
+      "path": "V11_native_specialize/R20_NATIVE_WIDE_N.diff",
+      "bytes": 10115,
+      "sha256": "fdfe90a92f2be8e9b5e7f335551f9a29abee9baf3855998f6d95ac8ee8b2e4e2"
+    },
+    {
+      "path": "V11_native_specialize/R20_producer.asc",
+      "bytes": 8662,
+      "sha256": "f5f6fb592c0c535358cdbb49770fd2f135e5d9f00117327af2cf5a0dda82c5ad"
+    },
+    {
+      "path": "V11_native_specialize/R21_CPU_RESULT.json",
+      "bytes": 32724,
+      "sha256": "a3213c48ee6c6dae08baaba413e2164909fb1c65096c2f0f1f559a76189bdeac"
+    },
+    {
+      "path": "V11_native_specialize/R21_INPUTS.json",
+      "bytes": 955,
+      "sha256": "7c3d6de6d6c74ab765b3fa175b1bb7bdcf85f27ceb547b01660c694a5a90016c"
+    },
+    {
+      "path": "V11_native_specialize/R21_NATIVE_L0_REUSE.diff",
+      "bytes": 8278,
+      "sha256": "a67ff1841ad06661d7c03d824ac63745a7a9c913a8e738a404d056bce09c3699"
+    },
+    {
+      "path": "V11_native_specialize/R21_producer.asc",
+      "bytes": 9788,
+      "sha256": "8b28c5473556a289ea9da0030f3366b70f7587c0678cc75b7c1374c856bbc26e"
+    },
+    {
+      "path": "V11_native_specialize/archive.py",
+      "bytes": 2964,
+      "sha256": "46b436f7d9caebd66b5c20dde6de24aaa3e3a060d9e072ec283db174c84f2ad8"
+    },
+    {
+      "path": "V11_native_specialize/build.py",
+      "bytes": 11393,
+      "sha256": "bb116232b2333b63297bf125ff3b489c17439fe3aac6ce9e69c77bb5944888e0"
+    },
+    {
+      "path": "V11_native_specialize/check_dispatch.py",
+      "bytes": 4341,
+      "sha256": "fa6579f1f32271fcf7867e28b9d55d60d82c7df5aa5128b6bc2f1f6265257358"
+    },
+    {
+      "path": "V11_native_specialize/native_cases.cpp.in",
+      "bytes": 1103,
+      "sha256": "314d6568abaedf606a36f81411fef16a25a6abf21e89d588aa4aec39a2c3321a"
+    },
+    {
+      "path": "V11_native_specialize/package.py",
+      "bytes": 2805,
+      "sha256": "03b620f2d1192d7fc3da24ac206f1da2f83252771add753aa1ec62b707a02fc1"
+    },
+    {
+      "path": "V11_native_specialize/run_checks.py",
+      "bytes": 12350,
+      "sha256": "b9d0edb4025fceb688ac585754f2f4db7b4d646b5062ccef671ff1ad6f572e1c"
+    },
+    {
+      "path": "V11_native_specialize/update_docs.py",
+      "bytes": 11552,
+      "sha256": "80b770dbcf18e5d909a7aa7ee6b1c8e428e3de02e7ae2791398600903b6e6a7e"
+    },
+    {
       "path": "V11_recovery/CANN_README.md",
       "bytes": 1212,
       "sha256": "0202214878ccf431b6b19b307646f7fd37c5d70eaf7a4845ab1a62c9721423b4"
@@ -1699,6 +1844,21 @@
       "path": "V11_results/2026-09-26_r13_r14_submission/measurements.csv",
       "bytes": 1607,
       "sha256": "18911e55f2313f942ebbce7017ea727b27801f4f99992f4b152ffa79f308d061"
+    },
+    {
+      "path": "V11_results/2026-09-27_native_case5/AUDIT.md",
+      "bytes": 909,
+      "sha256": "74c3bbbaa6e8d5d73560ae75e722a5e06969701e3aab7f5923a274c0270b7997"
+    },
+    {
+      "path": "V11_results/2026-09-27_native_case5/RESULTS.json",
+      "bytes": 1207,
+      "sha256": "4adafa3833a4647c4406688ba78d5568bf8f21d1c27f5729888bc7db62772afe"
+    },
+    {
+      "path": "V11_results/2026-09-27_native_case5/case5.csv",
+      "bytes": 123,
+      "sha256": "aefa99d442e1a47c359d551cc877e710c20439cbe6620ab065ef5fef8ff5951c"
     },
     {
       "path": "V11_single_wave/CANN_README.md",
@@ -2304,6 +2464,11 @@
       "path": "audit_current/AUDIT_R15_R16_DELIVERY.md",
       "bytes": 5446,
       "sha256": "a5f272a6a6f1431f0295307aaa03df6fc4d1d733922e5ab166eb0c6d2ddfd561"
+    },
+    {
+      "path": "audit_current/AUDIT_R17_R18_R19_DELIVERY.md",
+      "bytes": 5275,
+      "sha256": "4bee189f392268c74c5dd551cf4626651dc5d6c0b4b25801ff9033ad5aece431"
     },
     {
       "path": "audit_current/README_BEFORE_V11.md",

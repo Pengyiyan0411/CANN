@@ -1,0 +1,32 @@
+{
+  "base": "BMMS_V11_R13_R14/R14_FLEX_SINGLE_WAVE.asc",
+  "base_sha256": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe",
+  "control": {
+    "file": "R14_CONTROL.asc",
+    "sha256": "64eb6eeeb10d2418845d2026b9e9fdd2088d0a3ad1decb0a1bfc46d65cfa78fe"
+  },
+  "variants": [
+    {
+      "version": "R20",
+      "file": "R20_NATIVE_WIDE_N.asc",
+      "sha256": "d85131ed674b313772d39138b05b0c7f1e94ee6886f64dd037d26243db6eab26",
+      "platform_result_received": false
+    },
+    {
+      "version": "R21",
+      "file": "R21_NATIVE_L0_REUSE.asc",
+      "sha256": "c8fbb9f96a454a6956f02637bc63d807d2ee0d6e8cd01ba3aec8794af901d499",
+      "platform_result_received": false
+    }
+  ],
+  "proof": {
+    "independent_R14_descendants": true,
+    "only_Native_producer_and_R20_entry_changed": true,
+    "host_plans_dispatch_guards_consumers_unchanged": true,
+    "ring_partial_layout_and_sizes_unchanged": true,
+    "R20_fallback_original_producer_retained": true,
+    "full_K_FP32_dot_then_max_then_sum_preserved": true
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false
+}

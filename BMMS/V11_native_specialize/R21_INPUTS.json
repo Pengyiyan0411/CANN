@@ -1,0 +1,14 @@
+{
+  "production_sha256": "c8fbb9f96a454a6956f02637bc63d807d2ee0d6e8cd01ba3aec8794af901d499",
+  "harness_sha256": "6f8708d2cbb6baa2922fe804fa598aee904014fc66fd5fcb450204c96fb98d4f",
+  "headers": {
+    "common_extracted.hpp": "2a854211dda29a3ea623457c1a73fd6256294c95d943437e7e73498de46cdfee",
+    "cpu_shim.hpp": "9edc02e28dfe3cea94532f4d5d8a0280f9947fe3c59e1562a18980aee9724636",
+    "cube_model.hpp": "1e4d7bc13e2dd0222c68e42e5ab1458240c37669dd24d70e28abe3786de2559a",
+    "dense_extracted.hpp": "75708ae5c4b7ee48ba2c9c77c011e5830dc7f27b3d0f21a8d8805f61a3c4eebc",
+    "dispatch_extracted.hpp": "54d64ff28e5d0bd7bf899e7a4da155be1c7406ede5fa8eeea5598817ff74a957",
+    "residual_extracted.hpp": "b96f21f124e4f3ab1113c87737184bd5f5ff3e6154ed2f16c6e6a5ec831b0bd7",
+    "reuse_extracted.hpp": "8bac91c724c27194fe765f93cfd9c1210e37da7a7b16ca2fdc645a9a29f5c103",
+    "ring_extracted.hpp": "9f32566a553aa808679dc0ae2d39c3545722637685989839b12198b8ebdfdb07"
+  }
+}

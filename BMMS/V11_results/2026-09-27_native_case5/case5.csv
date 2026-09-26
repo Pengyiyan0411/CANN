@@ -1,0 +1,5 @@
+probe,user_label,case,time_us
+P01,R06 stress,5,7.71
+P02,R03 stress,5,7.58
+P03,Native stress,5,14.11
+P04,Tree stress,5,7.20

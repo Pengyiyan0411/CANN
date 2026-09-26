@@ -15,10 +15,12 @@ def main():
     out=repo/'BMMS';out.mkdir(exist_ok=True)
     selected=[ROOT/'cann.md',ROOT/'BatchMatmulMaxSum_V9_冲榜路线设计.md',ROOT/'BMMS_V9_提交实验包.zip',
               ROOT/'next_stage/C00_P01_CONTROL.asc',ROOT/'next_stage/cpu_shim.hpp']
+    if (ROOT/'BMMS_V9_D03_提交包.zip').exists():selected.append(ROOT/'BMMS_V9_D03_提交包.zip')
     for folder in ['V9_impl','V9_design']:
-        selected += [p for p in (ROOT/folder).iterdir() if p.is_file() and p.suffix in {'.asc','.cpp','.hpp','.py','.md','.json','.jsonl','.txt'}
+        selected += [p for p in (ROOT/folder).iterdir() if p.is_file() and p.suffix in {'.asc','.cpp','.hpp','.py','.md','.json','.jsonl','.txt','.diff'}
                      and not p.name.endswith('_extracted.hpp')]
     selected += [p for p in (ROOT/'BMMS_V9_SubmitPack').iterdir() if p.is_file()]
+    if (ROOT/'BMMS_V9_D03').exists():selected += [p for p in (ROOT/'BMMS_V9_D03').iterdir() if p.is_file()]
     selected += [p for p in (ROOT/'V9_results').rglob('*') if p.is_file()]
     copied=[]
     for src in sorted(set(selected)):

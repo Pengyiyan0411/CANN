@@ -11,6 +11,31 @@
       "sha256": "bd4cf72456c01b28875d7a8ca1e8f7f1c1016da2eb16ef3a2b54f3eb9b9d14d7"
     },
     {
+      "path": "BMMS_V9_D03/CPU_CHECKS.json",
+      "bytes": 1378,
+      "sha256": "805db47431169b4b7da6a6dc61ae7c0f4e24eb6ae46f19376c11bb4503acb540"
+    },
+    {
+      "path": "BMMS_V9_D03/D03_DENSE_K128_C2.asc",
+      "bytes": 135908,
+      "sha256": "17351577d7a4928d3777c29a547631e52ddf3cf4667528d7a1b4c99be6153fd9"
+    },
+    {
+      "path": "BMMS_V9_D03/MANIFEST.json",
+      "bytes": 627,
+      "sha256": "a60806481a3f9609623b62c900668644c0bf597123485264b30ac28cc95ef26d"
+    },
+    {
+      "path": "BMMS_V9_D03/README.md",
+      "bytes": 2269,
+      "sha256": "3c4ed9690363f358552a7d0fe632fb21285ef294dab8c12a0472bdcf41ee4da9"
+    },
+    {
+      "path": "BMMS_V9_D03_提交包.zip",
+      "bytes": 34280,
+      "sha256": "d7f3d242a2aab8317b49365d09a646eb9fe1762bf5126afe4ce291396e9828da"
+    },
+    {
       "path": "BMMS_V9_SubmitPack/CPU_CHECKS.json",
       "bytes": 1952,
       "sha256": "cd8c7ff4be4c7883bb8f7fc300ab7d6bbfc341c190f3e35296820b4f7bb6bdcc"
@@ -177,13 +202,18 @@
     },
     {
       "path": "V9_impl/archive_to_repo.py",
-      "bytes": 2211,
-      "sha256": "4536db6445d6366c09c25144cf9a9f5950c5b2da3e032cb4468a37827b20acd3"
+      "bytes": 2428,
+      "sha256": "4820956a93aad0bc8e0090de6a671a788f8bb3edea4b8092f85bdf7e639cb488"
     },
     {
       "path": "V9_impl/build_candidates.py",
       "bytes": 4829,
       "sha256": "f902a4a0682587bfb2b53b6cf09ec78cc59183559f1abb68a3a0fe12c33ab64b"
+    },
+    {
+      "path": "V9_impl/build_d03.py",
+      "bytes": 3970,
+      "sha256": "4afea2296414f9a4f311628db9fa668606d906fe3a2b198f5da2328b753417db"
     },
     {
       "path": "V9_impl/compiler.stderr.txt",
@@ -212,8 +242,28 @@
     },
     {
       "path": "V9_impl/d01_route_review.md",
-      "bytes": 11061,
-      "sha256": "f8cbedbb6a9e723ef5ca41049ce12ec84471c95ef1f201e73345e7585ce3082d"
+      "bytes": 11265,
+      "sha256": "47d545c75982d9e5ed4ea560e79f1c8ba3c6c40034fbc50b2dea015842ca6555"
+    },
+    {
+      "path": "V9_impl/d03_checks.json",
+      "bytes": 1378,
+      "sha256": "805db47431169b4b7da6a6dc61ae7c0f4e24eb6ae46f19376c11bb4503acb540"
+    },
+    {
+      "path": "V9_impl/d03_delta.diff",
+      "bytes": 4071,
+      "sha256": "7a78deb356542cae7859350466a8c447d1bad049e98b2c4d0de2f4c9a185429c"
+    },
+    {
+      "path": "V9_impl/d03_package_checks.json",
+      "bytes": 328,
+      "sha256": "fec7a940db3564de78779d5ee5e6c0a972681345e1f7e51c6257ddf1d403f7e9"
+    },
+    {
+      "path": "V9_impl/dense_c2_fragment.asc",
+      "bytes": 12384,
+      "sha256": "c21fe8f9c88b60dcd1e5c716fcf77569dfe08c2702a4dfd9c0577262b8c8631d"
     },
     {
       "path": "V9_impl/dense_fragment.asc",
@@ -227,8 +277,13 @@
     },
     {
       "path": "V9_impl/IMPLEMENTATION_STATUS.md",
-      "bytes": 3309,
-      "sha256": "3160687719fee496243d1e5b577baf2279c722f585586aa16dd1b9eef550f524"
+      "bytes": 3671,
+      "sha256": "ed4cdada503309d6750e8e0b88b587177f354fe4bcfff78d1c652e996bf0572c"
+    },
+    {
+      "path": "V9_impl/ingest_d02_results.py",
+      "bytes": 6210,
+      "sha256": "348de9786425e3b483202898609c94bff8da2ea592a6e60bd2f2fb1a3e3e46ca"
     },
     {
       "path": "V9_impl/ingest_first_results.py",
@@ -281,6 +336,11 @@
       "sha256": "1b233921af492ad0eae5197b8fbc71c353d28eaeeb704f8174b8611314e43b4e"
     },
     {
+      "path": "V9_impl/package_d03.py",
+      "bytes": 2959,
+      "sha256": "bd8fe86c85398f2b387771c19ac34c5f9884d9e1d3d02fc7a5dae137ed9959c0"
+    },
+    {
       "path": "V9_impl/precision_review.md",
       "bytes": 9837,
       "sha256": "729b3886ec164cd217783f8a1af6f4e9cf8edee390676c6fb23c9eb5a6fb20c0"
@@ -314,6 +374,11 @@
       "path": "V9_impl/run_checks.py",
       "bytes": 2157,
       "sha256": "f6b8eb0f7ced5b4e0ec387d57e50c38cec4dd4a13bd51973a2d899321c712a83"
+    },
+    {
+      "path": "V9_impl/run_d03_checks.py",
+      "bytes": 4222,
+      "sha256": "4d496c641f24bc673b888beee538b1eedae4f78484652ab55bb67b82723b47c4"
     },
     {
       "path": "V9_impl/semantics_results.json",
@@ -354,6 +419,31 @@
       "path": "V9_impl/validate_package.py",
       "bytes": 3866,
       "sha256": "87b92deee0ecd47322de2b64c5801fe078dfbc87e37d9ddc591cc643e62538bc"
+    },
+    {
+      "path": "V9_results/2026-09-26_d02_submission/AUDIT.md",
+      "bytes": 3003,
+      "sha256": "97a25bf9b83b6d3daddce55dc27558e8b5af7c83b1156721a255f8cda4815c3c"
+    },
+    {
+      "path": "V9_results/2026-09-26_d02_submission/D02_DENSE_K64.json",
+      "bytes": 4993,
+      "sha256": "1a44b81972eddc94b4ea52266ec9554a67f533faedbd33168a24f644707c4eb1"
+    },
+    {
+      "path": "V9_results/2026-09-26_d02_submission/D02_DENSE_K64.png",
+      "bytes": 140619,
+      "sha256": "fa40cea73da5ffbd163d1c22fc1eb72143ccdff100a215b60122f7eaca1a61f0"
+    },
+    {
+      "path": "V9_results/2026-09-26_d02_submission/per_case_comparison.csv",
+      "bytes": 1195,
+      "sha256": "6ae12183d5e05a156d98339716f985c051f7dc15548650f8fbf98e70ce525f93"
+    },
+    {
+      "path": "V9_results/2026-09-26_d02_submission/summary.json",
+      "bytes": 690,
+      "sha256": "292d1c59485a62ac242329f78396bd265cc4e45f071b7facb63306a3ae132787"
     },
     {
       "path": "V9_results/2026-09-26_first_submission/AUDIT.md",

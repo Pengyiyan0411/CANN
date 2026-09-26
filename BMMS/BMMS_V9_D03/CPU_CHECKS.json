@@ -1,0 +1,41 @@
+{
+  "scope": "Explicit CPU layout, arithmetic, bounds, ownership and event-credit model; not CANN or hardware",
+  "cann_compiled": false,
+  "npu_tested": false,
+  "bounded_test_results_bitwise_equal": true,
+  "known_precision_counterexamples_remain": true,
+  "runs": {
+    "D01": {
+      "device_test": false,
+      "cann_compiled": false,
+      "k_block": 128,
+      "source_runs": 240,
+      "repeat_pairs": 120,
+      "plans_checked": 4296,
+      "dense_runs": 240,
+      "splitk_runs": 0,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "output_digest": "15032623994579679195",
+      "fragment_sha256": "e2455c63a4a1da3eed20ab770f73181c14539aa501443b3826fdfd38972d1698"
+    },
+    "D03": {
+      "device_test": false,
+      "cann_compiled": false,
+      "k_block": 128,
+      "source_runs": 240,
+      "repeat_pairs": 120,
+      "plans_checked": 4296,
+      "dense_runs": 240,
+      "splitk_runs": 0,
+      "strict_misses": 0,
+      "combined_misses": 0,
+      "max_abs": 0,
+      "output_digest": "15032623994579679195",
+      "fragment_sha256": "c21fe8f9c88b60dcd1e5c716fcf77569dfe08c2702a4dfd9c0577262b8c8631d"
+    }
+  },
+  "harness_sha256": "63426feffac771bdd465e737b035d8387d614a53431bd0829aef88d5ae68dc2c",
+  "runner_sha256": "4d496c641f24bc673b888beee538b1eedae4f78484652ab55bb67b82723b47c4"
+}

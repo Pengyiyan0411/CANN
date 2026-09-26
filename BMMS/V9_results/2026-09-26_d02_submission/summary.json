@@ -1,0 +1,32 @@
+{
+  "record_date": "2026-09-26",
+  "current_T": [
+    1.22,
+    1.58,
+    2.16,
+    2.92,
+    2.36,
+    7.23,
+    3.7,
+    17.32,
+    52.01,
+    72.47,
+    74.82,
+    91.2,
+    5.21,
+    7.1,
+    9.04
+  ],
+  "T_unchanged_from_first_submission": true,
+  "scores_same_T": {
+    "P01_historical": 32.09562558603007,
+    "D01": 28.253176125759257,
+    "S01": 31.79126224232799,
+    "D02": 26.864737035669968
+  },
+  "D02_all_15_pass": true,
+  "local_npu_run": false,
+  "submission_id_provided": false,
+  "platform_source_digest_provided": false,
+  "decision": "Retire K64 as the next baseline; keep P01 control; test D01 K128 with two L0C slots independently."
+}

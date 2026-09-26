@@ -1,0 +1,15 @@
+{
+  "variant": "D03_DENSE_K128_C2",
+  "file": "D03_DENSE_K128_C2.asc",
+  "sha256": "17351577d7a4928d3777c29a547631e52ddf3cf4667528d7a1b4c99be6153fd9",
+  "comparison": "D01_DENSE_K128",
+  "comparison_sha256": "5b5204fc42ac174de5b30bfc20e03094311d56ffa3de2d5b4e5fe536d7580375",
+  "fragment_sha256": "c21fe8f9c88b60dcd1e5c716fcf77569dfe08c2702a4dfd9c0577262b8c8631d",
+  "single_change": "L0C slots 1 -> 2 with per-slot FIX_M lifetime",
+  "k_block": 128,
+  "explicit_L0C_bytes": 65536,
+  "host_entry_unchanged": true,
+  "cann_compiled": false,
+  "npu_tested": false,
+  "known_numeric_counterexamples_remain": true
+}

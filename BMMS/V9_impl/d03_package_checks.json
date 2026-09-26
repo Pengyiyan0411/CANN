@@ -1,0 +1,8 @@
+{
+  "source_sha256": "17351577d7a4928d3777c29a547631e52ddf3cf4667528d7a1b4c99be6153fd9",
+  "archive_sha256": "d7f3d242a2aab8317b49365d09a646eb9fe1762bf5126afe4ce291396e9828da",
+  "host_entry_and_input_k_loop_unchanged": true,
+  "source_checks_per_candidate": 240,
+  "local_cann_compiled": false,
+  "npu_tested": false
+}

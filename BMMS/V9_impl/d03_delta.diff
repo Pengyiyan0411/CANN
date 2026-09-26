@@ -1,0 +1,78 @@
+--- D01/dense_fragment.asc
++++ D03/dense_c2_fragment.asc
+@@ -1,4 +1,4 @@
+-// BMMS V9-D experimental full-K native Cube path.
++// BMMS V9-D03: frozen D01 K128 with two independent L0C slots.
+ // Insert after the bmms83 declarations/kernels and before run_kernel.
+ // Source-only candidate: no CANN compile, NPU precision, or timing validation.
+ // Uses the existing bmms83 row-max consumer and its exact tile traversal.
+@@ -45,7 +45,7 @@
+     AscendC::TBuf<AscendC::TPosition::A2> a2Buf;
+     AscendC::TBuf<AscendC::TPosition::B2> b2Buf;
+     AscendC::TBuf<AscendC::TPosition::CO1> cBuf;
+-    AscendC::TEventID l1Ready[2],l1Free[2],l0Ready[2],l0Free[2],cReady,cFree;
++    AscendC::TEventID l1Ready[2],l1Free[2],l0Ready[2],l0Free[2],cReady,cFree[2];
+     int32_t seq=0;
+ 
+     // Compact ND2NZ tiles use their actual kr/mr/nr extents; each ping-pong
+@@ -94,12 +94,13 @@
+     }
+ 
+     __aicore__ inline void Emit(int group,int batch,int m0,int n0,int mr,int nr){
+-        // Single L0C: no new MMAD may reuse it until the preceding Fixpipe
+-        // has finished reading it. This is independent of the GM ring credit.
+-        if(seq>0)AscendC::WaitFlag<AscendC::HardEvent::FIX_M>(cFree);
++        // Two L0C slots: wait only when reusing the same C slot. The
++        // other slot may still be read by Fixpipe while this tile accumulates.
++        const int cSlot=seq&1;
++        if(seq>=2)AscendC::WaitFlag<AscendC::HardEvent::FIX_M>(cFree[cSlot]);
+         const int kCount=(p.K+KB-1)/KB;
+         LoadStage(batch,m0,n0,mr,nr,0,bmms83::MinI(KB,p.K),0);
+-        auto cc=cBuf.template Get<float>();
++        auto cc=cBuf.template Get<float>()[cSlot*TM*TN];
+         for(int ki=0;ki<kCount;++ki){
+             const int stage=ki&1,k0=ki*KB,kr=bmms83::MinI(KB,p.K-k0);
+             AscendC::WaitFlag<AscendC::HardEvent::MTE2_MTE1>(l1Ready[stage]);
+@@ -129,7 +130,7 @@
+         AscendC::FixpipeParamsV220 f{};f.nSize=nr;f.mSize=mr;f.srcStride=mr;
+         f.dstStride=TN;f.ndNum=1;f.quantPre=QuantMode_t::NoQuant;
+         AscendC::Fixpipe<float,float>(ring[(int64_t(group)*2+slot)*TM*TN],cc,f);
+-        AscendC::SetFlag<AscendC::HardEvent::FIX_M>(cFree);
++        AscendC::SetFlag<AscendC::HardEvent::FIX_M>(cFree[cSlot]);
+         AscendC::CrossCoreSetFlag<0x2,PIPE_FIX>(READY+slot);
+         ++seq;
+     }
+@@ -144,13 +145,13 @@
+             l0Free[s]=pipe_->AllocEventID<AscendC::HardEvent::M_MTE1>();
+         }
+         cReady=pipe_->AllocEventID<AscendC::HardEvent::M_FIX>();
+-        cFree=pipe_->AllocEventID<AscendC::HardEvent::FIX_M>();
++        for(int s=0;s<2;++s)cFree[s]=pipe_->AllocEventID<AscendC::HardEvent::FIX_M>();
+         a.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(x),int64_t(p.B)*p.M*p.K);
+         b.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(z),int64_t(p.B)*p.K*p.N);
+         ring.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(r),int64_t(p.blocks)*2*TM*TN);
+         pipe->InitBuffer(a1Buf,2*TM*KB*sizeof(T));pipe->InitBuffer(b1Buf,2*KB*TN*sizeof(T));
+         pipe->InitBuffer(a2Buf,2*TM*KB*sizeof(T));pipe->InitBuffer(b2Buf,2*KB*TN*sizeof(T));
+-        pipe->InitBuffer(cBuf,TM*TN*sizeof(float));
++        pipe->InitBuffer(cBuf,2*TM*TN*sizeof(float));
+     }
+ 
+     __aicore__ inline void Process(){
+@@ -178,7 +179,7 @@
+             }
+         }
+         for(int s=0;s<bmms83::MinI(2,seq);++s)AscendC::CrossCoreWaitFlag<0x2>(FREE+s);
+-        if(seq>0)AscendC::WaitFlag<AscendC::HardEvent::FIX_M>(cFree);
++        for(int s=0;s<bmms83::MinI(2,seq);++s)AscendC::WaitFlag<AscendC::HardEvent::FIX_M>(cFree[s]);
+         for(int s=0;s<2;++s){
+             pipe_->ReleaseEventID<AscendC::HardEvent::MTE2_MTE1>(l1Ready[s]);
+             pipe_->ReleaseEventID<AscendC::HardEvent::MTE1_MTE2>(l1Free[s]);
+@@ -186,7 +187,7 @@
+             pipe_->ReleaseEventID<AscendC::HardEvent::M_MTE1>(l0Free[s]);
+         }
+         pipe_->ReleaseEventID<AscendC::HardEvent::M_FIX>(cReady);
+-        pipe_->ReleaseEventID<AscendC::HardEvent::FIX_M>(cFree);
++        for(int s=0;s<2;++s)pipe_->ReleaseEventID<AscendC::HardEvent::FIX_M>(cFree[s]);
+     }
+ };
+ 

@@ -4,17 +4,20 @@ BatchMatmulMaxSum 算子开发归档。当前 V9 源码、实验结果与检查�
 
 ## 当前结果
 
-用户返回的 D01、S01 均为15/15 Pass。按两张截图最新同一组 T 复算：
+用户返回的 D01、S01、D02 均为15/15 Pass。按截图最新同一组 T 复算：
 
 | 版本 | 分数 | 状态 |
 |---|---:|---|
 | P01历史耗时 | 32.0956 | 对照，非同轮复测 |
 | D01 Dense K128 | 28.2532 | 点15约2.94倍加速，点10–12大幅退化 |
 | S01 Small NT | 31.7913 | 尚无明确整体收益 |
+| D02 Dense K64 | 26.8647 | 点9–11/15比D01更慢，点12基本不变 |
 
 T的点5、13、14已经更新，不能直接与旧34.0599分比较。完整原始图、逐点耗时和得分贡献见 [首轮结果审计](BMMS/V9_results/2026-09-26_first_submission/AUDIT.md)。源身份由用户文件名确认，未提供平台源码hash或提交编号。
 
-下一次优先提交 [D02_DENSE_K64.asc](BMMS/BMMS_V9_SubmitPack/D02_DENSE_K64.asc)，对照K分块敏感性；暂缓M01组合版。每次完整替换官方 `code/kernel.asc`，沿用官方其余工程。
+最新分析见 [D02结果审计](BMMS/V9_results/2026-09-26_d02_submission/AUDIT.md)。停止缩小K的扫描，P01保底，暂缓M01组合。
+
+下一次提交 [D03_DENSE_K128_C2.asc](BMMS/BMMS_V9_D03/D03_DENSE_K128_C2.asc)：以D01 K128为对照，只改双L0C。两版在同CPU框架各240次检查通过，D03尚未CANN编译或上卡。完整替换官方 `code/kernel.asc`，沿用官方其余工程。见 [D03说明](BMMS/BMMS_V9_D03/README.md)。
 
 ## 源码与证据
 
@@ -31,9 +34,11 @@ Python 3、NumPy 用于数学模型；源码模型另外需要支持 C++20 的 g
 
 ```sh
 python BMMS/V9_impl/ingest_first_results.py
+python BMMS/V9_impl/ingest_d02_results.py
 python BMMS/V9_impl/validate_package.py
 python BMMS/V9_impl/test_semantics.py
 python BMMS/V9_impl/run_checks.py
+python BMMS/V9_impl/run_d03_checks.py
 ```
 
 数学审查脚本退出0表示普通断言与已知失败均被正确复现，`candidate_precision_accepted=false`仍保留。重新运行会更新对应本地检查产物；原平台截图与提交源不应修改。

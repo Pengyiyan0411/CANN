@@ -1,0 +1,181 @@
+{
+  "variant": "D02_DENSE_K64",
+  "submission_id": null,
+  "compile_error": null,
+  "source_binding": "User identified D02; SHA is packaged local source, not platform-verified",
+  "reported_execution": "15/15 Pass screenshot; raw compilation logs not supplied",
+  "screenshot": "D02_DENSE_K64.png",
+  "screenshot_sha256": "fa40cea73da5ffbd163d1c22fc1eb72143ccdff100a215b60122f7eaca1a61f0",
+  "error_display": "0.00% on each row; rounded display, not exact-error proof",
+  "rows": [
+    {
+      "case": 1,
+      "status": "Pass",
+      "latency_us": 2.49,
+      "best_us": 1.22,
+      "p01_us": 2.41,
+      "relative_to_p01_percent": 3.319502074688807,
+      "T_used": 1.22,
+      "D01_us": 2.54,
+      "relative_to_D01_percent": -1.9685039370078705
+    },
+    {
+      "case": 2,
+      "status": "Pass",
+      "latency_us": 5.38,
+      "best_us": 1.58,
+      "p01_us": 5.57,
+      "relative_to_p01_percent": -3.4111310592459643,
+      "T_used": 1.58,
+      "D01_us": 5.93,
+      "relative_to_D01_percent": -9.274873524451932
+    },
+    {
+      "case": 3,
+      "status": "Pass",
+      "latency_us": 5.09,
+      "best_us": 2.16,
+      "p01_us": 5.23,
+      "relative_to_p01_percent": -2.6768642447418833,
+      "T_used": 2.16,
+      "D01_us": 5.22,
+      "relative_to_D01_percent": -2.490421455938696
+    },
+    {
+      "case": 4,
+      "status": "Pass",
+      "latency_us": 6.48,
+      "best_us": 2.92,
+      "p01_us": 6.5,
+      "relative_to_p01_percent": -0.3076923076922977,
+      "T_used": 2.92,
+      "D01_us": 6.52,
+      "relative_to_D01_percent": -0.6134969325153228
+    },
+    {
+      "case": 5,
+      "status": "Pass",
+      "latency_us": 7.53,
+      "best_us": 2.36,
+      "p01_us": 7.19,
+      "relative_to_p01_percent": 4.728789986091786,
+      "T_used": 2.36,
+      "D01_us": 7.42,
+      "relative_to_D01_percent": 1.482479784366575
+    },
+    {
+      "case": 6,
+      "status": "Pass",
+      "latency_us": 15.1,
+      "best_us": 7.23,
+      "p01_us": 14.41,
+      "relative_to_p01_percent": 4.788341429562792,
+      "T_used": 7.23,
+      "D01_us": 14.86,
+      "relative_to_D01_percent": 1.6150740242261152
+    },
+    {
+      "case": 7,
+      "status": "Pass",
+      "latency_us": 11.81,
+      "best_us": 3.7,
+      "p01_us": 12.83,
+      "relative_to_p01_percent": -7.950116913484018,
+      "T_used": 3.7,
+      "D01_us": 11.18,
+      "relative_to_D01_percent": 5.635062611806796
+    },
+    {
+      "case": 8,
+      "status": "Pass",
+      "latency_us": 91.95,
+      "best_us": 17.32,
+      "p01_us": 90.82,
+      "relative_to_p01_percent": 1.244219334948271,
+      "T_used": 17.32,
+      "D01_us": 91.56,
+      "relative_to_D01_percent": 0.4259501965923951
+    },
+    {
+      "case": 9,
+      "status": "Pass",
+      "latency_us": 226.52,
+      "best_us": 52.01,
+      "p01_us": 119.83,
+      "relative_to_p01_percent": 89.03446549278145,
+      "T_used": 52.01,
+      "D01_us": 129.99,
+      "relative_to_D01_percent": 74.25955842757135
+    },
+    {
+      "case": 10,
+      "status": "Pass",
+      "latency_us": 216.94,
+      "best_us": 72.47,
+      "p01_us": 141.21,
+      "relative_to_p01_percent": 53.62934636357197,
+      "T_used": 72.47,
+      "D01_us": 179.45,
+      "relative_to_D01_percent": 20.89161326274729
+    },
+    {
+      "case": 11,
+      "status": "Pass",
+      "latency_us": 465.89,
+      "best_us": 74.82,
+      "p01_us": 171.7,
+      "relative_to_p01_percent": 171.3395457192778,
+      "T_used": 74.82,
+      "D01_us": 303.93,
+      "relative_to_D01_percent": 53.288586187608985
+    },
+    {
+      "case": 12,
+      "status": "Pass",
+      "latency_us": 295.49,
+      "best_us": 91.2,
+      "p01_us": 108.87,
+      "relative_to_p01_percent": 171.41544961881144,
+      "T_used": 91.2,
+      "D01_us": 294.81,
+      "relative_to_D01_percent": 0.2306570333435065
+    },
+    {
+      "case": 13,
+      "status": "Pass",
+      "latency_us": 18.88,
+      "best_us": 5.21,
+      "p01_us": 17.92,
+      "relative_to_p01_percent": 5.357142857142838,
+      "T_used": 5.21,
+      "D01_us": 18.88,
+      "relative_to_D01_percent": 0.0
+    },
+    {
+      "case": 14,
+      "status": "Pass",
+      "latency_us": 15.53,
+      "best_us": 7.1,
+      "p01_us": 14.99,
+      "relative_to_p01_percent": 3.602401601067373,
+      "T_used": 7.1,
+      "D01_us": 14.92,
+      "relative_to_D01_percent": 4.088471849865938
+    },
+    {
+      "case": 15,
+      "status": "Pass",
+      "latency_us": 52.47,
+      "best_us": 9.04,
+      "p01_us": 110.22,
+      "relative_to_p01_percent": -52.39520958083832,
+      "T_used": 9.04,
+      "D01_us": 37.54,
+      "relative_to_D01_percent": 39.770911028236554
+    }
+  ],
+  "source_sha256": "9e0f6ea8019494b1667973377740568cfad6a39b75c241b594feab91c3e69495",
+  "all_15_pass": true,
+  "computed_score": 26.864737035669968,
+  "score_basis": "provided_current_T"
+}

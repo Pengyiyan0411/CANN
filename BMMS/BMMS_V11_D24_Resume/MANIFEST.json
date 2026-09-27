@@ -1,0 +1,166 @@
+{
+  "purpose": "original D24 remaining probes, not new kernels or a rebase to R25",
+  "performance_baseline": "KEEP_R25/R25_NATIVE_TARGETED.asc",
+  "diagnostic_baseline": "D24/CONTROL_R23.asc",
+  "completed_N_probes": [
+    "N01_K_EQ32",
+    "N02_K_EQ64",
+    "N03_M_LE32",
+    "N04_N_LE32",
+    "N05_B_EQ1"
+  ],
+  "remaining_results": "not received in this conversation; not a claim they have never run",
+  "recommended_first_batch": [
+    "C01_R03_1G",
+    "R7_01_M_LT128",
+    "R7_02_N_LT256",
+    "R7_03_MACRO_OCC_LT_CORES",
+    "R7_04_K_GE512",
+    "R7_05_K_GE1024",
+    "L00_K1_CONTROL",
+    "L05_SPATIAL_EQ1"
+  ],
+  "conditional_followups": [
+    "L01_B_EQ1",
+    "L02_M_LE64",
+    "L03_N_LE128",
+    "L04_MN_LE4096",
+    "L06_SPLITS_GE8",
+    "C00_NATIVE_1G",
+    "X6_01_MACRO_1G",
+    "X6_02_TREE_1W",
+    "X6_03_FALLBACK_1CORE"
+  ],
+  "files": [
+    {
+      "path": "D24/C00_NATIVE_1G.asc",
+      "original": "BMMS_V11_D24_Diagnostics/C00_NATIVE_1G.asc",
+      "sha256": "13519ab15ce4d43c7714803ab9a6d5726a25af022bcbfd1b26fffb6e9b8ec6e8"
+    },
+    {
+      "path": "D24/C01_R03_1G.asc",
+      "original": "BMMS_V11_D24_Diagnostics/C01_R03_1G.asc",
+      "sha256": "eed9427f2263fcc3aa30aa2fffe1dcadf613f6d82c975e2d3d57f24239dcbf96"
+    },
+    {
+      "path": "D24/R7_01_M_LT128.asc",
+      "original": "BMMS_V11_D24_Diagnostics/R7_01_M_LT128.asc",
+      "sha256": "007afecb2197df2e8693eff938e5c8e7d7552928882879fcec31c3b1bd60a6ae"
+    },
+    {
+      "path": "D24/R7_02_N_LT256.asc",
+      "original": "BMMS_V11_D24_Diagnostics/R7_02_N_LT256.asc",
+      "sha256": "aaaf088ed2a68c179214e538dc3cf4a05f441b297c385c23c5cf313841c13283"
+    },
+    {
+      "path": "D24/R7_03_MACRO_OCC_LT_CORES.asc",
+      "original": "BMMS_V11_D24_Diagnostics/R7_03_MACRO_OCC_LT_CORES.asc",
+      "sha256": "d52e2c14e791c77275b139b3bfd7a0d24ca9e6199a549c2ef30c8dd0ff108297"
+    },
+    {
+      "path": "D24/R7_04_K_GE512.asc",
+      "original": "BMMS_V11_D24_Diagnostics/R7_04_K_GE512.asc",
+      "sha256": "f856ab03b1bd69d2b6d7a7264ffbe6220e73c6d1645afaf8c1729ba8e45dbd24"
+    },
+    {
+      "path": "D24/R7_05_K_GE1024.asc",
+      "original": "BMMS_V11_D24_Diagnostics/R7_05_K_GE1024.asc",
+      "sha256": "cad2d38b75d426629e43cbfbca0265ccef9e2f2083c64ac78a60e8c60fd35ee4"
+    },
+    {
+      "path": "D24/L01_B_EQ1.asc",
+      "original": "BMMS_V11_D24_Diagnostics/L01_B_EQ1.asc",
+      "sha256": "8b24924a9f059289197bc04b3f08a0a6fd7e78dda99acae6ec3262de503c41f5"
+    },
+    {
+      "path": "D24/L02_M_LE64.asc",
+      "original": "BMMS_V11_D24_Diagnostics/L02_M_LE64.asc",
+      "sha256": "35c1fc37abfd03976a6608e963048176fbc45bca4dfeeab88abeb4128a2832d2"
+    },
+    {
+      "path": "D24/L03_N_LE128.asc",
+      "original": "BMMS_V11_D24_Diagnostics/L03_N_LE128.asc",
+      "sha256": "4d7c3aa795f408808e901be28a1381fa1d51fb138bbd3303f0a6a287e86c7400"
+    },
+    {
+      "path": "D24/L04_MN_LE4096.asc",
+      "original": "BMMS_V11_D24_Diagnostics/L04_MN_LE4096.asc",
+      "sha256": "60c80905b092065876ab2e276d5abc364db43d931691041d1e9e9bd8625fdb44"
+    },
+    {
+      "path": "D24/L05_SPATIAL_EQ1.asc",
+      "original": "BMMS_V11_D24_Diagnostics/L05_SPATIAL_EQ1.asc",
+      "sha256": "2a7ba90653f58880748db55721109e6443c3f9a0ae58c191461e81ed777e23a1"
+    },
+    {
+      "path": "D24/L06_SPLITS_GE8.asc",
+      "original": "BMMS_V11_D24_Diagnostics/L06_SPLITS_GE8.asc",
+      "sha256": "1843cc0b296609b4f77e64ed91d7549aff05135c3e05f357fcdff35e956a27d1"
+    },
+    {
+      "path": "D24/X6_01_MACRO_1G.asc",
+      "original": "BMMS_V11_D24_Diagnostics/X6_01_MACRO_1G.asc",
+      "sha256": "f3554a12413975cc6b18fc89695405614a7bcc1c3343887597adec7928d90384"
+    },
+    {
+      "path": "D24/X6_02_TREE_1W.asc",
+      "original": "BMMS_V11_D24_Diagnostics/X6_02_TREE_1W.asc",
+      "sha256": "283b8a9382a71de2741df9fc81b4fd89e80a21eb477ffe9fa5c2f79afb6ade99"
+    },
+    {
+      "path": "D24/X6_03_FALLBACK_1CORE.asc",
+      "original": "BMMS_V11_D24_Diagnostics/X6_03_FALLBACK_1CORE.asc",
+      "sha256": "54779e469649c33c4c9263051829616697e1662467c19bf30b0673673f6504b2"
+    },
+    {
+      "path": "D24/CONTROL_R23.asc",
+      "original": "BMMS_V11_D24_Diagnostics/CONTROL_R23.asc",
+      "sha256": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733"
+    },
+    {
+      "path": "D24/L00_K1_CONTROL.asc",
+      "original": "BMMS_V11_D24_Diagnostics/L00_K1_CONTROL.asc",
+      "sha256": "2d78f01236ec15ac2a44d86a9ef70aa3150ee11f4ebf12abfb59ff5554f44e98"
+    },
+    {
+      "path": "KEEP_R25/R25_NATIVE_TARGETED.asc",
+      "original": "BMMS_V11_R25/R25_NATIVE_TARGETED.asc",
+      "sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+    },
+    {
+      "path": "ORIGINAL_CHECKS/MANIFEST.json",
+      "original": "BMMS_V11_D24_Diagnostics/MANIFEST.json",
+      "sha256": "c4b4d10f518526101f4e2e36fd9795b9131a8bf1c139e6d23aea1ead9659a39a"
+    },
+    {
+      "path": "ORIGINAL_CHECKS/CPU_CHECKS.json",
+      "original": "BMMS_V11_D24_Diagnostics/CPU_CHECKS.json",
+      "sha256": "5730b1d3c109b3f7af3448849144f81808c16b8027b21cfdcea572af1d704259"
+    },
+    {
+      "path": "ORIGINAL_CHECKS/HOST_CHECKS.json",
+      "original": "BMMS_V11_D24_Diagnostics/HOST_CHECKS.json",
+      "sha256": "ef71234e86f018d18d9f196115e1776ccfb2d5c61c76fa01c0d526101ac8aa9a"
+    }
+  ],
+  "D24_composition": {
+    "R23_frozen": true,
+    "R14_not_modified": true,
+    "host_only_edits": true,
+    "all_device_code_byte_identical_to_R23": true,
+    "single_intervention_per_submission": true,
+    "one_group_keeps_tasks_equal_B": true,
+    "workspace_and_launch_derived_after_mutation": true,
+    "Case15_targets_SplitK_not_bypassed_R03": true
+  },
+  "R25_composition": {
+    "frozen_R23": true,
+    "all_original_functions_byte_identical": true,
+    "Native_plan_unchanged": true,
+    "Cube_and_packet_producer_unchanged": true,
+    "earlier_routes_and_fallback_unchanged": true,
+    "only_selects_inside_actual_Native_branch": true,
+    "small_and_dense_domains_disjoint": true
+  },
+  "new_CANN_compile_or_NPU_test": false
+}

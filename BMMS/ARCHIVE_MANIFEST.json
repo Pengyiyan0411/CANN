@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "R26 screenshot context-attributed: no demonstrated gain, R25 baseline retained; R27 dense UnitFlag candidate; CPU/host checks passed, no local CANN/NPU, platform pending",
+  "scope": "R27 no-gain screenshot context-attributed; retain frozen R25 and resume original R23-based D24 probes; no new device code or device testing",
   "platform_source_identity": "explicit user version labels where available; R04 inferred from sole preceding candidate; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -174,6 +174,136 @@
       "path": "BMMS_V11_D24_Diagnostics/X6_03_FALLBACK_1CORE.asc",
       "bytes": 179590,
       "sha256": "54779e469649c33c4c9263051829616697e1662467c19bf30b0673673f6504b2"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/C00_NATIVE_1G.asc",
+      "bytes": 179655,
+      "sha256": "13519ab15ce4d43c7714803ab9a6d5726a25af022bcbfd1b26fffb6e9b8ec6e8"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/C01_R03_1G.asc",
+      "bytes": 179641,
+      "sha256": "eed9427f2263fcc3aa30aa2fffe1dcadf613f6d82c975e2d3d57f24239dcbf96"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/CONTROL_R23.asc",
+      "bytes": 179571,
+      "sha256": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/L00_K1_CONTROL.asc",
+      "bytes": 179608,
+      "sha256": "2d78f01236ec15ac2a44d86a9ef70aa3150ee11f4ebf12abfb59ff5554f44e98"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/L01_B_EQ1.asc",
+      "bytes": 179646,
+      "sha256": "8b24924a9f059289197bc04b3f08a0a6fd7e78dda99acae6ec3262de503c41f5"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/L02_M_LE64.asc",
+      "bytes": 179648,
+      "sha256": "35c1fc37abfd03976a6608e963048176fbc45bca4dfeeab88abeb4128a2832d2"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/L03_N_LE128.asc",
+      "bytes": 179650,
+      "sha256": "4d7c3aa795f408808e901be28a1381fa1d51fb138bbd3303f0a6a287e86c7400"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/L04_MN_LE4096.asc",
+      "bytes": 179664,
+      "sha256": "60c80905b092065876ab2e276d5abc364db43d931691041d1e9e9bd8625fdb44"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/L05_SPATIAL_EQ1.asc",
+      "bytes": 179670,
+      "sha256": "2a7ba90653f58880748db55721109e6443c3f9a0ae58c191461e81ed777e23a1"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/L06_SPLITS_GE8.asc",
+      "bytes": 179658,
+      "sha256": "1843cc0b296609b4f77e64ed91d7549aff05135c3e05f357fcdff35e956a27d1"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/R7_01_M_LT128.asc",
+      "bytes": 179645,
+      "sha256": "007afecb2197df2e8693eff938e5c8e7d7552928882879fcec31c3b1bd60a6ae"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/R7_02_N_LT256.asc",
+      "bytes": 179645,
+      "sha256": "aaaf088ed2a68c179214e538dc3cf4a05f441b297c385c23c5cf313841c13283"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/R7_03_MACRO_OCC_LT_CORES.asc",
+      "bytes": 179705,
+      "sha256": "d52e2c14e791c77275b139b3bfd7a0d24ca9e6199a549c2ef30c8dd0ff108297"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/R7_04_K_GE512.asc",
+      "bytes": 179646,
+      "sha256": "f856ab03b1bd69d2b6d7a7264ffbe6220e73c6d1645afaf8c1729ba8e45dbd24"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/R7_05_K_GE1024.asc",
+      "bytes": 179648,
+      "sha256": "cad2d38b75d426629e43cbfbca0265ccef9e2f2083c64ac78a60e8c60fd35ee4"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/X6_01_MACRO_1G.asc",
+      "bytes": 179642,
+      "sha256": "f3554a12413975cc6b18fc89695405614a7bcc1c3343887597adec7928d90384"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/X6_02_TREE_1W.asc",
+      "bytes": 179600,
+      "sha256": "283b8a9382a71de2741df9fc81b4fd89e80a21eb477ffe9fa5c2f79afb6ade99"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/D24/X6_03_FALLBACK_1CORE.asc",
+      "bytes": 179590,
+      "sha256": "54779e469649c33c4c9263051829616697e1662467c19bf30b0673673f6504b2"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/KEEP_R25/R25_NATIVE_TARGETED.asc",
+      "bytes": 192530,
+      "sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/MANIFEST.json",
+      "bytes": 6024,
+      "sha256": "681f908d390cf6b5071c1dc70546dbed712b3ba908719cb227d84fb800963f7c"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/ORIGINAL_CHECKS/CPU_CHECKS.json",
+      "bytes": 11206,
+      "sha256": "5730b1d3c109b3f7af3448849144f81808c16b8027b21cfdcea572af1d704259"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/ORIGINAL_CHECKS/HOST_CHECKS.json",
+      "bytes": 3410,
+      "sha256": "ef71234e86f018d18d9f196115e1776ccfb2d5c61c76fa01c0d526101ac8aa9a"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/ORIGINAL_CHECKS/MANIFEST.json",
+      "bytes": 5677,
+      "sha256": "c4b4d10f518526101f4e2e36fd9795b9131a8bf1c139e6d23aea1ead9659a39a"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/README.md",
+      "bytes": 3544,
+      "sha256": "653458fb01e8d361692bf2b3f94ed3f685a316d0fe5ee11d2034649753051424"
+    },
+    {
+      "path": "BMMS_V11_D24_Resume/RESULT_TEMPLATE.csv",
+      "bytes": 7083,
+      "sha256": "3638056a99427d00b4e85243147c320bc521c8bd0e40daec25d42be9e29c2281"
+    },
+    {
+      "path": "BMMS_V11_D24_续跑包.zip",
+      "bytes": 730937,
+      "sha256": "57a8a92fb0d78f20945c8617096180cd284ee9959dd898dd9c03e4cd9d521b49"
     },
     {
       "path": "BMMS_V11_D24_诊断包.zip",
@@ -902,13 +1032,13 @@
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 2809,
-      "sha256": "d3564ca14e933f3afc19db8abf8d23fbd20b3c2504adbc04e835c4b787e6dbfe"
+      "bytes": 2729,
+      "sha256": "87eb5c3bc60db37e39348fd5eccc790872586ced1992b2f572d91b14fe491223"
     },
     {
       "path": "README.md",
-      "bytes": 1410,
-      "sha256": "b706a3cf5f6c273b6f8791bf424f13ea73ae9ff5d3d8daf55879d9b6f8161267"
+      "bytes": 1077,
+      "sha256": "e6a71752b9c4974a87a4cb7468c2bb7f31e9fece97f4a93f1dc67ac04d0bbe87"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -1134,6 +1264,26 @@
       "path": "V11_a_resident/update_docs.py",
       "bytes": 9911,
       "sha256": "0602155392f6254b36179c68ee247b0b7f764cf9a61f3b06e06604723af0e440"
+    },
+    {
+      "path": "V11_d24_resume/CANN_README.md",
+      "bytes": 1112,
+      "sha256": "ddc588e450a18aed43d98c7c83b6a6aefd8df1da139c7bc19fb5c7e9711ec768"
+    },
+    {
+      "path": "V11_d24_resume/RESUME_CHECKS.json",
+      "bytes": 1228,
+      "sha256": "d8db6a51177dcc131f7cb031266fbb92c23a86b3fe3128a26deb876aceed20da"
+    },
+    {
+      "path": "V11_d24_resume/archive.py",
+      "bytes": 2638,
+      "sha256": "553c1abcfcf86ed030a2e9caf63c7bcda7ca9e899b712aa0412b5f81f955b405"
+    },
+    {
+      "path": "V11_d24_resume/prepare.py",
+      "bytes": 16052,
+      "sha256": "0bfd901d67bab7a4b19a9a2270d406346161e5b200dfa498464dd92468a5ba9f"
     },
     {
       "path": "V11_diagnostics24/CANN_README.md",
@@ -2721,6 +2871,26 @@
       "sha256": "0e805424c3a7b3a04d252b5aa0c82d4442a13a9a75437107b41de66566bf9bf9"
     },
     {
+      "path": "V11_results/2026-09-27_r27_observed/AUDIT.md",
+      "bytes": 1091,
+      "sha256": "1b2b787e50403d8197ef0a391e2ff4190323a074eef3864d5bfaa51ce1d9be64"
+    },
+    {
+      "path": "V11_results/2026-09-27_r27_observed/RESULT.json",
+      "bytes": 1381,
+      "sha256": "aea37e2e676670fe3347e630ae7fa2a98a885c77cd18cee1fd502cee39a68e3b"
+    },
+    {
+      "path": "V11_results/2026-09-27_r27_observed/measurements.csv",
+      "bytes": 424,
+      "sha256": "22bcacfb3a3f409c1bc61b5d14b208023efd35c89eba295fe578513491b1b97f"
+    },
+    {
+      "path": "V11_results/2026-09-27_r27_observed/observation_01.png",
+      "bytes": 141802,
+      "sha256": "377cbd67f781e3a4562836d9f8e3c3aee6a28163638bf9b80c0ba513ff58a71f"
+    },
+    {
       "path": "V11_shape_dispatch/CANN_README.md",
       "bytes": 1274,
       "sha256": "12080000188ea768ee14ad9854f89a9a3cadb97cfada0df5c63485f882c23253"
@@ -3574,6 +3744,11 @@
       "path": "audit_current/AUDIT_R26_DELIVERY.md",
       "bytes": 2395,
       "sha256": "f3f9f2de81549ee726108af9da87bd916cf56dc871b096780c0d3dbf46dfe76b"
+    },
+    {
+      "path": "audit_current/AUDIT_R27_DELIVERY.md",
+      "bytes": 2809,
+      "sha256": "d3564ca14e933f3afc19db8abf8d23fbd20b3c2504adbc04e835c4b787e6dbfe"
     },
     {
       "path": "audit_current/README_BEFORE_V11.md",

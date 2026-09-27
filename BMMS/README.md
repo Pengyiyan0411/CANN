@@ -1,26 +1,17 @@
-# BatchMatmulMaxSum：R26不升级，R25保留，R27单独验证Cube同步
+# BatchMatmulMaxSum：保留R25，回到D24诊断
 
-最新截图按交付上下文归为R26：15/15 Pass，Case13/14为17.26/13.77 μs，没有收益证据。
-Case5为6.86 μs，高于R25的6.60/6.45 μs；没有把这个变化直接解释成噪声。
-R25继续作为工作基线。R27只替换原Native、B1/K128/M,N>32/blocks>1的MMAD→FIX同步方式。
-Case5和R25所有消费者保留；R26 packet消费者不携带。尚无R27设备性能结果。
+用户最新决定：R27无收益，保留R25成果，完成剩下的D24探针。本轮不交付新的优化内核。
+最新图15/15 Pass，Case5/13/14为6.90/17.77/14.24 μs；按交付上下文归属R27，平台源码hash未核验。
+R26、R27均不作为升级。所有旧源码和提交包保持冻结。
 
-- [R27完整提交源码](BMMS_V11_R27/R27_DENSE_UNITFLAG.asc)
-- [R27提交包，含原字节R25对照](BMMS_V11_R27_提交包.zip)
-- [验证顺序和边界](BMMS_V11_R27/README.md)
-- [重新审阅、同步说明及API依据](V11_native_unit27/DESIGN.md)
-- [最新截图与否定结果归档](V11_results/2026-09-27_r26_observed/AUDIT.md)
-- [当前审计报告](BatchMatmulMaxSum_当前审计报告_2026-09-26.md)
+- [R25保留版](BMMS_V11_R25/R25_NATIVE_TARGETED.asc)
+- [D24续跑包](BMMS_V11_D24_续跑包.zip)
+- [续跑顺序及解码说明](BMMS_V11_D24_Resume/README.md)
+- [原D24完整包](BMMS_V11_D24_诊断包.zip)
+- [N01–N05已完成结果](V11_results/2026-09-27_d24_native/AUDIT.md)
+- [R27最新否定结果](V11_results/2026-09-27_r27_observed/AUDIT.md)
+- [当前审计](BatchMatmulMaxSum_当前审计报告_2026-09-26.md)
 
-源码模型与host分派检查通过；没有本地CANN编译、NPU运行或性能提升证明。
-本轮只提交一个候选，必须先检查全部15点，再验13/14可重复下降和5保持。
-若无收益即回退R25；旧源码、截图、ZIP保持冻结。
-
-```powershell
-python V11_native_unit27/build.py
-python V11_native_unit27/check_host.py
-python V11_native_unit27/run_checks.py
-python V11_native_unit27/record_results.py
-python V11_native_unit27/update_docs.py
-python V11_native_unit27/package.py
-```
+冲榜基线R25与诊断基线R23分开保留。D24内Case5回到旧耗时不代表R25成果丢失。
+N01–N05无需重跑。先C01→R7_01–05，再L00→L05；剩余L和Case6按结果展开。
+原D24代码未改，续跑包仅重组已有文件；没有新增CANN/NPU或性能验证。

@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "D24 C01/R7 explicit screenshot results: Case7 geometry and K bounds decoded; frozen R25 retained; continue original L probes; no new kernel or device test",
+  "scope": "D24 L00/L05 explicit results: Case15 single spatial task confirmed; skip unrun L01/L02/L03; frozen R25 retained; original L04/L06 next; no new kernel or device test",
   "platform_source_identity": "explicit user version labels where available; R04 inferred from sole preceding candidate; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -1032,13 +1032,13 @@
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 3602,
-      "sha256": "4c5b6b231116662f433bd40b6e8a85fd6304ed0fcacec555bf14ea98eb9b57fb"
+      "bytes": 4794,
+      "sha256": "ca10d8a84890c6099927ab8e4a209801c930d9fe5b5d8b8940da9c366333587d"
     },
     {
       "path": "README.md",
-      "bytes": 1385,
-      "sha256": "6636452aabc4e2403f877c3fcea0c97b65d56b0d7bb36a5a668d770769bb8b5a"
+      "bytes": 1400,
+      "sha256": "60a28518d2e7f43141efe32e3d9e09da498046cce851d5b265b0f1d087694c10"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -1264,6 +1264,16 @@
       "path": "V11_a_resident/update_docs.py",
       "bytes": 9911,
       "sha256": "0602155392f6254b36179c68ee247b0b7f764cf9a61f3b06e06604723af0e440"
+    },
+    {
+      "path": "V11_d24_l/archive.py",
+      "bytes": 3137,
+      "sha256": "96f35a350318c1663bdaef4fbb9f7a49dfd8607c5b78eba93c7295b4155a5f2d"
+    },
+    {
+      "path": "V11_d24_l/record_results.py",
+      "bytes": 6513,
+      "sha256": "302bd4b1e5cc429e91cfda6bb64b1e2048020cdd1580c949cbf7d6bd2e72efc4"
     },
     {
       "path": "V11_d24_r7/archive.py",
@@ -2746,6 +2756,41 @@
       "sha256": "81a46ba39a8fce1f982f01e605eeb66df335e3aa146f767ff27c75bb95651a91"
     },
     {
+      "path": "V11_results/2026-09-27_d24_l00_l05/AUDIT.md",
+      "bytes": 3739,
+      "sha256": "0c4d760ac76e0d1bcdcb88f55cb4917872e2c08c0633d749e0f55fdb158b8d92"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_l00_l05/IDENTITY_CHECKS.json",
+      "bytes": 652,
+      "sha256": "5adfc0b165544d3727d3656e834ac8cc8a2dd2389c222937af8a9c88bec30f34"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_l00_l05/L00_K1_CONTROL.png",
+      "bytes": 145849,
+      "sha256": "065515468e39390ad3aceb513fc9ae9947d0311d13b320ef0c3c6a077ea7f497"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_l00_l05/L05_SPATIAL_EQ1.png",
+      "bytes": 141005,
+      "sha256": "752c2378562e4ca73bdd22a359c779f1aa1602c7dc8b5d955b09dc3e1e4cfb29"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_l00_l05/PROGRESS.json",
+      "bytes": 1588,
+      "sha256": "2a98a3986e862bea42c9454139322a12c38614a14f32031c0feae357196113e2"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_l00_l05/RESULT.json",
+      "bytes": 4308,
+      "sha256": "2755b8bfb8dbc26cb1d709bd192087570bb8fb3f89aec538e71c8bbe46d60d5a"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_l00_l05/measurements.csv",
+      "bytes": 1263,
+      "sha256": "41f840012abc6fe7aa20fe1fb7e78b665094e78e85856c99225b6c990c5bd1aa"
+    },
+    {
       "path": "V11_results/2026-09-27_d24_native/AUDIT.md",
       "bytes": 2066,
       "sha256": "514cb3a282056e41dbae1edfd89a7ab23bcfdb304068dc370dc08bccb3fee7ad"
@@ -3734,6 +3779,11 @@
       "path": "audit_current/AUDIT_D24_DELIVERY.md",
       "bytes": 4065,
       "sha256": "879c2c34b80e0d1129a0782714b529f645381d9ab084c6fa99b92137ab5e18fb"
+    },
+    {
+      "path": "audit_current/AUDIT_D24_R7.md",
+      "bytes": 3602,
+      "sha256": "4c5b6b231116662f433bd40b6e8a85fd6304ed0fcacec555bf14ea98eb9b57fb"
     },
     {
       "path": "audit_current/AUDIT_D24_RESUME.md",

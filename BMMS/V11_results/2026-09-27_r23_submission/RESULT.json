@@ -1,0 +1,101 @@
+{
+  "version": "R23_SPLIT_K",
+  "initial_label": "R14",
+  "version_confirmed_by_user": "R23_SPLIT_K",
+  "candidate_source_sha256": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733",
+  "platform_binary_hash_available": false,
+  "screenshots": [
+    {
+      "file": "R23_run_01.png",
+      "sha256": "6af4c8cf204aef99c740e66b26f5cfb9d79899a007a3dc088199964e9f38c88d"
+    },
+    {
+      "file": "R23_run_02.png",
+      "sha256": "60e6f59e499be210eb7f00a8fb87c7531f2252656f38f0837bbca0c3badb1d17"
+    }
+  ],
+  "pass_count_per_screenshot": [
+    15,
+    15
+  ],
+  "timings_us": [
+    [
+      2.58,
+      5.11,
+      5.08,
+      6.26,
+      7.1,
+      14.38,
+      10.72,
+      90.5,
+      69.01,
+      84.07,
+      101.45,
+      123.22,
+      16.48,
+      13.96,
+      15.18
+    ],
+    [
+      2.76,
+      5.31,
+      5.25,
+      6.51,
+      7.52,
+      15.01,
+      11.3,
+      91.91,
+      70.81,
+      85.11,
+      101.35,
+      123.32,
+      17.03,
+      14.71,
+      15.18
+    ]
+  ],
+  "best_column_us": [
+    1.22,
+    1.58,
+    2.16,
+    2.92,
+    1.89,
+    7.09,
+    3.7,
+    14.88,
+    51.77,
+    72.47,
+    74.82,
+    91.2,
+    5.2,
+    5.4,
+    4.05
+  ],
+  "case15": {
+    "historical_R14_us": 36.25,
+    "R23_us": [
+      15.18,
+      15.18
+    ],
+    "historical_comparison_speedup": 2.388010540184453,
+    "historical_comparison_time_reduction_pct": 58.12413793103448,
+    "paired_adjacent_R14_control_available": false,
+    "two_equal_rounded_values_do_not_prove_zero_variance": true
+  },
+  "score_or_rank_inferred": false,
+  "zero_error_display_means_bitwise_equal": false,
+  "new_user_route_evidence": {
+    "Native_stress_us": {
+      "5": 14.11,
+      "13": 99.17,
+      "14": 43.43
+    },
+    "Case7_R03_stress_us": 32.83,
+    "Case7_R03_off_us": 13.11,
+    "Case7_K_less_than_512_inference_withdrawn": true,
+    "probe_source_hashes_verified": false
+  },
+  "current_submission_baseline": "R23",
+  "historical_reference": "R14",
+  "next_action": "D24 route-specific conditional scheduling probes; stop old A-C"
+}

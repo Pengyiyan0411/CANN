@@ -1,0 +1,175 @@
+{
+  "base": "BMMS_V11_R23/R23_SPLIT_K.asc",
+  "base_sha256": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733",
+  "probes": [
+    {
+      "file": "C00_NATIVE_1G.asc",
+      "route": "native",
+      "predicate": "true",
+      "purpose": "Native 阳性压力对照",
+      "sha256": "13519ab15ce4d43c7714803ab9a6d5726a25af022bcbfd1b26fffb6e9b8ec6e8"
+    },
+    {
+      "file": "C01_R03_1G.asc",
+      "route": "residual",
+      "predicate": "true",
+      "purpose": "R03 阳性压力对照",
+      "sha256": "eed9427f2263fcc3aa30aa2fffe1dcadf613f6d82c975e2d3d57f24239dcbf96"
+    },
+    {
+      "file": "N01_K_EQ32.asc",
+      "route": "native",
+      "predicate": "K==32",
+      "purpose": "Native: K=32",
+      "sha256": "35b3b8d548b65ffddf112894f6e7a3f576ce148d1e90f6df82a53944ab443daf"
+    },
+    {
+      "file": "N02_K_EQ64.asc",
+      "route": "native",
+      "predicate": "K==64",
+      "purpose": "Native: K=64",
+      "sha256": "5723b2a6bfad1bb09806d18c8ebe9ae4c26b9170e7068e59a0d583cd7a28486c"
+    },
+    {
+      "file": "N03_M_LE32.asc",
+      "route": "native",
+      "predicate": "M<=32",
+      "purpose": "Native: M<=32",
+      "sha256": "4745a8060a89a66b22286939137ad3cbf929c770c9fa8863f57b8bcae2121e4a"
+    },
+    {
+      "file": "N04_N_LE32.asc",
+      "route": "native",
+      "predicate": "N<=32",
+      "purpose": "Native: N<=32",
+      "sha256": "efc5ddfad70ccb5dd793a4b02e2e8d5e0e7794aa08eaaa6c6295aa6d99e2f62f"
+    },
+    {
+      "file": "N05_B_EQ1.asc",
+      "route": "native",
+      "predicate": "B==1",
+      "purpose": "Native: B=1",
+      "sha256": "6195d317b42710876c60547b43b8b2c521f30a075b64031f03fbedcb0f658b23"
+    },
+    {
+      "file": "R7_01_M_LT128.asc",
+      "route": "residual",
+      "predicate": "M<128",
+      "purpose": "R03: M<128",
+      "sha256": "007afecb2197df2e8693eff938e5c8e7d7552928882879fcec31c3b1bd60a6ae"
+    },
+    {
+      "file": "R7_02_N_LT256.asc",
+      "route": "residual",
+      "predicate": "N<256",
+      "purpose": "R03: N<256",
+      "sha256": "aaaf088ed2a68c179214e538dc3cf4a05f441b297c385c23c5cf313841c13283"
+    },
+    {
+      "file": "R7_03_MACRO_OCC_LT_CORES.asc",
+      "route": "residual",
+      "predicate": "int64_t(B)*bmms83::UpH(M,128)*bmms83::UpH(N,256)<cores",
+      "purpose": "R03: macro occupancy < cores",
+      "sha256": "d52e2c14e791c77275b139b3bfd7a0d24ca9e6199a549c2ef30c8dd0ff108297"
+    },
+    {
+      "file": "R7_04_K_GE512.asc",
+      "route": "residual",
+      "predicate": "K>=512",
+      "purpose": "R03: K>=512",
+      "sha256": "f856ab03b1bd69d2b6d7a7264ffbe6220e73c6d1645afaf8c1729ba8e45dbd24"
+    },
+    {
+      "file": "R7_05_K_GE1024.asc",
+      "route": "residual",
+      "predicate": "K>=1024",
+      "purpose": "R03: K>=1024",
+      "sha256": "cad2d38b75d426629e43cbfbca0265ccef9e2f2083c64ac78a60e8c60fd35ee4"
+    },
+    {
+      "file": "L01_B_EQ1.asc",
+      "route": "split",
+      "predicate": "B==1",
+      "purpose": "Split-K: B=1",
+      "sha256": "8b24924a9f059289197bc04b3f08a0a6fd7e78dda99acae6ec3262de503c41f5"
+    },
+    {
+      "file": "L02_M_LE64.asc",
+      "route": "split",
+      "predicate": "M<=64",
+      "purpose": "Split-K: M<=64",
+      "sha256": "35c1fc37abfd03976a6608e963048176fbc45bca4dfeeab88abeb4128a2832d2"
+    },
+    {
+      "file": "L03_N_LE128.asc",
+      "route": "split",
+      "predicate": "N<=128",
+      "purpose": "Split-K: N<=128",
+      "sha256": "4d7c3aa795f408808e901be28a1381fa1d51fb138bbd3303f0a6a287e86c7400"
+    },
+    {
+      "file": "L04_MN_LE4096.asc",
+      "route": "split",
+      "predicate": "int64_t(M)*N<=4096",
+      "purpose": "Split-K: MN<=4096",
+      "sha256": "60c80905b092065876ab2e276d5abc364db43d931691041d1e9e9bd8625fdb44"
+    },
+    {
+      "file": "L05_SPATIAL_EQ1.asc",
+      "route": "split",
+      "predicate": "B*p.mTiles*p.nTiles==1",
+      "purpose": "Split-K: spatial tasks=1",
+      "sha256": "2a7ba90653f58880748db55721109e6443c3f9a0ae58c191461e81ed777e23a1"
+    },
+    {
+      "file": "L06_SPLITS_GE8.asc",
+      "route": "split",
+      "predicate": "p.splits>=8",
+      "purpose": "Split-K: original split count>=8",
+      "sha256": "1843cc0b296609b4f77e64ed91d7549aff05135c3e05f357fcdff35e956a27d1"
+    },
+    {
+      "file": "X6_01_MACRO_1G.asc",
+      "route": "macro",
+      "predicate": "true",
+      "purpose": "Case6 fallback diagnosis: macro single group",
+      "sha256": "f3554a12413975cc6b18fc89695405614a7bcc1c3343887597adec7928d90384"
+    },
+    {
+      "file": "X6_02_TREE_1W.asc",
+      "route": "tree",
+      "predicate": "true",
+      "purpose": "Case6 fallback diagnosis: tree single worker",
+      "sha256": "283b8a9382a71de2741df9fc81b4fd89e80a21eb477ffe9fa5c2f79afb6ade99"
+    },
+    {
+      "file": "X6_03_FALLBACK_1CORE.asc",
+      "route": "fallback",
+      "predicate": "true",
+      "purpose": "Case6 fallback diagnosis: remaining dispatcher single core",
+      "sha256": "54779e469649c33c4c9263051829616697e1662467c19bf30b0673673f6504b2"
+    }
+  ],
+  "controls": [
+    {
+      "file": "CONTROL_R23.asc",
+      "sha256": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733"
+    },
+    {
+      "file": "L00_K1_CONTROL.asc",
+      "sha256": "2d78f01236ec15ac2a44d86a9ef70aa3150ee11f4ebf12abfb59ff5554f44e98"
+    }
+  ],
+  "composition": {
+    "R23_frozen": true,
+    "R14_not_modified": true,
+    "host_only_edits": true,
+    "all_device_code_byte_identical_to_R23": true,
+    "single_intervention_per_submission": true,
+    "one_group_keeps_tasks_equal_B": true,
+    "workspace_and_launch_derived_after_mutation": true,
+    "Case15_targets_SplitK_not_bypassed_R03": true
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false
+}

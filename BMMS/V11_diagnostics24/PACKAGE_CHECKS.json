@@ -1,0 +1,10 @@
+{
+  "file": "BMMS_V11_D24_诊断包.zip",
+  "bytes": 881709,
+  "sha256": "98ceb0d558e3983cece0fa7c85d2138be0f2d6368c2b1b19011292f369f3aff9",
+  "members": 28,
+  "diagnostics": 21,
+  "controls": 2,
+  "R14_R23_sources_frozen": true,
+  "CANN_NPU_validated_locally": false
+}

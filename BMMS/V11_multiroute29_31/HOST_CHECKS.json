@@ -1,0 +1,32 @@
+{
+  "dispatch_checks": 80598,
+  "unchanged_full_launch_records": 74002,
+  "candidate_selections": [
+    4764,
+    144,
+    1688
+  ],
+  "Case5_metadata_protection_checks": 384,
+  "SplitK_protection_checks": 702,
+  "R30_max_UB_bytes": 165152,
+  "R30_partition_checks": 1735,
+  "original_routes": [
+    1688,
+    15752,
+    9004,
+    234,
+    32,
+    156
+  ],
+  "scope": "actual run_kernel and TryLaunch with recording kernel bindings; no device timing",
+  "widened_Native_B_guard_fault_rejected": true,
+  "kernel_bindings": 24,
+  "all_original_routes_retained": true,
+  "sources": {
+    "CONTROL_R25.asc": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+    "R29_SHORTK_L1.asc": "e7451df6ce7bccbc4894a8c021b0f1548acbbb8280da00d485f4440b2c23a2bb",
+    "R30_NATIVE_M128.asc": "6441027e53c344365c4e4aa7ce57cfb48c32507b633527a5d6ce14d61ab5d331",
+    "R31_MACRO_K128.asc": "7369fd862ff19e2d3bb3b795a32d9be9ffc772e0fd4f388e8417cea3256e7390"
+  },
+  "checker_sha256": "06f9b081aa530deadc60bec5ea657253de10a0ef826aac048607d80e079f763c"
+}

@@ -1,0 +1,79 @@
+{
+  "base_sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+  "files": {
+    "CONTROL_R25.asc": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+    "R29_SHORTK_L1.asc": "e7451df6ce7bccbc4894a8c021b0f1548acbbb8280da00d485f4440b2c23a2bb",
+    "R30_NATIVE_M128.asc": "6441027e53c344365c4e4aa7ce57cfb48c32507b633527a5d6ce14d61ab5d331",
+    "R31_MACRO_K128.asc": "7369fd862ff19e2d3bb3b795a32d9be9ffc772e0fd4f388e8417cea3256e7390"
+  },
+  "composition": {
+    "R29_SHORTK_L1": {
+      "all_original_functions_byte_identical": true,
+      "one_guarded_hook": true,
+      "baseline": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+    },
+    "R30_NATIVE_M128": {
+      "all_original_functions_byte_identical": true,
+      "one_guarded_hook": true,
+      "baseline": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+    },
+    "R31_MACRO_K128": {
+      "all_original_functions_byte_identical": true,
+      "one_guarded_hook": true,
+      "baseline": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+    }
+  },
+  "CANN_compiled_locally": false,
+  "NPU_tested_locally": false,
+  "platform_results_pending": true,
+  "validation": {
+    "actual_source_runs_per_version": 216,
+    "repeat_checks_per_version": 108,
+    "source_runs_per_candidate": [
+      80,
+      68,
+      68
+    ],
+    "output_bits_equal_R25_in_model": true,
+    "host_dispatch_checks": 80598,
+    "unchanged_non_target_records": 74002,
+    "negative_controls": 4,
+    "host_model_compiler": "g++ 15.2.0 (MSYS2 Rev13)"
+  },
+  "candidate_promoted": false,
+  "checks_passed_locally": true,
+  "delivery_files": {
+    "CONTROL_R25.asc": {
+      "bytes": 192530,
+      "sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+    },
+    "CPU_CHECKS.json": {
+      "bytes": 11098,
+      "sha256": "70f249fde9548f446a27a51a19f4d466996c297eb1d527ab6ceb4ed6b1fcd5ed"
+    },
+    "DESIGN.md": {
+      "bytes": 6530,
+      "sha256": "74ec5eea659b752b60bc734675f7bbfd57ce33ab3f9c917121ee39b80bec5d3a"
+    },
+    "HOST_CHECKS.json": {
+      "bytes": 1047,
+      "sha256": "67eb68c49b8f395486f811555e7255b78bef0d7394ac104278f2cdca28e4e8d2"
+    },
+    "R29_SHORTK_L1.asc": {
+      "bytes": 203214,
+      "sha256": "e7451df6ce7bccbc4894a8c021b0f1548acbbb8280da00d485f4440b2c23a2bb"
+    },
+    "R30_NATIVE_M128.asc": {
+      "bytes": 213819,
+      "sha256": "6441027e53c344365c4e4aa7ce57cfb48c32507b633527a5d6ce14d61ab5d331"
+    },
+    "R31_MACRO_K128.asc": {
+      "bytes": 203672,
+      "sha256": "7369fd862ff19e2d3bb3b795a32d9be9ffc772e0fd4f388e8417cea3256e7390"
+    },
+    "README.md": {
+      "bytes": 2385,
+      "sha256": "b28090dd740a6951f2a0214963beef65746ae9ff02358b3c070894cd4f579e0a"
+    }
+  }
+}

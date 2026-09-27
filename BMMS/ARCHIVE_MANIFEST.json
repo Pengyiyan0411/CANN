@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "R28 compact Split-K candidate on frozen R25; D24 L04/L06 positive evidence; actual-source CPU and host checks; no local CANN/NPU test; R25 remains measured baseline",
+  "scope": "R29 short-K L1, R30 Native M128, R31 Macro K128 independent candidates on frozen R25; contextual R28 screenshot shows no demonstrated new benefit; CPU source and host checks only; CANN/NPU pending",
   "platform_source_identity": "explicit user version labels where available; R04 inferred from sole preceding candidate; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -931,6 +931,56 @@
       "sha256": "ca5d22cf00fa191685090f8c90715fa1a96dbac1dacb4d70519c4ffdc707fa6d"
     },
     {
+      "path": "BMMS_V11_R29_R30_R31/CONTROL_R25.asc",
+      "bytes": 192530,
+      "sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+    },
+    {
+      "path": "BMMS_V11_R29_R30_R31/CPU_CHECKS.json",
+      "bytes": 11098,
+      "sha256": "70f249fde9548f446a27a51a19f4d466996c297eb1d527ab6ceb4ed6b1fcd5ed"
+    },
+    {
+      "path": "BMMS_V11_R29_R30_R31/DESIGN.md",
+      "bytes": 6530,
+      "sha256": "74ec5eea659b752b60bc734675f7bbfd57ce33ab3f9c917121ee39b80bec5d3a"
+    },
+    {
+      "path": "BMMS_V11_R29_R30_R31/HOST_CHECKS.json",
+      "bytes": 1047,
+      "sha256": "67eb68c49b8f395486f811555e7255b78bef0d7394ac104278f2cdca28e4e8d2"
+    },
+    {
+      "path": "BMMS_V11_R29_R30_R31/MANIFEST.json",
+      "bytes": 2769,
+      "sha256": "e802df8b378fd7270b833ec2050bab382cc26ad87d4c4018953f5690ee1c574b"
+    },
+    {
+      "path": "BMMS_V11_R29_R30_R31/R29_SHORTK_L1.asc",
+      "bytes": 203214,
+      "sha256": "e7451df6ce7bccbc4894a8c021b0f1548acbbb8280da00d485f4440b2c23a2bb"
+    },
+    {
+      "path": "BMMS_V11_R29_R30_R31/R30_NATIVE_M128.asc",
+      "bytes": 213819,
+      "sha256": "6441027e53c344365c4e4aa7ce57cfb48c32507b633527a5d6ce14d61ab5d331"
+    },
+    {
+      "path": "BMMS_V11_R29_R30_R31/R31_MACRO_K128.asc",
+      "bytes": 203672,
+      "sha256": "7369fd862ff19e2d3bb3b795a32d9be9ffc772e0fd4f388e8417cea3256e7390"
+    },
+    {
+      "path": "BMMS_V11_R29_R30_R31/README.md",
+      "bytes": 2385,
+      "sha256": "b28090dd740a6951f2a0214963beef65746ae9ff02358b3c070894cd4f579e0a"
+    },
+    {
+      "path": "BMMS_V11_R29_R30_R31_提交包.zip",
+      "bytes": 173702,
+      "sha256": "32f95d1d0b98dda70ab7184c8410f57b2cec4f3ac06c8043018317b07a4a773f"
+    },
+    {
       "path": "BMMS_V11_SubmitPack/CPU_CHECKS.json",
       "bytes": 2623,
       "sha256": "ec3a727a4ec03f5d496989545172f482884d9f7c7a9a4e2726c67e5892bf4487"
@@ -1072,13 +1122,13 @@
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 4938,
-      "sha256": "4393793591df51d543bf455bad9a5c3c8c34427a422f5037068fcaa0d30fd95f"
+      "bytes": 5016,
+      "sha256": "e6419271b9493dbb90d196dd45371403b6d8a3bf5c4a624e64b2adf1df60cdc4"
     },
     {
       "path": "README.md",
-      "bytes": 1630,
-      "sha256": "4140a898d6b50c62317e3f5cc976a5bcc5a8bb015bd60ef9b347f67eebe80b68"
+      "bytes": 1997,
+      "sha256": "c909ed024bd43b33aac82e0ff2b51df8ceed26fbf349a9b4a84165b9c62a6c6f"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -2106,6 +2156,111 @@
       "sha256": "bc9301d7db285b1200a95637c75068b59b67d8728852b19bacd7ef8f79b4a275"
     },
     {
+      "path": "V11_multiroute29_31/CANDIDATES_CPU_RESULT.json",
+      "bytes": 9621,
+      "sha256": "e28314447d6e62c24a92ce0933d43bacbdfe2cf9406130ef268034e0b1917919"
+    },
+    {
+      "path": "V11_multiroute29_31/CHECKS.json",
+      "bytes": 11098,
+      "sha256": "70f249fde9548f446a27a51a19f4d466996c297eb1d527ab6ceb4ed6b1fcd5ed"
+    },
+    {
+      "path": "V11_multiroute29_31/CURRENT_AUDIT.md.in",
+      "bytes": 5016,
+      "sha256": "e6419271b9493dbb90d196dd45371403b6d8a3bf5c4a624e64b2adf1df60cdc4"
+    },
+    {
+      "path": "V11_multiroute29_31/CURRENT_README.md.in",
+      "bytes": 1997,
+      "sha256": "c909ed024bd43b33aac82e0ff2b51df8ceed26fbf349a9b4a84165b9c62a6c6f"
+    },
+    {
+      "path": "V11_multiroute29_31/HOST_CHECKS.json",
+      "bytes": 1047,
+      "sha256": "67eb68c49b8f395486f811555e7255b78bef0d7394ac104278f2cdca28e4e8d2"
+    },
+    {
+      "path": "V11_multiroute29_31/R25_CPU_RESULT.json",
+      "bytes": 9629,
+      "sha256": "15d30d0383948fc1a3f63f2cb233dd1b93d668e5e68e01cfc1def1dd8a426afd"
+    },
+    {
+      "path": "V11_multiroute29_31/R29_SHORTK_L1.diff",
+      "bytes": 12189,
+      "sha256": "2cb1d33e35a4f5f0c33932c82a2b2f1a02e790fe8532ea8f77f0abfa07c12471"
+    },
+    {
+      "path": "V11_multiroute29_31/R29_SHORTK_L1_fragment.asc",
+      "bytes": 10574,
+      "sha256": "ca8afb9cb5aac1385e7cbc89badf638715b2e1dc47e829dda579716214a032c3"
+    },
+    {
+      "path": "V11_multiroute29_31/R30_NATIVE_M128.diff",
+      "bytes": 22822,
+      "sha256": "6b99c98b6296a3bc01a0fc83c8b0573a582ab0136fff2c052c157beabdb2b19c"
+    },
+    {
+      "path": "V11_multiroute29_31/R30_NATIVE_M128_fragment.asc",
+      "bytes": 21199,
+      "sha256": "4c3e6b75c1031329a70556224b86422b48ee07522ef450c4710aa2b91890e397"
+    },
+    {
+      "path": "V11_multiroute29_31/R31_MACRO_K128.diff",
+      "bytes": 12720,
+      "sha256": "826278cb42b7ce8f4960cbb3b172bcf2163806f2719f4e8b88ca6c95417cf553"
+    },
+    {
+      "path": "V11_multiroute29_31/R31_MACRO_K128_fragment.asc",
+      "bytes": 11031,
+      "sha256": "ca17822c6c97730d1462a32035fea0d5d6b2034807762b21ae8b68a168640dcd"
+    },
+    {
+      "path": "V11_multiroute29_31/archive.py",
+      "bytes": 3132,
+      "sha256": "371a2ee04b7034e677b52c3c00d3b18bdbc14eabfdf92a02c2ce70ec10099f68"
+    },
+    {
+      "path": "V11_multiroute29_31/build.py",
+      "bytes": 11153,
+      "sha256": "a99bb452d6629f7a73a37f492ef064306c08f6d64fd1066d05f180ba92aba95f"
+    },
+    {
+      "path": "V11_multiroute29_31/check_host.py",
+      "bytes": 3986,
+      "sha256": "06f9b081aa530deadc60bec5ea657253de10a0ef826aac048607d80e079f763c"
+    },
+    {
+      "path": "V11_multiroute29_31/host_checks.cpp.in",
+      "bytes": 4520,
+      "sha256": "2bc934b95ef61fa8499a48db6a6c72d3eb49fb7559aace2cae68bd1faca85fa3"
+    },
+    {
+      "path": "V11_multiroute29_31/package.py",
+      "bytes": 2510,
+      "sha256": "a837d0fcf446b79849537e791b2a6594afe45e436b177dae4c8ab77d4dd15818"
+    },
+    {
+      "path": "V11_multiroute29_31/record_results.py",
+      "bytes": 3243,
+      "sha256": "4cfd4a033d4973108e2ca6a3925be12d7f8db60ca3ba9e071c502245fef350bf"
+    },
+    {
+      "path": "V11_multiroute29_31/run_checks.py",
+      "bytes": 5206,
+      "sha256": "7d467c61543784cd5fb4bbe8fa2665258b78d63f64cffc96a7cfa92595bc9057"
+    },
+    {
+      "path": "V11_multiroute29_31/source_checks.cpp.in",
+      "bytes": 10688,
+      "sha256": "fcb9e395287acdd0da3cc7fc90775a804611c154e2e7298d35160199a0074ca7"
+    },
+    {
+      "path": "V11_multiroute29_31/update_current.py",
+      "bytes": 799,
+      "sha256": "26f88fda5acf2b27f65c717ec92795fbb9f6aebfb67be8641341b319250b1314"
+    },
+    {
       "path": "V11_native_packet26/BOUNDS_CHECKS.json",
       "bytes": 702,
       "sha256": "196de456f305b70241380f3ecdcb7e3b6c3a32e502a46ae492f61cb8003c9019"
@@ -3076,6 +3231,26 @@
       "sha256": "377cbd67f781e3a4562836d9f8e3c3aee6a28163638bf9b80c0ba513ff58a71f"
     },
     {
+      "path": "V11_results/2026-09-27_r28_observed/AUDIT.md",
+      "bytes": 811,
+      "sha256": "561ac42ebb135a15e28579a77692fa6e24c8a1144d519802632ceb248114a615"
+    },
+    {
+      "path": "V11_results/2026-09-27_r28_observed/R28_context_attributed.png",
+      "bytes": 145099,
+      "sha256": "b8c87c4dbfb49c4003c132bce31575c04d7c5d55c4e711a3d2b12f6daff0f684"
+    },
+    {
+      "path": "V11_results/2026-09-27_r28_observed/RESULT.json",
+      "bytes": 1535,
+      "sha256": "de3edeaaba5ad5b4cc532df5a2abe610889d6be6cd958739a6d6c4c9d5a66b25"
+    },
+    {
+      "path": "V11_results/2026-09-27_r28_observed/measurements.csv",
+      "bytes": 503,
+      "sha256": "6ae3704527456abec2a8adeb0dbefa8ba9e6c9a1018c04b52a35322748353d2b"
+    },
+    {
       "path": "V11_shape_dispatch/CANN_README.md",
       "bytes": 1274,
       "sha256": "12080000188ea768ee14ad9854f89a9a3cadb97cfada0df5c63485f882c23253"
@@ -4039,6 +4214,11 @@
       "path": "audit_current/AUDIT_R27_DELIVERY.md",
       "bytes": 2809,
       "sha256": "d3564ca14e933f3afc19db8abf8d23fbd20b3c2504adbc04e835c4b787e6dbfe"
+    },
+    {
+      "path": "audit_current/AUDIT_R28.md",
+      "bytes": 4938,
+      "sha256": "4393793591df51d543bf455bad9a5c3c8c34427a422f5037068fcaa0d30fd95f"
     },
     {
       "path": "audit_current/README_BEFORE_V11.md",

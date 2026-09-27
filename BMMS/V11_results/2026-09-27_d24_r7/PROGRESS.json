@@ -1,0 +1,46 @@
+{
+  "completed_submissions": [
+    "N01_K_EQ32",
+    "N02_K_EQ64",
+    "N03_M_LE32",
+    "N04_N_LE32",
+    "N05_B_EQ1",
+    "C01_R03_1G",
+    "R7_01_M_LT128",
+    "R7_02_N_LT256",
+    "R7_03_MACRO_OCC_LT_CORES",
+    "R7_04_K_GE512",
+    "R7_05_K_GE1024"
+  ],
+  "next_sequence": [
+    "L00_K1_CONTROL",
+    "L05_SPATIAL_EQ1"
+  ],
+  "available_without_received_results": [
+    "C00_NATIVE_1G",
+    "L01_B_EQ1",
+    "L02_M_LE64",
+    "L03_N_LE128",
+    "L04_MN_LE4096",
+    "L05_SPATIAL_EQ1",
+    "L06_SPLITS_GE8",
+    "X6_01_MACRO_1G",
+    "X6_02_TREE_1W",
+    "X6_03_FALLBACK_1CORE",
+    "CONTROL_R23",
+    "L00_K1_CONTROL"
+  ],
+  "L05_positive_with_valid_L00": "B=1, M<=64, N<=128; skip L01/L02/L03",
+  "L05_negative_with_valid_L00": "Use L01/L02/L03 to decompose the conjunction",
+  "L00_weak_signal": "Do not decode L negatives; use CONTROL_R23 if normal baseline unclear",
+  "remaining_conditional": [
+    "L04_MN_LE4096",
+    "L06_SPLITS_GE8",
+    "C00_NATIVE_1G",
+    "X6_01_MACRO_1G",
+    "X6_02_TREE_1W",
+    "X6_03_FALLBACK_1CORE"
+  ],
+  "original_delivery_manifests_preserved": true,
+  "R25_sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+}

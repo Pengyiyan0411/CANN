@@ -1,0 +1,57 @@
+{
+  "base": "BMMS_V11_R25/R25_NATIVE_TARGETED.asc",
+  "base_sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+  "target": "original Split-K eligible AND B=1 AND M<=64 AND N<=128 AND M*N<=4096 AND original splits>=8",
+  "files": {
+    "CONTROL_R25.asc": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+    "R28_COMPACT_SPLITK.asc": "05aaa79b31f6b9315b338f9ee455157ef6da9f3e115e1e0ebf3e2ddcbcb1ec74"
+  },
+  "composition": {
+    "R25_frozen": true,
+    "all_original_functions_byte_identical": true,
+    "old_dispatch_restored_by_removing_one_new_call": true,
+    "original_split_count_and_K_partition_preserved": true,
+    "new_producer_only_changes_Fixpipe_destination_pitch": true,
+    "original_workspace_bytes_preserved": true,
+    "original_READY_and_global_barrier_protocol_preserved": true
+  },
+  "CANN_compiled_locally": false,
+  "NPU_tested_locally": false,
+  "platform_results_pending": true,
+  "validation": {
+    "actual_source_runs_per_version": 76,
+    "repeat_checks_per_version": 38,
+    "output_bits_equal_R25": true,
+    "host_dispatch_checks": 223010,
+    "unchanged_non_target_records": 93840,
+    "negative_controls": 5
+  },
+  "candidate_promoted": false,
+  "checks_passed_locally": true,
+  "delivery_files": {
+    "CONTROL_R25.asc": {
+      "bytes": 192530,
+      "sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+    },
+    "CPU_CHECKS.json": {
+      "bytes": 11553,
+      "sha256": "7833e6d54e0731f60fd6b50180c87c5ce648e9cc86a6f0ffb38e948230cbb758"
+    },
+    "DESIGN.md": {
+      "bytes": 5542,
+      "sha256": "51cfa51e1771d2d24a6b10b21bbc304586c6993f8686d28b3f670e6bbdbd4441"
+    },
+    "HOST_CHECKS.json": {
+      "bytes": 792,
+      "sha256": "6519ff73f8df66fa1fbe89afd7a443c120574771809b6e2058a4314e21434174"
+    },
+    "R28_COMPACT_SPLITK.asc": {
+      "bytes": 205463,
+      "sha256": "05aaa79b31f6b9315b338f9ee455157ef6da9f3e115e1e0ebf3e2ddcbcb1ec74"
+    },
+    "README.md": {
+      "bytes": 1809,
+      "sha256": "b45819b3cd910db9622fe0c7b4f75dce527f66ed83efdadc72bace966a828f5b"
+    }
+  }
+}

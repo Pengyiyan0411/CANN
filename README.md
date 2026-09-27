@@ -1,19 +1,20 @@
-# BatchMatmulMaxSum：R25冻结，Case15单空间任务已确认
+# BatchMatmulMaxSum：R28 提交候选，R25 保留基线
 
-2026-09-27：明确标注的L00/L05均15/15 Pass；Case15为36.78/37.11 μs，相对正常约15 μs形成清楚压力响应。
-L05阳性确认B=1、M∈{16,32,48,64}、N∈{16,32,...,128}，K4096..8192且32对齐，原空间任务数为1。
-L01–L03无需提交。正常Split-K的K分片数仍未知，不能把单空间任务当作单核组。
+2026-09-27：L04/L06 均15/15 Pass，Case15为37.05/36.87 μs，匹配单K分片压力状态。结合L05，确认B1、M≤64、N≤128、MN≤4096、K4096..8192/32对齐、原S∈{8,16}；精确形状和S尚未知。
 
-- [本轮L00/L05结果与解码](BMMS/V11_results/2026-09-27_d24_l00_l05/AUDIT.md)
-- [最新诊断进度](BMMS/V11_results/2026-09-27_d24_l00_l05/PROGRESS.json)
-- [下一份：L04_MN_LE4096](BMMS/BMMS_V11_D24_Resume/D24/L04_MN_LE4096.asc)
-- [随后：L06_SPLITS_GE8](BMMS/BMMS_V11_D24_Resume/D24/L06_SPLITS_GE8.asc)
-- [已完成Case7解码](BMMS/V11_results/2026-09-27_d24_r7/AUDIT.md)
-- [R25保留版](BMMS/BMMS_V11_R25/R25_NATIVE_TARGETED.asc)
-- [D24原字节续跑包](BMMS/BMMS_V11_D24_续跑包.zip)
-- [N01–N05已完成结果](BMMS/V11_results/2026-09-27_d24_native/AUDIT.md)
+按用户要求结束本轮L组诊断，推进 **R28_COMPACT_SPLITK**：以冻结R25为基线，仅对这组元数据启用紧凑N布局及跨K分片的条带搬运，保留原分片计划和归约顺序。R25的Case5 Native优化保留，R26/R27不合入。
+
+- [R28完整提交源码](BMMS/BMMS_V11_R28/R28_COMPACT_SPLITK.asc)
+- [R28提交包](BMMS/BMMS_V11_R28_提交包.zip)
+- [提交说明和验收顺序](BMMS/BMMS_V11_R28/README.md)
+- [设计与API契约](BMMS/BMMS_V11_R28/DESIGN.md)
+- [冻结R25对照](BMMS/BMMS_V11_R28/CONTROL_R25.asc)
+- [L04/L06结果与解码](BMMS/V11_results/2026-09-27_d24_l04_l06/AUDIT.md)
+- [最新诊断进度](BMMS/V11_results/2026-09-27_d24_l04_l06/PROGRESS.json)
+- [Case7已完成解码](BMMS/V11_results/2026-09-27_d24_r7/AUDIT.md)
+- [原D24续跑包](BMMS/BMMS_V11_D24_续跑包.zip)
 - [当前审计](BMMS/BatchMatmulMaxSum_当前审计报告_2026-09-26.md)
 
-N01–N05、C01/R7组及L00/L05不重跑。接着用原L04/L06确认Case15输出面积和原分片数范围。
-Case7保留M<128、N<256、K256..480/32对齐、B<cores结论。Case6仍未定位，必要时用原C00/X6组。
-R25成果与原D24诊断基线R23分别保留，所有旧源码/提交包冻结；本轮只归档与核验，没有新内核或本地CANN/NPU测试。
+验证：R25/R28各76次实际源码CPU模型运行，输出逐位一致；223010组主机分派比较通过，其中93840组非目标完整启动记录相同。4种设备源码故障和1种扩大分派范围的故障均被检出。
+
+本地无CANN/NPU，尚未做目标编译和硬件测试，R28不宣称已提速、不晋升为基线。下一步用全部15点与相邻CONTROL_R25交替比较。Case6仍未定位，原C00/X6探针保留，暂不阻塞R28验收。历史源码、ZIP与结果均冻结。

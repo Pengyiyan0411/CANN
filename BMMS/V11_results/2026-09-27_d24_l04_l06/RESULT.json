@@ -1,0 +1,204 @@
+{
+  "date": "2026-09-27",
+  "diagnostic_baseline": "R23_SPLIT_K",
+  "performance_baseline_retained": "R25_NATIVE_TARGETED",
+  "submissions": [
+    {
+      "probe": "L04_MN_LE4096",
+      "screenshot": "L04_MN_LE4096.png",
+      "original_screenshot_filename": "a92688e9e1610987817f6714ca3d24ef.png",
+      "screenshot_sha256": "6b9203e2dc9d8cd9d07c6a9b500f643ae7d2fdcd21422794f1f3151fd13ffa7e",
+      "delivered_source": "BMMS_V11_D24_Diagnostics/L04_MN_LE4096.asc",
+      "delivered_source_sha256": "60c80905b092065876ab2e276d5abc364db43d931691041d1e9e9bd8625fdb44",
+      "user_explicit_probe_label": true,
+      "platform_source_hash_verified": false,
+      "pass_count": 15,
+      "displayed_error_pct": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "us": [
+        2.59,
+        5.47,
+        5.19,
+        6.38,
+        7.12,
+        14.45,
+        10.81,
+        91.85,
+        70.25,
+        84.39,
+        101.28,
+        124.3,
+        16.76,
+        14.33,
+        37.05
+      ],
+      "best_column_us": [
+        1.22,
+        1.58,
+        2.16,
+        2.92,
+        1.89,
+        7.09,
+        3.69,
+        14.88,
+        51.62,
+        72.47,
+        74.82,
+        91.2,
+        5.19,
+        5.4,
+        4.05
+      ],
+      "case15_interpretation": "hit"
+    },
+    {
+      "probe": "L06_SPLITS_GE8",
+      "screenshot": "L06_SPLITS_GE8.png",
+      "original_screenshot_filename": "22910dc85ca10ac5233b759e89baaf36.png",
+      "screenshot_sha256": "a47a6ca2836ec0426d221389ec6ca2a5c47b4d934aa5f36d67c3a154865411d2",
+      "delivered_source": "BMMS_V11_D24_Diagnostics/L06_SPLITS_GE8.asc",
+      "delivered_source_sha256": "1843cc0b296609b4f77e64ed91d7549aff05135c3e05f357fcdff35e956a27d1",
+      "user_explicit_probe_label": true,
+      "platform_source_hash_verified": false,
+      "pass_count": 15,
+      "displayed_error_pct": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "us": [
+        2.62,
+        5.3,
+        5.08,
+        6.3,
+        7.52,
+        14.73,
+        10.89,
+        92.29,
+        71.69,
+        84.75,
+        101.57,
+        124.15,
+        16.88,
+        14.4,
+        36.87
+      ],
+      "best_column_us": [
+        1.22,
+        1.58,
+        2.16,
+        2.92,
+        1.89,
+        7.09,
+        3.69,
+        14.88,
+        51.62,
+        72.47,
+        74.82,
+        91.2,
+        5.19,
+        5.4,
+        4.05
+      ],
+      "case15_interpretation": "hit"
+    }
+  ],
+  "case15_decoding": {
+    "route": "R23 Split-K (bmms23::TryLaunch)",
+    "B": 1,
+    "M_values": [
+      16,
+      32,
+      48,
+      64
+    ],
+    "N_values": [
+      16,
+      32,
+      48,
+      64,
+      80,
+      96,
+      112,
+      128
+    ],
+    "K_min": 4096,
+    "K_max": 8192,
+    "K_alignment": 32,
+    "original_spatial_tasks": 1,
+    "original_mTiles": 1,
+    "original_nTiles": 1,
+    "original_R03_plan": {
+      "pM": 1,
+      "pN": 1,
+      "tasks": 1,
+      "blocks": 1
+    },
+    "original_R23_splits_options": [
+      8,
+      16
+    ],
+    "original_R23_blocks_equal_splits": true,
+    "original_R23_splits_formula": "largest power of two <= min(16, cores, floor(K/512))",
+    "probed_plan": {
+      "splits": 1,
+      "blocks": 1
+    },
+    "exact_M_N_K_dtype_transpose_unknown": true,
+    "original_split_count_unknown": true,
+    "MN_le4096_unknown": false,
+    "semantic_family_options": [
+      "SmallOutput_LargeK"
+    ],
+    "L01_L02_L03_predicates_inferred_true_without_running": true,
+    "assumptions": [
+      "Explicit user labels identify delivered sources",
+      "Same case metadata across submissions"
+    ],
+    "MN_le4096": true,
+    "semantic_family": "SmallOutput_LargeK",
+    "cores_min": 8,
+    "S16_requires": "K=8192 and cores>=16; not established that S=16",
+    "exact_split_count_unknown": true
+  },
+  "controls": {
+    "L00_us": 36.78,
+    "L05_us": 37.11,
+    "normal_R23_us": [
+      15.18,
+      15.18
+    ]
+  },
+  "adjacent_normal_control_received": false,
+  "case6_route": "unknown; a null response does not exclude a route",
+  "statistical_performance_improvement_claimed": false,
+  "local_CANN_compile": false,
+  "local_NPU_run": false
+}

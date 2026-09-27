@@ -1,0 +1,25 @@
+{
+  "dispatch_checks": 223010,
+  "unchanged_full_launch_records": 93840,
+  "compact_selections": 129170,
+  "Case5_metadata_protection_checks": 224,
+  "max_UB_bytes": 131872,
+  "max_stripes": 3,
+  "original_routes": [
+    810,
+    11523,
+    8710,
+    199224,
+    40,
+    2703
+  ],
+  "scope": "actual run_kernel, Eligible, MakePlan and TryLaunch; recording device bindings; no NPU timing",
+  "widened_B_guard_fault_rejected": true,
+  "kernel_bindings": 8,
+  "all_original_routes_retained": true,
+  "sources": {
+    "CONTROL_R25.asc": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+    "R28_COMPACT_SPLITK.asc": "05aaa79b31f6b9315b338f9ee455157ef6da9f3e115e1e0ebf3e2ddcbcb1ec74"
+  },
+  "checker_sha256": "466bade0f039af38372c2bf47c7833235cc348f542b36062b6a5f77c1dfa4d41"
+}

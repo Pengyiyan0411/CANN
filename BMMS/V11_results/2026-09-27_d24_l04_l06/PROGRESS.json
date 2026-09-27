@@ -1,0 +1,58 @@
+{
+  "completed_submissions": [
+    "N01_K_EQ32",
+    "N02_K_EQ64",
+    "N03_M_LE32",
+    "N04_N_LE32",
+    "N05_B_EQ1",
+    "C01_R03_1G",
+    "R7_01_M_LT128",
+    "R7_02_N_LT256",
+    "R7_03_MACRO_OCC_LT_CORES",
+    "R7_04_K_GE512",
+    "R7_05_K_GE1024",
+    "L00_K1_CONTROL",
+    "L05_SPATIAL_EQ1",
+    "L04_MN_LE4096",
+    "L06_SPLITS_GE8"
+  ],
+  "logically_resolved_unrun": {
+    "L01_B_EQ1": {
+      "predicate": "B=1",
+      "truth": true,
+      "evidence": "L05 positive with valid L00 control",
+      "submitted": false
+    },
+    "L02_M_LE64": {
+      "predicate": "M<=64",
+      "truth": true,
+      "evidence": "L05 positive with valid L00 control",
+      "submitted": false
+    },
+    "L03_N_LE128": {
+      "predicate": "N<=128",
+      "truth": true,
+      "evidence": "L05 positive with valid L00 control",
+      "submitted": false
+    }
+  },
+  "next_sequence": [
+    "R28_COMPACT_SPLITK vs frozen CONTROL_R25"
+  ],
+  "next_case6_sequence": [
+    "C00_NATIVE_1G",
+    "X6_01_MACRO_1G",
+    "X6_02_TREE_1W",
+    "X6_03_FALLBACK_1CORE"
+  ],
+  "case6_sequence_note": "Retained optional diagnostics; not a prerequisite for the user-requested R28 candidate",
+  "normal_control_if_needed": "CONTROL_R25",
+  "L04_positive": "MN<=4096; SmallOutput_LargeK",
+  "L04_negative": "MN>4096; Dense_LargeK",
+  "L06_positive": "original splits in {8,16}; not necessarily exactly 8",
+  "L06_negative": "original splits in {2,4}; with spatial=1 and K>=4096, cores<8",
+  "R25_sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+  "original_delivery_files_frozen": true,
+  "L_group_resolved": true,
+  "next_case6_sequence_deferred": true
+}

@@ -1,0 +1,19 @@
+{
+  "original_D24_sources_verified": 23,
+  "original_resume_entries_verified": 22,
+  "source_composition": {
+    "R23_frozen": true,
+    "R14_not_modified": true,
+    "host_only_edits": true,
+    "all_device_code_byte_identical_to_R23": true,
+    "single_intervention_per_submission": true,
+    "one_group_keeps_tasks_equal_B": true,
+    "workspace_and_launch_derived_after_mutation": true,
+    "Case15_targets_SplitK_not_bypassed_R03": true
+  },
+  "screenshots_verified": 2,
+  "measurements_recorded": 30,
+  "R25_sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+  "local_CANN_compile": false,
+  "local_NPU_run": false
+}

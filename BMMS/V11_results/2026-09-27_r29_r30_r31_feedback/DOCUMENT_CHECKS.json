@@ -1,0 +1,19 @@
+{
+  "scope": "Documentation and archive validation only; not kernel tests",
+  "prior_revision": "fbd0824d281e5525ea5f2f5ecb41263ff92338e8",
+  "previous_manifest_entries_checked": 847,
+  "historical_artifacts_changed_except_current_readme_and_audit": [],
+  "frozen_baseline_sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+  "summary_sha256": "6e1772e64d45fe69a3c1c71d6e7095d272957c2128fab6f54f589a6c873c6981",
+  "summary_table_numeric_cells_compared_to_original_csv_json": 100,
+  "local_markdown_links_checked": 48,
+  "completed_diagnostic_submissions": 15,
+  "candidate_source_hashes_verified": {
+    "R29": "e7451df6ce7bccbc4894a8c021b0f1548acbbb8280da00d485f4440b2c23a2bb",
+    "R30": "6441027e53c344365c4e4aa7ce57cfb48c32507b633527a5d6ce14d61ab5d331",
+    "R31": "7369fd862ff19e2d3bb3b795a32d9be9ffc772e0fd4f388e8417cea3256e7390"
+  },
+  "previous_audit_snapshot_matches_git_blob": true,
+  "new_CANN_compile": false,
+  "new_local_NPU_run": false
+}

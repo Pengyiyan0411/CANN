@@ -1,0 +1,71 @@
+{
+  "date": "2026-09-27",
+  "current_task": "Detailed progress summary, documentation only",
+  "performance_baseline": "BMMS_V11_R25/R25_NATIVE_TARGETED.asc",
+  "R25_sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+  "diagnostic_baseline": "Frozen original D24 on R23; not R25",
+  "completed_submissions": [
+    "N01_K_EQ32",
+    "N02_K_EQ64",
+    "N03_M_LE32",
+    "N04_N_LE32",
+    "N05_B_EQ1",
+    "C01_R03_1G",
+    "R7_01_M_LT128",
+    "R7_02_N_LT256",
+    "R7_03_MACRO_OCC_LT_CORES",
+    "R7_04_K_GE512",
+    "R7_05_K_GE1024",
+    "L00_K1_CONTROL",
+    "L05_SPATIAL_EQ1",
+    "L04_MN_LE4096",
+    "L06_SPLITS_GE8"
+  ],
+  "completed_submission_count": 15,
+  "logically_resolved_unrun": {
+    "L01_B_EQ1": {
+      "predicate": "B=1",
+      "truth": true,
+      "evidence": "L05 positive with valid L00 control",
+      "submitted": false
+    },
+    "L02_M_LE64": {
+      "predicate": "M<=64",
+      "truth": true,
+      "evidence": "L05 positive with valid L00 control",
+      "submitted": false
+    },
+    "L03_N_LE128": {
+      "predicate": "N<=128",
+      "truth": true,
+      "evidence": "L05 positive with valid L00 control",
+      "submitted": false
+    }
+  },
+  "L_group_resolved": true,
+  "non_promoted_candidates": [
+    "R26",
+    "R27",
+    "R28",
+    "R29",
+    "R30",
+    "R31"
+  ],
+  "latest_feedback": {
+    "R29": "no_benefit_reported",
+    "R30": "other_cases_regressed_reported",
+    "R31": "other_cases_regressed_reported"
+  },
+  "next_sequence": [],
+  "next_sequence_note": "No new candidate or probe scheduled by this documentation task; do not rerun unchanged rejected candidates.",
+  "optional_case6_route_controls": [
+    "C00_NATIVE_1G",
+    "X6_01_MACRO_1G",
+    "X6_02_TREE_1W",
+    "X6_03_FALLBACK_1CORE"
+  ],
+  "optional_case6_note": "Route remains unknown; a null stress response is not sufficient to exclude an already-single-group route.",
+  "original_delivery_files_frozen": true,
+  "supersedes_current_next_step_from": "V11_results/2026-09-27_d24_l04_l06/PROGRESS.json",
+  "summary": "BMMS_阶段进度总结_R01-R31_20260927.md"
+}

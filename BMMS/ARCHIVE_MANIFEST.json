@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "R29 short-K L1, R30 Native M128, R31 Macro K128 independent candidates on frozen R25; contextual R28 screenshot shows no demonstrated new benefit; CPU source and host checks only; CANN/NPU pending",
+  "scope": "R01-R31 documentation checkpoint: retain frozen R25; explicit user feedback rejects R29 (no benefit) and R30/R31 (other-case regressions); 15 D24 submissions decoded; no new kernel or hardware validation",
   "platform_source_identity": "explicit user version labels where available; R04 inferred from sole preceding candidate; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -1116,19 +1116,24 @@
       "sha256": "2ab216063f27e947fcd678e28ec2a1138d16282e473c240b091de2b967524337"
     },
     {
+      "path": "BMMS_阶段进度总结_R01-R31_20260927.md",
+      "bytes": 32017,
+      "sha256": "6e1772e64d45fe69a3c1c71d6e7095d272957c2128fab6f54f589a6c873c6981"
+    },
+    {
       "path": "BatchMatmulMaxSum_V9_冲榜路线设计.md",
       "bytes": 16093,
       "sha256": "bd4cf72456c01b28875d7a8ca1e8f7f1c1016da2eb16ef3a2b54f3eb9b9d14d7"
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 5016,
-      "sha256": "e6419271b9493dbb90d196dd45371403b6d8a3bf5c4a624e64b2adf1df60cdc4"
+      "bytes": 2812,
+      "sha256": "82fc77d4af5cb7f8f00b8ccea19a280aea9c170549bce78a6db853d59da336b4"
     },
     {
       "path": "README.md",
-      "bytes": 1997,
-      "sha256": "c909ed024bd43b33aac82e0ff2b51df8ceed26fbf349a9b4a84165b9c62a6c6f"
+      "bytes": 1259,
+      "sha256": "92fe3369b71d9763c60cfee472cadca953e127b1f6e4da37b1d95b1aac1c4a23"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -2656,6 +2661,11 @@
       "sha256": "2fd277cf8aa0f6cd605deb237214dad1b82a0dc7c9d2641dcc2789b3f1ac6347"
     },
     {
+      "path": "V11_progress_r31/record_and_archive.py",
+      "bytes": 17329,
+      "sha256": "929f7c81c54df169201e8a0a2bfd9bb926a688e0e0fb35a5be65b6da7fb4d215"
+    },
+    {
       "path": "V11_recovery/CANN_README.md",
       "bytes": 1212,
       "sha256": "0202214878ccf431b6b19b307646f7fd37c5d70eaf7a4845ab1a62c9721423b4"
@@ -3249,6 +3259,26 @@
       "path": "V11_results/2026-09-27_r28_observed/measurements.csv",
       "bytes": 503,
       "sha256": "6ae3704527456abec2a8adeb0dbefa8ba9e6c9a1018c04b52a35322748353d2b"
+    },
+    {
+      "path": "V11_results/2026-09-27_r29_r30_r31_feedback/AUDIT.md",
+      "bytes": 1417,
+      "sha256": "b086f1b2574afd3ae8301021ae65a7face51a281336ca5b31f00cf589b681acb"
+    },
+    {
+      "path": "V11_results/2026-09-27_r29_r30_r31_feedback/DOCUMENT_CHECKS.json",
+      "bytes": 998,
+      "sha256": "6a7d9846ba094105a41e3ab4e934422bf9d34daa55d29333b7a82a5925fdbac5"
+    },
+    {
+      "path": "V11_results/2026-09-27_r29_r30_r31_feedback/PROGRESS.json",
+      "bytes": 2167,
+      "sha256": "c0807683125e18e56dd3628410f080f6b67be8dbd842f8f63069c0c502d7bff2"
+    },
+    {
+      "path": "V11_results/2026-09-27_r29_r30_r31_feedback/RESULT.json",
+      "bytes": 3081,
+      "sha256": "372f83fa017cae734869c5e4e847b3d48b4bc643f6c79e0dc65a17bb47861071"
     },
     {
       "path": "V11_shape_dispatch/CANN_README.md",
@@ -4219,6 +4249,11 @@
       "path": "audit_current/AUDIT_R28.md",
       "bytes": 4938,
       "sha256": "4393793591df51d543bf455bad9a5c3c8c34427a422f5037068fcaa0d30fd95f"
+    },
+    {
+      "path": "audit_current/AUDIT_R29_R30_R31_DELIVERY.md",
+      "bytes": 5016,
+      "sha256": "e6419271b9493dbb90d196dd45371403b6d8a3bf5c4a624e64b2adf1df60cdc4"
     },
     {
       "path": "audit_current/README_BEFORE_V11.md",

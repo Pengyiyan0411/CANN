@@ -1,25 +1,25 @@
-# BatchMatmulMaxSum：R23 基线，D24 分路径诊断
+# BatchMatmulMaxSum：R23 基线，R25 Native 三点特化候选
 
-R23 两轮均 15/15 Pass，Case15=15.18/15.18 μs；用户已纠正最初的 R14 标签。
-保留 R14/R23 原源码，D24 只修改各实际分支的 host 计划，用于 Native、R03、Split-K 和 Case6 路径定位。
-停止旧 A–C；撤回 Case7 K<512 的推断。D24 是诊断文件，不是新的冲榜版本。
+N01–N05 五份均15/15，通过同批阳性校准定位 Case5/13/14 均为 K128。
+Case5 是多 batch 小输出，13/14 是单 batch 且 M/N>32。R25 仅优化这两类原 Native 输入。
+先验收完整15点与非目标退化，再推进其他点。R23 仍是已验证基线；不再要求额外 shape probes。
 
-- [D24 诊断包](BMMS_V11_D24_诊断包.zip)
-- [提交顺序与读数](BMMS_V11_D24_Diagnostics/README.md)
-- [诊断设计](V11_diagnostics24/DESIGN.md)
-- [当前 R23 冲榜文件](BMMS_V11_R23/R23_SPLIT_K.asc)
-- [R23 两轮通过证据](V11_results/2026-09-27_r23_submission/AUDIT.md)
+- [首选完整提交文件](BMMS_V11_R25/R25_NATIVE_TARGETED.asc)
+- [R25 提交包](BMMS_V11_R25_提交包.zip)
+- [提交与回退说明](BMMS_V11_R25/README.md)
+- [设计和验证边界](V11_native_targeted25/DESIGN.md)
+- [N01–N05 原始结果](V11_results/2026-09-27_d24_native/AUDIT.md)
 - [当前审计](BatchMatmulMaxSum_当前审计报告_2026-09-26.md)
-- [host 检查](V11_diagnostics24/HOST_CHECKS.json)
-- [CPU 计划检查](V11_diagnostics24/CPU_CHECKS.json)
+- [冻结 R23](BMMS_V11_R23/R23_SPLIT_K.asc)
 
 ```powershell
-python V11_diagnostics24/build.py
-python V11_diagnostics24/check_host.py
-python V11_diagnostics24/check_device_plans.py
-python V11_diagnostics24/update_docs.py
-python V11_diagnostics24/package.py
+python V11_native_targeted25/build.py
+python V11_native_targeted25/run_checks.py
+python V11_native_targeted25/check_host.py
+python V11_native_targeted25/check_bounds.py
+python V11_native_targeted25/record_results.py
+python V11_native_targeted25/update_docs.py
+python V11_native_targeted25/package.py
 ```
 
-本地未做 CANN/NPU 验证。历史源码、提交包和报告快照冻结。
-审计快照需要历史 commit；截图已归档后不再依赖聊天附件原路径。
+本地 CPU/host 检查通过，未做 CANN/NPU 验证。R25 平台结果待回传；历史源码、提交包、审计快照保留。

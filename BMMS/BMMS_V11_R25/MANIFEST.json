@@ -1,0 +1,40 @@
+{
+  "base": "BMMS_V11_R23/R23_SPLIT_K.asc",
+  "base_sha256": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733",
+  "domains": {
+    "small": "p.K==128&&p.B>1&&p.M<=32&&p.N<=32&&p.blocks>1",
+    "dense": "p.K==128&&p.B==1&&p.M>32&&p.N>32&&p.blocks>1"
+  },
+  "variants": {
+    "R25_NATIVE_TARGETED": [
+      1,
+      1
+    ],
+    "R25_SMALL_ONLY": [
+      1,
+      0
+    ],
+    "R25_DENSE_ONLY": [
+      0,
+      1
+    ]
+  },
+  "composition": {
+    "frozen_R23": true,
+    "all_original_functions_byte_identical": true,
+    "Native_plan_unchanged": true,
+    "Cube_and_packet_producer_unchanged": true,
+    "earlier_routes_and_fallback_unchanged": true,
+    "only_selects_inside_actual_Native_branch": true,
+    "small_and_dense_domains_disjoint": true
+  },
+  "files": {
+    "CONTROL_R23.asc": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733",
+    "R25_DENSE_ONLY.asc": "b9e332175b32328e8a0ded315a95aef20db9dc596fdc31f7d91e2b411f7a0eba",
+    "R25_NATIVE_TARGETED.asc": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+    "R25_SMALL_ONLY.asc": "d6a8ef885731c0428e595b7507f0e95238fdcad37a9853dad5f83e711397089c"
+  },
+  "local_cann_compiled": false,
+  "local_npu_tested": false,
+  "platform_results_pending": true
+}

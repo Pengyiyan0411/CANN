@@ -25,3 +25,5 @@ BMMS/V11_split_k/cpu_build/
 BMMS/V11_split_k/dispatch_build/
 BMMS/V11_diagnostics24/cpu_build/
 BMMS/V11_diagnostics24/host_build/
+BMMS/V11_native_targeted25/cpu_build/
+BMMS/V11_native_targeted25/host_build/

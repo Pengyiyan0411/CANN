@@ -1,0 +1,21 @@
+{
+  "file": "BMMS_V11_R25_\u63d0\u4ea4\u5305.zip",
+  "sha256": "05612f674a5bfcdb976ed17e569d11bafb336396a310ca3d9b0a67feaa024fa4",
+  "bytes": 166332,
+  "files": 10,
+  "zip_roundtrip_verified": true,
+  "inherited_Native_CPU_source_exact_R23": true,
+  "candidate_sources_bound_to_CPU_and_host_checks": true,
+  "composition": {
+    "frozen_R23": true,
+    "all_original_functions_byte_identical": true,
+    "Native_plan_unchanged": true,
+    "Cube_and_packet_producer_unchanged": true,
+    "earlier_routes_and_fallback_unchanged": true,
+    "only_selects_inside_actual_Native_branch": true,
+    "small_and_dense_domains_disjoint": true
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "platform_results_pending": true
+}

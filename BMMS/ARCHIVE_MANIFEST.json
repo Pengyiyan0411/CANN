@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "Frozen history; R23 two 15/15 Pass screenshots; D24 route-specific host-only diagnostics; no new performance kernel or local CANN/NPU validation",
+  "scope": "Frozen R23 baseline; D24 N01-N05 five 15/15 Pass results; R25 targeted Native K128 consumers and independent ablations; platform validation pending",
   "platform_source_identity": "explicit user version labels where available; R04 inferred from sole preceding candidate; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -621,6 +621,61 @@
       "sha256": "afc63ab806beaf895c948ddc74d67a2b7884b6dc020e37920036e487def121cc"
     },
     {
+      "path": "BMMS_V11_R25/BOUNDS_CHECKS.json",
+      "bytes": 429,
+      "sha256": "c7db7d825c09761649a370bb57964905d4ac6a1673dff22a2226dd088e8ff2f6"
+    },
+    {
+      "path": "BMMS_V11_R25/CONTROL_R23.asc",
+      "bytes": 179571,
+      "sha256": "d097fdc60ffc8be7ddf40ef93a3afa04c04d904fec4ae8b42dc7085238353733"
+    },
+    {
+      "path": "BMMS_V11_R25/CPU_CHECKS.json",
+      "bytes": 14600,
+      "sha256": "905decaebf10d4437f84972782e03b97fc670c53e97833a2ca0c29ed5cfb547e"
+    },
+    {
+      "path": "BMMS_V11_R25/DESIGN.md",
+      "bytes": 7364,
+      "sha256": "a55c6a0732f13157ff621a22c4e6bd1274ca7af1cafc20d3995592a4cd1071b7"
+    },
+    {
+      "path": "BMMS_V11_R25/HOST_CHECKS.json",
+      "bytes": 892,
+      "sha256": "a9ee2cc23d2230ed59db4d81f033820c61d7e475aa8cc707c4c1785b67d616a3"
+    },
+    {
+      "path": "BMMS_V11_R25/MANIFEST.json",
+      "bytes": 1265,
+      "sha256": "1af167bd92283fecc862cabd953b7163840602f809d9dd51dd47648e4aecf59a"
+    },
+    {
+      "path": "BMMS_V11_R25/R25_DENSE_ONLY.asc",
+      "bytes": 192525,
+      "sha256": "b9e332175b32328e8a0ded315a95aef20db9dc596fdc31f7d91e2b411f7a0eba"
+    },
+    {
+      "path": "BMMS_V11_R25/R25_NATIVE_TARGETED.asc",
+      "bytes": 192530,
+      "sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+    },
+    {
+      "path": "BMMS_V11_R25/R25_SMALL_ONLY.asc",
+      "bytes": 192525,
+      "sha256": "d6a8ef885731c0428e595b7507f0e95238fdcad37a9853dad5f83e711397089c"
+    },
+    {
+      "path": "BMMS_V11_R25/README.md",
+      "bytes": 1814,
+      "sha256": "6fcf69b5bc395818f30bbb99987b23e25b435643e1e3a41fa9c440c5bbb0cbcf"
+    },
+    {
+      "path": "BMMS_V11_R25_提交包.zip",
+      "bytes": 166332,
+      "sha256": "05612f674a5bfcdb976ed17e569d11bafb336396a310ca3d9b0a67feaa024fa4"
+    },
+    {
       "path": "BMMS_V11_SubmitPack/CPU_CHECKS.json",
       "bytes": 2623,
       "sha256": "ec3a727a4ec03f5d496989545172f482884d9f7c7a9a4e2726c67e5892bf4487"
@@ -762,13 +817,13 @@
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 4065,
-      "sha256": "879c2c34b80e0d1129a0782714b529f645381d9ab084c6fa99b92137ab5e18fb"
+      "bytes": 1992,
+      "sha256": "5d5ca8315d293a05874a5632edfe0a415bf6c78534ed04888a7e3f2a1b012469"
     },
     {
       "path": "README.md",
-      "bytes": 1225,
-      "sha256": "cb562948076a6a2cafd65979294b711ff2639d3727fd5f43c3955758b9c42e20"
+      "bytes": 1243,
+      "sha256": "6f124bf26833ba720b674cb28d7245574a0f9d0f061b198cb8748d36f2038f1b"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -1866,6 +1921,106 @@
       "sha256": "80b770dbcf18e5d909a7aa7ee6b1c8e428e3de02e7ae2791398600903b6e6a7e"
     },
     {
+      "path": "V11_native_targeted25/BOUNDS_CHECKS.json",
+      "bytes": 429,
+      "sha256": "c7db7d825c09761649a370bb57964905d4ac6a1673dff22a2226dd088e8ff2f6"
+    },
+    {
+      "path": "V11_native_targeted25/CANN_README.md",
+      "bytes": 1286,
+      "sha256": "5da3884bd4fe382a8b79ef9809319598e6dd073719ffdcbb5f4529ef870a152f"
+    },
+    {
+      "path": "V11_native_targeted25/CHECKS.json",
+      "bytes": 14600,
+      "sha256": "905decaebf10d4437f84972782e03b97fc670c53e97833a2ca0c29ed5cfb547e"
+    },
+    {
+      "path": "V11_native_targeted25/DESIGN.md",
+      "bytes": 7364,
+      "sha256": "a55c6a0732f13157ff621a22c4e6bd1274ca7af1cafc20d3995592a4cd1071b7"
+    },
+    {
+      "path": "V11_native_targeted25/HOST_CHECKS.json",
+      "bytes": 892,
+      "sha256": "a9ee2cc23d2230ed59db4d81f033820c61d7e475aa8cc707c4c1785b67d616a3"
+    },
+    {
+      "path": "V11_native_targeted25/PACKAGE_CHECKS.json",
+      "bytes": 740,
+      "sha256": "8840fcb2bc9961845f31de65732bde453af71fe00b28a51f099b8485e604c124"
+    },
+    {
+      "path": "V11_native_targeted25/R23_CPU_RESULT.json",
+      "bytes": 18223,
+      "sha256": "8691a087a442b792892ad108f0592de48b078548ba2ac5d3ca724ad12e92065f"
+    },
+    {
+      "path": "V11_native_targeted25/R25_CPU_RESULT.json",
+      "bytes": 18202,
+      "sha256": "ed8fd781d4c1af7277342b98516a0404cf5bb095c0373c2c62be48ecbde4a6ea"
+    },
+    {
+      "path": "V11_native_targeted25/archive.py",
+      "bytes": 2908,
+      "sha256": "1410e338844af4b832a84fe3950f2f506e19b90ea549a036619a2d7e34d8342d"
+    },
+    {
+      "path": "V11_native_targeted25/build.py",
+      "bytes": 6596,
+      "sha256": "790ef0d004a012abc6a2aece112b7634360468977ab32733de94cc69f4630178"
+    },
+    {
+      "path": "V11_native_targeted25/check_bounds.py",
+      "bytes": 2274,
+      "sha256": "745e730725dd9a5f5c4d9ed769bf031e24e41533f3293a025c5231bec6f3dced"
+    },
+    {
+      "path": "V11_native_targeted25/check_host.py",
+      "bytes": 6513,
+      "sha256": "82116ebe6a06865bb95469d609b4456dbe291c7b17381e15f446b5bff85e4e96"
+    },
+    {
+      "path": "V11_native_targeted25/dense_merge.asc",
+      "bytes": 1678,
+      "sha256": "cd091d214a75f1864160c55656773ab5da72d4f72095fd7f3ef565d8e7d74a5c"
+    },
+    {
+      "path": "V11_native_targeted25/package.py",
+      "bytes": 3281,
+      "sha256": "138f8c0a991f3bfb9345e53551088e6c2ed580d768df2db20e9c94b2dc91513c"
+    },
+    {
+      "path": "V11_native_targeted25/record_results.py",
+      "bytes": 5934,
+      "sha256": "fdfa428df0ab17a66a79347e88d599dc99096b1bf6a15233f8d1bb7ac46d2aba"
+    },
+    {
+      "path": "V11_native_targeted25/run_checks.py",
+      "bytes": 8546,
+      "sha256": "90180d733c15deb2bd4ca88aa72b6cfc109e23cde512291b2a13ee2a5fa04cef"
+    },
+    {
+      "path": "V11_native_targeted25/small_consumer.asc",
+      "bytes": 2657,
+      "sha256": "fd51a95ead25c91800e7a8a8553e27a76e7a73411378c5fbcf95bf37e031663a"
+    },
+    {
+      "path": "V11_native_targeted25/source_checks.cpp.in",
+      "bytes": 11422,
+      "sha256": "91e34b4265055a0ac9288aa64fba7c73c01232defd31143a78dc3bcb2a72a2b4"
+    },
+    {
+      "path": "V11_native_targeted25/targeted_fragment.asc",
+      "bytes": 12848,
+      "sha256": "ff87ec547c7940424d4818a7414bbad02c36951467ceab452e83094e57860a91"
+    },
+    {
+      "path": "V11_native_targeted25/update_docs.py",
+      "bytes": 6249,
+      "sha256": "2356f2190b24612c25118b091f602286b899e1a96313dd5e17e9a87645218fbd"
+    },
+    {
       "path": "V11_recovery/CANN_README.md",
       "bytes": 1212,
       "sha256": "0202214878ccf431b6b19b307646f7fd37c5d70eaf7a4845ab1a62c9721423b4"
@@ -2159,6 +2314,46 @@
       "path": "V11_results/2026-09-27_case15_long_k/RESULTS.json",
       "bytes": 1263,
       "sha256": "81a46ba39a8fce1f982f01e605eeb66df335e3aa146f767ff27c75bb95651a91"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_native/AUDIT.md",
+      "bytes": 2066,
+      "sha256": "514cb3a282056e41dbae1edfd89a7ab23bcfdb304068dc370dc08bccb3fee7ad"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_native/N01_K_EQ32.png",
+      "bytes": 142882,
+      "sha256": "ccf326baf972600cc47afed4735b39df09fb3b3864a1524b880af72a5c824526"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_native/N02_K_EQ64.png",
+      "bytes": 142271,
+      "sha256": "6589f66855c6058c46227d94fb8ee80cc5e6547a5dfac2db3865fd55a0411dec"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_native/N03_M_LE32.png",
+      "bytes": 142998,
+      "sha256": "56346474e61333bb4ec55a5cf86921e13b6bba31307c68afc15a19578cf390c7"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_native/N04_N_LE32.png",
+      "bytes": 143332,
+      "sha256": "ed7fea876dd92e94b340f471159192ccb562c8d3cec650ede4214a732b4d8590"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_native/N05_B_EQ1.png",
+      "bytes": 142220,
+      "sha256": "beec98c46fe7fdce9885f16c8d4f9b3265550fec56e139967b7784a2e1ae5d7c"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_native/RESULT.json",
+      "bytes": 7628,
+      "sha256": "bb75190ae536ddd10f121092bfc7a35d0d00205c0eb49de7e512a1c94322befa"
+    },
+    {
+      "path": "V11_results/2026-09-27_d24_native/measurements.csv",
+      "bytes": 2714,
+      "sha256": "a0b9320603fc4f9ddc7b2967b71287612736d53ae232b788e4e54b999f612a10"
     },
     {
       "path": "V11_results/2026-09-27_native_case5/AUDIT.md",
@@ -2984,6 +3179,11 @@
       "path": "audit_current/AUDIT_BEFORE_V11.md",
       "bytes": 22997,
       "sha256": "b2f3056992b31f2711f4a8b900c90f8065f2fc7399da2c6e4b4552f05378aca6"
+    },
+    {
+      "path": "audit_current/AUDIT_D24_DELIVERY.md",
+      "bytes": 4065,
+      "sha256": "879c2c34b80e0d1129a0782714b529f645381d9ab084c6fa99b92137ab5e18fb"
     },
     {
       "path": "audit_current/AUDIT_R01_DELIVERY.md",

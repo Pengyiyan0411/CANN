@@ -1,0 +1,10 @@
+{
+  "dense_capacity_cases": 32640,
+  "dense_UB_max_bytes": 165024,
+  "small_UB_max_bytes": 4384,
+  "odd_even_tree_cases": 64,
+  "small_packets": 92481,
+  "packed_DMA_count_never_exceeds_original": true,
+  "assumptions": "Native metadata bounds, original 64x128 packet producer, pN<=64, float partials",
+  "scope": "integer coverage and explicit allocation arithmetic, not compiler-allocated total or NPU performance"
+}

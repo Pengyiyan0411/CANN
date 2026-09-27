@@ -1,0 +1,22 @@
+{
+  "base": "BMMS_V11_R25/R25_NATIVE_TARGETED.asc",
+  "base_sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+  "domain": "p.K==128&&p.B==1&&p.M>32&&p.N>32&&p.blocks>1",
+  "composition": {
+    "R25_restorable_byte_identically_except_title": true,
+    "all_R25_kernels_unchanged": true,
+    "Case5_source_entry_plan_workspace_unchanged": true,
+    "R25_dense_consumer_unchanged": true,
+    "Native_plan_workspace_and_shapes_unchanged": true,
+    "packet_READY_FREE_and_FIX_M_reuse_unchanged": true,
+    "only_original_Native_B1_K128_MN_gt32_blocks_gt1_replaced": true,
+    "R26_consumer_not_carried": true
+  },
+  "files": {
+    "CONTROL_R25.asc": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+    "R27_DENSE_UNITFLAG.asc": "17f5d37b59337f1ac9aa7fd1a42dc76ceebdec4219118eaa93786953e8dc4397"
+  },
+  "local_cann_compiled": false,
+  "local_npu_tested": false,
+  "platform_results_pending": true
+}

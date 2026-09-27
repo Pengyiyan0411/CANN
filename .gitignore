@@ -30,3 +30,6 @@ BMMS/V11_native_targeted25/host_build/
 BMMS/V11_native_packet26/cpu_build/
 BMMS/V11_native_packet26/host_build/
 BMMS/V11_native_packet26/bounds_build/
+BMMS/V11_native_unit27/cpu_build/
+BMMS/V11_native_unit27/host_build/
+BMMS/V11_native_unit27/bounds_build/

@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "R25 screenshots context-attributed, Case5 frozen; R26 Native B1 K128 packet consumer; CPU/host checks passed, platform pending",
+  "scope": "R26 screenshot context-attributed: no demonstrated gain, R25 baseline retained; R27 dense UnitFlag candidate; CPU/host checks passed, no local CANN/NPU, platform pending",
   "platform_source_identity": "explicit user version labels where available; R04 inferred from sole preceding candidate; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -721,6 +721,46 @@
       "sha256": "5c259b9e58e46d974a2eeccc148471b7da0b6104bfbcb365e67e8f220529341d"
     },
     {
+      "path": "BMMS_V11_R27/CONTROL_R25.asc",
+      "bytes": 192530,
+      "sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+    },
+    {
+      "path": "BMMS_V11_R27/CPU_CHECKS.json",
+      "bytes": 23965,
+      "sha256": "501f273b257f2eef5a9e305e137ec998150e3f653698147e8d25d632f1b67ac7"
+    },
+    {
+      "path": "BMMS_V11_R27/DESIGN.md",
+      "bytes": 8387,
+      "sha256": "4a9ff6c182d8146b71b3a095d277e079d7c366a0a06b78fc2f4871ba0353851c"
+    },
+    {
+      "path": "BMMS_V11_R27/HOST_CHECKS.json",
+      "bytes": 748,
+      "sha256": "c7e60bbfe614d82cf486ee3b4ceacb25e6d339153c415602ceca21c54e522702"
+    },
+    {
+      "path": "BMMS_V11_R27/MANIFEST.json",
+      "bytes": 941,
+      "sha256": "e89c1dd76f50acd583c5b7c6397a02d0340e14ca67b69a5a66d10450b32748b9"
+    },
+    {
+      "path": "BMMS_V11_R27/R27_DENSE_UNITFLAG.asc",
+      "bytes": 203353,
+      "sha256": "17f5d37b59337f1ac9aa7fd1a42dc76ceebdec4219118eaa93786953e8dc4397"
+    },
+    {
+      "path": "BMMS_V11_R27/README.md",
+      "bytes": 1483,
+      "sha256": "6a2d86a288272e64ba47ff76464466f4544efb332bd15c9df5125a7cc00504e2"
+    },
+    {
+      "path": "BMMS_V11_R27_提交包.zip",
+      "bytes": 90903,
+      "sha256": "d4e5deced28d519530fc07fbe2df2bf19d6c20dbe6e6bdfd0e8112eeb30e7fb0"
+    },
+    {
       "path": "BMMS_V11_SubmitPack/CPU_CHECKS.json",
       "bytes": 2623,
       "sha256": "ec3a727a4ec03f5d496989545172f482884d9f7c7a9a4e2726c67e5892bf4487"
@@ -862,13 +902,13 @@
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 2395,
-      "sha256": "f3f9f2de81549ee726108af9da87bd916cf56dc871b096780c0d3dbf46dfe76b"
+      "bytes": 2809,
+      "sha256": "d3564ca14e933f3afc19db8abf8d23fbd20b3c2504adbc04e835c4b787e6dbfe"
     },
     {
       "path": "README.md",
-      "bytes": 1298,
-      "sha256": "d56ec177de59cc774133dd9e5e384ac57e282f4dd4b13fc22ce4b08c36ca5996"
+      "bytes": 1410,
+      "sha256": "b706a3cf5f6c273b6f8791bf424f13ea73ae9ff5d3d8daf55879d9b6f8161267"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -2166,6 +2206,91 @@
       "sha256": "2356f2190b24612c25118b091f602286b899e1a96313dd5e17e9a87645218fbd"
     },
     {
+      "path": "V11_native_unit27/CANN_README.md",
+      "bytes": 1448,
+      "sha256": "ebe9e6ac5bbbb8f928555cfb0d4eb865da1d3a9551820dd41985b74f1c246afc"
+    },
+    {
+      "path": "V11_native_unit27/CHECKS.json",
+      "bytes": 23965,
+      "sha256": "501f273b257f2eef5a9e305e137ec998150e3f653698147e8d25d632f1b67ac7"
+    },
+    {
+      "path": "V11_native_unit27/DESIGN.md",
+      "bytes": 8387,
+      "sha256": "4a9ff6c182d8146b71b3a095d277e079d7c366a0a06b78fc2f4871ba0353851c"
+    },
+    {
+      "path": "V11_native_unit27/HOST_CHECKS.json",
+      "bytes": 748,
+      "sha256": "c7e60bbfe614d82cf486ee3b4ceacb25e6d339153c415602ceca21c54e522702"
+    },
+    {
+      "path": "V11_native_unit27/PACKAGE_CHECKS.json",
+      "bytes": 828,
+      "sha256": "be5c24193ad3b063e42d90fc19dc222a58577edded870c58c4c8cfea002d7364"
+    },
+    {
+      "path": "V11_native_unit27/R25_CPU_RESULT.json",
+      "bytes": 24760,
+      "sha256": "1c825b8d74303f9ddb442a2d543053e2cc7aa7364d01dfcfcce9dae02212ad5e"
+    },
+    {
+      "path": "V11_native_unit27/R27_CPU_RESULT.json",
+      "bytes": 24768,
+      "sha256": "510e83a7fbce647a39cfb86ddb280ca33f40188ea37c0189dfc32c7639ffe9fa"
+    },
+    {
+      "path": "V11_native_unit27/archive.py",
+      "bytes": 2926,
+      "sha256": "49a855c90a26a0ab44306840a5d17b563ca85a2789f51c7fce06359f06202c30"
+    },
+    {
+      "path": "V11_native_unit27/build.py",
+      "bytes": 6293,
+      "sha256": "a81f38be720ea9d258c9ad96804ee6982a756d02fa20c23745943124534d3b07"
+    },
+    {
+      "path": "V11_native_unit27/check_host.py",
+      "bytes": 3979,
+      "sha256": "42c81f7af3d70b6b961860a01f455f3214cbcf51abd8ba1ef0e2934b8759bb79"
+    },
+    {
+      "path": "V11_native_unit27/package.py",
+      "bytes": 3078,
+      "sha256": "00d063695eb6e83d18689264fb0b3be0803df9a9b76d5eef629e44e765cfa530"
+    },
+    {
+      "path": "V11_native_unit27/record_results.py",
+      "bytes": 3866,
+      "sha256": "cb1f56d4b7b2eb82c54cc3da159e2a2ebcf138d6492161099741c3c78d463a8d"
+    },
+    {
+      "path": "V11_native_unit27/run_checks.py",
+      "bytes": 8467,
+      "sha256": "5a170702bafc87a89321bc3a2f611a20fe2362f3ca651dd4652fcf7656290dab"
+    },
+    {
+      "path": "V11_native_unit27/source_checks.cpp.in",
+      "bytes": 12919,
+      "sha256": "2ae823050472fcee2ba2b643a9b1b0373102991038ea9142540ce81541684633"
+    },
+    {
+      "path": "V11_native_unit27/unit_contract.hpp",
+      "bytes": 2023,
+      "sha256": "e7225c5056c0782e47b30a2c8575eedd8b7a4053f9e045e77ed3e36b03427023"
+    },
+    {
+      "path": "V11_native_unit27/unit_fragment.asc",
+      "bytes": 10728,
+      "sha256": "e2358fd6211c769e67630b754b36c354d8586441468f23599b1c64fe0c792374"
+    },
+    {
+      "path": "V11_native_unit27/update_docs.py",
+      "bytes": 7038,
+      "sha256": "2fd277cf8aa0f6cd605deb237214dad1b82a0dc7c9d2641dcc2789b3f1ac6347"
+    },
+    {
       "path": "V11_recovery/CANN_README.md",
       "bytes": 1212,
       "sha256": "0202214878ccf431b6b19b307646f7fd37c5d70eaf7a4845ab1a62c9721423b4"
@@ -2574,6 +2699,26 @@
       "path": "V11_results/2026-09-27_r25_observed/observation_02.png",
       "bytes": 143589,
       "sha256": "2a41e066dee09118d9972b6240ac837971501e0cfa082c559f44a954970b84c5"
+    },
+    {
+      "path": "V11_results/2026-09-27_r26_observed/AUDIT.md",
+      "bytes": 1765,
+      "sha256": "37a13c90d66ce9c4977796061146862089506f9e9d2444edef5ce3f05df90c0c"
+    },
+    {
+      "path": "V11_results/2026-09-27_r26_observed/RESULT.json",
+      "bytes": 1417,
+      "sha256": "0a591f9d7512b46e097faa965301c17479e535f687d56103865ed8a3a824bcb6"
+    },
+    {
+      "path": "V11_results/2026-09-27_r26_observed/measurements.csv",
+      "bytes": 424,
+      "sha256": "cc3422ade939fbb589a9447fa1751712949a8a1d94bb9dd076a2a256138f987e"
+    },
+    {
+      "path": "V11_results/2026-09-27_r26_observed/observation_01.png",
+      "bytes": 143063,
+      "sha256": "0e805424c3a7b3a04d252b5aa0c82d4442a13a9a75437107b41de66566bf9bf9"
     },
     {
       "path": "V11_shape_dispatch/CANN_README.md",
@@ -3424,6 +3569,11 @@
       "path": "audit_current/AUDIT_R25_DELIVERY.md",
       "bytes": 1992,
       "sha256": "5d5ca8315d293a05874a5632edfe0a415bf6c78534ed04888a7e3f2a1b012469"
+    },
+    {
+      "path": "audit_current/AUDIT_R26_DELIVERY.md",
+      "bytes": 2395,
+      "sha256": "f3f9f2de81549ee726108af9da87bd916cf56dc871b096780c0d3dbf46dfe76b"
     },
     {
       "path": "audit_current/README_BEFORE_V11.md",

@@ -1,0 +1,22 @@
+{
+  "file": "BMMS_V11_R27_\u63d0\u4ea4\u5305.zip",
+  "sha256": "d4e5deced28d519530fc07fbe2df2bf19d6c20dbe6e6bdfd0e8112eeb30e7fb0",
+  "bytes": 90903,
+  "files": 7,
+  "zip_roundtrip_verified": true,
+  "inherited_CPU_source_exact_R25": true,
+  "candidate_sources_bound_to_CPU_host": true,
+  "composition": {
+    "R25_restorable_byte_identically_except_title": true,
+    "all_R25_kernels_unchanged": true,
+    "Case5_source_entry_plan_workspace_unchanged": true,
+    "R25_dense_consumer_unchanged": true,
+    "Native_plan_workspace_and_shapes_unchanged": true,
+    "packet_READY_FREE_and_FIX_M_reuse_unchanged": true,
+    "only_original_Native_B1_K128_MN_gt32_blocks_gt1_replaced": true,
+    "R26_consumer_not_carried": true
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "platform_results_pending": true
+}

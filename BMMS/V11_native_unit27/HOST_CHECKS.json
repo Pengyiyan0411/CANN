@@ -1,0 +1,24 @@
+{
+  "dispatch_checks": 6276,
+  "unchanged_full_launch_records": 6164,
+  "small_selections": 80,
+  "dense_selections": 112,
+  "original_routes": [
+    316,
+    1760,
+    3896,
+    168,
+    24,
+    112
+  ],
+  "scope": "actual run_kernel and TryLaunch, CPU recording stubs, no CANN/NPU execution",
+  "all_non_target_records_equal_R25": true,
+  "Case5_metadata_records_equal_R25": true,
+  "widened_guard_fault_rejected": true,
+  "new_kernel_bindings": 8,
+  "sources": {
+    "CONTROL_R25.asc": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+    "R27_DENSE_UNITFLAG.asc": "17f5d37b59337f1ac9aa7fd1a42dc76ceebdec4219118eaa93786953e8dc4397"
+  },
+  "checker_sha256": "42c81f7af3d70b6b961860a01f455f3214cbcf51abd8ba1ef0e2934b8759bb79"
+}

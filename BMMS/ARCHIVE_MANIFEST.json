@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Pengyiyan0411/CANN",
   "branch": "v11",
-  "scope": "Frozen R23 baseline; D24 N01-N05 five 15/15 Pass results; R25 targeted Native K128 consumers and independent ablations; platform validation pending",
+  "scope": "R25 screenshots context-attributed, Case5 frozen; R26 Native B1 K128 packet consumer; CPU/host checks passed, platform pending",
   "platform_source_identity": "explicit user version labels where available; R04 inferred from sole preceding candidate; no platform source digest provided",
   "excluded": "generated binaries/input tensors/CPU build directories/caches/external SDK and CATLASS checkouts",
   "files": [
@@ -676,6 +676,51 @@
       "sha256": "05612f674a5bfcdb976ed17e569d11bafb336396a310ca3d9b0a67feaa024fa4"
     },
     {
+      "path": "BMMS_V11_R26/BOUNDS_CHECKS.json",
+      "bytes": 702,
+      "sha256": "196de456f305b70241380f3ecdcb7e3b6c3a32e502a46ae492f61cb8003c9019"
+    },
+    {
+      "path": "BMMS_V11_R26/CONTROL_R25.asc",
+      "bytes": 192530,
+      "sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2"
+    },
+    {
+      "path": "BMMS_V11_R26/CPU_CHECKS.json",
+      "bytes": 20314,
+      "sha256": "889f7b22ae4e332701ddf37b37d8b6754340293dc47c41e4ef378e20d3bcaf87"
+    },
+    {
+      "path": "BMMS_V11_R26/DESIGN.md",
+      "bytes": 5570,
+      "sha256": "5e554b1930a852c9677212434bf62f983762c452df5bb856e5f9bbc48455e834"
+    },
+    {
+      "path": "BMMS_V11_R26/HOST_CHECKS.json",
+      "bytes": 746,
+      "sha256": "b9379e5d457792778dd7667634addf279868fe702e0e34dcd448d04d68b5971e"
+    },
+    {
+      "path": "BMMS_V11_R26/MANIFEST.json",
+      "bytes": 841,
+      "sha256": "3e44552e68a4f6f8925640f68f59f9f0d4743c92f1f01a6062c79b5159726f84"
+    },
+    {
+      "path": "BMMS_V11_R26/R26_DENSE_PACKET.asc",
+      "bytes": 204189,
+      "sha256": "d3fdc64d7a7cf35d5c500ec618c54f6ff247f41cee03cf5c67a39212867afb1d"
+    },
+    {
+      "path": "BMMS_V11_R26/README.md",
+      "bytes": 1171,
+      "sha256": "92743d69e3b5c6167e01b40ada954e8e512b7fc523fc3a35bed79c9b769f6443"
+    },
+    {
+      "path": "BMMS_V11_R26_提交包.zip",
+      "bytes": 89782,
+      "sha256": "5c259b9e58e46d974a2eeccc148471b7da0b6104bfbcb365e67e8f220529341d"
+    },
+    {
       "path": "BMMS_V11_SubmitPack/CPU_CHECKS.json",
       "bytes": 2623,
       "sha256": "ec3a727a4ec03f5d496989545172f482884d9f7c7a9a4e2726c67e5892bf4487"
@@ -817,13 +862,13 @@
     },
     {
       "path": "BatchMatmulMaxSum_当前审计报告_2026-09-26.md",
-      "bytes": 1992,
-      "sha256": "5d5ca8315d293a05874a5632edfe0a415bf6c78534ed04888a7e3f2a1b012469"
+      "bytes": 2395,
+      "sha256": "f3f9f2de81549ee726108af9da87bd916cf56dc871b096780c0d3dbf46dfe76b"
     },
     {
       "path": "README.md",
-      "bytes": 1243,
-      "sha256": "6f124bf26833ba720b674cb28d7245574a0f9d0f061b198cb8748d36f2038f1b"
+      "bytes": 1298,
+      "sha256": "d56ec177de59cc774133dd9e5e384ac57e282f4dd4b13fc22ce4b08c36ca5996"
     },
     {
       "path": "V10_impl/API_EVIDENCE.json",
@@ -1811,6 +1856,106 @@
       "sha256": "bc9301d7db285b1200a95637c75068b59b67d8728852b19bacd7ef8f79b4a275"
     },
     {
+      "path": "V11_native_packet26/BOUNDS_CHECKS.json",
+      "bytes": 702,
+      "sha256": "196de456f305b70241380f3ecdcb7e3b6c3a32e502a46ae492f61cb8003c9019"
+    },
+    {
+      "path": "V11_native_packet26/CANN_README.md",
+      "bytes": 1336,
+      "sha256": "890c3bda7f153d104e8f40c08e9e512f483ecf78969801e4c362d43b22a97abe"
+    },
+    {
+      "path": "V11_native_packet26/CHECKS.json",
+      "bytes": 20314,
+      "sha256": "889f7b22ae4e332701ddf37b37d8b6754340293dc47c41e4ef378e20d3bcaf87"
+    },
+    {
+      "path": "V11_native_packet26/DESIGN.md",
+      "bytes": 5570,
+      "sha256": "5e554b1930a852c9677212434bf62f983762c452df5bb856e5f9bbc48455e834"
+    },
+    {
+      "path": "V11_native_packet26/HOST_CHECKS.json",
+      "bytes": 746,
+      "sha256": "b9379e5d457792778dd7667634addf279868fe702e0e34dcd448d04d68b5971e"
+    },
+    {
+      "path": "V11_native_packet26/PACKAGE_CHECKS.json",
+      "bytes": 737,
+      "sha256": "1a695d741bab66e6e01c0309988e2cd96bb221822ca83ab0aa387bef1e8eec30"
+    },
+    {
+      "path": "V11_native_packet26/R25_CPU_RESULT.json",
+      "bytes": 23282,
+      "sha256": "7464ba95ae1c502a4eb50485e622b9117bdc58d73d7ca9fedb993829e74a64e5"
+    },
+    {
+      "path": "V11_native_packet26/R26_CPU_RESULT.json",
+      "bytes": 23276,
+      "sha256": "eab9d22e51bd0d306a4f3c1781643de7430fca7b6741b5ccf87954077fb71d7c"
+    },
+    {
+      "path": "V11_native_packet26/archive.py",
+      "bytes": 2889,
+      "sha256": "b220122af72e469717e71b645839acbd32ad31546143f13a4c23f3ba62a06660"
+    },
+    {
+      "path": "V11_native_packet26/build.py",
+      "bytes": 6709,
+      "sha256": "97fbf6803ccd28a5039ad22898d7a8c0308b1f005a4a4aae3f903bc7d35c4267"
+    },
+    {
+      "path": "V11_native_packet26/check_bounds.py",
+      "bytes": 4865,
+      "sha256": "3fab515e77bd35ff9ca663680454e6ca9848503490f20956ec95dbff2f3d6a80"
+    },
+    {
+      "path": "V11_native_packet26/check_host.py",
+      "bytes": 3981,
+      "sha256": "f16e3f15a6ebf08b902e2d4814471dd18bf859275ecd03ce33d5221412efd342"
+    },
+    {
+      "path": "V11_native_packet26/fetch_packet.asc",
+      "bytes": 2067,
+      "sha256": "80a774a4acfd60a1e7518d84f7855161e2a35f247a58d690b605efa1940d407d"
+    },
+    {
+      "path": "V11_native_packet26/package.py",
+      "bytes": 3522,
+      "sha256": "39cc0d5476347a682c4e258a3c5e6934af064e6d2a8bfbb49f2eb754721ce2ea"
+    },
+    {
+      "path": "V11_native_packet26/packet_fragment.asc",
+      "bytes": 11578,
+      "sha256": "8b80a7a8b192924124d7de846633243662607f03a1c523d05828fac2b64a0542"
+    },
+    {
+      "path": "V11_native_packet26/packet_helpers.asc",
+      "bytes": 1241,
+      "sha256": "9aa042c3a452b7284cf8f995bdbf35606ffc04ae96aac0a34aa1e3ea58a6cdbc"
+    },
+    {
+      "path": "V11_native_packet26/record_results.py",
+      "bytes": 4008,
+      "sha256": "69d081115e9b29c491356915b34acefe532b051c7569975fa36e0f9a4863b7bd"
+    },
+    {
+      "path": "V11_native_packet26/run_checks.py",
+      "bytes": 7629,
+      "sha256": "4d7f02582eebe00924f75b24931319d7087369e136562b4e8ccaa932a11cfe20"
+    },
+    {
+      "path": "V11_native_packet26/source_checks.cpp.in",
+      "bytes": 12285,
+      "sha256": "4f858232f511f991e1bcf14e0211c195e438e27397336def8cd9131edfb38d1d"
+    },
+    {
+      "path": "V11_native_packet26/update_docs.py",
+      "bytes": 6190,
+      "sha256": "e01333fcf2ff4ae99b8fd5f2f3f40bf5316a5a4ab95ada5bab453287487677a7"
+    },
+    {
       "path": "V11_native_specialize/CANN_README.md",
       "bytes": 1336,
       "sha256": "ff53d8ae8553c47f2dc7fb0010050ffcdddd0823ff9f0d7122bf8a61b6fc9862"
@@ -2404,6 +2549,31 @@
       "path": "V11_results/2026-09-27_r23_submission/measurements.csv",
       "bytes": 715,
       "sha256": "6463825b9cea3cf9ce9a73492c5248a6c3f3e53a2357d506ab100364ccd9d9b0"
+    },
+    {
+      "path": "V11_results/2026-09-27_r25_observed/AUDIT.md",
+      "bytes": 1439,
+      "sha256": "a6c8d113c1f0e8bcca35d348ea940d463db0eee6f7dba7cafb9630dafe9c1d7b"
+    },
+    {
+      "path": "V11_results/2026-09-27_r25_observed/RESULT.json",
+      "bytes": 2611,
+      "sha256": "c0751d1ca6b7b409301083614e4c809afd707582a16aeab2b9f19e431787be91"
+    },
+    {
+      "path": "V11_results/2026-09-27_r25_observed/measurements.csv",
+      "bytes": 864,
+      "sha256": "e46b51e35646d9c05e939eb1a47a87cc7d90235f26f64860b56a0d028180fc60"
+    },
+    {
+      "path": "V11_results/2026-09-27_r25_observed/observation_01.png",
+      "bytes": 140763,
+      "sha256": "a4c092a1300d0a442616de43a5c30d3a189f99f007b1221fd7001e71664c1aac"
+    },
+    {
+      "path": "V11_results/2026-09-27_r25_observed/observation_02.png",
+      "bytes": 143589,
+      "sha256": "2a41e066dee09118d9972b6240ac837971501e0cfa082c559f44a954970b84c5"
     },
     {
       "path": "V11_shape_dispatch/CANN_README.md",
@@ -3249,6 +3419,11 @@
       "path": "audit_current/AUDIT_R23_DELIVERY.md",
       "bytes": 4429,
       "sha256": "a70e646948f4355ee65c721a47c95b8ddd0082c983c1e08087d26a9a80936451"
+    },
+    {
+      "path": "audit_current/AUDIT_R25_DELIVERY.md",
+      "bytes": 1992,
+      "sha256": "5d5ca8315d293a05874a5632edfe0a415bf6c78534ed04888a7e3f2a1b012469"
     },
     {
       "path": "audit_current/README_BEFORE_V11.md",

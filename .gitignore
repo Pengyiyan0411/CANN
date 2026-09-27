@@ -27,3 +27,6 @@ BMMS/V11_diagnostics24/cpu_build/
 BMMS/V11_diagnostics24/host_build/
 BMMS/V11_native_targeted25/cpu_build/
 BMMS/V11_native_targeted25/host_build/
+BMMS/V11_native_packet26/cpu_build/
+BMMS/V11_native_packet26/host_build/
+BMMS/V11_native_packet26/bounds_build/

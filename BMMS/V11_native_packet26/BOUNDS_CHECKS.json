@@ -1,0 +1,21 @@
+{
+  "plans": 1792,
+  "groups": 19322,
+  "tiles": 341754,
+  "packets": 93629,
+  "full_packets": 79483,
+  "ragged_packets": 14146,
+  "final_packet_lengths": [
+    7209,
+    4952,
+    1231,
+    5930
+  ],
+  "capacity_cases": 32640,
+  "UB_max_explicit_bytes": 148640,
+  "shared_UB_lifetimes_separated_by_barrier_and_V_MTE2": true,
+  "actual_cursor_sha256": "9aa042c3a452b7284cf8f995bdbf35606ffc04ae96aac0a34aa1e3ea58a6cdbc",
+  "checker_sha256": "3fab515e77bd35ff9ca663680454e6ca9848503490f20956ec95dbff2f3d6a80",
+  "source_sha256": "d3fdc64d7a7cf35d5c500ec618c54f6ff247f41cee03cf5c67a39212867afb1d",
+  "scope": "production cursor, bounds and explicit resource arithmetic; no device compilation or timing"
+}

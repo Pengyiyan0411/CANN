@@ -1,25 +1,25 @@
-# BatchMatmulMaxSum：R23 基线，R25 Native 三点特化候选
+# BatchMatmulMaxSum：R25 Case5 冻结，R26 仅调整单 batch Native 消费策略
 
-N01–N05 五份均15/15，通过同批阳性校准定位 Case5/13/14 均为 K128。
-Case5 是多 batch 小输出，13/14 是单 batch 且 M/N>32。R25 仅优化这两类原 Native 输入。
-先验收完整15点与非目标退化，再推进其他点。R23 仍是已验证基线；不再要求额外 shape probes。
+最新两图均15/15，Case5为6.60/6.45 μs，Case13为16.80/16.91 μs，Case14为13.84/13.63 μs。
+按上一轮首选交付暂归属 R25，用户未再次确认文件名，平台源hash未知。
+R26 从完整 R25 派生：保留 Case5 内核和路由，只替换 Native B1/K128/M,N>32/blocks>1 的消费者。
 
-- [首选完整提交文件](BMMS_V11_R25/R25_NATIVE_TARGETED.asc)
-- [R25 提交包](BMMS_V11_R25_提交包.zip)
-- [提交与回退说明](BMMS_V11_R25/README.md)
-- [设计和验证边界](V11_native_targeted25/DESIGN.md)
-- [N01–N05 原始结果](V11_results/2026-09-27_d24_native/AUDIT.md)
+- [R26 完整提交文件](BMMS_V11_R26/R26_DENSE_PACKET.asc)
+- [R26 提交包，含冻结 R25 对照](BMMS_V11_R26_提交包.zip)
+- [提交顺序与验证边界](BMMS_V11_R26/README.md)
+- [设计和源码证据](V11_native_packet26/DESIGN.md)
+- [本轮截图归档](V11_results/2026-09-27_r25_observed/AUDIT.md)
 - [当前审计](BatchMatmulMaxSum_当前审计报告_2026-09-26.md)
-- [冻结 R23](BMMS_V11_R23/R23_SPLIT_K.asc)
+
+本地源码/host/边界检查通过，未做 CANN/NPU 编译运行。R26 平台结果待回传。
+先验证13/14收益、Case5保持以及全部15点，再推进其他点。旧提交源码与ZIP保持冻结。
 
 ```powershell
-python V11_native_targeted25/build.py
-python V11_native_targeted25/run_checks.py
-python V11_native_targeted25/check_host.py
-python V11_native_targeted25/check_bounds.py
-python V11_native_targeted25/record_results.py
-python V11_native_targeted25/update_docs.py
-python V11_native_targeted25/package.py
+python V11_native_packet26/build.py
+python V11_native_packet26/run_checks.py
+python V11_native_packet26/check_host.py
+python V11_native_packet26/check_bounds.py
+python V11_native_packet26/record_results.py
+python V11_native_packet26/update_docs.py
+python V11_native_packet26/package.py
 ```
-
-本地 CPU/host 检查通过，未做 CANN/NPU 验证。R25 平台结果待回传；历史源码、提交包、审计快照保留。

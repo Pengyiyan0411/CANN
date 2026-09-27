@@ -1,0 +1,20 @@
+{
+  "file": "BMMS_V11_R26_\u63d0\u4ea4\u5305.zip",
+  "sha256": "5c259b9e58e46d974a2eeccc148471b7da0b6104bfbcb365e67e8f220529341d",
+  "bytes": 89782,
+  "files": 8,
+  "zip_roundtrip_verified": true,
+  "inherited_CPU_source_exact_R25": true,
+  "candidate_sources_bound_to_CPU_host_bounds": true,
+  "composition": {
+    "R25_restorable_byte_identically_except_title": true,
+    "all_R25_kernels_unchanged": true,
+    "Case5_source_entry_plan_workspace_unchanged": true,
+    "original_Cube_producer_unchanged": true,
+    "Native_plan_and_workspace_unchanged": true,
+    "only_original_Native_B1_K128_MN_gt32_blocks_gt1_replaced": true
+  },
+  "cann_compiled_locally": false,
+  "npu_tested_locally": false,
+  "platform_results_pending": true
+}

@@ -1,0 +1,170 @@
+#define BMMS9_CPU_TEST 1
+#define BMMS11_CPU_TEST 1
+#define BMMS11R2_CPU_TEST 1
+#define BMMS23_CPU_TEST 1
+#include "cube_model.hpp"
+#include "common_extracted.hpp"
+#include "targeted_extracted.hpp"
+#include "packet_extracted.hpp"
+#include "isolated_merge.hpp"
+#include <random>
+#include <iostream>
+#include <iomanip>
+#include <map>
+#include <sstream>
+
+int ordinary=0,repeats=0,misses=0,smallRuns=0,denseRuns=0,unchangedRuns=0,isolated=0;
+double maxError=0;std::map<std::string,std::vector<uint32_t>> outputs;
+std::map<std::string,std::string> fixtures;
+template<class Fn>void workers(int count,Mock::Context& ctx,Mock::Flags& flags,int aiv,Fn fn,bool reverse){
+    std::mutex mutex;std::string error;std::vector<std::thread> threads;
+    for(int index=0;index<count;++index){int w=reverse?count-1-index:index;
+        threads.emplace_back([&,w]{try{
+            Mock::ctx=&ctx;Mock::flags=&flags;Mock::worker=w;Mock::cube=w>=aiv;
+            Mock::logical=Mock::cube?w-aiv:w;Mock::pairId=Mock::cube?w-aiv:w/2;Mock::subId=Mock::cube?0:w%2;
+            Mock::localFlags={};Mock::smallMmadPending=false;fn(w);
+            for(auto& kind:Mock::localFlags)for(int pending:kind)Mock::need(pending==0,"local credit leaked");
+        }catch(const std::exception&e){std::lock_guard lock(mutex);if(error.empty())error=e.what();ctx.barrier.cancel();flags.cancel();}});
+    }
+    for(auto& t:threads)t.join();if(!error.empty())throw std::runtime_error(error);
+}
+void record(const std::string& key,const std::vector<float>& y,const std::vector<double>& gold){
+    std::vector<uint32_t> bits;
+    for(size_t i=0;i<y.size();++i){double expected=float(gold[i]),err=std::abs(double(y[i])-expected);
+        maxError=std::max(maxError,err);double rel=expected==0?(err==0?0:INFINITY):err/std::abs(expected);
+        if(!std::isfinite(y[i])||!(err<1e-4&&rel<1e-4))++misses;bits.push_back(std::bit_cast<uint32_t>(y[i]));}
+    if(outputs.count(key)){Mock::need(outputs[key]==bits,"result nondeterministic");++repeats;}else outputs[key]=bits;
+}
+template<class T,bool TA,bool TB>void run(int B,int M,int N,int K,int cores,int pattern,bool reverse){
+    std::string key=(std::is_same_v<T,half>?"f16":"b16")+std::to_string(TA)+std::to_string(TB)+"_"+
+        std::to_string(B)+"_"+std::to_string(M)+"_"+std::to_string(N)+"_"+std::to_string(K)+"_"+std::to_string(cores)+"_"+std::to_string(pattern);
+    std::vector<T>a(size_t(B)*M*K),b(size_t(B)*K*N);
+    auto ai=[&](int z,int m,int k){return size_t(z)*M*K+(TA?size_t(k)*M+m:size_t(m)*K+k);};
+    auto bi=[&](int z,int k,int n){return size_t(z)*K*N+(TB?size_t(n)*K+k:size_t(k)*N+n);};
+    std::mt19937 random(7231+B+M+N+K+pattern);std::uniform_int_distribution<int> dyadic(-4,4);
+    std::uniform_real_distribution<float> general(-0.125f,0.125f);
+    for(auto& x:a)x=T(pattern==2?0:pattern==3?general(random):pattern==1?(std::abs(dyadic(random))+1)/32.f:dyadic(random)/32.f);
+    for(auto& x:b)x=T(pattern==2?0:pattern==3?general(random):pattern==1?-(std::abs(dyadic(random))+1)/32.f:dyadic(random)/32.f);
+    auto beforeA=a,beforeB=b;
+    std::vector<float>ca(a.size()),cb(b.size());
+    for(int z=0;z<B;++z){
+        for(int m=0;m<M;++m)for(int k=0;k<K;++k)ca[(size_t(z)*M+m)*K+k]=float(a[ai(z,m,k)]);
+        for(int k=0;k<K;++k)for(int n=0;n<N;++n)cb[(size_t(z)*K+k)*N+n]=float(b[bi(z,k,n)]);}
+    std::vector<double> gold(B,0);
+    for(int z=0;z<B;++z)for(int m=0;m<M;++m){double row=-INFINITY;
+        for(int n=0;n<N;++n){double v=0;for(int k=0;k<K;++k)v+=double(ca[(size_t(z)*M+m)*K+k])*cb[(size_t(z)*K+k)*N+n];row=std::max(row,v);}gold[z]+=row;}
+    Mock::need(bmms83::NativeEligible(M,N,K)&&!bmms71::UseResident(M,N,K),"fixture is not Native");
+    auto p=bmms83::MakeNative(B,M,N,K,cores);const int strategy=TARGETED?bmms25::Select(p):0;
+    if(strategy==1)++smallRuns;else if(strategy==2)++denseRuns;else ++unchangedRuns;
+    const uint64_t rb=bmms83::NativeRingBytes(p),pb=bmms83::NativePartialBytes(p);
+    std::vector<float>ws((rb+pb)/4,NAN),y(B,NAN);
+    float* part=ws.data()+rb/4;
+    Mock::Context ctx(2*p.blocks);Mock::Flags flags(p.blocks);
+    ctx.add(a.data(),a.size()*sizeof(T),true);ctx.add(b.data(),b.size()*sizeof(T),true);
+    ctx.add(ws.data(),ws.size()*4,false);ctx.add(y.data(),y.size()*4,false);
+    RingAudit::State ring(ws.data(),p.blocks,4*64*128);if(strategy==1)ring.wholeTileElements=M*N;
+    RingAudit::active=&ring;SplitAudit::active=nullptr;ReductionAudit::active=nullptr;
+    TargetAudit::begin(part,pb/4);Traffic::reset();NativeTraffic::reset();OpStats::reset();
+    TrafficAB::begin((uintptr_t)a.data(),a.size()*sizeof(T),(uintptr_t)b.data(),b.size()*sizeof(T));
+    try{
+        workers(3*p.blocks,ctx,flags,2*p.blocks,[&](int){
+            if(strategy==1){bmms25::Entry<T,TA,TB,true>((GM_ADDR)a.data(),(GM_ADDR)b.data(),(GM_ADDR)y.data(),(GM_ADDR)ws.data(),(GM_ADDR)part,p);return;}
+            if(strategy==2){
+#if PACKET
+                bmms26::Entry<T,TA,TB>((GM_ADDR)a.data(),(GM_ADDR)b.data(),(GM_ADDR)y.data(),(GM_ADDR)ws.data(),(GM_ADDR)part,p);
+#else
+                bmms25::Entry<T,TA,TB,false>((GM_ADDR)a.data(),(GM_ADDR)b.data(),(GM_ADDR)y.data(),(GM_ADDR)ws.data(),(GM_ADDR)part,p);
+#endif
+                return;}
+
+            AscendC::TPipe pipe;
+            if(Mock::cube){
+                if(K==32){bmms83::SmallKProducer<T,TA,TB,32> op;op.Init((GM_ADDR)a.data(),(GM_ADDR)b.data(),(GM_ADDR)ws.data(),p,&pipe);op.Process();}
+                else if(K==64){bmms83::SmallKProducer<T,TA,TB,64> op;op.Init((GM_ADDR)a.data(),(GM_ADDR)b.data(),(GM_ADDR)ws.data(),p,&pipe);op.Process();}
+                else{bmms83::SmallKProducer<T,TA,TB,128> op;op.Init((GM_ADDR)a.data(),(GM_ADDR)b.data(),(GM_ADDR)ws.data(),p,&pipe);op.Process();}
+            }else{bmms83::SmallKPacketConsumer op;op.Init((GM_ADDR)ws.data(),(GM_ADDR)part,(GM_ADDR)y.data(),p,&pipe);op.Process();}
+        },reverse);
+        flags.drained();ring.drained();
+        Mock::need(ctx.barrier.generation==(strategy==1?0:1),"unexpected barrier count");
+        Mock::need(std::memcmp(beforeA.data(),a.data(),a.size()*sizeof(T))==0&&std::memcmp(beforeB.data(),b.data(),b.size()*sizeof(T))==0,"input mutated");
+        Mock::need(Traffic::mmads==uint64_t(B)*p.mTiles*p.nTiles&&Traffic::publishes==Traffic::mmads,"Cube work changed");
+        Mock::need(Traffic::cWriteBytes==uint64_t(B)*M*N*4&&ring.readElements==uint64_t(B)*M*N,"C traffic changed");
+        Mock::need(TrafficAB::aBytes==uint64_t(B)*M*K*p.pN*2&&TrafficAB::bBytes==uint64_t(B)*N*K*bmms83::MStageCount(p.mTiles,p.pM)*2,"GM input work changed");
+        Mock::need(TargetAudit::reads==(strategy==1?0:pb/4)&&TargetAudit::writes==TargetAudit::reads,"row-partial coverage changed");
+        for(unsigned visits:TargetAudit::visits)Mock::need(visits==(strategy==1?0:1),"row-partial not read exactly once");
+        if(strategy==2){int cap=std::min(M,(16384/p.pN/16)*16);Mock::need(TargetAudit::dmaCalls==(M+cap-1)/cap,"wrong packed partial DMA count");}
+        record(key,y,gold);++ordinary;
+        if(std::is_same_v<T,half>&&!TA&&!TB&&pattern==0){
+            std::ostringstream os;os<<"{\"pM\":"<<p.pM<<",\"pN\":"<<p.pN<<",\"blocks\":"<<p.blocks<<",\"barriers\":"<<ctx.barrier.generation
+                <<",\"partial_dma_calls\":"<<TargetAudit::dmaCalls<<",\"partial_read_elements\":"<<TargetAudit::reads
+                <<",\"partial_write_elements\":"<<TargetAudit::writes<<",\"duplicate_elements\":"<<OpStats::duplicateElements
+                <<",\"C_DMA_calls\":"<<ring.dmaCalls<<",\"ready\":"<<ring.readyCount<<",\"free\":"<<ring.freeCount<<",\"mmads\":"<<Traffic::mmads<<"}";
+            if(fixtures.count(key))Mock::need(fixtures[key]==os.str(),"logical-work nondeterminism");fixtures[key]=os.str();}
+    }catch(const std::exception&e){throw std::runtime_error(key+": "+e.what());}
+    RingAudit::active=nullptr;TargetAudit::elements=0;
+}
+void mergeCase(int M,int pn,bool reverse){
+    bmms83::NativePlan p{};p.B=1;p.M=M;p.pN=pn;p.blocks=1;
+    std::vector<float> partial(M*pn),y(1,NAN);std::vector<double>gold(1,0);
+    for(int n=0;n<pn;++n)for(int m=0;m<M;++m)partial[n*M+m]=float(((m*17+n*13)%127)-64)/32.f;
+    for(int m=0;m<M;++m){float best=-INFINITY;for(int n=0;n<pn;++n)best=std::max(best,partial[n*M+m]);gold[0]+=best;}
+    Mock::Context ctx(1);Mock::ctx=&ctx;Mock::worker=0;Mock::cube=false;Mock::logical=0;Mock::subId=0;Mock::pairId=0;Mock::localFlags={};
+    ctx.add(partial.data(),partial.size()*4,true);ctx.add(y.data(),4,false);ctx.barrier.wait();
+    RingAudit::active=nullptr;SplitAudit::active=nullptr;ReductionAudit::active=nullptr;TargetAudit::begin(partial.data(),partial.size());
+    AscendC::TPipe pipe;isolatedMerge(p,partial.data(),y.data(),pipe,TARGETED);
+    Mock::need(y[0]==float(gold[0]),"isolated N merge output mismatch");
+    for(unsigned n:TargetAudit::visits)Mock::need(n==1,"isolated N merge did not read each partial exactly once");
+    int cap=std::min(M,(16384/pn/16)*16);Mock::need(TargetAudit::dmaCalls==(TARGETED?(M+cap-1)/cap:pn),"isolated DMA-count mismatch");
+    record("merge_"+std::to_string(M)+"_"+std::to_string(pn),y,gold);++isolated;TargetAudit::elements=0;
+}
+template<class T>void layouts(int B,int M,int N,int K,int c,int pat,bool rev){
+    run<T,false,false>(B,M,N,K,c,pat,rev);run<T,false,true>(B,M,N,K,c,pat,rev);
+    run<T,true,false>(B,M,N,K,c,pat,rev);run<T,true,true>(B,M,N,K,c,pat,rev);
+}
+int main(){try{
+#ifdef NEGATIVE_PACKET
+    run<half,false,false>(1,256,2048,128,3,0,false);return misses?2:7;
+#endif
+#ifdef NEGATIVE_TAIL
+    run<half,false,false>(1,80,656,128,3,1,false);return misses?2:7;
+#endif
+#ifdef NEGATIVE_SMALL
+    run<half,false,false>(7,16,32,128,2,0,false);return 7;
+#endif
+#ifdef NEGATIVE_DENSE
+    mergeCase(1040,17,false);return 7;
+#endif
+    for(int rev=0;rev<2;++rev){
+        for(int M:{16,32})for(int N:{16,32}){
+            layouts<half>(3,M,N,128,20,0,rev);layouts<bfloat16_t>(3,M,N,128,20,3,rev);}
+        for(int B:{2,3,4,5,7,8,9,20,64}){
+            run<half,false,true>(B,32,16,128,2,0,rev);
+            run<bfloat16_t,true,false>(B,16,32,128,3,1,rev);}
+        for(auto mn:std::vector<std::array<int,2>>{{48,48},{64,144},{144,272},{272,656},{256,1024}}){
+            layouts<half>(1,mn[0],mn[1],128,20,0,rev);
+            layouts<bfloat16_t>(1,mn[0],mn[1],128,20,1,rev);}
+        for(int pat:{1,2,3}){
+            run<half,true,true>(7,32,32,128,2,pat,rev);
+            run<half,true,false>(1,48,144,128,3,pat,rev);
+            run<bfloat16_t,false,true>(1,144,144,128,2,pat,rev);}
+        // Many packets, final 1/2/3-tile packets, task/panel/M-stage boundaries,
+        // and ragged M/N. Exercise the look-ahead independently of the baseline plan.
+        for(auto mn:std::vector<std::array<int,2>>{{256,2048},{768,528},{80,656},{144,784},{272,1040},{48,1664}}){
+            layouts<half>(1,mn[0],mn[1],128,3,0,rev);
+            layouts<bfloat16_t>(1,mn[0],mn[1],128,3,3,rev);
+        }
+        // Native shapes outside the two predicates retain the original consumer.
+        for(auto s:std::vector<std::array<int,4>>{{1,16,32,128},{3,48,144,128},{1,32,144,128},{1,144,32,128},{1,64,144,32},{1,64,144,64}}){
+            run<half,false,false>(s[0],s[1],s[2],s[3],3,0,rev);
+            run<bfloat16_t,true,true>(s[0],s[1],s[2],s[3],3,0,rev);}
+        for(int M:{48,272,1040,8160,8192})for(int pn:{1,2,3,5,17,31,64})mergeCase(M,pn,rev);
+    }
+    std::cout<<std::setprecision(12)<<"{\"source_runs\":"<<ordinary<<",\"isolated_merge_runs\":"<<isolated<<",\"repeat_checks\":"<<repeats
+        <<",\"small_route_runs\":"<<smallRuns<<",\"dense_route_runs\":"<<denseRuns<<",\"unchanged_route_runs\":"<<unchangedRuns
+        <<",\"strict_misses\":"<<misses<<",\"max_abs\":"<<maxError<<",\"arena_peaks\":[";
+    for(int a=0;a<5;++a){if(a)std::cout<<",";std::cout<<OpStats::peak[a];}
+    std::cout<<"],\"fixtures\":{";bool first=true;for(auto&[k,v]:fixtures){if(!first)std::cout<<",";first=false;std::cout<<"\""<<k<<"\":"<<v;}
+    std::cout<<"},\"output_bits\":{";first=true;for(auto&[k,v]:outputs){if(!first)std::cout<<",";first=false;std::cout<<"\""<<k<<"\":[";
+        for(size_t i=0;i<v.size();++i){if(i)std::cout<<",";std::cout<<v[i];}std::cout<<"]";}
+    std::cout<<"}}\n";return misses?2:0;
+}catch(const std::exception&e){std::cerr<<"STRUCTURAL_FAIL "<<e.what()<<"\n";return 1;}}

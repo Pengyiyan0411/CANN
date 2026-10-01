@@ -1,0 +1,15 @@
+{
+  "version": "v12_r36",
+  "status": "not recommended; no robust broad-domain screening benefit",
+  "parent": "v12_baseline_r33.asc",
+  "file": "v12_r36_native_macro128_pingpong.asc",
+  "sha256": "e45b6fd865d8aed6d3e6f427f280198b459904628b617e2a990ca3829feb6622",
+  "parent_byte_recovery": true,
+  "scope": "exact bmms49::Select, original native plan",
+  "change": "128-row macro with dual L0 operands and dual L0C, cross-macro L1 prefetch and compact consumer; original M sum",
+  "L1_bytes": 98304,
+  "L0A_bytes": 65536,
+  "L0B_bytes": 32768,
+  "L0C_bytes": 65536,
+  "report": "../V12_npu_lab/results/native_macro_20260929/REPORT.md"
+}

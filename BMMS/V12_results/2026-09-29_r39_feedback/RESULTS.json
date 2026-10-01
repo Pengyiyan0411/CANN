@@ -1,0 +1,133 @@
+{
+  "version": "v12_r39",
+  "version_attribution": "Inferred from direct response to r39 delivery; screenshot has no version/hash label",
+  "source": "user screenshot",
+  "source_sha256": "665e0790663f0faf42d8ebac7debea7fc7b9f22f2f9582ca494800f3f85bfe0e",
+  "source_hash_visible_in_screenshot": false,
+  "independent_runs": 1,
+  "all_15_pass": true,
+  "screenshot_copied": true,
+  "rows": [
+    {
+      "case": 1,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 2.33,
+      "platform_best_us": 1.22,
+      "r33_us": 2.23
+    },
+    {
+      "case": 2,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 4.34,
+      "platform_best_us": 1.58,
+      "r33_us": 4.47
+    },
+    {
+      "case": 3,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 5.16,
+      "platform_best_us": 2.13,
+      "r33_us": 4.93
+    },
+    {
+      "case": 4,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 6.45,
+      "platform_best_us": 2.92,
+      "r33_us": 6.34
+    },
+    {
+      "case": 5,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 6.6,
+      "platform_best_us": 1.89,
+      "r33_us": 6.34
+    },
+    {
+      "case": 6,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 14.94,
+      "platform_best_us": 7.07,
+      "r33_us": 14.42
+    },
+    {
+      "case": 7,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 9.59,
+      "platform_best_us": 3.68,
+      "r33_us": 8.9
+    },
+    {
+      "case": 8,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 45.88,
+      "platform_best_us": 14.88,
+      "r33_us": 45.8
+    },
+    {
+      "case": 9,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 65.45,
+      "platform_best_us": 50.68,
+      "r33_us": 64.91
+    },
+    {
+      "case": 10,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 79.29,
+      "platform_best_us": 72.39,
+      "r33_us": 79.42
+    },
+    {
+      "case": 11,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 97.35,
+      "platform_best_us": 74.82,
+      "r33_us": 95.64
+    },
+    {
+      "case": 12,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 114.93,
+      "platform_best_us": 91.2,
+      "r33_us": 113.08
+    },
+    {
+      "case": 13,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 15.28,
+      "platform_best_us": 5.14,
+      "r33_us": 14.72
+    },
+    {
+      "case": 14,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 13.95,
+      "platform_best_us": 5.4,
+      "r33_us": 13.11
+    },
+    {
+      "case": 15,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 11.5,
+      "platform_best_us": 4.05,
+      "r33_us": 11.31
+    }
+  ],
+  "decision": "Both11/12 show no stress response, supporting predicate FALSE: no actual r37 plan switch. Does not distinguish failed optimization guards from unchanged plan inside domain. Keep r33 and calibrate complementary in-domain unchanged-plan r40."
+}

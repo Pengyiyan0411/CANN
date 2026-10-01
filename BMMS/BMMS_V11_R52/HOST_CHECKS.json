@@ -1,0 +1,15 @@
+{
+  "dispatch_checks": 67428,
+  "non_target_equal": 66999,
+  "target_checks": 429,
+  "R50_Case2_checks": 3532,
+  "Case5_metadata_checks": 176,
+  "R48_Case7_checks": 504,
+  "R49_Case13_checks": 42,
+  "SplitK_checks": 310,
+  "R43_Case8_checks": 64,
+  "scope": "actual run_kernel/TryLaunch with recording stubs; scalar Dot arithmetic checked separately",
+  "source_sha256": "3c66689f4a38b4b6b02aa92547b39065a55d3fdfbcf767d6a53a4618f34cc284",
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

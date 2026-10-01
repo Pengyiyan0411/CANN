@@ -1,0 +1,113 @@
+{
+  "baseline": "v12_baseline_r41.asc",
+  "judge_r55": "15/15Pass, Case12 114.51us: complete r54 guard MISS supported",
+  "synthetic_not_hidden": true,
+  "precision": {
+    "r56": {
+      "configurations": 164,
+      "calls": 492,
+      "all_pass": true,
+      "max_tolerance_ratio": 0.0762939453
+    },
+    "r57": {
+      "configurations": 164,
+      "calls": 492,
+      "all_pass": true,
+      "max_tolerance_ratio": 0.0762939453
+    },
+    "r58": {
+      "configurations": 164,
+      "calls": 492,
+      "all_pass": true,
+      "max_tolerance_ratio": 0.0762939453
+    }
+  },
+  "screen": {
+    "r56": {
+      "all": {
+        "configurations": 32,
+        "median_reduction_pct": -6.831192646986862,
+        "min_pct": -20.683265476563317,
+        "max_pct": 8.954361640670127,
+        "both_windows_faster": 10
+      },
+      "N_mod128_0": {
+        "configurations": 16,
+        "median_reduction_pct": -18.043911969369564,
+        "min_pct": -20.683265476563317,
+        "max_pct": -11.533737600722628,
+        "both_windows_faster": 0
+      },
+      "N_mod128_64": {
+        "configurations": 16,
+        "median_reduction_pct": 3.9177725232238005,
+        "min_pct": -2.1286476932510956,
+        "max_pct": 8.954361640670127,
+        "both_windows_faster": 10
+      }
+    },
+    "r57": {
+      "all": {
+        "configurations": 32,
+        "median_reduction_pct": -9.621751445860083,
+        "min_pct": -22.198348305794124,
+        "max_pct": 7.916087593434251,
+        "both_windows_faster": 8
+      },
+      "N_mod128_0": {
+        "configurations": 16,
+        "median_reduction_pct": -20.398620793845858,
+        "min_pct": -22.198348305794124,
+        "max_pct": -14.900486788453593,
+        "both_windows_faster": 0
+      },
+      "N_mod128_64": {
+        "configurations": 16,
+        "median_reduction_pct": 2.29974119638382,
+        "min_pct": -4.343016103266573,
+        "max_pct": 7.916087593434251,
+        "both_windows_faster": 8
+      }
+    }
+  },
+  "r58_channels": {
+    "0": {
+      "configurations": 16,
+      "windows": 2,
+      "min_ratio": 0.9797013923838281,
+      "median_ratio": 1.0028955829072097,
+      "max_ratio": 1.0709056682702365,
+      "min_us": 4.56,
+      "max_us": 144.143
+    },
+    "1": {
+      "configurations": 16,
+      "windows": 2,
+      "min_ratio": 16.414564894301368,
+      "median_ratio": 17.304503163153825,
+      "max_ratio": 18.01793846614355,
+      "min_us": 1340.567,
+      "max_us": 1903.358
+    },
+    "2": {
+      "configurations": 16,
+      "windows": 2,
+      "min_ratio": 7.809868996346935,
+      "median_ratio": 8.094669438049579,
+      "max_ratio": 8.452625388057147,
+      "min_us": 789.116,
+      "max_us": 1217.285
+    }
+  },
+  "decision": "Reject r56/r57 as broad Case12 performance candidates; no promotion; deliver r58 diagnostic only",
+  "holdout_run": false,
+  "holdout_reason": "Both broad candidates fail screening; do not promote a partial screen-selected subgroup",
+  "new_sanitizer_run": false,
+  "sanitizer_reason": "No performance candidate accepted; r58 changes host dispatch only and inherits known r30 limitations",
+  "historical_single_group_anchor": {
+    "version": "r40",
+    "case12_ms": 1.42,
+    "r30_module_equal": true,
+    "limitation": "Old nonpaired Judge observation, not a guaranteed current channel threshold"
+  }
+}

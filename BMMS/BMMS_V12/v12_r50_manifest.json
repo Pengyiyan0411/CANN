@@ -1,0 +1,21 @@
+{
+  "version": "v12_r50",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "7ab4abb0b94f8d21a4bfb3a32a309ec8eca428cff04d9c7129aedf7232cd75d0",
+  "status": "Rejected locally: active screen median +0.07%, range -0.67% to +0.47%; no meaningful benefit",
+  "change": "Retain original r30 producer and grid, keep row maxima in UB across all M macros and write partials in 1-2 strided DMA calls",
+  "scope": "Case12 r30 domain, r41 gate FALSE, pM=1 pN>=4 tasks=blocks",
+  "producer_reused": "bmms1230::MacroMmadProducer",
+  "parent_byte_recovery": true,
+  "new_device_entries": 8,
+  "final_reduce_equal_to": "r30 full-M merge and ReduceSum",
+  "precision": {
+    "configurations": 366,
+    "calls": 1098,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "judge_tested": false,
+  "report": "../V12_npu_lab/results/parallel_epilogue_20260929/REPORT.md",
+  "sanitizer": "Not rerun: performance candidates rejected; inherited limitations remain open."
+}

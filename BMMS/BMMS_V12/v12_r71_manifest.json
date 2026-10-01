@@ -1,0 +1,10 @@
+{
+  "version": "v12_r71",
+  "parent": "v12_baseline_r41.asc",
+  "derived_from": "v12_r69_micro_batched_reduce.asc",
+  "sha256": "8cfd253cc93990414f790a134b75c52c00106af6f9738c1de76f5b61394017fc",
+  "status": "Superseded by r72: 1204 precision configurations pass, 7.75% final median gain, but new-path index-tail sanitizer findings.",
+  "change": "Guard-only integration; r69 device code identical. B1 Resident with padded N falls back to r41. Dot unchanged.",
+  "device_identical_to_r69": true,
+  "judge15_run": false
+}

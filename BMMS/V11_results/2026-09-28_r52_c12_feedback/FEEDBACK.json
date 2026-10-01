@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-28",
+  "source": "user text feedback; no new raw probe source or screenshots attached in this turn",
+  "R51": {"assessment": "no obvious benefit", "decision": "not adopted", "exact_latencies_us": null, "all_cases_pass": null},
+  "R52": {"assessment": "useful", "decision": "retain as development parent", "exact_latencies_us": null, "all_cases_pass": null,
+    "local_candidate_sha256": "3c66689f4a38b4b6b02aa92547b39065a55d3fdfbcf767d6a53a4618f34cc284"},
+  "reported_C12_probes": [
+    {"name":"C12_00_R06_STRESS_ALL", "case12_ms":1.51,"hit":true},
+    {"name":"K_GE1536", "case12_ms":1.51,"case9_us":71.03,"case10_us":84.19,"case11_ms":1.17,"case12_hit":true},
+    {"name":"M_GE1024", "case12_ms":1.50,"cases9_to12_hit":true},
+    {"name":"N_GE1024", "case12_ms":1.51,"cases9_to12_hit":true}
+  ],
+  "case12_constraints_accepted_from_user": {"B":1,"M_min":1024,"M_max":8192,"N_min":1024,"N_max":8192,"K_min":1536,"K_max":2016,"MN_alignment":16,"K_alignment":32,"route":"R06"},
+  "cases9_10_K_interval": "[1024,1536), step32",
+  "case11_K_interval": "[2048,8192], step32",
+  "cases9_to12_MN": "each >=1024 and 16-aligned",
+  "provenance_limit": "reported millisecond values are rounded; historical upper bounds are carried from prior user evidence; original C12 intervention source was not supplied",
+  "not_inferred": ["exact shapes", "dtype", "transpose flags", "actual core count", "actual grid", "hardware bottleneck", "R52 quantitative gain"]
+}

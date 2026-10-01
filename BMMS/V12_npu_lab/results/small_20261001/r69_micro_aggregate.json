@@ -1,0 +1,43 @@
+{
+  "file": "r69_micro_summary.json",
+  "all": {
+    "n": 32,
+    "median_reduction_pct": 10.655383976618094,
+    "min_reduction_pct": -1.6722408026755842,
+    "max_reduction_pct": 30.454545454545457,
+    "median_delta_us": 0.3973749999999998,
+    "regress_over3pct": 0,
+    "win_over5pct": 26
+  },
+  "B": {
+    "1": {
+      "n": 16,
+      "median_reduction_pct": 6.709290625524061,
+      "min_reduction_pct": -1.6722408026755842,
+      "max_reduction_pct": 30.180180180180184,
+      "median_delta_us": 0.15987499999999977,
+      "regress_over3pct": 0,
+      "win_over5pct": 10
+    },
+    "32": {
+      "n": 16,
+      "median_reduction_pct": 17.619428693372363,
+      "min_reduction_pct": 6.927710843373491,
+      "max_reduction_pct": 30.454545454545457,
+      "median_delta_us": 0.8225,
+      "regress_over3pct": 0,
+      "win_over5pct": 16
+    }
+  },
+  "dtype": {
+    "1": {
+      "n": 32,
+      "median_reduction_pct": 10.655383976618094,
+      "min_reduction_pct": -1.6722408026755842,
+      "max_reduction_pct": 30.454545454545457,
+      "median_delta_us": 0.3973749999999998,
+      "regress_over3pct": 0,
+      "win_over5pct": 26
+    }
+  }
+}

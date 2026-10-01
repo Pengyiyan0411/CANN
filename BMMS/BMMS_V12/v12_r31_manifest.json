@@ -1,0 +1,10 @@
+{
+  "version": "v12_r31",
+  "file": "v12_r31_dense_compact_load.asc",
+  "sha256": "b045ed9e47aabfae6bf7a10d02ccd2f6a31d944f8ce8748589700b725454a489",
+  "parent": "v12_baseline_r30.asc",
+  "status": "Rejected locally: 0.013% screen median benefit; no meaningful gain",
+  "change": "r30 geometry and prefetch; fewer L1-to-L0 LoadData calls; accumulation unchanged",
+  "parent_byte_recovery": true,
+  "npu_report": "../V12_npu_lab/results/dense_next_20260928/REPORT.md"
+}

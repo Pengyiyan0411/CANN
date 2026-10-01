@@ -1,0 +1,542 @@
+{
+  "line": "V12",
+  "accepted_sota": "v12_baseline_r41.asc",
+  "accepted_sha256": "1caf7870ac4154c0f555621ba9c41f4601c6ecee96cb2e8d0bf23acc4fc4f373",
+  "acceptance_basis": "Promote r41 based on clear Case11 gain; Case12 no demonstrated gain. Single screenshot, no paired repeat. Preserve r33 rollback. Case11 95.64->83.65us (-12.54%); latest normal97.35->83.65us (-14.07%).",
+  "legacy_frozen": "V11_analysis_r43/R43_CASE8_PADDED_MACRO.asc",
+  "historical_candidates": [
+    {
+      "version": "v12_r01",
+      "file": "V12_01_CASE12_DENSE.asc",
+      "status": "15/15 Pass; user reported no meaningful gain; not promoted",
+      "feedback": "../V12_results/2026-09-28_v1201_ranking/ANALYSIS.json"
+    },
+    {
+      "version": "v12_r02",
+      "file": "v12_r02_case9_10_a_resident.asc",
+      "status": "user reported slight regression on9/10; rejected",
+      "feedback": "v12_r02_r03_feedback.json"
+    },
+    {
+      "version": "v12_r04",
+      "file": "v12_r04_case9_10_partial_a_cache.asc",
+      "status": "user screenshot15Pass; Case9 69.09us; no meaningful gain; not promoted",
+      "feedback": "../V12_results/2026-09-28_r04_feedback/RESULTS.json"
+    }
+  ],
+  "candidates": [
+    {
+      "version": "v12_r06",
+      "file": "v12_r06_case9_macro_mmad.asc",
+      "sha256": "9b372b1535dd0c9d3156675e241ca0c69f74102463b76bd7e449d655820fb64e",
+      "parent": "v12_baseline_r03.asc",
+      "status": "CANN full build passed; 34/34 synthetic NPU cases passed; no clear gain on one eligible synthetic shape; not promoted",
+      "npu_report": "../V12_npu_lab/results/session_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r07",
+      "file": "v12_r07_paired_ring_consumer.asc",
+      "sha256": "3058772fa1be40f5b266d159546d77dde72d9c6c6c6f7c54703596a36de6d974",
+      "parent": "v12_baseline_r03.asc",
+      "status": "user reports actual Judge benefit drowned by noise; not promoted; synthetic evidence retained for reference",
+      "npu_report": "../V12_npu_lab/results/followup_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r08",
+      "file": "v12_r08_native_local_sum.asc",
+      "sha256": "0f7c2dfbaea9d313752058d9f0960786a4547ebf162ea4b157d1d718dc0c1ee0",
+      "parent": "v12_baseline_r03.asc",
+      "status": "rejected for promotion; synthetic performance mixed/no stable benefit",
+      "npu_report": "../V12_npu_lab/results/followup_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r09",
+      "file": "v12_r09_native_b_l0_resident.asc",
+      "sha256": "1fa1dd79b560e749505420ed34c808e09cb2f43a77009e60813f46f2d9c8149c",
+      "parent": "v12_baseline_r03.asc",
+      "status": "rejected for promotion; device-event effect within noise on screen and holdout",
+      "npu_report": "../V12_npu_lab/results/followup_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r10",
+      "file": "v12_r10_splitk_full_shard.asc",
+      "sha256": "05faba4305329ad837a0a3762cc76825b6ef886dc02cd78bc9ccbe60ece4547d",
+      "parent": "v12_baseline_r03.asc",
+      "status": "not selected: mixed gains and repeatable regressions on the synthetic Split-K cluster",
+      "npu_report": "../V12_npu_lab/results/split_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r11",
+      "file": "v12_r11_splitk_parallel_merge.asc",
+      "sha256": "9928350460d40188b74b613fbee227207d40430394f1517322619104684cb0f8",
+      "parent": "v12_baseline_r03.asc",
+      "status": "strong independent epilogue candidate; retained as structural control; r12 evaluated as combined candidate",
+      "npu_report": "../V12_npu_lab/results/split_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r12",
+      "file": "v12_r12_splitk_adaptive_merge.asc",
+      "sha256": "a845fd9538fe71d5f6284fced34781d8fb7e997105c51065a84b344818ddbd2b",
+      "parent": "v12_baseline_r03.asc",
+      "status": "accepted after user Judge feedback: Case15 stable around 11.5 us; others essentially unaffected",
+      "npu_report": "../V12_npu_lab/results/split_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r13",
+      "file": "v12_r13_case8_prepacked_nz.asc",
+      "sha256": "802b961d89ed23c38933c0ee3cebd1d9939301634258982cebce01451956bfb8",
+      "parent": "v12_baseline_r12.asc",
+      "status": "rejected: synthetic regressions",
+      "npu_report": "../V12_npu_lab/results/case8_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r14",
+      "file": "v12_r14_case8_square_pipeline.asc",
+      "sha256": "6b11005ff09fc645685ebf3b35eb9d1ad60b9e01415725c6214bb4a562f2a693",
+      "parent": "v12_baseline_r12.asc",
+      "status": "rejected: synthetic regressions",
+      "npu_report": "../V12_npu_lab/results/case8_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r15",
+      "file": "v12_r15_case8_direct_l1.asc",
+      "sha256": "3934075e9084a3ef5b4ef59740992af286464b6c71946582ccc39706420bf436",
+      "parent": "v12_baseline_r12.asc",
+      "status": "rejected: synthetic regressions",
+      "npu_report": "../V12_npu_lab/results/case8_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r16",
+      "file": "v12_r16_case8_blockpack_nz.asc",
+      "sha256": "0a9234c71a7e5fa57b0b4ef2ecc712616e3ca3c9288609c889427fc48f95e819",
+      "parent": "v12_baseline_r12.asc",
+      "status": "rejected: synthetic regressions",
+      "npu_report": "../V12_npu_lab/results/case8_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r17",
+      "file": "v12_r17_case8_ub_repack_nz.asc",
+      "sha256": "5357ef53a292fadba2b8ec143868f1134ffed1856ec07753d8d110cf100a2cc0",
+      "parent": "v12_baseline_r12.asc",
+      "status": "not recommended ungated: mixed synthetic performance",
+      "npu_report": "../V12_npu_lab/results/case8_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r18",
+      "file": "v12_r18_case8_adaptive_nz.asc",
+      "sha256": "75853cabc656f40725f669f12b82c18d49bf53d7ef4cc69fa2fe2bf77705835c",
+      "parent": "v12_baseline_r12.asc",
+      "status": "superseded by r19 explicit-tail candidate; retained as experiment",
+      "npu_report": "../V12_npu_lab/results/case8_20260928/R18_REPORT.md"
+    },
+    {
+      "version": "v12_r19",
+      "file": "v12_r19_case8_nz_explicit_tail.asc",
+      "sha256": "27ff91a8e886644ba99b68e3a59ed4d5ed0a001039d6c56074df098d4c66c021",
+      "parent": "v12_baseline_r12.asc",
+      "status": "accepted after Judge 15/15 Pass; Case8 46.88us, Case15 11.29us; sanitizer limitations retained",
+      "npu_report": "../V12_npu_lab/results/case8_20260928/REPORT.md",
+      "judge_feedback": "../V12_results/2026-09-28_r19_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r20",
+      "file": "v12_r20_case12_packet_plan.asc",
+      "parent": "v12_baseline_r19.asc",
+      "sha256": "be93902adf688fc7e791747f015984ac2de78ee63b3be0c2d5417af545c1ee2b",
+      "status": "superseded by r21 explicit final-Max tail; research control only",
+      "npu_report": "../V12_npu_lab/results/case12_20260928/R20_REPORT.md"
+    },
+    {
+      "version": "v12_r21",
+      "file": "v12_r21_case12_packet_tail.asc",
+      "parent": "v12_baseline_r19.asc",
+      "sha256": "2cb7454a99ee245d69afeb942f3e1835d9f068948fe217820ad47f4ba4a4708c",
+      "status": "Judge 15/15 Pass; no clear Case12 gain; not promoted",
+      "npu_report": "../V12_npu_lab/results/case12_20260928/REPORT.md",
+      "judge_feedback": "../V12_results/2026-09-28_r21_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r22",
+      "file": "v12_r22_dense_nz_pitch.asc",
+      "parent": "v12_baseline_r19.asc",
+      "sha256": "96b12f4eb4b0f2717591b20211213779604ba1dcf71c0886d4153ac1332a6d39",
+      "status": "Judge two runs all15 Pass; no clear Case11/12 benefit; not promoted",
+      "npu_report": "../V12_npu_lab/results/c1112_20260928/REPORT.md",
+      "judge_feedback": "../V12_results/2026-09-28_r22_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r25",
+      "file": "v12_r25_dense_macro_store.asc",
+      "sha256": "757b0eedce461496b0b2592d716cb356a3491417b6b3aa0422d8e21a0226bc79",
+      "parent": "v12_baseline_r19.asc",
+      "status": "experimental; insufficient overall screening benefit; not recommended or promoted",
+      "npu_report": "../V12_npu_lab/results/dense_macro_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r26",
+      "file": "v12_r26_dense_macro_consumer.asc",
+      "sha256": "becde41fcf05e24c84ab32bc0fc763ac113738ef58f64bbbc8e8de35a11fd5b0",
+      "parent": "v12_baseline_r19.asc",
+      "status": "experimental; insufficient overall screening benefit; not recommended or promoted",
+      "npu_report": "../V12_npu_lab/results/dense_macro_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r27",
+      "file": "v12_r27_dense_kstage320.asc",
+      "sha256": "7dc04978197803f5a22ca7f8c7728c754a59853c4d6b37ebed69e9021b8e1491",
+      "parent": "v12_baseline_r19.asc",
+      "status": "experimental; insufficient overall screening benefit; not recommended or promoted",
+      "npu_report": "../V12_npu_lab/results/dense_macro_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r28",
+      "file": "v12_r28_dense_square_k128.asc",
+      "sha256": "a8a1ce4de2222de9c0d7c40410bede8eb97ec1694dc34167944a3e98faf8dd57",
+      "parent": "v12_baseline_r19.asc",
+      "status": "Rejected locally: screen median regression 25.61%, all 18 configurations slower",
+      "npu_report": "../V12_npu_lab/results/dense_pipeline_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r29",
+      "file": "v12_r29_dense_m256_load2d.asc",
+      "sha256": "59770fd82fa7865fa7b58c4552f29e837c87d8ba5450f99baa1761919dba0bac",
+      "parent": "v12_baseline_r19.asc",
+      "status": "Rejected locally: screen median improvement 0.47%, worst regression 33.42%",
+      "npu_report": "../V12_npu_lab/results/dense_pipeline_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r30",
+      "file": "v12_r30_dense_macro_prefetch.asc",
+      "sha256": "9ac17c7b6f793cf043ee8d150479f42a1423a73ffe5c877b2456d16396d1fa17",
+      "parent": "v12_baseline_r19.asc",
+      "status": "Accepted by user after Judge15/15Pass; local sanitizer limitations remain open",
+      "npu_report": "../V12_npu_lab/results/dense_pipeline_20260928/REPORT.md",
+      "judge_feedback": "../V12_results/2026-09-28_r30_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r31",
+      "file": "v12_r31_dense_compact_load.asc",
+      "sha256": "b045ed9e47aabfae6bf7a10d02ccd2f6a31d944f8ce8748589700b725454a489",
+      "parent": "v12_baseline_r30.asc",
+      "status": "Rejected locally: 0.013% screen median benefit; no meaningful gain",
+      "npu_report": "../V12_npu_lab/results/dense_next_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r32",
+      "file": "v12_r32_shortk_macro_prefetch.asc",
+      "sha256": "9bef78c99a095e30a92df1db4541e68f1bf682e5b6ce0322f6a7817696609cb8",
+      "parent": "v12_baseline_r30.asc",
+      "status": "Superseded by r33 with validated all-pitch short-K coverage",
+      "npu_report": "../V12_npu_lab/results/dense_next_20260928/REPORT.md"
+    },
+    {
+      "version": "v12_r33",
+      "file": "v12_r33_shortk_prefetch_allpitch.asc",
+      "sha256": "86debd5c403af4bb436d6c042de4530faf05637cf6fd1aeaae6ed6b410d11d80",
+      "parent": "v12_baseline_r30.asc",
+      "status": "Accepted after Judge15/15Pass: Case9 64.91us, Case10 79.42us; prior sanitizer findings remain open",
+      "npu_report": "../V12_npu_lab/results/dense_next_20260928/REPORT.md",
+      "judge_feedback": "../V12_results/2026-09-28_r33_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r34",
+      "file": "v12_r34_shortk_a_resident.asc",
+      "parent": "v12_baseline_r33.asc",
+      "sha256": "ff0a5952463b80e2421e959150226f20a33f20365af2856f76c8650ad0f4e4c3",
+      "status": "rejected for promotion after synthetic NPU screening",
+      "npu_report": "../V12_npu_lab/results/native_macro_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r35",
+      "file": "v12_r35_native_macro256.asc",
+      "parent": "v12_baseline_r33.asc",
+      "sha256": "594051ef4574fc677f45b3b1fe435c4e70aa62f7916944a2cb3a9ba674ebbd04",
+      "status": "rejected for promotion after synthetic NPU screening",
+      "npu_report": "../V12_npu_lab/results/native_macro_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r36",
+      "file": "v12_r36_native_macro128_pingpong.asc",
+      "parent": "v12_baseline_r33.asc",
+      "sha256": "e45b6fd865d8aed6d3e6f427f280198b459904628b617e2a990ca3829feb6622",
+      "status": "rejected for promotion after synthetic NPU screening",
+      "npu_report": "../V12_npu_lab/results/native_macro_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r37",
+      "file": "v12_r37_dense_singlewave_plan.asc",
+      "parent": "v12_baseline_r33.asc",
+      "sha256": "6a78508f57d6341971dda1cd4fee32292f04211b6dd5bde8a9927280d58a2a93",
+      "status": "Judge all15 Pass; Case11=97.32us, Case12=116.02us; no demonstrated gain; not promoted",
+      "npu_report": "../V12_npu_lab/results/narrow_dense_20260929/REPORT.md",
+      "judge_feedback": "../V12_results/2026-09-29_r37_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r38",
+      "file": "v12_r38_dense_packed_merge.asc",
+      "parent": "v12_r37_dense_singlewave_plan.asc",
+      "sha256": "ec8b8ce8c423915149cccea1e6e89cb92986dfec3ff18f570ce650ef2c44ec53",
+      "status": "research only; incremental independent active subset median reduction 0.33%; not recommended this round",
+      "npu_report": "../V12_npu_lab/results/narrow_dense_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r41",
+      "file": "v12_r41_dense_flat_macro.asc",
+      "parent": "v12_baseline_r33.asc",
+      "sha256": "1caf7870ac4154c0f555621ba9c41f4601c6ecee96cb2e8d0bf23acc4fc4f373",
+      "status": "Accepted after Judge all15 Pass; Case11 83.65us, Case12 115.04us no clear gain; prior sanitizer limitations remain open",
+      "npu_report": "../V12_npu_lab/results/plan_equal_20260929/REPORT.md",
+      "judge_feedback": "../V12_results/2026-09-29_r41_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r42",
+      "file": "v12_r42_wide_halfm_pingpong.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "4de3c45b8cf127f689f35fae81816488d34d7466d6e4ef634f637c7f1ae58dde",
+      "status": "Rejected locally: all32screen configs slower; median regression 41.39%; r41 remains accepted",
+      "npu_report": "../V12_npu_lab/results/wide_pingpong_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r43",
+      "file": "v12_r43_case8_nz_prefetch.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "0643007916e730846b37fa786e067d64e608910e24a86fbe3a1ca0cba6d4fee2",
+      "status": "Rejected locally: all32screen configs slower; median regression 1.05%; r41 remains accepted",
+      "npu_report": "../V12_npu_lab/results/wide_pingpong_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r45",
+      "file": "v12_r45_case12_b_resident.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "2c78b3dc13e802978264ee8c8c33d00699af371f675719cc7951e0d8e82befde",
+      "status": "Rejected locally: 10/10 active configurations slower; median regression 14.82%; no Judge submission recommended",
+      "npu_report": "../V12_npu_lab/results/b_resident_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r46",
+      "file": "v12_r46_case12_fractional_n.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "82d7a3ce7ec0ff659bad62e3c1a96bfbd3727526e82ee61c2ec3e7f969256456",
+      "status": "Research only: active screen median reduction 1.14%, 6/10 wins, worst regression 0.97%; not promoted",
+      "npu_report": "../V12_npu_lab/results/b_resident_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r47",
+      "file": "v12_r47_case12_fractional_rows.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "ba3a0f39ee9f939a9a4b6e09f0d24ad2ab4ad5d7d875bd7cf177bfcacf977a99",
+      "status": "Research only: fresh holdout 24/32 wins, median reduction 1.99%, worst regression 2.75%; not promoted or recommended for Judge",
+      "npu_report": "../V12_npu_lab/results/b_resident_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r48",
+      "file": "v12_r48_case12_parallel_epilogue.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "a246e7178c787b18f7fffa62c7cfda1438e371cdede9903a545143cd21929dd0",
+      "status": "Rejected locally: all-active screen median reduction -0.02%; pN2/5 regress, pN20 median +1.03%; no broad benefit",
+      "npu_report": "../V12_npu_lab/results/parallel_epilogue_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r49",
+      "file": "v12_r49_case12_fractional_guarded.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "bdfdec94def44f5b5e1dbc7633c2012d2cf4d9b933d65aa3d59dd31d0226a389",
+      "status": "Rejected for promotion: independent active subset 18/20 wins median +3.04%, but one geometry regresses 16.81% in both dtypes",
+      "npu_report": "../V12_npu_lab/results/parallel_epilogue_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r50",
+      "file": "v12_r50_case12_deferred_partials.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "7ab4abb0b94f8d21a4bfb3a32a309ec8eca428cff04d9c7129aedf7232cd75d0",
+      "status": "Rejected locally: active screen median +0.07%, range -0.67% to +0.47%; no meaningful benefit",
+      "npu_report": "../V12_npu_lab/results/parallel_epilogue_20260929/REPORT.md"
+    },
+    {
+      "version": "v12_r51",
+      "file": "v12_r51_case12_kstage320.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "8545539fb7cdce8ff41818ba803f5acf91774c6d9960124433fc7e9a323b8e9a",
+      "status": "rejected: TA=false regressions; TA=true gains too small",
+      "npu_report": "../V12_npu_lab/results/case12_k1_20261001/REPORT.md"
+    },
+    {
+      "version": "v12_r52",
+      "file": "v12_r52_case12_kstage192.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "bce52fc8768bd707c4cb6dfddcec72334b1896a1e1275e3c23d052c3c9fa2f54",
+      "status": "rejected: broad performance regressions",
+      "npu_report": "../V12_npu_lab/results/case12_k1_20261001/REPORT.md"
+    },
+    {
+      "version": "v12_r53",
+      "file": "v12_r53_case12_m256_prefetch.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "9e017d7b034fa7f4c8b1114a98f542a23978233385a84dcef03075a549a6b10f",
+      "status": "ungated research control; superseded by r54 selector",
+      "npu_report": "../V12_npu_lab/results/case12_k1_20261001/REPORT.md"
+    },
+    {
+      "version": "v12_r54",
+      "file": "v12_r54_case12_stride_gated_m256.asc",
+      "parent": "v12_baseline_r41.asc",
+      "sha256": "24d183f027a78e4637c828dc6766aea07626c351053137ec73919ef9fe8cbaaa",
+      "status": "No Judge benefit; subsequent r55 calibrated probe supports full guard MISS on Case12; not promoted",
+      "npu_report": "../V12_npu_lab/results/case12_k1_20261001/REPORT.md",
+      "judge_feedback": "../V12_results/2026-10-01_r54_feedback/RESULTS.json",
+      "coverage_feedback": "../V12_results/2026-10-01_r55_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r56",
+      "parent": "v12_baseline_r41.asc",
+      "file": "v12_r56_case12_b_nz_prepack.asc",
+      "sha256": "c200e7ddf03784d5598cba4c17584fa00541c4d2959872b5b3a9a8e14e0c4d92",
+      "status": "Rejected as broad Case12 candidate after synthetic NPU screening; do not submit",
+      "npu_report": "../V12_npu_lab/results/case12_bnz_20261001/REPORT.md"
+    },
+    {
+      "version": "v12_r57",
+      "parent": "v12_baseline_r41.asc",
+      "file": "v12_r57_case12_b_panel_nz.asc",
+      "sha256": "feace65ed70b64c883508e5611e6d10cfb18f6d369e6a3e18d3909896387f5b7",
+      "status": "Rejected as broad Case12 candidate after synthetic NPU screening; do not submit",
+      "npu_report": "../V12_npu_lab/results/case12_bnz_20261001/REPORT.md"
+    },
+    {
+      "version": "v12_r59",
+      "file": "v12_r59_case12_nmajor_b_resident.asc",
+      "sha256": "fc670554bdb3cecf10f0b7aed5df57365b5c471640848359528d54aa19ed6787",
+      "parent": "v12_baseline_r41.asc",
+      "status": "Research only: built and precision passed; mixed performance; not promoted or recommended for Judge15",
+      "readme": "v12_r59_README.md",
+      "npu_report": "../V12_npu_lab/results/case12_nmajor_20261001/REPORT.md"
+    },
+    {
+      "version": "v12_r60",
+      "file": "v12_r60_case12_nmajor_k128.asc",
+      "sha256": "db43944f81a0fa7da47d7a3cd86a83403334136fbdbe938f020577be065be1d7",
+      "parent": "v12_baseline_r41.asc",
+      "status": "Research only: built and precision passed; mixed performance; not promoted or recommended for Judge15",
+      "readme": "v12_r60_README.md",
+      "npu_report": "../V12_npu_lab/results/case12_nmajor_20261001/REPORT.md"
+    },
+    {
+      "version": "v12_r61",
+      "file": "v12_r61_case12_stage_resident_b.asc",
+      "sha256": "d906ec907807717e5e17c8772e4c50ae65608528ab7e35ff05b496f3fadd2e2c",
+      "parent": "v12_baseline_r41.asc",
+      "status": "Research only: built and precision passed; mixed performance; not promoted or recommended for Judge15",
+      "readme": "v12_r61_README.md",
+      "npu_report": "../V12_npu_lab/results/case12_nmajor_20261001/REPORT.md"
+    }
+  ],
+  "naming": "v12_rxx; r41 accepted after Judge feedback",
+  "accepted_version": "v12_r41",
+  "previous_sota": "v12_baseline_r33.asc",
+  "review": {
+    "report": "v12_r04_REVIEW.md",
+    "decision": "r03 remains accepted; r04 arithmetic/index audit found no definite defect, but target coverage and performance bottleneck remain unconfirmed; kernel unchanged",
+    "latest_evidence": "r05 resolves Case9 full-guard coverage; Case10 supports non-coverage; performance bottleneck remains unproven",
+    "historical": true
+  },
+  "active_diagnostic": {
+    "version": "v12_r58",
+    "file": "v12_r58_probe_case12_nstride_channels.asc",
+    "sha256": "6bf47532cde9c279cef1b0d57f8feeb84da7cec7af3f29fd08c4779b71720d8e",
+    "status": "Calibrated three-state diagnostic ready for one Judge15 run; not a performance candidate",
+    "readme": "v12_r58_README.md",
+    "purpose": "Original r30 domain and N%128 residue, real 1/2-group compute channels"
+  },
+  "next_action": "Keep r41. Address N128 MTE1/scalar overhead before broad Case12 replacement; any faster subgroup requires frozen guards and independent N/M/dtype performance validation. Existing r58 diagnostic remains pending, not a prerequisite for implementation.",
+  "recommended_candidate": null,
+  "historical_diagnostics": [
+    {
+      "version": "v12_r05",
+      "file": "v12_r05_probe_r04_coverage.asc",
+      "sha256": "485147ab95fe70dfed37f8a2848ecb95d5e7d2646cc44e54ce9a6ca3abf0056b",
+      "parent": "v12_baseline_r03.asc",
+      "purpose": "full r04 eligibility on original R06 plan; one-group real-computation stress",
+      "status": "user screenshot 15/15 Pass; Case9 strong HIT765.68us; Case10 no stress83.83us, supports NO",
+      "readme": "v12_r05_README.md",
+      "feedback": "../V12_results/2026-09-28_r05_coverage/RESULTS.json",
+      "historical": true
+    },
+    {
+      "version": "v12_r23",
+      "file": "v12_r23_probe_r22_coverage.asc",
+      "sha256": "e20e86a2c4d661b67a47aaeff02d6064b480c0b7ea4e0e942bd604e762bf0942",
+      "parent": "v12_baseline_r19.asc",
+      "purpose": "exact r22 guards and allocation then original R06 single-group computation",
+      "status": "Judge all15 Pass; Case11 101.79us and Case12 123.57us: no stress signal",
+      "readme": "v12_r23_README.md",
+      "historical": true,
+      "feedback": "../V12_results/2026-09-28_r23_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r24",
+      "file": "v12_r24_probe_r22_complement.asc",
+      "sha256": "091071ea490cbc245740b0d11b8f7a9a43542b93af919c4cc74fa08c5218ef08",
+      "parent": "v12_baseline_r19.asc",
+      "purpose": "r22 complement: identical Eligible/ValidPlan/allocation, inverted Prefer, original single-group R06",
+      "status": "Judge all15 Pass; Case11 1.16ms / Case12 1.50ms: both HIT, Prefer=false confirmed",
+      "readme": "v12_r24_README.md",
+      "historical": true,
+      "feedback": "../V12_results/2026-09-28_r24_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r39",
+      "file": "v12_r39_probe_r37_plan_change.asc",
+      "sha256": "665e0790663f0faf42d8ebac7debea7fc7b9f22f2f9582ca494800f3f85bfe0e",
+      "parent": "v12_baseline_r33.asc",
+      "purpose": "full r37 route guards and actual plan change; single-group real computation only on HIT",
+      "status": "Judge all15 Pass;11=97.35us,12=114.93us: neither shows stress signal; predicate FALSE supported",
+      "readme": "v12_r39_README.md",
+      "historical": true,
+      "feedback": "../V12_results/2026-09-29_r39_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r40",
+      "file": "v12_r40_probe_r37_unchanged_in_domain.asc",
+      "sha256": "030a5f0c62f109acc968d6191d098616bc04e7179cfbec73864c04f1ee6e0a23",
+      "parent": "v12_baseline_r33.asc",
+      "purpose": "r30 full route guards AND cores>=2 AND r37 InDomain AND old/new plans identical",
+      "status": "Judge all15 Pass; Case11=1.11ms,Case12=1.42ms: both HIT, r37 domain/guards hold but plans unchanged",
+      "readme": "v12_r40_README.md",
+      "historical": true,
+      "feedback": "../V12_results/2026-09-29_r40_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r44",
+      "file": "v12_r44_probe_case12_flat_gate.asc",
+      "sha256": "07333c30adfcc8b75362500b3276e6a0d15da44f5428ea8dc87f4584c54fcbb2",
+      "parent": "v12_baseline_r41.asc",
+      "purpose": "Case12 wide-N interval AND exact r41 dtype, eligibility, pitch and family guards",
+      "status": "Judge all15 Pass; Case12 113.68us MISS; Case11 82.82us retains r41 gain",
+      "readme": "v12_r44_README.md",
+      "historical": true,
+      "feedback": "../V12_results/2026-09-29_r44_feedback/RESULTS.json"
+    },
+    {
+      "version": "v12_r55",
+      "file": "v12_r55_probe_r54_full_gate.asc",
+      "sha256": "dc6121e1d966eeef85f8b0612a983d9a8fb7ea4df4fec4933a09f3c5731e86f8",
+      "status": "Judge15/15Pass; Case12 114.51us, complete r54 guard MISS supported",
+      "purpose": "Exact r54 full launch guard coverage",
+      "readme": "v12_r55_README.md",
+      "historical": true,
+      "feedback": "../V12_results/2026-10-01_r55_feedback/RESULTS.json"
+    }
+  ],
+  "latest_judge_feedback": "../V12_results/2026-10-01_r55_feedback/RESULTS.json",
+  "latest_experiment_report": "../V12_npu_lab/results/case12_nmajor_20261001/REPORT.md",
+  "latest_acceptance_corroboration": {
+    "feedback": "../V12_results/2026-09-29_r44_feedback/RESULTS.json",
+    "case11_us": 82.82,
+    "case12_us": 113.68,
+    "note": "r44 MISS on Case12; preserves r41 Case11 path. Unpaired Judge timing, not a new optimization."
+  },
+  "active_candidate": null,
+  "latest_diagnostic_report": "../V12_npu_lab/results/case12_bnz_20261001/REPORT.md",
+  "latest_experiment_outcome": "r59-r61 implemented and NPU tested; each 186/186 precision configurations passed, 4/8 performance shapes regress. Broad replacement rejected; r41 unchanged.",
+  "last_implemented_version": "v12_r61"
+}

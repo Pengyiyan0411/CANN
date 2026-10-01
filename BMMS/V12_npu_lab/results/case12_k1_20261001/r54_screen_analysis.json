@@ -1,0 +1,82 @@
+{
+  "source": "r54_screen_summary.json",
+  "overall": {
+    "configurations": 32,
+    "median_latency_reduction_pct": 3.8171906703026286,
+    "min_pct": 0.05489378053467053,
+    "max_pct": 16.752832546799347,
+    "positive": 32,
+    "above_one_percent": 16,
+    "below_minus_one_percent": 0,
+    "both_windows_faster": 31,
+    "geometric_speedup": 1.0674004524811906
+  },
+  "groups": {
+    "dtype1_TA0": {
+      "configurations": 8,
+      "median_latency_reduction_pct": 3.787036703275504,
+      "min_pct": 0.19589406049209668,
+      "max_pct": 9.053303657741496,
+      "positive": 8,
+      "above_one_percent": 4,
+      "below_minus_one_percent": 0,
+      "both_windows_faster": 8,
+      "geometric_speedup": 1.0441227447371781
+    },
+    "dtype1_TA1": {
+      "configurations": 8,
+      "median_latency_reduction_pct": 7.7274115941042325,
+      "min_pct": 0.2980761130874865,
+      "max_pct": 16.66586950728719,
+      "positive": 8,
+      "above_one_percent": 4,
+      "below_minus_one_percent": 0,
+      "both_windows_faster": 8,
+      "geometric_speedup": 1.090712838680678
+    },
+    "dtype2_TA0": {
+      "configurations": 8,
+      "median_latency_reduction_pct": 3.6598588417688207,
+      "min_pct": 0.05489378053467053,
+      "max_pct": 9.349614760897673,
+      "positive": 8,
+      "above_one_percent": 4,
+      "below_minus_one_percent": 0,
+      "both_windows_faster": 8,
+      "geometric_speedup": 1.044309244621438
+    },
+    "dtype2_TA1": {
+      "configurations": 8,
+      "median_latency_reduction_pct": 7.849201209478724,
+      "min_pct": 0.19002481500525192,
+      "max_pct": 16.752832546799347,
+      "positive": 8,
+      "above_one_percent": 4,
+      "below_minus_one_percent": 0,
+      "both_windows_faster": 7,
+      "geometric_speedup": 1.091486644829089
+    }
+  },
+  "N_mod128_64": {
+    "configurations": 16,
+    "median_latency_reduction_pct": 12.107485466432493,
+    "min_pct": 7.019007544979672,
+    "max_pct": 16.752832546799347,
+    "positive": 16,
+    "above_one_percent": 16,
+    "below_minus_one_percent": 0,
+    "both_windows_faster": 16,
+    "geometric_speedup": 1.1359527882072358
+  },
+  "N_mod128_0": {
+    "configurations": 16,
+    "median_latency_reduction_pct": 0.2647084936340749,
+    "min_pct": 0.05489378053467053,
+    "max_pct": 0.6153737956255845,
+    "positive": 16,
+    "above_one_percent": 0,
+    "below_minus_one_percent": 0,
+    "both_windows_faster": 15,
+    "geometric_speedup": 1.0029851044735465
+  }
+}

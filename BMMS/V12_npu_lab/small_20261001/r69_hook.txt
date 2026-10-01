@@ -1,0 +1,1 @@
+    if(bmms1269::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;

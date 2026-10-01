@@ -1,0 +1,11 @@
+{
+  "candidate_sha256": "9b372b1535dd0c9d3156675e241ca0c69f74102463b76bd7e449d655820fb64e",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "r03_recovered_byte_for_byte": true,
+  "baseline_files_unchanged": true,
+  "device_consumer_and_original_planner_unchanged": true,
+  "test_hashes_match": true,
+  "fault_injection_restored": true,
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

@@ -1,0 +1,43 @@
+{
+  "scope": "Source diff and extracted host/packing arithmetic only; not CANN compile, device correctness, or timing",
+  "source": "C:\\Users\\cc\\Downloads\\R43_CASE8_PADDED_MACRO.asc",
+  "source_sha256": "15e2c9a0f73e7534c26400107389dcd8e5cf685b5f6f477c7a3684ad3991df2d",
+  "baseline": "C:\\Users\\cc\\Downloads\\BMMS\\BMMS_V11_R25\\R25_NATIVE_TARGETED.asc",
+  "baseline_sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+  "only_insertions": true,
+  "added_lines": 312,
+  "original_R25_reconstructed_exactly": true,
+  "feedback": {
+    "R25_case8_us_approx": 91.0,
+    "R43_case8_us": 62.45,
+    "other_cases": "User reports basically unchanged, within evaluation fluctuation",
+    "raw_15_case_table_available": false,
+    "explicit_full_pass_count": null,
+    "repeat_count": null,
+    "platform_source_hash_verified": false
+  },
+  "descriptive_latency_reduction_pct": 31.373626373626372,
+  "descriptive_speed_ratio": 1.4571657325860687,
+  "host": {
+    "host_plan_buckets": 2163200,
+    "layout_plan_checks": 8652800,
+    "invalid": 0,
+    "max_explicit_app_ub_bytes": 189088,
+    "max_workspace_bytes": 27295744,
+    "min_pack_jobs_representatives": 66,
+    "max_pack_jobs_representatives": 164,
+    "plans_using_fewer_than_requested_cores": 121488,
+    "layouts_with_more_pack_job_rounds_than_full_cores": 120277
+  },
+  "pack_geometry": {
+    "operand_descriptors": 63488,
+    "row_jobs_checked": 3577521,
+    "descriptors_with_extra_16_word_row_gap": 16384,
+    "min_jobs_per_operand": 33,
+    "max_jobs_per_operand": 82
+  },
+  "maximum_padded_math_volume_ratio": 1.053423903269095,
+  "no_Ascend_kernel_modified": true,
+  "no_CANN_compile": true,
+  "no_NPU_run": true
+}

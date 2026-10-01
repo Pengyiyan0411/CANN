@@ -1,0 +1,38 @@
+{
+  "r45_screen": {
+    "active_configurations": 10,
+    "total_configurations": 32,
+    "wins": 0,
+    "median_reduction_percent": -14.82196364465066,
+    "min_reduction_percent": -51.376173940494056,
+    "max_reduction_percent": -6.260892218688796,
+    "both_windows_faster": 0
+  },
+  "r46_screen": {
+    "active_configurations": 10,
+    "total_configurations": 32,
+    "wins": 6,
+    "median_reduction_percent": 1.1351334230263577,
+    "min_reduction_percent": -0.9723025675907548,
+    "max_reduction_percent": 1.8570544259797317,
+    "both_windows_faster": 6
+  },
+  "r47_screen": {
+    "active_configurations": 10,
+    "total_configurations": 32,
+    "wins": 8,
+    "median_reduction_percent": 2.066286277827972,
+    "min_reduction_percent": -0.6311258654313479,
+    "max_reduction_percent": 5.113515617485131,
+    "both_windows_faster": 8
+  },
+  "r47_holdout": {
+    "active_configurations": 32,
+    "total_configurations": 32,
+    "wins": 24,
+    "median_reduction_percent": 1.989193127959682,
+    "min_reduction_percent": -2.7474475759613703,
+    "max_reduction_percent": 8.153780815823009,
+    "both_windows_faster": 24
+  }
+}

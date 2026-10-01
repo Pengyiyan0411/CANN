@@ -1,0 +1,43 @@
+{
+  "file": "r70_dot_summary.json",
+  "all": {
+    "n": 26,
+    "median_reduction_pct": 1.7094882729211058,
+    "min_reduction_pct": -1.0204081632652962,
+    "max_reduction_pct": 7.462686567164178,
+    "median_delta_us": 0.017625000000000002,
+    "regress_over3pct": 0,
+    "win_over5pct": 3
+  },
+  "B": {
+    "1": {
+      "n": 26,
+      "median_reduction_pct": 1.7094882729211058,
+      "min_reduction_pct": -1.0204081632652962,
+      "max_reduction_pct": 7.462686567164178,
+      "median_delta_us": 0.017625000000000002,
+      "regress_over3pct": 0,
+      "win_over5pct": 3
+    }
+  },
+  "dtype": {
+    "1": {
+      "n": 13,
+      "median_reduction_pct": 0.990099009900991,
+      "min_reduction_pct": -1.0204081632652962,
+      "max_reduction_pct": 4.081632653061229,
+      "median_delta_us": 0.010000000000000009,
+      "regress_over3pct": 0,
+      "win_over5pct": 0
+    },
+    "2": {
+      "n": 13,
+      "median_reduction_pct": 2.857142857142858,
+      "min_reduction_pct": 0.952380952380949,
+      "max_reduction_pct": 7.462686567164178,
+      "median_delta_us": 0.030000000000000027,
+      "regress_over3pct": 0,
+      "win_over5pct": 3
+    }
+  }
+}

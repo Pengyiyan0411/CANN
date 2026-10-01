@@ -1,0 +1,18 @@
+{
+  "candidate": "v12_r08_native_local_sum.asc",
+  "sha256": "0f7c2dfbaea9d313752058d9f0960786a4547ebf162ea4b157d1d718dc0c1ee0",
+  "parent": "v12_baseline_r03.asc",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "parent_recovered_byte_for_byte": true,
+  "partition_checks": 24168,
+  "producer_and_grid_unchanged": true,
+  "sum_order_changed": true,
+  "scope": "Host checks plus actual device build/correctness; performance scope and limits in npu_report.",
+  "CANN_compiled": true,
+  "NPU_tested": true,
+  "synthetic_precision_cases": 141,
+  "repeats_per_case": 3,
+  "competition_hidden15_tested": false,
+  "status": "rejected for promotion; synthetic performance mixed/no stable benefit",
+  "npu_report": "../V12_npu_lab/results/followup_20260928/REPORT.md"
+}

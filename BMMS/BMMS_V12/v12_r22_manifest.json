@@ -1,0 +1,205 @@
+{
+  "candidate": "v12_r22_dense_nz_pitch.asc",
+  "parent": "v12_baseline_r19.asc",
+  "sha256": "96b12f4eb4b0f2717591b20211213779604ba1dcf71c0886d4153ac1332a6d39",
+  "parent_sha256": "27ff91a8e886644ba99b68e3a59ed4d5ed0a001039d6c56074df098d4c66c021",
+  "status": "Judge two runs all15 Pass; no clear Case11/12 benefit; not promoted",
+  "change": "Reuse r19 NZ device kernels for aligned M1K-2K N2K-8K K1.5K-4K only with non128B expensive ND pitches; original planner and all device code retained",
+  "validation_report": "../V12_npu_lab/results/c1112_20260928/REPORT.md",
+  "precision": [
+    {
+      "group": "screen",
+      "cases": 40,
+      "calls": 120,
+      "max_tolerance_ratio": 0.00427403528
+    },
+    {
+      "group": "holdout",
+      "cases": 64,
+      "calls": 192,
+      "max_tolerance_ratio": 0.0022167077
+    },
+    {
+      "group": "original",
+      "cases": 34,
+      "calls": 102,
+      "max_tolerance_ratio": 0.0013939016
+    },
+    {
+      "group": "c8",
+      "cases": 40,
+      "calls": 120,
+      "max_tolerance_ratio": 0.00193150313
+    },
+    {
+      "group": "split",
+      "cases": 128,
+      "calls": 384,
+      "max_tolerance_ratio": 0.00306928135
+    },
+    {
+      "group": "controls",
+      "cases": 10,
+      "calls": 30,
+      "max_tolerance_ratio": 0.000471150534
+    },
+    {
+      "group": "gap",
+      "cases": 32,
+      "calls": 96,
+      "max_tolerance_ratio": 0.00191857973
+    }
+  ],
+  "performance": {
+    "screen_event": {
+      "all": {
+        "count": 32,
+        "median": 0.11436488497443831,
+        "min": -0.11845994875951948,
+        "max": 52.7603055597434
+      },
+      "selected": {
+        "count": 14,
+        "median": 41.507123488518374,
+        "min": 28.424578874132177,
+        "max": 52.7603055597434
+      },
+      "fallback": {
+        "count": 18,
+        "median": 0.0062341676856980666,
+        "min": -0.11845994875951948,
+        "max": 0.20646001714244022
+      },
+      "c12_selected": {
+        "count": 7,
+        "median": 40.654493252397614,
+        "min": 30.40929612244475,
+        "max": 52.36423441050258
+      },
+      "c11_selected": {
+        "count": 7,
+        "median": 42.359753724639134,
+        "min": 28.424578874132177,
+        "max": 52.7603055597434
+      }
+    },
+    "holdout_event": {
+      "all": {
+        "count": 64,
+        "median": 18.28979505424143,
+        "min": -0.16995002994895092,
+        "max": 53.93702739262055
+      },
+      "selected": {
+        "count": 34,
+        "median": 30.13170153789497,
+        "min": 15.94528583922945,
+        "max": 53.93702739262055
+      },
+      "fallback": {
+        "count": 30,
+        "median": 0.00025401226068089144,
+        "min": -0.16995002994895092,
+        "max": 0.1655375017451055
+      },
+      "c12_selected": {
+        "count": 16,
+        "median": 30.13170153789497,
+        "min": 15.94528583922945,
+        "max": 52.8998850455876
+      },
+      "c11_selected": {
+        "count": 18,
+        "median": 30.388241363501642,
+        "min": 17.67664549558723,
+        "max": 53.93702739262055
+      }
+    },
+    "holdout_event_repeat": {
+      "all": {
+        "count": 64,
+        "median": 18.419634793419714,
+        "min": -0.1090805962526975,
+        "max": 54.24297770931534
+      },
+      "selected": {
+        "count": 34,
+        "median": 30.036062069873722,
+        "min": 16.030302277570097,
+        "max": 54.24297770931534
+      },
+      "fallback": {
+        "count": 30,
+        "median": -0.009112140004252645,
+        "min": -0.1090805962526975,
+        "max": 0.1261133294983452
+      },
+      "c12_selected": {
+        "count": 16,
+        "median": 30.036062069873722,
+        "min": 16.030302277570097,
+        "max": 52.64417596139588
+      },
+      "c11_selected": {
+        "count": 18,
+        "median": 30.42153936285353,
+        "min": 17.739144014313823,
+        "max": 54.24297770931534
+      }
+    },
+    "holdout_aa_event": {
+      "all": {
+        "count": 1,
+        "median": 0.08078709435231923,
+        "min": 0.08078709435231923,
+        "max": 0.08078709435231923
+      },
+      "fallback": {
+        "count": 1,
+        "median": 0.08078709435231923,
+        "min": 0.08078709435231923,
+        "max": 0.08078709435231923
+      }
+    }
+  },
+  "sanitizers": {
+    "memcheck": {
+      "errors": 0,
+      "skipped": false,
+      "finished_kernel_count": 2,
+      "messages": {}
+    },
+    "racecheck": {
+      "errors": 16,
+      "skipped": false,
+      "finished_kernel_count": 2,
+      "messages": {
+        "Potential RAW hazard detected at L0C": 8,
+        "Potential WAW hazard detected at L0C": 8
+      }
+    }
+  },
+  "host": {
+    "geometry_count": 24640,
+    "r21_changed": 9606,
+    "bins_no_yes": [
+      [
+        4428,
+        3764
+      ],
+      [
+        4742,
+        3450
+      ],
+      [
+        5864,
+        2392
+      ]
+    ],
+    "nz_bounds_checks": 3200,
+    "max_workspace_bytes": 99910400,
+    "max_app_ub_bytes": 188896,
+    "passed": true
+  },
+  "judge_feedback": "../V12_results/2026-09-28_r22_feedback/RESULTS.json"
+}

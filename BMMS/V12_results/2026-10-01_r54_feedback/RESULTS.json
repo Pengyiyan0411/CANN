@@ -1,0 +1,121 @@
+{
+  "version": "v12_r54",
+  "attribution": "Inferred from direct reply to r54 delivery; screenshot has no source version/hash label",
+  "local_source_sha256": "24d183f027a78e4637c828dc6766aea07626c351053137ec73919ef9fe8cbaaa",
+  "independent_runs": 1,
+  "all_15_pass": true,
+  "rows": [
+    {
+      "case": 1,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 2.48,
+      "displayed_reference_us": 1.37
+    },
+    {
+      "case": 2,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 4.82,
+      "displayed_reference_us": 1.83
+    },
+    {
+      "case": 3,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 5.45,
+      "displayed_reference_us": 2.44
+    },
+    {
+      "case": 4,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 6.45,
+      "displayed_reference_us": 3.23
+    },
+    {
+      "case": 5,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 6.57,
+      "displayed_reference_us": 2.33
+    },
+    {
+      "case": 6,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 14.68,
+      "displayed_reference_us": 7.16
+    },
+    {
+      "case": 7,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 9.52,
+      "displayed_reference_us": 3.69
+    },
+    {
+      "case": 8,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 47.13,
+      "displayed_reference_us": 17.32
+    },
+    {
+      "case": 9,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 66.73,
+      "displayed_reference_us": 50.68
+    },
+    {
+      "case": 10,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 79.44,
+      "displayed_reference_us": 68.65
+    },
+    {
+      "case": 11,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 83.39,
+      "displayed_reference_us": 71.25
+    },
+    {
+      "case": 12,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 115.21,
+      "displayed_reference_us": 85.25
+    },
+    {
+      "case": 13,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 15.1,
+      "displayed_reference_us": 5.21
+    },
+    {
+      "case": 14,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 13.81,
+      "displayed_reference_us": 6.08
+    },
+    {
+      "case": 15,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 11.32,
+      "displayed_reference_us": 8.31
+    }
+  ],
+  "decision": "No clear Case12 gain; keep r41 accepted. r54 coverage is unknown: ordinary timings are not a calibrated MISS.",
+  "limitations": [
+    "Unpaired single Judge run",
+    "Reference column changed: do not compare normalized scores across runs",
+    "Unchanged latency cannot distinguish full guard rejection from failure of local benefit to transfer"
+  ],
+  "next_step": "One complete r54 route-coverage probe, calibrated through the public entry on NPU; no new baseline promotion"
+}

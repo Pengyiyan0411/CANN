@@ -1,0 +1,31 @@
+{
+  "version": "v12_r44",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "07333c30adfcc8b75362500b3276e6a0d15da44f5428ea8dc87f4584c54fcbb2",
+  "status": "Judge all15 Pass; Case12 113.68us MISS; Case11 82.82us retains r41 gain",
+  "predicate": "Case12 wide-N interval AND exact r41 dtype, eligibility, pitch and family guards",
+  "hit_action": "one Cube plus two AIVs compute full result via unchanged r30 kernel",
+  "new_device_entries": 0,
+  "parent_byte_recovery": true,
+  "validation": {
+    "precision_configurations": 230,
+    "precision_calls": 690,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.00191358175
+  },
+  "calibration": {
+    "hit_count": 8,
+    "miss_count": 18,
+    "hit_range": [
+      15.070506344286716,
+      16.648139094825353
+    ],
+    "miss_range": [
+      0.9840319361277445,
+      1.0121900826446282
+    ],
+    "all_hit_hardware_counts_verified": true
+  },
+  "report": "../V12_npu_lab/results/wide_pingpong_20260929/REPORT.md",
+  "judge_feedback": "../V12_results/2026-09-29_r44_feedback/RESULTS.json"
+}

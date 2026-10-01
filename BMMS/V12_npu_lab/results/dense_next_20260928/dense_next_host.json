@@ -1,0 +1,20 @@
+{
+  "source": [
+    {
+      "version": 31,
+      "sha256": "b045ed9e47aabfae6bf7a10d02ccd2f6a31d944f8ce8748589700b725454a489",
+      "parent_byte_recovery": true
+    },
+    {
+      "version": 32,
+      "sha256": "9bef78c99a095e30a92df1db4541e68f1bf682e5b6ce0322f6a7817696609cb8",
+      "parent_byte_recovery": true
+    }
+  ],
+  "load2d_fractal_mapping_checks": 10240,
+  "prefetch_chains": 192,
+  "prefetch_macros": 19936,
+  "prefetch_loads": 107156,
+  "shortk_max_explicit_ub_bytes": 164384,
+  "scope": "Discrete mapping/flag model, not device scheduling proof"
+}

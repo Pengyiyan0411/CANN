@@ -1,0 +1,328 @@
+--- R25_NATIVE_TARGETED.asc
++++ R43_CASE8_PADDED_MACRO.asc
+@@ -3678,6 +3678,317 @@
+ } // namespace bmms25
+ // BMMS25_END
+ 
++
++// BMMS_C8P43_BEGIN
++// R43: one-launch input canonicalization + the UNMODIFIED R25 Macro producer.
++// The only dispatch addition targets a large ragged B=1 shape family.
++// No C-free / R35..R42 experiments are included.
++// Source checks are not a Bisheng compilation or an NPU performance result.
++namespace bmms_c8p43 {
++using CubePlan=bmms11r2::Plan;
++using bmms83::MinI;
++constexpr int32_t TM=bmms11r2::TM,TN=bmms11r2::TN;
++constexpr int32_t AM=bmms11r2::AM,BN=bmms11r2::BN;
++constexpr int32_t MACRO_ELEMS=bmms11r2::MACRO_ELEMS;
++constexpr uint16_t READY=bmms11r2::READY,FREE=bmms11r2::FREE;
++// Separate from the ring (4..7) and SyncAll's reserved flags (11..14).
++constexpr uint16_t PACK_ALL=0,PACK_TO_CUBE=2;
++constexpr int32_t PACK_SLOT_ELEMS=32768; // 64 KiB, half-sized raw words
++constexpr int32_t PACK_SLOTS=2;
++constexpr uint64_t MAX_WORKSPACE_BYTES=128ULL*1024ULL*1024ULL;
++constexpr uint64_t UB_BUDGET_BYTES=190ULL*1024ULL;
++
++struct PackDesc {
++    int32_t srcRows,srcCols,dstRows,dstCols,rowsPerJob,jobs;
++};
++struct RaggedPlan {
++    CubePlan cube;
++    int32_t realM,realN,realK;
++    PackDesc a,b;
++};
++
++// BMMS_C8P43_HOST_MODEL_BEGIN
++static inline int32_t AlignUp(int32_t x,int32_t a){return (x+a-1)/a*a;}
++static inline PackDesc MakePackDesc(int32_t sr,int32_t sc,int32_t dr,int32_t dc){
++    PackDesc d{};d.srcRows=sr;d.srcCols=sc;d.dstRows=dr;d.dstCols=dc;
++    d.rowsPerJob=PACK_SLOT_ELEMS/dc;
++    if(d.rowsPerJob>0)d.jobs=(dr+d.rowsPerJob-1)/d.rowsPerJob;
++    return d;
++}
++static inline bool Eligible(int32_t B,int32_t M,int32_t N,int32_t K,
++    int32_t dtype,int32_t cores){
++    // A metadata domain, not a hidden test ID. Exact dimensions/residues are
++    // NOT assumed: all valid values and all four layouts in this domain work.
++    return B==1&&(dtype==1||dtype==2)&&cores>=1&&cores<=64&&
++        M>=1024&&M<2048&&N>=1024&&N<2048&&K>1024&&K<1280&&
++        K%8==0&&((M%16)!=0||(N%16)!=0||(K%32)!=0);
++}
++static inline RaggedPlan MakePlan(int32_t M,int32_t N,int32_t K,
++    int32_t cores,bool ta,bool tb){
++    RaggedPlan p{};p.realM=M;p.realN=N;p.realK=K;
++    const int mp=AlignUp(M,16),np=AlignUp(N,16),kp=AlignUp(K,32);
++    p.cube=bmms11r2::MakePlan(1,mp,np,kp,cores);
++    // Preserve physical storage order. Padding is a bitwise copy, NOT a
++    // transpose or float conversion; the Cube uses the original TA/TB flags.
++    p.a=ta?MakePackDesc(K,M,kp,mp):MakePackDesc(M,K,mp,kp);
++    p.b=tb?MakePackDesc(N,K,np,kp):MakePackDesc(K,N,kp,np);
++    return p;
++}
++static inline uint64_t ABytes(const RaggedPlan& p){return uint64_t(p.cube.M)*p.cube.K*2ULL;}
++static inline uint64_t BBytes(const RaggedPlan& p){return uint64_t(p.cube.K)*p.cube.N*2ULL;}
++static inline uint64_t RingBytes(const RaggedPlan& p){return bmms11r2::RingBytes(p.cube);}
++static inline uint64_t PartialBytes(const RaggedPlan& p){return bmms11r2::PartialBytes(p.cube);}
++static inline uint64_t WorkspaceBytes(const RaggedPlan& p){
++    return ABytes(p)+BBytes(p)+RingBytes(p)+PartialBytes(p);
++}
++static inline uint64_t AppUbBytes(const RaggedPlan& p){
++    // Two input pack buffers + the inherited consumer's explicit allocations.
++    return uint64_t(PACK_SLOTS)*PACK_SLOT_ELEMS*2ULL+
++        2ULL*(TM/2)*TN*4ULL+32ULL+(TM/2)*4ULL+AM*4ULL+
++        3ULL*p.cube.M*4ULL;
++}
++static inline bool ValidPlan(const RaggedPlan& p,int32_t cores){
++    const auto& c=p.cube;
++    return c.B==1&&c.M%16==0&&c.N%16==0&&c.K%32==0&&
++        c.M>=p.realM&&c.N>=p.realN&&c.K>=p.realK&&
++        c.M<=2048&&c.N<=2048&&c.K<=1280&&
++        c.pM>=1&&c.pM<=c.mTiles&&c.pN>=1&&c.pN<=c.nTiles&&
++        c.tasks==c.pM*c.pN&&c.blocks>=1&&c.blocks<=cores&&c.blocks<=c.tasks&&
++        p.a.rowsPerJob>=1&&p.b.rowsPerJob>=1&&p.a.jobs>=1&&p.b.jobs>=1&&
++        WorkspaceBytes(p)<=MAX_WORKSPACE_BYTES&&AppUbBytes(p)<=UB_BUDGET_BYTES;
++}
++// BMMS_C8P43_HOST_MODEL_END
++
++// Both FP16 and BF16 are copied as raw 16-bit words. Using half as the copy
++// type does not reinterpret data arithmetically; only newly padded lanes are
++// written with +0 (the same bit pattern in both formats).
++__aicore__ inline void PackInputs(GM_ADDR a,GM_ADDR b,GM_ADDR ap,GM_ADDR bp,
++    const RaggedPlan& p,AscendC::TPipe* pipe,AscendC::TBuf<AscendC::TPosition::VECCALC>& buf){
++    AscendC::GlobalTensor<half> ga,gb,gap,gbp;
++    ga.SetGlobalBuffer(reinterpret_cast<__gm__ half*>(a),int64_t(p.realM)*p.realK);
++    gb.SetGlobalBuffer(reinterpret_cast<__gm__ half*>(b),int64_t(p.realK)*p.realN);
++    gap.SetGlobalBuffer(reinterpret_cast<__gm__ half*>(ap),int64_t(p.cube.M)*p.cube.K);
++    gbp.SetGlobalBuffer(reinterpret_cast<__gm__ half*>(bp),int64_t(p.cube.K)*p.cube.N);
++    AscendC::TEventID freeId[PACK_SLOTS];
++    for(int s=0;s<PACK_SLOTS;++s)freeId[s]=pipe->AllocEventID<AscendC::HardEvent::MTE3_V>();
++    const int worker=AscendC::GetBlockIdx(),workers=2*p.cube.blocks;
++    const int jobs=p.a.jobs+p.b.jobs;
++    int issued=0;
++    for(int job=worker;job<jobs;job+=workers){
++        const bool isA=job<p.a.jobs;
++        const PackDesc d=isA?p.a:p.b;
++        const int j=isA?job:job-p.a.jobs;
++        const int row0=j*d.rowsPerJob;
++        const int rows=MinI(d.rowsPerJob,d.dstRows-row0);
++        const int realRows=MinI(rows,d.srcRows-row0);
++        const int slot=issued&(PACK_SLOTS-1);
++        if(issued>=PACK_SLOTS)AscendC::WaitFlag<AscendC::HardEvent::MTE3_V>(freeId[slot]);
++        auto x=buf.Get<half>()[slot*PACK_SLOT_ELEMS];
++        AscendC::Duplicate(x,half(0.0f),rows*d.dstCols);
++        if(realRows>0){
++            bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe);
++            const int copiedPitch=(d.srcCols+15)/16*16;
++            AscendC::DataCopyExtParams cp{static_cast<uint16_t>(realRows),
++                uint32_t(d.srcCols*2),0,uint32_t((d.dstCols-copiedPitch)/16),0};
++            // Explicit padding <=15 half elements (<32 bytes). If K rounded
++            // to 32 requires a further 16 words, the pre-zeroed row gap keeps
++            // those words zero too. No out-of-bounds source rows are read.
++            AscendC::DataCopyPadExtParams<half> pd{true,0,
++                static_cast<uint8_t>(copiedPitch-d.srcCols),half(0.0f)};
++            if(isA)AscendC::DataCopyPad(x,ga[int64_t(row0)*d.srcCols],cp,pd);
++            else AscendC::DataCopyPad(x,gb[int64_t(row0)*d.srcCols],cp,pd);
++            bmms71::Fence<AscendC::HardEvent::MTE2_MTE3>(*pipe);
++        }else{
++            bmms71::Fence<AscendC::HardEvent::V_MTE3>(*pipe);
++        }
++        // Each job owns whole, 32-byte-aligned padded rows. No overlapping
++        // stores, atomics, scalar GM stores or host-side tensor preprocessing.
++        if(isA)AscendC::DataCopy(gap[int64_t(row0)*d.dstCols],x,rows*d.dstCols);
++        else AscendC::DataCopy(gbp[int64_t(row0)*d.dstCols],x,rows*d.dstCols);
++        AscendC::SetFlag<AscendC::HardEvent::MTE3_V>(freeId[slot]);
++        ++issued;
++    }
++    for(int s=0;s<MinI(PACK_SLOTS,issued);++s)
++        AscendC::WaitFlag<AscendC::HardEvent::MTE3_V>(freeId[s]);
++    for(int s=0;s<PACK_SLOTS;++s)pipe->ReleaseEventID<AscendC::HardEvent::MTE3_V>(freeId[s]);
++    // Every AIV (including one with zero pack jobs) participates. Batch mode
++    // prevents a partial-residency inter-core barrier deadlock.
++    AscendC::CrossCoreSetFlag<0x0,PIPE_MTE3>(PACK_ALL);
++    AscendC::CrossCoreWaitFlag<0x0>(PACK_ALL);
++    // Both AIVs signal their AIC only after the entire padded A/B is ready.
++    AscendC::CrossCoreSetFlag<0x2,PIPE_MTE3>(PACK_TO_CUBE);
++}
++
++class MaskedRowMaxConsumer {
++    CubePlan p;AscendC::TPipe* pipe_;
++    int realM=0,realN=0;
++    AscendC::GlobalTensor<float> ring,part,out;
++    AscendC::TQue<AscendC::TPosition::VECIN,1> cq;
++    AscendC::TQue<AscendC::TPosition::VECOUT,1> oq;
++    AscendC::TBuf<AscendC::TPosition::VECCALC> groupBuf,rowBuf,sumBuf;
++    AscendC::TBuf<AscendC::TPosition::VECOUT> runningBuf;
++    AscendC::TBuf<AscendC::TPosition::VECIN> mergedBuf,tmpBuf;
++public:
++    __aicore__ inline void Init(GM_ADDR r,GM_ADDR pt,GM_ADDR y,const RaggedPlan& plan,AscendC::TPipe* pipe){
++        p=plan.cube;realM=plan.realM;realN=plan.realN;pipe_=pipe;
++        ring.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(r),int64_t(p.blocks)*2*MACRO_ELEMS);
++        part.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(pt),int64_t(p.B)*p.pN*p.M);
++        out.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(y),p.B);
++        pipe->InitBuffer(cq,1,(TM/2)*TN*4);pipe->InitBuffer(oq,1,32);
++        pipe->InitBuffer(groupBuf,(TM/2)*TN*4);pipe->InitBuffer(rowBuf,(TM/2)*4);
++        pipe->InitBuffer(runningBuf,AM*4);pipe->InitBuffer(mergedBuf,p.M*4);
++        pipe->InitBuffer(tmpBuf,p.M*4);pipe->InitBuffer(sumBuf,p.M*4);
++    }
++    __aicore__ inline void Process(){
++        const int worker=AscendC::GetBlockIdx(),group=worker/2,sub=worker%2;
++        const int perBatch=p.pM*p.pN;
++        int seq=0;auto acc=groupBuf.Get<float>();auto rows=rowBuf.Get<float>();auto run=runningBuf.Get<float>();
++        for(int task=group;task<p.tasks;task+=p.blocks){
++            const int batch=task/perBatch,slot=task-batch*perBatch;
++            const int ms=slot/p.pN,ns=slot-ms*p.pN;
++            const int mt0=ms*p.mTiles/p.pM,mt1=(ms+1)*p.mTiles/p.pM;
++            const int nt0=ns*p.nTiles/p.pN,nt1=(ns+1)*p.nTiles/p.pN;
++            const int mBegin=mt0*AM,mEnd=MinI(mt1*AM,p.M);
++            const int nBegin=nt0*BN,nEnd=MinI(nt1*BN,p.N);
++            for(int mBase=mBegin;mBase<mEnd;mBase+=AM){
++                const int ar=MinI(AM,mEnd-mBase);
++                AscendC::Duplicate(run,bmmmaxsum_v43::NEG_INF,ar);AscendC::PipeBarrier<PIPE_V>();
++                for(int nBase=nBegin;nBase<nEnd;nBase+=BN){
++                    const int br=MinI(BN,nEnd-nBase),ringSlot=seq&1;
++                    AscendC::CrossCoreWaitFlag<0x2>(READY+ringSlot);
++                    for(int mo=0;mo<ar;mo+=TM){
++                        const int mr=MinI(TM,ar-mo),vr=mr/2;
++                        AscendC::Duplicate(acc,bmmmaxsum_v43::NEG_INF,vr*TN);AscendC::PipeBarrier<PIPE_V>();
++                        for(int no=0;no<br;no+=TN){
++                            const int nr=MinI(TN,br-no),ci=(mo/TM)*2+no/TN;
++                            auto c=cq.AllocTensor<float>();
++                            AscendC::Duplicate(c,bmmmaxsum_v43::NEG_INF,vr*TN);
++                            bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++                            const int64_t off=(int64_t(group)*2+ringSlot)*MACRO_ELEMS+ci*TM*TN+sub*vr*TN;
++                            // Padded B columns produce zero C, which MUST NOT enter Max(N).
++                            // Keep only true columns and explicitly pad the final DMA block
++                            // with -infinity (not DataCopyPad's unspecified dummy values).
++                            const int live=MinI(nr,realN-nBase-no);
++                            if(live>0){
++                                const int live8=(live+7)/8*8;
++                                AscendC::DataCopyExtParams cp{static_cast<uint16_t>(vr),
++                                    uint32_t(live*4),uint32_t((TN-live)*4),
++                                    uint32_t((TN-live8)/8),0};
++                                AscendC::DataCopyPadExtParams<float> pd{true,0,
++                                    static_cast<uint8_t>(live8-live),bmmmaxsum_v43::NEG_INF};
++                                AscendC::DataCopyPad(c,ring[off],cp,pd);
++                            }
++                            cq.EnQue(c);c=cq.DeQue<float>();
++                            // Each AIV releases only after its LAST live micro-tile read.
++                            if(mo+mr==ar&&no+nr==br)AscendC::CrossCoreSetFlag<0x2,PIPE_MTE2>(FREE+ringSlot);
++                            AscendC::Max(acc,acc,c,vr*TN);AscendC::PipeBarrier<PIPE_V>();cq.FreeTensor(c);
++                        }
++                        AscendC::BinaryRepeatParams rp{1,1,1,16,16,16};
++                        AscendC::Max(acc,acc,acc[64],64,vr,rp);AscendC::PipeBarrier<PIPE_V>();
++                        AscendC::WholeReduceMax(rows,acc,64,vr,1,1,16,AscendC::ReduceOrder::ORDER_ONLY_VALUE);
++                        AscendC::PipeBarrier<PIPE_V>();
++                        AscendC::Max(run[mo+sub*vr],run[mo+sub*vr],rows,vr);AscendC::PipeBarrier<PIPE_V>();
++                    }
++                    ++seq;
++                }
++                bmms71::Fence<AscendC::HardEvent::V_MTE3>(*pipe_);
++                for(int mo=0;mo<ar;mo+=TM){
++                    const int vr=MinI(TM,ar-mo)/2;
++                    const int64_t dst=(int64_t(batch)*p.pN+ns)*p.M+mBase+mo+sub*vr;
++                    AscendC::DataCopy(part[dst],run[mo+sub*vr],vr);
++                }
++                bmms71::Fence<AscendC::HardEvent::MTE3_V>(*pipe_);
++            }
++        }
++        bmms71::Fence<AscendC::HardEvent::MTE3_MTE2>(*pipe_);AscendC::SyncAll<true>();
++        auto merged=mergedBuf.Get<float>(),tmp=tmpBuf.Get<float>();
++        for(int batch=worker;batch<p.B;batch+=2*p.blocks){
++            const int64_t start=int64_t(batch)*p.pN*p.M;
++            AscendC::DataCopy(merged,part[start],p.M);bmms71::Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
++            for(int ns=1;ns<p.pN;++ns){
++                AscendC::DataCopy(tmp,part[start+int64_t(ns)*p.M],p.M);bmms71::Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
++                AscendC::Max(merged,merged,tmp,p.M);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++            }
++            auto yy=oq.AllocTensor<float>();
++            // Do not include the padded M rows in the final sum.
++            AscendC::ReduceSum(yy,merged,sumBuf.Get<float>(),realM);
++            oq.EnQue(yy);yy=oq.DeQue<float>();AscendC::DataCopyExtParams oc{1,4,0,0,0};
++            AscendC::DataCopyPad(out[batch],yy,oc);oq.FreeTensor(yy);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++        }
++    }
++};
++
++template<class T,bool TA,bool TB>
++__aicore__ inline void Entry(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR ap,GM_ADDR bp,
++    GM_ADDR ring,GM_ADDR part,RaggedPlan p){
++    AscendC::TPipe pipe;
++    if ASCEND_IS_AIC {
++        // Reuse the frozen R25 producer itself, not a modified copy.
++        bmms11r2::ReuseProducer<T,TA,TB> op;
++        op.Init(ap,bp,ring,p.cube,&pipe);
++        AscendC::CrossCoreWaitFlag<0x2>(PACK_TO_CUBE);
++        op.Process();
++    }
++    if ASCEND_IS_AIV {
++        AscendC::TBuf<AscendC::TPosition::VECCALC> packBuf;
++        pipe.InitBuffer(packBuf,PACK_SLOTS*PACK_SLOT_ELEMS*2);
++        PackInputs(a,b,ap,bp,p,&pipe,packBuf);
++        MaskedRowMaxConsumer op;
++        op.Init(ring,part,y,p,&pipe);
++        op.Process();
++    }
++}
++} // namespace bmms_c8p43
++
++#define BMMS_C8P43_KERNEL(NAME,T,TA,TB) \
++__schedmode__(1) __global__ __mix__(1,2) void NAME(GM_ADDR a,GM_ADDR b,GM_ADDR y, \
++    GM_ADDR ap,GM_ADDR bp,GM_ADDR ring,GM_ADDR part,bmms_c8p43::RaggedPlan p){ \
++    bmms_c8p43::Entry<T,TA,TB>(a,b,y,ap,bp,ring,part,p); }
++BMMS_C8P43_KERNEL(bmms_c8p43_f16_nn,half,false,false)
++BMMS_C8P43_KERNEL(bmms_c8p43_f16_nt,half,false,true)
++BMMS_C8P43_KERNEL(bmms_c8p43_f16_tn,half,true,false)
++BMMS_C8P43_KERNEL(bmms_c8p43_f16_tt,half,true,true)
++BMMS_C8P43_KERNEL(bmms_c8p43_b16_nn,bfloat16_t,false,false)
++BMMS_C8P43_KERNEL(bmms_c8p43_b16_nt,bfloat16_t,false,true)
++BMMS_C8P43_KERNEL(bmms_c8p43_b16_tn,bfloat16_t,true,false)
++BMMS_C8P43_KERNEL(bmms_c8p43_b16_tt,bfloat16_t,true,true)
++#undef BMMS_C8P43_KERNEL
++
++namespace bmms_c8p43 {
++static inline bool TryLaunch(GM_ADDR a,GM_ADDR b,GM_ADDR y,int32_t B,int32_t M,
++    int32_t N,int32_t K,int32_t dtype,bool ta,bool tb,int32_t cores,aclrtStream stream){
++    if(!Eligible(B,M,N,K,dtype,cores))return false;
++    const RaggedPlan p=MakePlan(M,N,K,cores,ta,tb);
++    if(!ValidPlan(p,cores))return false;
++    uint8_t* ws=nullptr;
++    if(aclrtMalloc(reinterpret_cast<void**>(&ws),WorkspaceBytes(p),
++        ACL_MEM_MALLOC_HUGE_FIRST)!=ACL_SUCCESS)return false;
++    uint8_t* ap=ws;
++    uint8_t* bp=ap+ABytes(p);
++    uint8_t* ring=bp+BBytes(p);
++    uint8_t* part=ring+RingBytes(p);
++#define BMMS_C8P43_LAUNCH(NAME) NAME<<<p.cube.blocks,nullptr,stream>>>(a,b,y,ap,bp,ring,part,p)
++    if(dtype==1){
++        if(!ta&&!tb){BMMS_C8P43_LAUNCH(bmms_c8p43_f16_nn);}
++        else if(!ta&&tb){BMMS_C8P43_LAUNCH(bmms_c8p43_f16_nt);}
++        else if(ta&&!tb){BMMS_C8P43_LAUNCH(bmms_c8p43_f16_tn);}
++        else{BMMS_C8P43_LAUNCH(bmms_c8p43_f16_tt);}
++    }else{
++        if(!ta&&!tb){BMMS_C8P43_LAUNCH(bmms_c8p43_b16_nn);}
++        else if(!ta&&tb){BMMS_C8P43_LAUNCH(bmms_c8p43_b16_nt);}
++        else if(ta&&!tb){BMMS_C8P43_LAUNCH(bmms_c8p43_b16_tn);}
++        else{BMMS_C8P43_LAUNCH(bmms_c8p43_b16_tt);}
++    }
++#undef BMMS_C8P43_LAUNCH
++    // After a device launch we must not free buffers or silently fall back
++    // before completion. This is the same error/lifetime policy as R25.
++    if(aclrtSynchronizeStream(stream)!=ACL_SUCCESS)std::abort();
++    if(aclrtFree(ws)!=ACL_SUCCESS)std::abort();
++    return true;
++}
++} // namespace bmms_c8p43
++// BMMS_C8P43_END
++
+ extern "C" void run_kernel(GM_ADDR a,const TensorGroupInfo& ia,GM_ADDR b,const TensorGroupInfo& ib,GM_ADDR y,const TensorGroupInfo& iy,
+     int64_t availableCoreNum,aclrtStream stream,bool ta,bool tb){
+     // Reuse the public input contract; no values or hidden case identifiers are read.
+@@ -3690,6 +4001,7 @@
+     if(bmms11r2::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;
+     if(bmms23::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;
+     if(bmms11d::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;
++    if(bmms_c8p43::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;
+     const auto family=bmms8::Classify(B,M,N,K,ta,tb);
+     const bool tree=BMMS83_ENABLE_TREE&&(family==bmms8::Family::M1_NContig||family==bmms8::Family::N1_MContig);
+     const bool native=BMMS83_ENABLE_NATIVE&&bmms83::NativeEligible(M,N,K)&&

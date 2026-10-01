@@ -1,0 +1,13 @@
+{
+  "R47_NATIVE_NARROW_DIRECT": {
+    "sha256": "57dbbc691f4a43e3eaeefed89bf0f8616efd6dfc99d74fdcb69aeecee3725103",
+    "bytes": 223769,
+    "baseline_recovered_byte_for_byte": true
+  },
+  "R48_RESIDUAL_BATCH_OWNER": {
+    "sha256": "7f48ea4ec9346a7cd61745394a8578e97e5c834b126a981982e8bc0f82a87d72",
+    "bytes": 215681,
+    "baseline_recovered_byte_for_byte": true
+  },
+  "baseline_sha256": "15e2c9a0f73e7534c26400107389dcd8e5cf685b5f6f477c7a3684ad3991df2d"
+}

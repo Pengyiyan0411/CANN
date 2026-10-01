@@ -1,0 +1,12 @@
+{
+  "K_dtype_pattern_seed_pairs": 520,
+  "actual_source_runs": 1040,
+  "bitwise_equal_pairs": 520,
+  "max_abs_vs_fp64_reference": 7.45058059692e-09,
+  "model_UB_peak_bytes": 2080,
+  "incomplete_combined_cast_rejected": "UB uninitialized read",
+  "scope": "actual old/new short Dot in CPU arithmetic/storage model, not hardware pipeline emulation",
+  "source_sha256": "3c66689f4a38b4b6b02aa92547b39065a55d3fdfbcf767d6a53a4618f34cc284",
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

@@ -1,0 +1,30 @@
+{
+  "version": "v12_r46",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "82d7a3ce7ec0ff659bad62e3c1a96bfbd3727526e82ee61c2ec3e7f969256456",
+  "status": "Research only: active screen median reduction 1.14%, 6/10 wins, worst regression 0.97%; not promoted",
+  "parent_byte_recovery": true,
+  "scope": "Case12 domain, original r30 guards, r41 gate FALSE",
+  "change": "128-column scheduling units coalesced to original128x256 macro; parallel sparse row Max, then scalar Sum",
+  "new_device_entries": 8,
+  "npu_validation": {
+    "precision_configurations": 230,
+    "precision_calls": 690,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.00191358175
+  },
+  "performance": {
+    "r46_screen": {
+      "active_configurations": 10,
+      "total_configurations": 32,
+      "wins": 6,
+      "median_reduction_percent": 1.1351334230263577,
+      "min_reduction_percent": -0.9723025675907548,
+      "max_reduction_percent": 1.8570544259797317,
+      "both_windows_faster": 6
+    }
+  },
+  "readme": "../V12_npu_lab/results/b_resident_20260929/REPORT.md",
+  "judge_tested": false,
+  "sanitizer": "Not run for these experimental variants; inherited unresolved baseline limitations remain."
+}

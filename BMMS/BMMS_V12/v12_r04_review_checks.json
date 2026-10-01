@@ -1,0 +1,19 @@
+{
+  "source_sha256": "d4c0e539ca2145aa520e7b63c7a6bd8b9006ef3d54fa531971b1cf4c67720605",
+  "independent_slot_dependency_histories": 512,
+  "modeled_operations": 299808,
+  "logical_A_address_checks": 23298048,
+  "mutations_rejected": {
+    "drop_ready_wait": "read before MTE2 write finishes: ('A', 2)",
+    "drop_free_wait": "overwrite before MTE1 readers finish: ('B', 0)",
+    "wrong_cache_read": "uninitialized slot ('A', 0)",
+    "never_refresh": "uninitialized slot ('A', 2)",
+    "keep_first_m": "stale cache identity ('A', 2)"
+  },
+  "previous_sample_total_AB_bytes": 17868800,
+  "previous_sample_saved_AB_bytes": 704512,
+  "previous_sample_total_AB_reduction_fraction": 0.03942693409742121,
+  "scope": "independent manually derived FIFO MTE2/MTE1 partial-order and A NZ address model; not device execution; no proof of hardware asynchronous completion semantics",
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

@@ -1,0 +1,14 @@
+--- supplied_NBIT1
++++ clean_O10
+@@ -275,11 +275,6 @@
+     const auto family=bmms8::Classify(B,M,N,K,ta,tb);
+     if(family==bmms8::Family::Resident||family==bmms8::Family::Tiny)return false;
+     auto p=MakePlan(B,M,N,K,cores);
+-    // Strong timing encoder for bit 1 of q=(N-4096)/64.
+-    const int qN=(N-4096)/64;
+-    if(((qN>>1)&1)!=0){
+-        p.pM=1; p.pN=1; p.tasks=B; p.blocks=1;
+-    }
+     uint8_t* ws=nullptr;
+     if(aclrtMalloc(reinterpret_cast<void**>(&ws),bmms11r2::WorkspaceBytes(p),ACL_MEM_MALLOC_HUGE_FIRST)!=ACL_SUCCESS)std::abort();
+     uint8_t* partial=ws+bmms11r2::RingBytes(p);

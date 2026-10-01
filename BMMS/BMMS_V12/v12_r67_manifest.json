@@ -1,0 +1,29 @@
+{
+  "version": "v12_r67",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "dc078c8f1738303c088ca7e4584cc96432916e6cd8b7629582adf13bad04315d",
+  "status": "CANN build and 186-configuration precision passed; research only, no Judge submission or promotion",
+  "parent_byte_recovery": true,
+  "new_device_entries": 4,
+  "change": "Rotate N macro traversal by M-shard id; same logical task ownership, K order, buffers and sync; full-K rowmax only",
+  "coverage_lookahead_checks": 83664,
+  "L1": 393216,
+  "L0A": 32768,
+  "L0B": 65536,
+  "L0C": 131072,
+  "validation": {
+    "configurations": 186,
+    "calls": 602,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453,
+    "max_abs_error": 0.0410700754,
+    "median_reduction_pct": 2.215842360721365,
+    "min_reduction_pct": 1.424658243914434,
+    "max_reduction_pct": 3.7693922824095227,
+    "both_windows_faster": 8
+  },
+  "report": "../V12_npu_lab/results/rethink_20261001/REPORT.md",
+  "independent_performance_holdout": false,
+  "new_sanitizer_run": false,
+  "judge15": false
+}

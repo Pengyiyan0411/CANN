@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-28",
+  "source": "User-reported Judge Case8 timings",
+  "candidate": "R45_CASE8_PACK_TAIL_ZERO.asc",
+  "candidate_sha256": "6460037bad51015aef79999378274b534a2aa4132e6867d7d7abbdf0dab7efe2",
+  "baseline": "R43_CASE8_PADDED_MACRO.asc",
+  "baseline_case8_us": 62.45,
+  "candidate_case8_us": [62.54, 62.47],
+  "mean_us": 62.505,
+  "judgment": "No visible gain; keep R43 as the performance control",
+  "promotion": false,
+  "all_case_pass_status_provided_in_this_feedback": false,
+  "other_case_timings_provided_in_this_feedback": false,
+  "next_direction": "R46: SDK fast body and an overlapping full-tile final N shard, based on original R43"
+}

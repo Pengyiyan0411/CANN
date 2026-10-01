@@ -1,0 +1,10 @@
+{
+  "version": "v12_r32",
+  "file": "v12_r32_shortk_macro_prefetch.asc",
+  "sha256": "9bef78c99a095e30a92df1db4541e68f1bf682e5b6ce0322f6a7817696609cb8",
+  "parent": "v12_baseline_r30.asc",
+  "status": "Superseded by r33 with validated all-pitch short-K coverage",
+  "change": "Add aligned B1 M/N>=1024 K[1024,1536) route using exact r30 kernel; r30 Case11/12 entry byte-preserved",
+  "parent_byte_recovery": true,
+  "npu_report": "../V12_npu_lab/results/dense_next_20260928/REPORT.md"
+}

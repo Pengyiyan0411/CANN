@@ -1,0 +1,14 @@
+{
+  "candidate": "v12_r16_case8_blockpack_nz.asc",
+  "parent": "v12_baseline_r12.asc",
+  "parent_sha256": "a845fd9538fe71d5f6284fced34781d8fb7e997105c51065a84b344818ddbd2b",
+  "sha256": "0a9234c71a7e5fa57b0b4ef2ecc712616e3ca3c9288609c889427fc48f95e819",
+  "parent_recovered_byte_for_byte": true,
+  "status": "rejected: precision 24/24, screen median latency increase 138.79%; AIV MTE3 57.991 us on representative NN input",
+  "pack_tile": [
+    256,
+    128
+  ],
+  "producer": "r13 NZ GM-to-L1",
+  "macro_and_plan_unchanged": true
+}

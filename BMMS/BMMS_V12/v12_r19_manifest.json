@@ -1,0 +1,100 @@
+{
+  "candidate": "v12_r19_case8_nz_explicit_tail.asc",
+  "parent": "v12_baseline_r12.asc",
+  "parent_sha256": "a845fd9538fe71d5f6284fced34781d8fb7e997105c51065a84b344818ddbd2b",
+  "sha256": "27ff91a8e886644ba99b68e3a59ed4d5ed0a001039d6c56074df098d4c66c021",
+  "parent_recovered_byte_for_byte": true,
+  "status": "accepted after Judge feedback; race/init limitations retained",
+  "difference_from_r18": "explicit normal-mask full repeats plus tail for final row-Max merge only",
+  "precision": [
+    {
+      "file": "c8_r19_correctness.jsonl",
+      "cases": 24,
+      "calls": 72,
+      "max_tolerance_ratio": 0.00203206129
+    },
+    {
+      "file": "c8_r19_holdout_correctness.jsonl",
+      "cases": 56,
+      "calls": 168,
+      "max_tolerance_ratio": 0.00138142307
+    },
+    {
+      "file": "c8_r19_final_correctness.jsonl",
+      "cases": 40,
+      "calls": 120,
+      "max_tolerance_ratio": 0.00193150313
+    },
+    {
+      "file": "c8_r19_controls_correctness.jsonl",
+      "cases": 10,
+      "calls": 30,
+      "max_tolerance_ratio": 0.000471150534
+    },
+    {
+      "file": "c8_r19_split_retention.jsonl",
+      "cases": 128,
+      "calls": 384,
+      "max_tolerance_ratio": 0.00306928135
+    }
+  ],
+  "performance": {
+    "all": {
+      "cases": 40,
+      "median": 15.029412654322151,
+      "min": -0.08618711701759985,
+      "max": 37.66508356919548
+    },
+    "nz": {
+      "cases": 26,
+      "median": 26.182341383439493,
+      "min": 1.6188906424208005,
+      "max": 37.66508356919548
+    },
+    "fallback": {
+      "cases": 14,
+      "median": -0.0176403894202537,
+      "min": -0.08618711701759985,
+      "max": 0.11533079665088097
+    }
+  },
+  "repeat_performance": {
+    "all": {
+      "cases": 40,
+      "median": 14.829827095879999,
+      "min": -0.10582970451993301,
+      "max": 37.66560998663198
+    },
+    "nz": {
+      "cases": 26,
+      "median": 26.167214705226982,
+      "min": 1.937442594948524,
+      "max": 37.66560998663198
+    },
+    "fallback": {
+      "cases": 14,
+      "median": -0.016446823631621754,
+      "min": -0.10582970451993301,
+      "max": 0.16908736717569095
+    }
+  },
+  "sanitizers": {
+    "memcheck": {
+      "errors": 0,
+      "cases": 2,
+      "log": "c8_r19_instrumented_memcheck.log"
+    },
+    "racecheck": {
+      "errors": 16,
+      "cases": 2,
+      "log": "c8_r19_instrumented_racecheck.log"
+    },
+    "initcheck": {
+      "errors": 4596,
+      "cases": 2,
+      "log": "c8_r19_instrumented_initcheck.log"
+    }
+  },
+  "npu_report": "../V12_npu_lab/results/case8_20260928/REPORT.md",
+  "judge_feedback": "../V12_results/2026-09-28_r19_feedback/RESULTS.json"
+}

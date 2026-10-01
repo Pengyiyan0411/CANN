@@ -1,0 +1,18 @@
+{
+  "candidate": "v12_r09_native_b_l0_resident.asc",
+  "sha256": "1fa1dd79b560e749505420ed34c808e09cb2f43a77009e60813f46f2d9c8149c",
+  "parent": "v12_baseline_r03.asc",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "parent_recovered_byte_for_byte": true,
+  "consumer_grid_workspace_sum_order_unchanged": true,
+  "b_l0_bytes_allocated": 32768,
+  "b_l0_fill_count_per_group": 1,
+  "scope": "Host checks plus actual device build/correctness; performance scope and limits in npu_report.",
+  "CANN_compiled": true,
+  "NPU_tested": true,
+  "synthetic_precision_cases": 182,
+  "repeats_per_case": 3,
+  "competition_hidden15_tested": false,
+  "status": "rejected for promotion; device-event effect within noise on screen and holdout",
+  "npu_report": "../V12_npu_lab/results/followup_20260928/REPORT.md"
+}

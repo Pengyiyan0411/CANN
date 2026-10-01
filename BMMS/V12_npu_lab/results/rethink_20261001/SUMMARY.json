@@ -1,0 +1,91 @@
+{
+  "r65": {
+    "configurations": 186,
+    "calls": 602,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453,
+    "max_abs_error": 0.0410700754,
+    "median_reduction_pct": 1.0536001000970519,
+    "min_reduction_pct": 0.00688880775403522,
+    "max_reduction_pct": 2.203452074917367,
+    "both_windows_faster": 6
+  },
+  "r66": {
+    "configurations": 186,
+    "calls": 602,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453,
+    "max_abs_error": 0.0410700754,
+    "median_reduction_pct": -1.9427098957206512,
+    "min_reduction_pct": -3.2462439521263153,
+    "max_reduction_pct": -0.4118616144975107,
+    "both_windows_faster": 0
+  },
+  "r67": {
+    "configurations": 186,
+    "calls": 602,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453,
+    "max_abs_error": 0.0410700754,
+    "median_reduction_pct": 2.215842360721365,
+    "min_reduction_pct": 1.424658243914434,
+    "max_reduction_pct": 3.7693922824095227,
+    "both_windows_faster": 8
+  },
+  "diagnostics": {
+    "native": {
+      "configurations": 148,
+      "calls": 296,
+      "all_pass": true,
+      "max_y_tolerance_ratio": 0.00387561891,
+      "max_sample_dot_tolerance_ratio": 0.0490285636
+    },
+    "cat0": {
+      "configurations": 148,
+      "calls": 296,
+      "all_pass": true,
+      "max_y_tolerance_ratio": 0.00387561891,
+      "max_sample_dot_tolerance_ratio": 0.0490285636
+    },
+    "cat1": {
+      "configurations": 148,
+      "calls": 296,
+      "all_pass": true,
+      "max_y_tolerance_ratio": 0.00387561891,
+      "max_sample_dot_tolerance_ratio": 0.0490285636
+    },
+    "fullcat1": {
+      "configurations": 148,
+      "calls": 296,
+      "all_pass": true,
+      "max_y_tolerance_ratio": 0.0762939453,
+      "max_sample_dot_tolerance_ratio": 0.0490285636
+    },
+    "pre0": {
+      "configurations": 148,
+      "calls": 296,
+      "all_pass": true,
+      "max_y_tolerance_ratio": 0.00387561891,
+      "max_sample_dot_tolerance_ratio": 0.0490285636
+    },
+    "pre1": {
+      "configurations_attempted": 145,
+      "first_failed_case": 1144,
+      "failed": {
+        "case": 1144,
+        "version": "pre1",
+        "pass": false,
+        "repeats": 2,
+        "y_tolerance_ratio": 4.82947566,
+        "dot_tolerance_ratio": 0.00465894092,
+        "cores": 20
+      },
+      "reason": "K shuffle fails full max/sum cancellation check; performance not measured"
+    }
+  },
+  "archive": {
+    "files": 224,
+    "size": 815671,
+    "sha256": "2ab284298a92ccbd721049d9bd42717412ac85cc5b0a8c24a302895655c8cc5c"
+  }
+}

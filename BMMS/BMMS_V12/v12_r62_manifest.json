@@ -1,0 +1,57 @@
+{
+  "version": "v12_r62",
+  "parent": "v12_baseline_r41.asc",
+  "file": "v12_r62_case12_wide_load_gap.asc",
+  "sha256": "f782bbf7bbf7a78d7e5a7d71cb9e7076ec796439a285d95537be84c21b69b1a7",
+  "status": "NPU build and precision passed; no material gain; research only",
+  "new_device_entries": 4,
+  "parent_byte_recovery": true,
+  "change": "Original r30 N256 geometry/plan/K/floating-point schedule; A LoadData loops swapped with dstGap, 8 to4 commands on full M128 K64 tiles",
+  "address_mapping_states": 64,
+  "L1_bytes": 393216,
+  "L0A_bytes": 32768,
+  "L0B_bytes": 65536,
+  "L0C_bytes": 131072,
+  "report": "../V12_npu_lab/results/case12_wide_load_20261001/REPORT.md",
+  "validation": {
+    "file": "v12_r62_case12_wide_load_gap.asc",
+    "sha256": "f782bbf7bbf7a78d7e5a7d71cb9e7076ec796439a285d95537be84c21b69b1a7",
+    "source_reproduces_r41_on_removal": true,
+    "build_passed": true,
+    "precision": {
+      "correctness": {
+        "configurations": 164,
+        "calls": 492,
+        "max_abs_error": 0.0410700754,
+        "max_tolerance_ratio": 0.0762939453
+      },
+      "extra_precision": {
+        "configurations": 22,
+        "calls": 110,
+        "max_abs_error": 0.00211229446,
+        "max_tolerance_ratio": 0.00174707946
+      }
+    },
+    "all_precision_passed": true,
+    "precision_configurations": 186,
+    "precision_calls": 602,
+    "max_abs_error": 0.0410700754,
+    "max_tolerance_ratio": 0.0762939453,
+    "target_hits_verified_on_8_performance_shapes": true,
+    "screen": {
+      "shapes": 8,
+      "faster": 6,
+      "slower": 2,
+      "median_time_reduction_pct": 0.03655915677777677,
+      "worst_time_reduction_pct": -0.22541137576075343,
+      "best_time_reduction_pct": 0.3376926383005019,
+      "both_windows_same_direction": false
+    },
+    "decision": "Not admitted for broad Case12 replacement; retain as research only",
+    "holdout_performance_run": false,
+    "mssanitizer_run": false,
+    "judge15_run": false
+  },
+  "readme": "v12_r62_README.md",
+  "recommended_for_judge15": false
+}

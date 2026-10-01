@@ -1,0 +1,19 @@
+{
+  "dispatch_triples": 89160,
+  "r06_target_checks": 1524,
+  "r03_target_checks": 21824,
+  "r06_unchanged": 87636,
+  "r03_unchanged": 67336,
+  "r06_single_macro_fallbacks": 252,
+  "R52_checks": 128,
+  "Case5_checks": 160,
+  "R48_checks": 768,
+  "R49_checks": 32,
+  "SplitK_checks": 560,
+  "R43_checks": 8,
+  "scope": "actual host dispatch with recording kernel stubs; no device compilation",
+  "CANN_compiled": false,
+  "NPU_tested": false,
+  "source_sha256": "9b372b1535dd0c9d3156675e241ca0c69f74102463b76bd7e449d655820fb64e",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c"
+}

@@ -1,0 +1,129 @@
+{
+  "accepted_baseline": "v12_baseline_r33.asc",
+  "recommended_candidate": null,
+  "synthetic_not_hidden": true,
+  "environment": {
+    "platform": "Linux-5.10.0-182.0.0.95.r2220_156.hce2.aarch64-aarch64-with-glibc2.31",
+    "python": "3.11.4",
+    "torch": "2.7.1+cpu",
+    "torch_npu": "2.7.1.post4",
+    "device_name": "Ascend910_9362",
+    "device_count": 2,
+    "cann": "/home/developer/Ascend/cann-9.0.0"
+  },
+  "precision": {
+    "configurations": 166,
+    "calls": 498,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.00191358175
+  },
+  "host_audit": {
+    "configurations": 27648,
+    "changed": 8292,
+    "all_pass": true
+  },
+  "r37_event_screen": {
+    "all": {
+      "n": 34,
+      "median_pct": 6.28700685276356,
+      "min_pct": 1.622350543990847,
+      "max_pct": 26.60599776202457
+    },
+    "changed": {
+      "n": 34,
+      "median_pct": 6.28700685276356,
+      "min_pct": 1.622350543990847,
+      "max_pct": 26.60599776202457
+    }
+  },
+  "r37_event_holdout": {
+    "all": {
+      "n": 48,
+      "median_pct": 0.008836256059518988,
+      "min_pct": -0.12768464985415395,
+      "max_pct": 29.031047343460294
+    },
+    "changed": {
+      "n": 12,
+      "median_pct": 8.565861957466382,
+      "min_pct": 2.3298485385759737,
+      "max_pct": 29.031047343460294
+    },
+    "unchanged": {
+      "n": 36,
+      "median_pct": -0.0024542630011392674,
+      "min_pct": -0.12768464985415395,
+      "max_pct": 0.08611282102758411
+    }
+  },
+  "r37_aa": {
+    "all": {
+      "n": 6,
+      "median_pct": -0.0860557392721284,
+      "min_pct": -0.17241607702540573,
+      "max_pct": 0.07116077085177475
+    },
+    "changed": {
+      "n": 6,
+      "median_pct": -0.0860557392721284,
+      "min_pct": -0.17241607702540573,
+      "max_pct": 0.07116077085177475
+    }
+  },
+  "r37_public": {
+    "configurations": 29,
+    "changed": 20,
+    "changed_median_pct": 7.730793119522334,
+    "changed_min_pct": 1.0297098415915529,
+    "changed_max_pct": 30.284221507382327
+  },
+  "r38_incremental_screen": {
+    "all": {
+      "n": 34,
+      "median_pct": 0.8368549318642449,
+      "min_pct": -0.058599402258563416,
+      "max_pct": 1.3053420292729045
+    },
+    "changed": {
+      "n": 26,
+      "median_pct": 0.9919716480727259,
+      "min_pct": 0.15085026536081347,
+      "max_pct": 1.3053420292729045
+    },
+    "unchanged": {
+      "n": 8,
+      "median_pct": -0.017218508287852874,
+      "min_pct": -0.058599402258563416,
+      "max_pct": 0.035363770326812816
+    }
+  },
+  "r38_incremental_holdout": {
+    "all": {
+      "n": 48,
+      "median_pct": 0.29508224893021184,
+      "min_pct": 0.004096182869106624,
+      "max_pct": 2.166282409065101
+    },
+    "changed": {
+      "n": 44,
+      "median_pct": 0.3285381916032115,
+      "min_pct": 0.009528441582073999,
+      "max_pct": 2.166282409065101
+    },
+    "unchanged": {
+      "n": 4,
+      "median_pct": 0.020469483651125442,
+      "min_pct": 0.004096182869106624,
+      "max_pct": 0.043780074200583385
+    }
+  },
+  "source_sha256": {
+    "v12_baseline_r33.asc": "86debd5c403af4bb436d6c042de4530faf05637cf6fd1aeaae6ed6b410d11d80",
+    "v12_r37_dense_singlewave_plan.asc": "6a78508f57d6341971dda1cd4fee32292f04211b6dd5bde8a9927280d58a2a93",
+    "v12_r38_dense_packed_merge.asc": "ec8b8ce8c423915149cccea1e6e89cb92986dfec3ff18f570ce650ef2c44ec53"
+  },
+  "r38_status": "research only; small incremental gain, not included in recommended candidate; full public/sanitizer validation not run",
+  "sanitizer": "r37 reuses exact r33 device implementation; no new sanitizer run. Historical r33 race/init reports remain unresolved; numerical checks are not proof of sanitizer cleanliness.",
+  "judge_feedback": "../../../V12_results/2026-09-29_r37_feedback/RESULTS.json",
+  "r37_judge_status": "all15Pass; no demonstrated gain; not promoted"
+}

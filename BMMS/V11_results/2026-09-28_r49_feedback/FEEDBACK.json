@@ -1,0 +1,136 @@
+{
+  "date": "2026-09-28",
+  "candidate": "R49_NATIVE_CONSUMER_ONLY",
+  "version_attribution": "inferred from immediate R49 submission conversation; image itself has no version label",
+  "source_sha256": "8a84f77ecba35da1bff9eec7856ef12f4ea7ea3b85e40166695e82a0302272fc",
+  "image_origin": "E:\\Tencent Files\\3232896164\\nt_qq\\nt_data\\Pic\\2026-09\\Ori\\0c7a5c5566d3357e566c81e57f3189a4.png",
+  "image_copied": true,
+  "sample_count": 1,
+  "same_round_R48_or_R43_control_available": false,
+  "cases": [
+    {
+      "case": 1,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 2.5,
+      "platform_best_us": 1.22
+    },
+    {
+      "case": 2,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 5.92,
+      "platform_best_us": 1.58
+    },
+    {
+      "case": 3,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 4.92,
+      "platform_best_us": 2.13
+    },
+    {
+      "case": 4,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 6.32,
+      "platform_best_us": 2.92
+    },
+    {
+      "case": 5,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 6.52,
+      "platform_best_us": 1.89
+    },
+    {
+      "case": 6,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 14.82,
+      "platform_best_us": 7.07
+    },
+    {
+      "case": 7,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 9.44,
+      "platform_best_us": 3.68
+    },
+    {
+      "case": 8,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 63.25,
+      "platform_best_us": 14.88
+    },
+    {
+      "case": 9,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 70.07,
+      "platform_best_us": 51.62
+    },
+    {
+      "case": 10,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 84.66,
+      "platform_best_us": 72.39
+    },
+    {
+      "case": 11,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 101.81,
+      "platform_best_us": 74.82
+    },
+    {
+      "case": 12,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 124.78,
+      "platform_best_us": 91.2
+    },
+    {
+      "case": 13,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 15.02,
+      "platform_best_us": 5.14
+    },
+    {
+      "case": 14,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 13.85,
+      "platform_best_us": 5.4
+    },
+    {
+      "case": 15,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 15.1,
+      "platform_best_us": 4.05
+    }
+  ],
+  "comparison": {
+    "R48_case13_us": [
+      17.22,
+      16.96
+    ],
+    "R48_case13_mean_us": 17.09,
+    "R49_case13_us": 15.02,
+    "case13_latency_reduction_vs_R48_mean_percent": 12.112346401404332,
+    "R48_case7_us": [
+      9.44,
+      9.7
+    ],
+    "R49_case7_us": 9.44
+  },
+  "decision": "retain R49 as measured positive candidate; keep R43 frozen reference and R48 rollback",
+  "causal_limit": "supports consumer-only strategy as a whole; does not isolate each consumer change or explain all R47 regression",
+  "route_instrumented": false,
+  "non_regression_guaranteed": false,
+  "new_kernel_created": false
+}

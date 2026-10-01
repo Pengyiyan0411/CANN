@@ -1,0 +1,57 @@
+{
+  "version": "v12_r61",
+  "file": "v12_r61_case12_stage_resident_b.asc",
+  "parent": "v12_baseline_r41.asc",
+  "experiment_parent": "v12_r60_case12_nmajor_k128.asc",
+  "sha256": "d906ec907807717e5e17c8772e4c50ae65608528ab7e35ff05b496f3fadd2e2c",
+  "status": "Research only: built and precision passed; mixed performance; not promoted or recommended for Judge15",
+  "parent_byte_recovery": true,
+  "change": "Only resident B L1 layout: six compact K1=256 NZ slabs; B stays reused across M; L0B stride 256 instead of1536; K0=128",
+  "new_device_entries": 4,
+  "L1_bytes": 524288,
+  "L0A_bytes": 65536,
+  "L0B_bytes": 65536,
+  "L0C_bytes": 131072,
+  "report": "../V12_npu_lab/results/case12_nmajor_20261001/REPORT.md",
+  "readme": "v12_r61_README.md",
+  "validation": {
+    "file": "v12_r61_case12_stage_resident_b.asc",
+    "sha256": "d906ec907807717e5e17c8772e4c50ae65608528ab7e35ff05b496f3fadd2e2c",
+    "source_reproduces_r41_on_removal": true,
+    "build_passed": true,
+    "precision": {
+      "correctness": {
+        "configurations": 164,
+        "calls": 492,
+        "max_abs_error": 0.0410700754,
+        "max_tolerance_ratio": 0.0762939453
+      },
+      "extra_precision": {
+        "configurations": 22,
+        "calls": 110,
+        "max_abs_error": 0.00211229446,
+        "max_tolerance_ratio": 0.00174707946
+      }
+    },
+    "all_precision_passed": true,
+    "precision_configurations": 186,
+    "precision_calls": 602,
+    "max_abs_error": 0.0410700754,
+    "max_tolerance_ratio": 0.0762939453,
+    "target_hits_verified_on_8_performance_shapes": true,
+    "screen": {
+      "shapes": 8,
+      "faster": 4,
+      "slower": 4,
+      "median_time_reduction_pct": -3.541811651201127,
+      "worst_time_reduction_pct": -11.697978972886114,
+      "best_time_reduction_pct": 11.36719624076974,
+      "both_windows_same_direction": true
+    },
+    "decision": "Not admitted for broad Case12 replacement; retain as research only",
+    "holdout_performance_run": false,
+    "mssanitizer_run": false,
+    "judge15_run": false
+  },
+  "remote_evidence_archive_sha256": "0e2ce97e1d566a440e7b32700cb84f79098bf86cff6e2520e20c201835f1c2ac"
+}

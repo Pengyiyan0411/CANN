@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "parent_byte_recovery": true,
+  "sha256": "59770fd82fa7865fa7b58c4552f29e837c87d8ba5450f99baa1761919dba0bac",
+  "index_checks": 7808,
+  "consumer_cells": 1253376,
+  "scope": "Exact fractal descriptor comparison against prior operand layout; not a hardware synchronization test"
+}

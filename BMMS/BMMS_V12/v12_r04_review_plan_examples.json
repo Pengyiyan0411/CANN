@@ -1,0 +1,109 @@
+{
+  "scope": "synthetic legal shape examples from actual planner; not inferred Judge shapes",
+  "examples": [
+    {
+      "B": 1,
+      "M": 1024,
+      "N": 1024,
+      "K": 1024,
+      "cores": 20,
+      "pM": 5,
+      "pN": 4,
+      "tasks": 20,
+      "blocks": 20,
+      "eligible": true,
+      "reusesA": false
+    },
+    {
+      "B": 1,
+      "M": 1024,
+      "N": 2048,
+      "K": 1024,
+      "cores": 20,
+      "pM": 5,
+      "pN": 4,
+      "tasks": 20,
+      "blocks": 20,
+      "eligible": true,
+      "reusesA": true
+    },
+    {
+      "B": 1,
+      "M": 2048,
+      "N": 1024,
+      "K": 1024,
+      "cores": 20,
+      "pM": 16,
+      "pN": 2,
+      "tasks": 32,
+      "blocks": 20,
+      "eligible": true,
+      "reusesA": true
+    },
+    {
+      "B": 1,
+      "M": 2048,
+      "N": 2048,
+      "K": 1024,
+      "cores": 20,
+      "pM": 16,
+      "pN": 2,
+      "tasks": 32,
+      "blocks": 20,
+      "eligible": true,
+      "reusesA": true
+    },
+    {
+      "B": 2,
+      "M": 1024,
+      "N": 1024,
+      "K": 1024,
+      "cores": 20,
+      "pM": 8,
+      "pN": 2,
+      "tasks": 32,
+      "blocks": 20,
+      "eligible": false,
+      "reusesA": true
+    },
+    {
+      "B": 2,
+      "M": 1024,
+      "N": 2048,
+      "K": 1024,
+      "cores": 20,
+      "pM": 8,
+      "pN": 2,
+      "tasks": 32,
+      "blocks": 20,
+      "eligible": false,
+      "reusesA": true
+    },
+    {
+      "B": 2,
+      "M": 2048,
+      "N": 1024,
+      "K": 1024,
+      "cores": 20,
+      "pM": 10,
+      "pN": 1,
+      "tasks": 20,
+      "blocks": 20,
+      "eligible": false,
+      "reusesA": true
+    },
+    {
+      "B": 2,
+      "M": 2048,
+      "N": 2048,
+      "K": 1024,
+      "cores": 20,
+      "pM": 10,
+      "pN": 1,
+      "tasks": 20,
+      "blocks": 20,
+      "eligible": false,
+      "reusesA": true
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "version": "v12_r55",
+  "parent": "v12_baseline_r41.asc",
+  "file": "v12_r55_probe_r54_full_gate.asc",
+  "sha256": "dc6121e1d966eeef85f8b0612a983d9a8fb7ea4df4fec4933a09f3c5731e86f8",
+  "status": "pending NPU compilation and calibration; diagnostic only",
+  "new_device_entries": 0,
+  "guard_control": "v12_r54_case12_stride_gated_m256.asc",
+  "parent_byte_recovery": true,
+  "guard_and_candidate_plan_copied_exactly": true,
+  "allocation_size_matches_r54": true,
+  "mechanism": "After the complete r54 guard and allocation, original r30 kernel computes all output on one Cube group. Otherwise exact r41 fallback.",
+  "npu_report": "../V12_npu_lab/results/r55_coverage_20261001/REPORT.md"
+}

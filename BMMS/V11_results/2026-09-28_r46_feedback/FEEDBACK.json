@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-28",
+  "candidate": "R46_CASE8_FAST_MAIN_TAIL.asc",
+  "candidate_sha256": "27fc12b75a2ac3c7df0f74fbe789437b4267115e721cfaa94bf7135109993921",
+  "user_feedback": "没用。阅读历史数据，看一下点6/7/12/13的数据清晰度，先搞哪几个比较好",
+  "performance_conclusion": "No benefit reported; do not promote R46",
+  "case8_us": null,
+  "all_case_pass_status": null,
+  "other_case_regressions": null,
+  "actual_R46_route_executed": null,
+  "control_retained": "R43_CASE8_PADDED_MACRO.asc",
+  "next_action": "Evidence review and priority recommendation for Cases 6, 7, 12, 13; no new kernel in this turn"
+}

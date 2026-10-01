@@ -1,0 +1,131 @@
+{
+  "baseline": "v12_r41",
+  "accepted_baseline_unchanged": true,
+  "scope": "Synthetic shapes, not exact hidden Judge Case12 or Judge15",
+  "measurement": "msprof task duration; ABBA two windows/version; 30 calls/window/shape; discard first 5",
+  "admission_rule": "median time reduction >=5%, both windows agree; no unresolved stable regression >3%",
+  "archive": {
+    "file": "r59_r61_evidence.tar.gz",
+    "sha256": "0e2ce97e1d566a440e7b32700cb84f79098bf86cff6e2520e20c201835f1c2ac",
+    "verified_files": 173
+  },
+  "versions": {
+    "r59": {
+      "file": "v12_r59_case12_nmajor_b_resident.asc",
+      "sha256": "fc670554bdb3cecf10f0b7aed5df57365b5c471640848359528d54aa19ed6787",
+      "source_reproduces_r41_on_removal": true,
+      "build_passed": true,
+      "precision": {
+        "correctness": {
+          "configurations": 164,
+          "calls": 492,
+          "max_abs_error": 0.0410700754,
+          "max_tolerance_ratio": 0.0762939453
+        },
+        "extra_precision": {
+          "configurations": 22,
+          "calls": 110,
+          "max_abs_error": 0.00211229446,
+          "max_tolerance_ratio": 0.00174707946
+        }
+      },
+      "all_precision_passed": true,
+      "precision_configurations": 186,
+      "precision_calls": 602,
+      "max_abs_error": 0.0410700754,
+      "max_tolerance_ratio": 0.0762939453,
+      "target_hits_verified_on_8_performance_shapes": true,
+      "screen": {
+        "shapes": 8,
+        "faster": 4,
+        "slower": 4,
+        "median_time_reduction_pct": -4.905514574263381,
+        "worst_time_reduction_pct": -12.851594066890826,
+        "best_time_reduction_pct": 10.4150304255479,
+        "both_windows_same_direction": true
+      },
+      "decision": "Not admitted for broad Case12 replacement; retain as research only",
+      "holdout_performance_run": false,
+      "mssanitizer_run": false,
+      "judge15_run": false
+    },
+    "r60": {
+      "file": "v12_r60_case12_nmajor_k128.asc",
+      "sha256": "db43944f81a0fa7da47d7a3cd86a83403334136fbdbe938f020577be065be1d7",
+      "source_reproduces_r41_on_removal": true,
+      "build_passed": true,
+      "precision": {
+        "correctness": {
+          "configurations": 164,
+          "calls": 492,
+          "max_abs_error": 0.0410700754,
+          "max_tolerance_ratio": 0.0762939453
+        },
+        "extra_precision": {
+          "configurations": 22,
+          "calls": 110,
+          "max_abs_error": 0.00211229446,
+          "max_tolerance_ratio": 0.00174707946
+        }
+      },
+      "all_precision_passed": true,
+      "precision_configurations": 186,
+      "precision_calls": 602,
+      "max_abs_error": 0.0410700754,
+      "max_tolerance_ratio": 0.0762939453,
+      "target_hits_verified_on_8_performance_shapes": true,
+      "screen": {
+        "shapes": 8,
+        "faster": 4,
+        "slower": 4,
+        "median_time_reduction_pct": -1.8350043575078079,
+        "worst_time_reduction_pct": -10.60460714794984,
+        "best_time_reduction_pct": 11.377255732163283,
+        "both_windows_same_direction": true
+      },
+      "decision": "Not admitted for broad Case12 replacement; retain as research only",
+      "holdout_performance_run": false,
+      "mssanitizer_run": false,
+      "judge15_run": false
+    },
+    "r61": {
+      "file": "v12_r61_case12_stage_resident_b.asc",
+      "sha256": "d906ec907807717e5e17c8772e4c50ae65608528ab7e35ff05b496f3fadd2e2c",
+      "source_reproduces_r41_on_removal": true,
+      "build_passed": true,
+      "precision": {
+        "correctness": {
+          "configurations": 164,
+          "calls": 492,
+          "max_abs_error": 0.0410700754,
+          "max_tolerance_ratio": 0.0762939453
+        },
+        "extra_precision": {
+          "configurations": 22,
+          "calls": 110,
+          "max_abs_error": 0.00211229446,
+          "max_tolerance_ratio": 0.00174707946
+        }
+      },
+      "all_precision_passed": true,
+      "precision_configurations": 186,
+      "precision_calls": 602,
+      "max_abs_error": 0.0410700754,
+      "max_tolerance_ratio": 0.0762939453,
+      "target_hits_verified_on_8_performance_shapes": true,
+      "screen": {
+        "shapes": 8,
+        "faster": 4,
+        "slower": 4,
+        "median_time_reduction_pct": -3.541811651201127,
+        "worst_time_reduction_pct": -11.697978972886114,
+        "best_time_reduction_pct": 11.36719624076974,
+        "both_windows_same_direction": true
+      },
+      "decision": "Not admitted for broad Case12 replacement; retain as research only",
+      "holdout_performance_run": false,
+      "mssanitizer_run": false,
+      "judge15_run": false
+    }
+  }
+}

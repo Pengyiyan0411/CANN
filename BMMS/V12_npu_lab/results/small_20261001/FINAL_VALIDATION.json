@@ -1,0 +1,54 @@
+{
+  "precision_configurations": 1204,
+  "precision_calls": 3668,
+  "max_tolerance_ratio": 0.0061839819,
+  "profiler_final_configurations": 168,
+  "all_stats": {
+    "n": 168,
+    "median_reduction_pct": 8.466453502142413,
+    "min_reduction_pct": -0.29085872576175564,
+    "max_reduction_pct": 33.333333333333336,
+    "median_delta_us": 0.3001250000000004,
+    "regress_over3pct": 0,
+    "win_over5pct": 120
+  },
+  "by_batch": {
+    "1": {
+      "n": 56,
+      "median_reduction_pct": 4.851434176504471,
+      "min_reduction_pct": -0.29085872576175564,
+      "max_reduction_pct": 17.708333333333325,
+      "median_delta_us": 0.12775000000000003,
+      "regress_over3pct": 0,
+      "win_over5pct": 27
+    },
+    "2": {
+      "n": 56,
+      "median_reduction_pct": 14.36270338567856,
+      "min_reduction_pct": 2.6913130926156548,
+      "max_reduction_pct": 33.333333333333336,
+      "median_delta_us": 0.4225000000000003,
+      "regress_over3pct": 0,
+      "win_over5pct": 52
+    },
+    "64": {
+      "n": 56,
+      "median_reduction_pct": 10.184563676322428,
+      "min_reduction_pct": 0.5535055350553431,
+      "max_reduction_pct": 31.484620973601363,
+      "median_delta_us": 0.6101250000000009,
+      "regress_over3pct": 0,
+      "win_over5pct": 41
+    }
+  },
+  "new_route_configurations": 152,
+  "new_route_median_reduction_pct": 10.026948090055054,
+  "new_route_min_reduction_pct": 0.5535055350553431,
+  "sanitizer_checks": 27,
+  "sanitizer_errors": 0,
+  "sanitizer_warnings": 0,
+  "parent_byte_recovery": true,
+  "sanitizer_scope": "Exact extracted r72 new module: 6 B2 full-core configurations x4 tools; B41 loop on block0 x3 tools. Not whole historical source.",
+  "unresolved_baseline": "Old unchanged bmms52 K72 Mul-related sanitizer reports, not root-caused. Not treated as a pass or false positive.",
+  "judge15": false
+}

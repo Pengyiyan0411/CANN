@@ -1,0 +1,27 @@
+{
+  "source_runs": 54,
+  "bitwise_equal_pairs": 27,
+  "old_A_bytes": 5328896,
+  "new_A_bytes": 5328896,
+  "old_B_bytes": 19245056,
+  "new_B_bytes": 19245056,
+  "old_MMAD_calls": 2237,
+  "new_MMAD_calls": 1006,
+  "old_L0B_calls": 6536,
+  "new_L0B_calls": 3960,
+  "max_relative_vs_FP64": 6.859e-07,
+  "ring_reads_elements": 751104,
+  "ready_publications": 112,
+  "arena_peak_bytes": [
+    35168,
+    393216,
+    32768,
+    65536,
+    131072
+  ],
+  "wrong_full_macro_fixpipe_stride_rejected": "80x144 p=1,1 compact=1: numeric result differs from full row-max plus original sum tree",
+  "source_sha256": "9b372b1535dd0c9d3156675e241ca0c69f74102463b76bd7e449d655820fb64e",
+  "CANN_compiled": false,
+  "NPU_tested": false,
+  "scope": "actual macro-MMAD producer and unchanged R06 consumer on smaller spatial CPU fixtures; full target K, FP16/BF16 wide-scale deterministic data, negative/zero controls; no hardware timing or Cube precision emulation claim"
+}

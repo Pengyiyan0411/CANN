@@ -1,0 +1,50 @@
+{
+  "version": "v12_r58",
+  "parent": "v12_baseline_r41.asc",
+  "file": "v12_r58_probe_case12_nstride_channels.asc",
+  "sha256": "6bf47532cde9c279cef1b0d57f8feeb84da7cec7af3f29fd08c4779b71720d8e",
+  "status": "Calibrated three-state diagnostic ready for one Judge15 run; not a performance candidate",
+  "diagnostic": true,
+  "new_device_entries": 0,
+  "parent_byte_recovery": true,
+  "gate": "Original r30 route guards with B1 M[1280,1536) N[4096,6144) K1536 TBfalse; does not assume original plan state or new-macro divisibility",
+  "mechanism": "N%128==0 uses1 Cube group; N%128==64 uses2 groups; all arithmetic computed, original r30 kernels, no skipped/reused output",
+  "allocation": "original r30 workspace, stress needs checked at runtime",
+  "numerical_validation": {
+    "configurations": 164,
+    "calls": 492,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "calibration": {
+    "0": {
+      "configurations": 16,
+      "windows": 2,
+      "min_ratio": 0.9797013923838281,
+      "median_ratio": 1.0028955829072097,
+      "max_ratio": 1.0709056682702365,
+      "min_us": 4.56,
+      "max_us": 144.143
+    },
+    "1": {
+      "configurations": 16,
+      "windows": 2,
+      "min_ratio": 16.414564894301368,
+      "median_ratio": 17.304503163153825,
+      "max_ratio": 18.01793846614355,
+      "min_us": 1340.567,
+      "max_us": 1903.358
+    },
+    "2": {
+      "configurations": 16,
+      "windows": 2,
+      "min_ratio": 7.809868996346935,
+      "median_ratio": 8.094669438049579,
+      "max_ratio": 8.452625388057147,
+      "min_us": 789.116,
+      "max_us": 1217.285
+    }
+  },
+  "new_sanitizer_run": false,
+  "npu_report": "../V12_npu_lab/results/case12_bnz_20261001/REPORT.md"
+}

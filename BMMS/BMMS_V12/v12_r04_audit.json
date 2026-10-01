@@ -1,0 +1,13 @@
+{
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "candidate_sha256": "d4c0e539ca2145aa520e7b63c7a6bd8b9006ef3d54fa531971b1cf4c67720605",
+  "r03_recovered_byte_for_byte": true,
+  "r03_frozen_copy_identical": true,
+  "R52_R43_hashes_unchanged": true,
+  "event_callsites_match_original_R06": true,
+  "test_hashes_match": true,
+  "fault_injection_restored": true,
+  "r02_not_inherited": true,
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

@@ -1,0 +1,230 @@
+{
+  "version": "v12_r22",
+  "attribution": "Assumed from unique preceding candidate; screenshots contain no source hash or version label",
+  "source_sha256": "96b12f4eb4b0f2717591b20211213779604ba1dcf71c0886d4153ac1332a6d39",
+  "runs": [
+    {
+      "run": 1,
+      "all_pass": true,
+      "cases": [
+        {
+          "case": 1,
+          "latency_us": 2.38,
+          "best_us": 1.22,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 2,
+          "latency_us": 4.42,
+          "best_us": 1.58,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 3,
+          "latency_us": 5.31,
+          "best_us": 2.13,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 4,
+          "latency_us": 6.39,
+          "best_us": 2.92,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 5,
+          "latency_us": 6.54,
+          "best_us": 1.89,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 6,
+          "latency_us": 14.05,
+          "best_us": 7.07,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 7,
+          "latency_us": 8.89,
+          "best_us": 3.68,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 8,
+          "latency_us": 45.44,
+          "best_us": 14.88,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 9,
+          "latency_us": 69.37,
+          "best_us": 50.68,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 10,
+          "latency_us": 83.68,
+          "best_us": 72.39,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 11,
+          "latency_us": 100.7,
+          "best_us": 74.82,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 12,
+          "latency_us": 124.21,
+          "best_us": 91.2,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 13,
+          "latency_us": 14.77,
+          "best_us": 5.14,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 14,
+          "latency_us": 13.13,
+          "best_us": 5.4,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 15,
+          "latency_us": 11.16,
+          "best_us": 4.05,
+          "pass_": true,
+          "error_pct": 0
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "all_pass": true,
+      "cases": [
+        {
+          "case": 1,
+          "latency_us": 2.24,
+          "best_us": 1.22,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 2,
+          "latency_us": 4.83,
+          "best_us": 1.58,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 3,
+          "latency_us": 5.3,
+          "best_us": 2.13,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 4,
+          "latency_us": 6.28,
+          "best_us": 2.92,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 5,
+          "latency_us": 6.68,
+          "best_us": 1.89,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 6,
+          "latency_us": 14.47,
+          "best_us": 7.07,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 7,
+          "latency_us": 9.66,
+          "best_us": 3.68,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 8,
+          "latency_us": 46.62,
+          "best_us": 14.88,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 9,
+          "latency_us": 70.66,
+          "best_us": 50.68,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 10,
+          "latency_us": 84.2,
+          "best_us": 72.39,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 11,
+          "latency_us": 102.12,
+          "best_us": 74.82,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 12,
+          "latency_us": 124.4,
+          "best_us": 91.2,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 13,
+          "latency_us": 15.17,
+          "best_us": 5.14,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 14,
+          "latency_us": 13.88,
+          "best_us": 5.4,
+          "pass_": true,
+          "error_pct": 0
+        },
+        {
+          "case": 15,
+          "latency_us": 11.26,
+          "best_us": 4.05,
+          "pass_": true,
+          "error_pct": 0
+        }
+      ]
+    }
+  ],
+  "decision": "No clear Case11/12 benefit; not promoted. Latencies alone do not identify dispatch."
+}

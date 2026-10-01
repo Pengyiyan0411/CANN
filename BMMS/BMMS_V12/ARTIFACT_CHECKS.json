@@ -1,0 +1,13 @@
+{
+  "candidate_sha256": "bc74344c0e847b13ff553aa7ea9437d86fcb063c1e036e7799fd9f69e2f3875d",
+  "accepted_baseline_sha256": "3c66689f4a38b4b6b02aa92547b39065a55d3fdfbcf767d6a53a4618f34cc284",
+  "baseline_identical_to_R52": true,
+  "removing_new_module_and_hook_recovers_R52_bytes": true,
+  "R43_frozen_hash_unchanged": true,
+  "test_reports_match_candidate": true,
+  "fault_injection_header_restored": true,
+  "accepted_mainline": "V12_BASELINE_R52.asc",
+  "candidate_status": "local checks passed; awaiting CANN/Judge",
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

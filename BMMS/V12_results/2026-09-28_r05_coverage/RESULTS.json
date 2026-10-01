@@ -1,0 +1,143 @@
+{
+  "version": "v12_r05",
+  "version_attribution": "inferred from immediate preceding request to submit r05; screenshot itself has no version label",
+  "source": "user screenshot",
+  "screenshot_path_supplied": "E:\\Tencent Files\\3232896164\\nt_qq\\nt_data\\Pic\\2026-09\\Ori\\54d3db190bccb1e35590fb9518562260.png",
+  "screenshot_copied": true,
+  "local_candidate_sha256": "485147ab95fe70dfed37f8a2848ecb95d5e7d2646cc44e54ce9a6ca3abf0056b",
+  "source_hash_visible_in_screenshot": false,
+  "all_15_pass": true,
+  "all_displayed_error_percent": 0.0,
+  "rows": [
+    {
+      "case": 1,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 2.16,
+      "platform_best_us": 1.22
+    },
+    {
+      "case": 2,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 4.59,
+      "platform_best_us": 1.58
+    },
+    {
+      "case": 3,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 5.13,
+      "platform_best_us": 2.13
+    },
+    {
+      "case": 4,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 6.32,
+      "platform_best_us": 2.92
+    },
+    {
+      "case": 5,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 6.54,
+      "platform_best_us": 1.89
+    },
+    {
+      "case": 6,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 14.14,
+      "platform_best_us": 7.07
+    },
+    {
+      "case": 7,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 8.99,
+      "platform_best_us": 3.68
+    },
+    {
+      "case": 8,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 62.37,
+      "platform_best_us": 14.88
+    },
+    {
+      "case": 9,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 765.68,
+      "platform_best_us": 50.68
+    },
+    {
+      "case": 10,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 83.83,
+      "platform_best_us": 72.39
+    },
+    {
+      "case": 11,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 100.6,
+      "platform_best_us": 74.82
+    },
+    {
+      "case": 12,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 122.54,
+      "platform_best_us": 91.2
+    },
+    {
+      "case": 13,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 14.47,
+      "platform_best_us": 5.14
+    },
+    {
+      "case": 14,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 13.36,
+      "platform_best_us": 5.4
+    },
+    {
+      "case": 15,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 15.23,
+      "platform_best_us": 4.05
+    }
+  ],
+  "case9": {
+    "decision": "strong positive for full r04/r02 dispatch predicate",
+    "new_evidence": [
+      "B=1",
+      "M,N>=1024 and16-aligned",
+      "1024<=K<1536 and32-aligned",
+      "floor(original nTiles/pN)>=2"
+    ],
+    "not_proven": [
+      "exact shape",
+      "actual cores/grid",
+      "memory bottleneck",
+      "r04 performance"
+    ]
+  },
+  "case10": {
+    "decision": "no stress response; supports full predicate false given previous reported same-route strong calibration",
+    "remaining_alternatives_under_prior_MNK_evidence": [
+      "B!=1",
+      "floor(original nTiles/pN)<2"
+    ],
+    "limits": "no same-run unconditional positive control; do not identify which predicate failed"
+  },
+  "next_action": "test existing r04 against accepted r03 for Case9; no new Case9 shape probe; retain complete15-case results",
+  "baseline": "v12_r03"
+}

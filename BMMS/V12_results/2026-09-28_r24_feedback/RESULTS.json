@@ -1,0 +1,133 @@
+{
+  "version": "v12_r24",
+  "attribution": "Unique preceding diagnostic inferred from conversation; no platform source hash",
+  "source_sha256": "091071ea490cbc245740b0d11b8f7a9a43542b93af919c4cc74fa08c5218ef08",
+  "all_pass": true,
+  "cases": [
+    {
+      "case": 1,
+      "latency_us": 2.29,
+      "display": "2.29us",
+      "best_us": 1.22,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 2,
+      "latency_us": 4.72,
+      "display": "4.72us",
+      "best_us": 1.58,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 3,
+      "latency_us": 5.36,
+      "display": "5.36us",
+      "best_us": 2.13,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 4,
+      "latency_us": 6.46,
+      "display": "6.46us",
+      "best_us": 2.92,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 5,
+      "latency_us": 6.5,
+      "display": "6.50us",
+      "best_us": 1.89,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 6,
+      "latency_us": 14.66,
+      "display": "14.66us",
+      "best_us": 7.07,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 7,
+      "latency_us": 9.48,
+      "display": "9.48us",
+      "best_us": 3.68,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 8,
+      "latency_us": 46.36,
+      "display": "46.36us",
+      "best_us": 14.88,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 9,
+      "latency_us": 69.55,
+      "display": "69.55us",
+      "best_us": 50.68,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 10,
+      "latency_us": 84.42,
+      "display": "84.42us",
+      "best_us": 72.39,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 11,
+      "latency_us": 1160,
+      "display": "1.16ms",
+      "best_us": 74.82,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 12,
+      "latency_us": 1500,
+      "display": "1.50ms",
+      "best_us": 91.2,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 13,
+      "latency_us": 15.13,
+      "display": "15.13us",
+      "best_us": 5.14,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 14,
+      "latency_us": 13.75,
+      "display": "13.75us",
+      "best_us": 5.4,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 15,
+      "latency_us": 11.13,
+      "display": "11.13us",
+      "best_us": 4.05,
+      "pass_": true,
+      "error_pct": 0
+    }
+  ],
+  "decode": {
+    "11": "HIT",
+    "12": "HIT"
+  },
+  "conclusion": "Both match Eligible AND !Prefer AND ValidPlan with workspace allocation success; r22 Prefer excluded both."
+}

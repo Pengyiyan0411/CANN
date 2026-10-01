@@ -1,0 +1,11 @@
+{
+  "sha256": "86debd5c403af4bb436d6c042de4530faf05637cf6fd1aeaae6ed6b410d11d80",
+  "baseline_sha256": "9ac17c7b6f793cf043ee8d150479f42a1423a73ffe5c877b2456d16396d1fa17",
+  "parent_byte_recovery": true,
+  "delegate_to_exact_r30": true,
+  "chains": 192,
+  "macros": 19936,
+  "loads": 107156,
+  "max_explicit_ub_bytes": 164384,
+  "notes": "Discrete state and source audit; not hardware scheduling proof. Full ordinary/sanitized NPU executions reported separately."
+}

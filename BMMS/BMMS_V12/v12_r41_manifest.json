@@ -1,0 +1,48 @@
+{
+  "version": "v12_r41",
+  "parent": "v12_baseline_r33.asc",
+  "sha256": "1caf7870ac4154c0f555621ba9c41f4601c6ecee96cb2e8d0bf23acc4fc4f373",
+  "status": "Accepted after Judge all15 Pass; Case11 83.65us, Case12 115.04us no clear gain; prior sanitizer limitations remain open",
+  "new_device_entries": 8,
+  "source_byte_recovery": true,
+  "report": "../V12_npu_lab/results/plan_equal_20260929/REPORT.md",
+  "precision_configurations": 230,
+  "precision_calls": 690,
+  "holdout": {
+    "all": {
+      "count": 64,
+      "median": 5.2815106006805275,
+      "minimum": -0.9666598461033127,
+      "maximum": 19.002412325317795,
+      "both_windows_improve": 38
+    },
+    "active": {
+      "count": 38,
+      "median": 8.390326606818032,
+      "minimum": 4.298678015824442,
+      "maximum": 19.002412325317795,
+      "both_windows_improve": 38
+    },
+    "inactive": {
+      "count": 26,
+      "median": -0.5237479706235781,
+      "minimum": -0.9666598461033127,
+      "maximum": -0.22003914340547048,
+      "both_windows_improve": 0
+    }
+  },
+  "sanitizer": {
+    "mode": "memcheck on ordinary full-source binary; not instrumented race/init",
+    "exit_code": 124,
+    "completed_cases": 2,
+    "all_completed_pass": true,
+    "errors": 0,
+    "warnings": 0,
+    "register_warnings": 120,
+    "actual_kernel_starts": 3,
+    "completed_kernels": 2,
+    "launch_errors": 0,
+    "log_bytes": 27127
+  },
+  "judge_feedback": "../V12_results/2026-09-29_r41_feedback/RESULTS.json"
+}

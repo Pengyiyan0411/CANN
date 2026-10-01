@@ -1,0 +1,88 @@
+{
+  "base": "BMMS_V11_R52/R52_SHORT_DOT_STATIC.asc",
+  "base_sha256": "3c66689f4a38b4b6b02aa92547b39065a55d3fdfbcf767d6a53a4618f34cc284",
+  "probes": [
+    {
+      "file": "C12_00_R06_STRESS_ALL.asc",
+      "predicate": "true",
+      "stage": "control",
+      "sha256": "7fa8311dd711a5f79cef212f559f16f07308c41792c052f84683a92ed03a6824"
+    },
+    {
+      "file": "C12_K_GE1792.asc",
+      "predicate": "K>=1792",
+      "stage": "shape",
+      "sha256": "0995f286df4695e1d55c1def14252e59d2d929d65a2c8aa0231791e093eed37c"
+    },
+    {
+      "file": "C12_M_GE2048.asc",
+      "predicate": "M>=2048",
+      "stage": "shape",
+      "sha256": "157babd4c16e1b8f75d0974f09d40d6be83c93eaea7f9d1c506901fc7b11123b"
+    },
+    {
+      "file": "C12_N_GE2048.asc",
+      "predicate": "N>=2048",
+      "stage": "shape",
+      "sha256": "6a911f7d98fcd69d23ebb992659ca6ea6e68593bd4743a19be07175b9735a185"
+    },
+    {
+      "file": "C12_P_PM_GE2.asc",
+      "predicate": "(B==1&&M>=1024&&N>=1024&&K>=1536&&K<2048)&&observed.pM>=2",
+      "stage": "plan",
+      "sha256": "d86fa8c8222c820e20cca6b40502b21812f01f119d4eb1943bed678d098bbb3e"
+    },
+    {
+      "file": "C12_P_PM_GE4.asc",
+      "predicate": "(B==1&&M>=1024&&N>=1024&&K>=1536&&K<2048)&&observed.pM>=4",
+      "stage": "plan",
+      "sha256": "8598180878e7bb21b7d435fdee7fe2f2f6299208b77f1fd8191928baf4f5221c"
+    },
+    {
+      "file": "C12_P_PM_GE8.asc",
+      "predicate": "(B==1&&M>=1024&&N>=1024&&K>=1536&&K<2048)&&observed.pM>=8",
+      "stage": "plan",
+      "sha256": "58a270228964ab1cef8144d5a1635717912d44474730899de524f9eade662791"
+    },
+    {
+      "file": "C12_P_PN_GE2.asc",
+      "predicate": "(B==1&&M>=1024&&N>=1024&&K>=1536&&K<2048)&&observed.pN>=2",
+      "stage": "plan",
+      "sha256": "50ff1583f2c13e47860978e7bf23c01ee1d9ea60459611e1df9790c9de6b6903"
+    },
+    {
+      "file": "C12_P_PN_GE4.asc",
+      "predicate": "(B==1&&M>=1024&&N>=1024&&K>=1536&&K<2048)&&observed.pN>=4",
+      "stage": "plan",
+      "sha256": "6fbfc915f6e1a714389eccfdac19ae88ef717530f602646ae600db6847fceadf"
+    },
+    {
+      "file": "C12_P_PN_GE8.asc",
+      "predicate": "(B==1&&M>=1024&&N>=1024&&K>=1536&&K<2048)&&observed.pN>=8",
+      "stage": "plan",
+      "sha256": "020ca435853ac357000e439d79b472367935ddc2af62770bf0ae76a29a4bf709"
+    },
+    {
+      "file": "C12_P_BLOCKS_EQ_CORES.asc",
+      "predicate": "(B==1&&M>=1024&&N>=1024&&K>=1536&&K<2048)&&observed.blocks==cores",
+      "stage": "plan",
+      "sha256": "0509097efd8174a9dc5f2da3ccce33f734b40d517e2f867b356fb4c2a448ad33"
+    },
+    {
+      "file": "C12_P_TASKS_EQ_CORES.asc",
+      "predicate": "(B==1&&M>=1024&&N>=1024&&K>=1536&&K<2048)&&observed.tasks==cores",
+      "stage": "plan",
+      "sha256": "fce99bbe01dd58b1fdfbda51f483e7d9a62f4cc25e58326cb49b1392720227a2"
+    }
+  ],
+  "control": "CONTROL_R52.asc",
+  "all_edits_inside_R06_TryLaunch": true,
+  "all_device_and_planner_source_unchanged": true,
+  "all_probes_reverse_to_parent_bytes": true,
+  "predicates_read_unmodified_plan": true,
+  "workspace_derived_after_plan_mutation": true,
+  "single_group_tasks_equal_B": true,
+  "R51_included": false,
+  "CANN_compiled_locally": false,
+  "NPU_tested_locally": false
+}

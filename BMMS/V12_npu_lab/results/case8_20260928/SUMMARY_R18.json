@@ -1,0 +1,1363 @@
+{
+  "parent": "v12_baseline_r12.asc",
+  "parent_sha256": "a845fd9538fe71d5f6284fced34781d8fb7e997105c51065a84b344818ddbd2b",
+  "candidate": "v12_r18_case8_adaptive_nz.asc",
+  "sha256": "75853cabc656f40725f669f12b82c18d49bf53d7ef4cc69fa2fe2bf77705835c",
+  "parent_recovered_byte_for_byte": true,
+  "device": "Ascend910_9362 logical0;20 Cube cores;CANN9.0.0;dav-2201",
+  "synthetic_not_hidden": true,
+  "correctness": [
+    {
+      "file": "c8_r18_correctness.jsonl",
+      "cases": 24,
+      "calls": 72,
+      "max_tolerance_ratio": 0.00203206129
+    },
+    {
+      "file": "c8_r18_holdout_correctness.jsonl",
+      "cases": 56,
+      "calls": 168,
+      "max_tolerance_ratio": 0.00138142307
+    },
+    {
+      "file": "c8_r18_final_correctness.jsonl",
+      "cases": 40,
+      "calls": 120,
+      "max_tolerance_ratio": 0.00193150313
+    },
+    {
+      "file": "c8_r18_controls_correctness.jsonl",
+      "cases": 10,
+      "calls": 30,
+      "max_tolerance_ratio": 0.000471150534
+    },
+    {
+      "file": "c8_r18_split_retention.jsonl",
+      "cases": 128,
+      "calls": 384,
+      "max_tolerance_ratio": 0.00306928135
+    }
+  ],
+  "total_cases": 258,
+  "total_calls": 774,
+  "final40": {
+    "file": "c8_r18_final_event.jsonl",
+    "stats": {
+      "all": {
+        "count": 40,
+        "median_reduction_pct": 15.300516866085944,
+        "min_reduction_pct": -0.0697890017015812,
+        "max_reduction_pct": 38.35314129186121
+      },
+      "nz": {
+        "count": 26,
+        "median_reduction_pct": 27.025125508483217,
+        "min_reduction_pct": 2.2860050664287757,
+        "max_reduction_pct": 38.35314129186121
+      },
+      "fallback": {
+        "count": 14,
+        "median_reduction_pct": 0.03491705454970462,
+        "min_reduction_pct": -0.0697890017015812,
+        "max_reduction_pct": 0.11018485895887276
+      }
+    },
+    "cases": [
+      {
+        "case": 0,
+        "baseline_us": 48.238124694999996,
+        "candidate_us": 48.257343469999995,
+        "reduction_pct": -0.039841463824541457,
+        "selected": false
+      },
+      {
+        "case": 1,
+        "baseline_us": 57.817189025000005,
+        "candidate_us": 57.790625840000004,
+        "reduction_pct": 0.045943404457993164,
+        "selected": false
+      },
+      {
+        "case": 2,
+        "baseline_us": 64.59828093499999,
+        "candidate_us": 63.12156096,
+        "reduction_pct": 2.2860050664287757,
+        "selected": true
+      },
+      {
+        "case": 3,
+        "baseline_us": 120.015468445,
+        "candidate_us": 79.498752955,
+        "reduction_pct": 33.75957784022462,
+        "selected": true
+      },
+      {
+        "case": 4,
+        "baseline_us": 82.95546844500001,
+        "candidate_us": 82.933124155,
+        "reduction_pct": 0.026935282771411995,
+        "selected": false
+      },
+      {
+        "case": 5,
+        "baseline_us": 68.366404625,
+        "candidate_us": 54.855937139999995,
+        "reduction_pct": 19.761851685936904,
+        "selected": true
+      },
+      {
+        "case": 6,
+        "baseline_us": 125.125154855,
+        "candidate_us": 78.383281825,
+        "reduction_pct": 37.35609604972425,
+        "selected": true
+      },
+      {
+        "case": 7,
+        "baseline_us": 84.00703221500001,
+        "candidate_us": 75.080156325,
+        "reduction_pct": 10.626343598418487,
+        "selected": true
+      },
+      {
+        "case": 8,
+        "baseline_us": 123.1364049,
+        "candidate_us": 83.00296962499999,
+        "reduction_pct": 32.5926644582426,
+        "selected": true
+      },
+      {
+        "case": 9,
+        "baseline_us": 87.02671900499999,
+        "candidate_us": 62.06312589,
+        "reduction_pct": 28.68497560337273,
+        "selected": true
+      },
+      {
+        "case": 10,
+        "baseline_us": 42.25843772,
+        "candidate_us": 42.21187532,
+        "reduction_pct": 0.11018485895887276,
+        "selected": false
+      },
+      {
+        "case": 11,
+        "baseline_us": 86.28671989,
+        "candidate_us": 68.76156479,
+        "reduction_pct": 20.310373510942835,
+        "selected": true
+      },
+      {
+        "case": 12,
+        "baseline_us": 67.391406745,
+        "candidate_us": 67.43843853499999,
+        "reduction_pct": -0.0697890017015812,
+        "selected": false
+      },
+      {
+        "case": 13,
+        "baseline_us": 80.35859092999999,
+        "candidate_us": 80.292969945,
+        "reduction_pct": 0.08166019866768792,
+        "selected": false
+      },
+      {
+        "case": 14,
+        "baseline_us": 98.324216905,
+        "candidate_us": 84.86577868500001,
+        "reduction_pct": 13.687816332169135,
+        "selected": true
+      },
+      {
+        "case": 15,
+        "baseline_us": 65.38453326,
+        "candidate_us": 55.79468794,
+        "reduction_pct": 14.666840676014637,
+        "selected": true
+      },
+      {
+        "case": 16,
+        "baseline_us": 78.88000086,
+        "candidate_us": 60.175936664999995,
+        "reduction_pct": 23.71204867022868,
+        "selected": true
+      },
+      {
+        "case": 17,
+        "baseline_us": 116.75843596,
+        "candidate_us": 78.157655895,
+        "reduction_pct": 33.06037781991542,
+        "selected": true
+      },
+      {
+        "case": 18,
+        "baseline_us": 96.679218115,
+        "candidate_us": 81.53375238000001,
+        "reduction_pct": 15.665689100820456,
+        "selected": true
+      },
+      {
+        "case": 19,
+        "baseline_us": 96.90750018,
+        "candidate_us": 69.10452992,
+        "reduction_pct": 28.690215110654606,
+        "selected": true
+      },
+      {
+        "case": 20,
+        "baseline_us": 64.225625245,
+        "candidate_us": 64.26734477,
+        "reduction_pct": -0.06495775609944854,
+        "selected": false
+      },
+      {
+        "case": 21,
+        "baseline_us": 85.07765456999999,
+        "candidate_us": 85.025627165,
+        "reduction_pct": 0.061152843555623004,
+        "selected": false
+      },
+      {
+        "case": 22,
+        "baseline_us": 66.996563225,
+        "candidate_us": 66.96421653,
+        "reduction_pct": 0.04828112584128741,
+        "selected": false
+      },
+      {
+        "case": 23,
+        "baseline_us": 81.21078089,
+        "candidate_us": 56.09468743,
+        "reduction_pct": 30.92704341067689,
+        "selected": true
+      },
+      {
+        "case": 24,
+        "baseline_us": 105.640936645,
+        "candidate_us": 82.23890513,
+        "reduction_pct": 22.152427134985665,
+        "selected": true
+      },
+      {
+        "case": 25,
+        "baseline_us": 101.18281096,
+        "candidate_us": 72.20359519,
+        "reduction_pct": 28.640453348796747,
+        "selected": true
+      },
+      {
+        "case": 26,
+        "baseline_us": 106.434844435,
+        "candidate_us": 76.146561655,
+        "reduction_pct": 28.45711189862933,
+        "selected": true
+      },
+      {
+        "case": 27,
+        "baseline_us": 119.885466995,
+        "candidate_us": 73.90562445,
+        "reduction_pct": 38.35314129186121,
+        "selected": true
+      },
+      {
+        "case": 28,
+        "baseline_us": 94.856873155,
+        "candidate_us": 94.82031315500001,
+        "reduction_pct": 0.038542278259856566,
+        "selected": false
+      },
+      {
+        "case": 29,
+        "baseline_us": 58.152031155,
+        "candidate_us": 58.099063115,
+        "reduction_pct": 0.09108545126965684,
+        "selected": false
+      },
+      {
+        "case": 30,
+        "baseline_us": 49.42953028,
+        "candidate_us": 49.414062875,
+        "reduction_pct": 0.03129183083955267,
+        "selected": false
+      },
+      {
+        "case": 31,
+        "baseline_us": 78.91390473,
+        "candidate_us": 78.92437279,
+        "reduction_pct": -0.013265165417708502,
+        "selected": false
+      },
+      {
+        "case": 32,
+        "baseline_us": 81.37781172999999,
+        "candidate_us": 59.484686705,
+        "reduction_pct": 26.90306431148366,
+        "selected": true
+      },
+      {
+        "case": 33,
+        "baseline_us": 57.076562195,
+        "candidate_us": 57.071093469999994,
+        "reduction_pct": 0.009581384704504536,
+        "selected": false
+      },
+      {
+        "case": 34,
+        "baseline_us": 117.457497865,
+        "candidate_us": 85.57109162,
+        "reduction_pct": 27.147186705482774,
+        "selected": true
+      },
+      {
+        "case": 35,
+        "baseline_us": 67.39046797,
+        "candidate_us": 57.325469330000004,
+        "reduction_pct": 14.935344631351432,
+        "selected": true
+      },
+      {
+        "case": 36,
+        "baseline_us": 71.44765556,
+        "candidate_us": 58.030625805,
+        "reduction_pct": 18.778824371266744,
+        "selected": true
+      },
+      {
+        "case": 37,
+        "baseline_us": 82.30093867,
+        "candidate_us": 57.840781285000006,
+        "reduction_pct": 29.720386887781757,
+        "selected": true
+      },
+      {
+        "case": 38,
+        "baseline_us": 92.88625046499999,
+        "candidate_us": 61.353437604999996,
+        "reduction_pct": 33.947772358280005,
+        "selected": true
+      },
+      {
+        "case": 39,
+        "baseline_us": 78.45906167999999,
+        "candidate_us": 67.428283395,
+        "reduction_pct": 14.059278875892867,
+        "selected": true
+      }
+    ]
+  },
+  "independent_repeat40": {
+    "file": "c8_r18_final_event_repeat.jsonl",
+    "stats": {
+      "all": {
+        "count": 40,
+        "median_reduction_pct": 15.490027152716046,
+        "min_reduction_pct": -0.10659798591909908,
+        "max_reduction_pct": 38.32311164785859
+      },
+      "nz": {
+        "count": 26,
+        "median_reduction_pct": 26.67453779190147,
+        "min_reduction_pct": 2.385455099650269,
+        "max_reduction_pct": 38.32311164785859
+      },
+      "fallback": {
+        "count": 14,
+        "median_reduction_pct": -0.002245394593003436,
+        "min_reduction_pct": -0.10659798591909908,
+        "max_reduction_pct": 0.09380469786878232
+      }
+    },
+    "cases": [
+      {
+        "case": 0,
+        "baseline_us": 48.372030255,
+        "candidate_us": 48.423593865,
+        "reduction_pct": -0.10659798591909908,
+        "selected": false
+      },
+      {
+        "case": 1,
+        "baseline_us": 58.347813785,
+        "candidate_us": 58.361563835,
+        "reduction_pct": -0.02356566443202368,
+        "selected": false
+      },
+      {
+        "case": 2,
+        "baseline_us": 65.44874981,
+        "candidate_us": 63.887499270000006,
+        "reduction_pct": 2.385455099650269,
+        "selected": true
+      },
+      {
+        "case": 3,
+        "baseline_us": 120.92874944,
+        "candidate_us": 80.57843521000001,
+        "reduction_pct": 33.36701521917268,
+        "selected": true
+      },
+      {
+        "case": 4,
+        "baseline_us": 81.956252455,
+        "candidate_us": 81.87937364000001,
+        "reduction_pct": 0.09380469786878232,
+        "selected": false
+      },
+      {
+        "case": 5,
+        "baseline_us": 68.32703203,
+        "candidate_us": 55.08484319,
+        "reduction_pct": 19.380600103024847,
+        "selected": true
+      },
+      {
+        "case": 6,
+        "baseline_us": 125.032655895,
+        "candidate_us": 78.60265672,
+        "reduction_pct": 37.13429811008015,
+        "selected": true
+      },
+      {
+        "case": 7,
+        "baseline_us": 82.302656025,
+        "candidate_us": 75.01171902,
+        "reduction_pct": 8.858689812860144,
+        "selected": true
+      },
+      {
+        "case": 8,
+        "baseline_us": 120.60593814,
+        "candidate_us": 81.97202906000001,
+        "reduction_pct": 32.03317322166471,
+        "selected": true
+      },
+      {
+        "case": 9,
+        "baseline_us": 86.33421734000001,
+        "candidate_us": 62.23234348,
+        "reduction_pct": 27.9169425548649,
+        "selected": true
+      },
+      {
+        "case": 10,
+        "baseline_us": 41.930625219999996,
+        "candidate_us": 41.91937484,
+        "reduction_pct": 0.026830937866928473,
+        "selected": false
+      },
+      {
+        "case": 11,
+        "baseline_us": 84.78437364499999,
+        "candidate_us": 67.826092245,
+        "reduction_pct": 20.00165911587185,
+        "selected": true
+      },
+      {
+        "case": 12,
+        "baseline_us": 66.615778955,
+        "candidate_us": 66.631875935,
+        "reduction_pct": -0.024163914694863564,
+        "selected": false
+      },
+      {
+        "case": 13,
+        "baseline_us": 80.071564765,
+        "candidate_us": 80.05531132,
+        "reduction_pct": 0.020298647900418576,
+        "selected": false
+      },
+      {
+        "case": 14,
+        "baseline_us": 99.16124865500001,
+        "candidate_us": 85.89765802,
+        "reduction_pct": 13.375780171089268,
+        "selected": true
+      },
+      {
+        "case": 15,
+        "baseline_us": 65.83218649,
+        "candidate_us": 55.965311825,
+        "reduction_pct": 14.98791881460414,
+        "selected": true
+      },
+      {
+        "case": 16,
+        "baseline_us": 79.344533385,
+        "candidate_us": 60.35109423,
+        "reduction_pct": 23.93793037113089,
+        "selected": true
+      },
+      {
+        "case": 17,
+        "baseline_us": 117.04781279,
+        "candidate_us": 78.705158085,
+        "reduction_pct": 32.75811293782315,
+        "selected": true
+      },
+      {
+        "case": 18,
+        "baseline_us": 96.96359559999999,
+        "candidate_us": 81.5981254,
+        "reduction_pct": 15.846638220169297,
+        "selected": true
+      },
+      {
+        "case": 19,
+        "baseline_us": 98.141562195,
+        "candidate_us": 69.02859732499999,
+        "reduction_pct": 29.664256629780063,
+        "selected": true
+      },
+      {
+        "case": 20,
+        "baseline_us": 63.583593815,
+        "candidate_us": 63.576877120000006,
+        "reduction_pct": 0.010563566160692872,
+        "selected": false
+      },
+      {
+        "case": 21,
+        "baseline_us": 84.47843790499999,
+        "candidate_us": 84.49921757,
+        "reduction_pct": -0.024597596162201363,
+        "selected": false
+      },
+      {
+        "case": 22,
+        "baseline_us": 67.638907585,
+        "candidate_us": 67.62265786500001,
+        "reduction_pct": 0.02402422005347571,
+        "selected": false
+      },
+      {
+        "case": 23,
+        "baseline_us": 80.309845505,
+        "candidate_us": 55.667500945,
+        "reduction_pct": 30.684089111422573,
+        "selected": true
+      },
+      {
+        "case": 24,
+        "baseline_us": 106.12297058,
+        "candidate_us": 83.94750207499999,
+        "reduction_pct": 20.896011847202487,
+        "selected": true
+      },
+      {
+        "case": 25,
+        "baseline_us": 100.40672123499999,
+        "candidate_us": 71.38328254000001,
+        "reduction_pct": 28.90587237389336,
+        "selected": true
+      },
+      {
+        "case": 26,
+        "baseline_us": 107.117343695,
+        "candidate_us": 75.75781271,
+        "reduction_pct": 29.275866916837856,
+        "selected": true
+      },
+      {
+        "case": 27,
+        "baseline_us": 119.74906548999999,
+        "candidate_us": 73.85749742499999,
+        "reduction_pct": 38.32311164785859,
+        "selected": true
+      },
+      {
+        "case": 28,
+        "baseline_us": 92.89656207,
+        "candidate_us": 92.915937305,
+        "reduction_pct": -0.02085678368313193,
+        "selected": false
+      },
+      {
+        "case": 29,
+        "baseline_us": 58.313751595,
+        "candidate_us": 58.29437636,
+        "reduction_pct": 0.03322584205276424,
+        "selected": false
+      },
+      {
+        "case": 30,
+        "baseline_us": 49.561874939999996,
+        "candidate_us": 49.540467559999996,
+        "reduction_pct": 0.04319324082455722,
+        "selected": false
+      },
+      {
+        "case": 31,
+        "baseline_us": 78.86422053,
+        "candidate_us": 78.87609302999999,
+        "reduction_pct": -0.015054355346699744,
+        "selected": false
+      },
+      {
+        "case": 32,
+        "baseline_us": 81.43171668,
+        "candidate_us": 60.091562565000004,
+        "reduction_pct": 26.206194570181808,
+        "selected": true
+      },
+      {
+        "case": 33,
+        "baseline_us": 57.24187568000001,
+        "candidate_us": 57.25359358,
+        "reduction_pct": -0.020470852607101797,
+        "selected": false
+      },
+      {
+        "case": 34,
+        "baseline_us": 117.27406084500001,
+        "candidate_us": 85.44250205,
+        "reduction_pct": 27.142881013621135,
+        "selected": true
+      },
+      {
+        "case": 35,
+        "baseline_us": 67.569844425,
+        "candidate_us": 57.34421872,
+        "reduction_pct": 15.133416085262796,
+        "selected": true
+      },
+      {
+        "case": 36,
+        "baseline_us": 72.29109108,
+        "candidate_us": 58.479376135,
+        "reduction_pct": 19.105694406680684,
+        "selected": true
+      },
+      {
+        "case": 37,
+        "baseline_us": 82.23546669000001,
+        "candidate_us": 57.37781338,
+        "reduction_pct": 30.227411979924657,
+        "selected": true
+      },
+      {
+        "case": 38,
+        "baseline_us": 92.97906607499999,
+        "candidate_us": 60.968905684999996,
+        "reduction_pct": 34.42727674225028,
+        "selected": true
+      },
+      {
+        "case": 39,
+        "baseline_us": 78.46031338,
+        "candidate_us": 67.50172004,
+        "reduction_pct": 13.967052727568408,
+        "selected": true
+      }
+    ]
+  },
+  "aa": {
+    "file": "c8_r18_event_aa.jsonl",
+    "stats": {
+      "all": {
+        "count": 12,
+        "median_reduction_pct": -0.010352366130139679,
+        "min_reduction_pct": -0.1333390336778706,
+        "max_reduction_pct": 0.09856767412481648
+      },
+      "fallback": {
+        "count": 12,
+        "median_reduction_pct": -0.010352366130139679,
+        "min_reduction_pct": -0.1333390336778706,
+        "max_reduction_pct": 0.09856767412481648
+      }
+    },
+    "cases": [
+      {
+        "case": 0,
+        "baseline_us": 52.562186495,
+        "candidate_us": 52.58953199,
+        "reduction_pct": -0.052025033248193076,
+        "selected": false
+      },
+      {
+        "case": 1,
+        "baseline_us": 43.312031775,
+        "candidate_us": 43.29578206,
+        "reduction_pct": 0.037517785091256695,
+        "selected": false
+      },
+      {
+        "case": 2,
+        "baseline_us": 61.032032595,
+        "candidate_us": 60.971874740000004,
+        "reduction_pct": 0.09856767412481648,
+        "selected": false
+      },
+      {
+        "case": 3,
+        "baseline_us": 51.67781189,
+        "candidate_us": 51.746718584999996,
+        "reduction_pct": -0.1333390336778706,
+        "selected": false
+      },
+      {
+        "case": 8,
+        "baseline_us": 81.035781655,
+        "candidate_us": 81.069845705,
+        "reduction_pct": -0.04203581344477403,
+        "selected": false
+      },
+      {
+        "case": 9,
+        "baseline_us": 71.30375132,
+        "candidate_us": 71.28343731,
+        "reduction_pct": 0.0284893986977508,
+        "selected": false
+      },
+      {
+        "case": 10,
+        "baseline_us": 120.446562765,
+        "candidate_us": 120.38937211,
+        "reduction_pct": 0.04748218104951851,
+        "selected": false
+      },
+      {
+        "case": 11,
+        "baseline_us": 105.761718005,
+        "candidate_us": 105.785779655,
+        "reduction_pct": -0.022750812348615312,
+        "selected": false
+      },
+      {
+        "case": 16,
+        "baseline_us": 83.938281985,
+        "candidate_us": 83.946563305,
+        "reduction_pct": -0.009865963186461713,
+        "selected": false
+      },
+      {
+        "case": 17,
+        "baseline_us": 84.577813745,
+        "candidate_us": 84.58812534500001,
+        "reduction_pct": -0.012191849781184594,
+        "selected": false
+      },
+      {
+        "case": 18,
+        "baseline_us": 84.54843983,
+        "candidate_us": 84.52140539999999,
+        "reduction_pct": 0.031975078492718634,
+        "selected": false
+      },
+      {
+        "case": 19,
+        "baseline_us": 85.03156527499999,
+        "candidate_us": 85.04078165,
+        "reduction_pct": -0.010838769073817645,
+        "selected": false
+      }
+    ]
+  },
+  "controls": [
+    {
+      "case": [
+        0,
+        1,
+        1,
+        1,
+        64,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        1.0,
+        1.0,
+        1.0,
+        0.98
+      ],
+      "candidate_medians_us": [
+        0.99,
+        1.0,
+        0.98,
+        0.99
+      ],
+      "speedups": [
+        1.0101010101010102,
+        1.0,
+        1.0204081632653061,
+        0.98989898989899
+      ],
+      "baseline_median_us": 1.0,
+      "candidate_median_us": 0.99,
+      "delta_us": -0.010000000000000009,
+      "reduction_pct": 1.0000000000000009
+    },
+    {
+      "case": [
+        1,
+        1,
+        1,
+        1,
+        88,
+        2,
+        1,
+        1
+      ],
+      "baseline_medians_us": [
+        1.06,
+        1.05,
+        1.04,
+        1.04
+      ],
+      "candidate_medians_us": [
+        1.04,
+        1.04,
+        1.04,
+        1.06
+      ],
+      "speedups": [
+        1.0192307692307692,
+        1.0096153846153846,
+        1.0,
+        0.9811320754716981
+      ],
+      "baseline_median_us": 1.045,
+      "candidate_median_us": 1.04,
+      "delta_us": -0.004999999999999893,
+      "reduction_pct": 0.4784688995215225
+    },
+    {
+      "case": [
+        2,
+        1,
+        8,
+        8,
+        64,
+        1,
+        0,
+        1
+      ],
+      "baseline_medians_us": [
+        1.78,
+        1.78,
+        1.78,
+        1.78
+      ],
+      "candidate_medians_us": [
+        1.78,
+        1.78,
+        1.78,
+        1.76
+      ],
+      "speedups": [
+        1.0,
+        1.0,
+        1.0,
+        1.0113636363636365
+      ],
+      "baseline_median_us": 1.78,
+      "candidate_median_us": 1.78,
+      "delta_us": 0.0,
+      "reduction_pct": 0.0
+    },
+    {
+      "case": [
+        3,
+        4,
+        32,
+        32,
+        128,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        3.12,
+        3.1100000000000003,
+        3.08,
+        3.1
+      ],
+      "candidate_medians_us": [
+        3.1,
+        3.1100000000000003,
+        3.14,
+        3.1100000000000003
+      ],
+      "speedups": [
+        1.0064516129032257,
+        1.0,
+        0.9808917197452229,
+        0.9967845659163986
+      ],
+      "baseline_median_us": 3.1050000000000004,
+      "candidate_median_us": 3.1100000000000003,
+      "delta_us": 0.004999999999999893,
+      "reduction_pct": -0.16103059581320522
+    },
+    {
+      "case": [
+        4,
+        4,
+        64,
+        128,
+        384,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        4.79,
+        4.8,
+        4.76,
+        4.8
+      ],
+      "candidate_medians_us": [
+        4.8,
+        4.84,
+        4.84,
+        4.82
+      ],
+      "speedups": [
+        0.9979166666666667,
+        0.9917355371900827,
+        0.9834710743801652,
+        0.9958506224066389
+      ],
+      "baseline_median_us": 4.795,
+      "candidate_median_us": 4.83,
+      "delta_us": 0.03500000000000014,
+      "reduction_pct": -0.7299270072992803
+    },
+    {
+      "case": [
+        7,
+        1,
+        1024,
+        1024,
+        2048,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        32.89,
+        32.86,
+        32.85,
+        32.75
+      ],
+      "candidate_medians_us": [
+        32.72,
+        32.86,
+        32.86,
+        32.78
+      ],
+      "speedups": [
+        1.005195599022005,
+        1.0,
+        0.9996956786366403,
+        0.99908480780964
+      ],
+      "baseline_median_us": 32.855000000000004,
+      "candidate_median_us": 32.82,
+      "delta_us": -0.035000000000003695,
+      "reduction_pct": 0.10652868665348425
+    },
+    {
+      "case": [
+        8,
+        1,
+        256,
+        128,
+        128,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        4.18,
+        4.21,
+        4.17,
+        4.1899999999999995
+      ],
+      "candidate_medians_us": [
+        4.2,
+        4.16,
+        4.2,
+        4.22
+      ],
+      "speedups": [
+        0.9952380952380951,
+        1.0120192307692306,
+        0.9928571428571428,
+        0.9928909952606635
+      ],
+      "baseline_median_us": 4.185,
+      "candidate_median_us": 4.2,
+      "delta_us": 0.015000000000000568,
+      "reduction_pct": -0.35842293906811484
+    },
+    {
+      "case": [
+        9,
+        1,
+        4112,
+        48,
+        128,
+        2,
+        1,
+        1
+      ],
+      "baseline_medians_us": [
+        10.99,
+        11.02,
+        10.96,
+        10.98
+      ],
+      "candidate_medians_us": [
+        10.98,
+        11.08,
+        11.04,
+        10.96
+      ],
+      "speedups": [
+        1.0009107468123861,
+        0.9945848375451263,
+        0.992753623188406,
+        1.001824817518248
+      ],
+      "baseline_median_us": 10.985,
+      "candidate_median_us": 11.01,
+      "delta_us": 0.025000000000000355,
+      "reduction_pct": -0.2275830678197588
+    }
+  ],
+  "split_retention": [
+    {
+      "case": [
+        0,
+        1,
+        16,
+        16,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        8.7,
+        8.5,
+        8.6,
+        8.55
+      ],
+      "candidate_medians_us": [
+        8.64,
+        8.42,
+        8.47,
+        9.03
+      ],
+      "speedups": [
+        1.0069444444444442,
+        1.009501187648456,
+        1.0153482880755607,
+        0.9468438538205981
+      ],
+      "baseline_median_us": 8.575,
+      "candidate_median_us": 8.555,
+      "delta_us": -0.019999999999999574,
+      "reduction_pct": 0.23323615160348865
+    },
+    {
+      "case": [
+        8,
+        1,
+        32,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        5.06,
+        5.1,
+        5.16,
+        5.06
+      ],
+      "candidate_medians_us": [
+        5.16,
+        5.04,
+        5.07,
+        5.15
+      ],
+      "speedups": [
+        0.9806201550387595,
+        1.0119047619047619,
+        1.0177514792899407,
+        0.9825242718446601
+      ],
+      "baseline_median_us": 5.08,
+      "candidate_median_us": 5.11,
+      "delta_us": 0.03000000000000025,
+      "reduction_pct": -0.5905511811023612
+    },
+    {
+      "case": [
+        16,
+        1,
+        64,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        5.92,
+        5.86,
+        5.95,
+        5.8100000000000005
+      ],
+      "candidate_medians_us": [
+        5.92,
+        5.78,
+        5.8,
+        5.99
+      ],
+      "speedups": [
+        1.0,
+        1.013840830449827,
+        1.0258620689655173,
+        0.9699499165275459
+      ],
+      "baseline_median_us": 5.890000000000001,
+      "candidate_median_us": 5.859999999999999,
+      "delta_us": -0.030000000000001137,
+      "reduction_pct": 0.5093378607810006
+    },
+    {
+      "case": [
+        24,
+        1,
+        32,
+        128,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        5.82,
+        5.86,
+        5.9,
+        5.8
+      ],
+      "candidate_medians_us": [
+        5.92,
+        5.76,
+        5.82,
+        5.9
+      ],
+      "speedups": [
+        0.9831081081081081,
+        1.0173611111111112,
+        1.013745704467354,
+        0.983050847457627
+      ],
+      "baseline_median_us": 5.84,
+      "candidate_median_us": 5.86,
+      "delta_us": 0.020000000000000462,
+      "reduction_pct": -0.34246575342467
+    },
+    {
+      "case": [
+        32,
+        1,
+        48,
+        80,
+        6112,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        8.56,
+        8.66,
+        8.68,
+        8.56
+      ],
+      "candidate_medians_us": [
+        8.67,
+        8.55,
+        8.62,
+        8.66
+      ],
+      "speedups": [
+        0.9873125720876587,
+        1.0128654970760234,
+        1.0069605568445477,
+        0.9884526558891455
+      ],
+      "baseline_median_us": 8.61,
+      "candidate_median_us": 8.64,
+      "delta_us": 0.030000000000001137,
+      "reduction_pct": -0.34843205574914826
+    },
+    {
+      "case": [
+        40,
+        1,
+        16,
+        112,
+        8160,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        6.82,
+        6.82,
+        6.86,
+        6.78
+      ],
+      "candidate_medians_us": [
+        6.890000000000001,
+        6.72,
+        6.77,
+        6.9
+      ],
+      "speedups": [
+        0.9898403483309143,
+        1.0148809523809526,
+        1.0132939438700148,
+        0.9826086956521739
+      ],
+      "baseline_median_us": 6.82,
+      "candidate_median_us": 6.83,
+      "delta_us": 0.009999999999999787,
+      "reduction_pct": -0.14662756598240456
+    },
+    {
+      "case": [
+        48,
+        1,
+        48,
+        48,
+        4128,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        5.49,
+        5.58,
+        5.6,
+        5.52
+      ],
+      "candidate_medians_us": [
+        5.6,
+        5.46,
+        5.529999999999999,
+        5.62
+      ],
+      "speedups": [
+        0.9803571428571429,
+        1.021978021978022,
+        1.0126582278481013,
+        0.9822064056939501
+      ],
+      "baseline_median_us": 5.55,
+      "candidate_median_us": 5.5649999999999995,
+      "delta_us": 0.01499999999999968,
+      "reduction_pct": -0.2702702702702675
+    },
+    {
+      "case": [
+        56,
+        1,
+        64,
+        48,
+        8192,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        6.6,
+        6.6,
+        6.73,
+        6.56
+      ],
+      "candidate_medians_us": [
+        6.72,
+        6.41,
+        6.609999999999999,
+        6.71
+      ],
+      "speedups": [
+        0.9821428571428571,
+        1.029641185647426,
+        1.0181543116490168,
+        0.977645305514158
+      ],
+      "baseline_median_us": 6.6,
+      "candidate_median_us": 6.66,
+      "delta_us": 0.0600000000000005,
+      "reduction_pct": -0.909090909090926
+    }
+  ],
+  "sanitizers": {
+    "racecheck": {
+      "cases": 2,
+      "instrumented": true,
+      "log": "c8_r18_instrumented_racecheck.log",
+      "r18": {
+        "errors": 16,
+        "spaces": {},
+        "has_skipped": false
+      },
+      "r12": {
+        "errors": 24,
+        "spaces": {},
+        "has_skipped": false
+      },
+      "verdict": "findings in both versions; not a clean sanitizer pass"
+    },
+    "initcheck": {
+      "cases": 2,
+      "instrumented": true,
+      "log": "c8_r18_instrumented_initcheck.log",
+      "r18": {
+        "errors": 4596,
+        "spaces": {
+          "GM": 3676,
+          "PRIVATE": 920
+        },
+        "has_skipped": false
+      },
+      "r12": {
+        "errors": 19827,
+        "spaces": {
+          "GM": 18903,
+          "PRIVATE": 920,
+          "UB": 4
+        },
+        "has_skipped": false
+      },
+      "verdict": "findings in both versions; not a clean sanitizer pass"
+    },
+    "memcheck": {
+      "cases": 2,
+      "instrumented": false,
+      "log": "c8_r18_memcheck.log",
+      "warnings": [
+        "FFTS_BASE_ADDR not reset",
+        "missing debug_line"
+      ]
+    },
+    "instrumented_memcheck": {
+      "cases": 2,
+      "r18_errors": 64,
+      "r12_errors": 64,
+      "log": "c8_r18_instrumented_memcheck.log",
+      "verdict": "both versions report UB Max errors; unresolved, not a clean pass",
+      "warnings": "FFTS_BASE_ADDR not reset"
+    }
+  },
+  "decision": "r18 experimental Judge candidate; inherited sanitizer findings remain unresolved and disclosed; keep r12 accepted until feedback"
+}

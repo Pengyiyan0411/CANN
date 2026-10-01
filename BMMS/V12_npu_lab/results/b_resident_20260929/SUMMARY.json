@@ -1,0 +1,100 @@
+{
+  "accepted_version": "v12_r41",
+  "recommended_candidate": null,
+  "r44_feedback": "Case12 113.68us MISS; Case11 82.82us supports accepted r41 gain",
+  "performance": {
+    "r45_screen": {
+      "active_configurations": 10,
+      "total_configurations": 32,
+      "wins": 0,
+      "median_reduction_percent": -14.82196364465066,
+      "min_reduction_percent": -51.376173940494056,
+      "max_reduction_percent": -6.260892218688796,
+      "both_windows_faster": 0
+    },
+    "r46_screen": {
+      "active_configurations": 10,
+      "total_configurations": 32,
+      "wins": 6,
+      "median_reduction_percent": 1.1351334230263577,
+      "min_reduction_percent": -0.9723025675907548,
+      "max_reduction_percent": 1.8570544259797317,
+      "both_windows_faster": 6
+    },
+    "r47_screen": {
+      "active_configurations": 10,
+      "total_configurations": 32,
+      "wins": 8,
+      "median_reduction_percent": 2.066286277827972,
+      "min_reduction_percent": -0.6311258654313479,
+      "max_reduction_percent": 5.113515617485131,
+      "both_windows_faster": 8
+    },
+    "r47_holdout": {
+      "active_configurations": 32,
+      "total_configurations": 32,
+      "wins": 24,
+      "median_reduction_percent": 1.989193127959682,
+      "min_reduction_percent": -2.7474475759613703,
+      "max_reduction_percent": 8.153780815823009,
+      "both_windows_faster": 24
+    }
+  },
+  "precision": {
+    "r45": {
+      "precision_configurations": 230,
+      "precision_calls": 690,
+      "all_pass": true,
+      "max_tolerance_ratio": 0.00191358175
+    },
+    "r46": {
+      "precision_configurations": 230,
+      "precision_calls": 690,
+      "all_pass": true,
+      "max_tolerance_ratio": 0.00191358175
+    },
+    "r47": {
+      "precision_configurations": 282,
+      "precision_calls": 846,
+      "all_pass": true,
+      "max_tolerance_ratio": 0.0762939453
+    }
+  },
+  "source_sha256": {
+    "r45": "2c78b3dc13e802978264ee8c8c33d00699af371f675719cc7951e0d8e82befde",
+    "r46": "82d7a3ce7ec0ff659bad62e3c1a96bfbd3727526e82ee61c2ec3e7f969256456",
+    "r47": "ba3a0f39ee9f939a9a4b6e09f0d24ad2ab4ad5d7d875bd7cf177bfcacf977a99"
+  },
+  "static_audits": {
+    "r45": {
+      "configurations": 16384,
+      "active": 6054,
+      "submacros": 2941962,
+      "resident_B_microblocks": 28512,
+      "max_ub_bytes": 54336,
+      "all_pass": true
+    },
+    "r46": {
+      "configurations": 16384,
+      "active": 6054,
+      "macros": 1507063,
+      "row_halves": 141676,
+      "sparse_merge_reads": 318692,
+      "max_ub_bytes": 77600,
+      "all_pass": true
+    },
+    "r47": {
+      "configurations": 16384,
+      "active": 6054,
+      "macros": 1507063,
+      "row_halves": 141676,
+      "sparse_merge_reads": 318692,
+      "max_ub_bytes": 81536,
+      "all_pass": true
+    }
+  },
+  "evidence_files_verified": 147,
+  "sanitizer": "No new sanitizer run; none of r45/r46/r47 selected for promotion. Prior r33/r41 limitations remain unresolved.",
+  "next_experiment": "Keep original r30 compute grid and producer; isolate parallel row-max epilogue against unchanged r41. Stratify by original pN=2,5,20 and use new shapes before selecting a generic plan-state guard.",
+  "subsequent_update": "../parallel_epilogue_20260929/REPORT.md"
+}

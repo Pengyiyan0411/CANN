@@ -1,0 +1,17 @@
+{
+  "version": "v12_r69",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "d804aa0b6fab90e9490aae14aa7c45d63be81169b90683c6b6c53bb294e27fa5",
+  "status": "Superseded: batched gains, but B1 padded-N regressions and index-tail sanitizer errors.",
+  "parent_byte_recovery": true,
+  "new_device_entries": 104,
+  "valid_MNK_checked": 2726,
+  "max_UB_bytes": 167968,
+  "max_UB_shape": [
+    16,
+    9,
+    112
+  ],
+  "eligible": "B 1..64, M/N 2..16, K 32..128 step8; original Tiny/Resident only",
+  "change": "Batch-independent workers; batched dot reductions; padded N rows; original Tiny/Resident reduction grouping; explicit final vector sum"
+}

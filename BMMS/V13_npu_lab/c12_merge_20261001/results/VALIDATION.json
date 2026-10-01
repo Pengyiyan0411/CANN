@@ -1,0 +1,1632 @@
+{
+  "precision": {
+    "configurations": 93,
+    "calls": 279,
+    "passed": 92,
+    "failed": [
+      {
+        "case": 40037,
+        "version": "r2",
+        "pass": false,
+        "max_abs_error": 0.00234625582,
+        "max_tolerance_ratio": 23.4625582,
+        "host_call_mean_us": 117.062,
+        "kernel_timing": false,
+        "repeats": 3,
+        "short_dot_domain": false,
+        "cube_cores": 20
+      }
+    ],
+    "baseline_failed": [
+      {
+        "case": 40037,
+        "version": "r72",
+        "pass": false,
+        "max_abs_error": 0.00234625582,
+        "max_tolerance_ratio": 23.4625582,
+        "host_call_mean_us": 121.415667,
+        "kernel_timing": false,
+        "repeats": 3,
+        "short_dot_domain": false,
+        "cube_cores": 20
+      }
+    ],
+    "large_comparison_identical_max_error_cases": 55,
+    "max_tolerance_ratio_pass": 0.00178567933
+  },
+  "performance": {
+    "c12": {
+      "configurations": 10,
+      "median_reduction_pct": 0.022597424260822896,
+      "worst_reduction_pct": -0.09743035504008457,
+      "regress_over3pct": 0,
+      "summary": [
+        {
+          "case": [
+            40000,
+            1,
+            1280,
+            4096,
+            1536,
+            2,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            77.3215,
+            77.661
+          ],
+          "candidate_medians_us": [
+            76.8515,
+            78.282
+          ],
+          "speedups": [
+            1.00611569065015,
+            0.9920671418716948
+          ],
+          "baseline_median_us": 77.49125000000001,
+          "candidate_median_us": 77.56675
+        },
+        {
+          "case": [
+            40001,
+            1,
+            1280,
+            4160,
+            1536,
+            2,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            107.49199999999999,
+            107.802
+          ],
+          "candidate_medians_us": [
+            91.102,
+            92.542
+          ],
+          "speedups": [
+            1.1799082347259116,
+            1.164898100322016
+          ],
+          "baseline_median_us": 107.64699999999999,
+          "candidate_median_us": 91.822
+        },
+        {
+          "case": [
+            40002,
+            1,
+            1280,
+            4224,
+            1536,
+            2,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            85.7515,
+            86.17150000000001
+          ],
+          "candidate_medians_us": [
+            85.202,
+            86.642
+          ],
+          "speedups": [
+            1.0064493791225557,
+            0.994569608273124
+          ],
+          "baseline_median_us": 85.9615,
+          "candidate_median_us": 85.922
+        },
+        {
+          "case": [
+            40004,
+            1,
+            1280,
+            4352,
+            1536,
+            2,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            86.232,
+            86.602
+          ],
+          "candidate_medians_us": [
+            85.342,
+            86.782
+          ],
+          "speedups": [
+            1.010428628342434,
+            0.9979258371551705
+          ],
+          "baseline_median_us": 86.417,
+          "candidate_median_us": 86.062
+        },
+        {
+          "case": [
+            40008,
+            1,
+            1280,
+            4608,
+            1536,
+            2,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            85.8815,
+            86.2415
+          ],
+          "candidate_medians_us": [
+            85.402,
+            86.852
+          ],
+          "speedups": [
+            1.0056146226083698,
+            0.992970800902685
+          ],
+          "baseline_median_us": 86.0615,
+          "candidate_median_us": 86.12700000000001
+        },
+        {
+          "case": [
+            40016,
+            1,
+            1280,
+            5120,
+            1536,
+            2,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            94.482,
+            94.902
+          ],
+          "candidate_medians_us": [
+            93.902,
+            95.362
+          ],
+          "speedups": [
+            1.0061766522544782,
+            0.9951762756653594
+          ],
+          "baseline_median_us": 94.69200000000001,
+          "candidate_median_us": 94.632
+        },
+        {
+          "case": [
+            40031,
+            1,
+            1280,
+            6080,
+            1536,
+            2,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            146.733,
+            146.973
+          ],
+          "candidate_medians_us": [
+            122.223,
+            123.893
+          ],
+          "speedups": [
+            1.2005350875039886,
+            1.1862897823121565
+          ],
+          "baseline_median_us": 146.853,
+          "candidate_median_us": 123.05799999999999
+        },
+        {
+          "case": [
+            40052,
+            1,
+            1664,
+            2560,
+            2304,
+            2,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            96.232,
+            96.522
+          ],
+          "candidate_medians_us": [
+            95.742,
+            97.122
+          ],
+          "speedups": [
+            1.005117921079568,
+            0.9938222030024094
+          ],
+          "baseline_median_us": 96.37700000000001,
+          "candidate_median_us": 96.432
+        },
+        {
+          "case": [
+            40053,
+            1,
+            1024,
+            2048,
+            1024,
+            2,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            32.921,
+            33.2205
+          ],
+          "candidate_medians_us": [
+            32.401,
+            33.741
+          ],
+          "speedups": [
+            1.016048887380019,
+            0.9845736640882014
+          ],
+          "baseline_median_us": 33.070750000000004,
+          "candidate_median_us": 33.071
+        },
+        {
+          "case": [
+            40054,
+            1,
+            1280,
+            3072,
+            1280,
+            2,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            52.801,
+            53.081
+          ],
+          "candidate_medians_us": [
+            52.321,
+            53.661
+          ],
+          "speedups": [
+            1.0091741365799585,
+            0.9891914053036657
+          ],
+          "baseline_median_us": 52.941,
+          "candidate_median_us": 52.991
+        }
+      ]
+    },
+    "small": {
+      "configurations": 38,
+      "median_reduction_pct": -0.17962072082208236,
+      "worst_reduction_pct": -7.354430379746857,
+      "regress_over3pct": 5,
+      "summary": [
+        {
+          "case": [
+            30234,
+            1,
+            2,
+            2,
+            32,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            2.62,
+            2.5700000000000003
+          ],
+          "candidate_medians_us": [
+            2.5004999999999997,
+            2.49
+          ],
+          "speedups": [
+            1.0477904419116177,
+            1.0321285140562249
+          ],
+          "baseline_median_us": 2.595,
+          "candidate_median_us": 2.49525
+        },
+        {
+          "case": [
+            30235,
+            1,
+            2,
+            2,
+            32,
+            1,
+            0,
+            1
+          ],
+          "baseline_medians_us": [
+            1.99,
+            1.96
+          ],
+          "candidate_medians_us": [
+            2.0905,
+            2.1500000000000004
+          ],
+          "speedups": [
+            0.9519253767041378,
+            0.911627906976744
+          ],
+          "baseline_median_us": 1.975,
+          "candidate_median_us": 2.1202500000000004
+        },
+        {
+          "case": [
+            30236,
+            1,
+            2,
+            2,
+            32,
+            1,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            2.18,
+            2.05
+          ],
+          "candidate_medians_us": [
+            2.25,
+            2.24
+          ],
+          "speedups": [
+            0.9688888888888889,
+            0.9151785714285713
+          ],
+          "baseline_median_us": 2.115,
+          "candidate_median_us": 2.245
+        },
+        {
+          "case": [
+            30237,
+            1,
+            2,
+            2,
+            32,
+            1,
+            1,
+            1
+          ],
+          "baseline_medians_us": [
+            2.26,
+            2.34
+          ],
+          "candidate_medians_us": [
+            2.36,
+            2.34
+          ],
+          "speedups": [
+            0.9576271186440678,
+            1.0
+          ],
+          "baseline_median_us": 2.3,
+          "candidate_median_us": 2.3499999999999996
+        },
+        {
+          "case": [
+            30250,
+            32,
+            2,
+            2,
+            32,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            2.9,
+            2.901
+          ],
+          "candidate_medians_us": [
+            2.9,
+            2.9
+          ],
+          "speedups": [
+            1.0,
+            1.0003448275862068
+          ],
+          "baseline_median_us": 2.9005,
+          "candidate_median_us": 2.9
+        },
+        {
+          "case": [
+            30251,
+            32,
+            2,
+            2,
+            32,
+            1,
+            0,
+            1
+          ],
+          "baseline_medians_us": [
+            2.94,
+            2.94
+          ],
+          "candidate_medians_us": [
+            2.9405,
+            2.94
+          ],
+          "speedups": [
+            0.9998299608910048,
+            1.0
+          ],
+          "baseline_median_us": 2.94,
+          "candidate_median_us": 2.94025
+        },
+        {
+          "case": [
+            30252,
+            32,
+            2,
+            2,
+            32,
+            1,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            3.02,
+            3.05
+          ],
+          "candidate_medians_us": [
+            3.04,
+            3.06
+          ],
+          "speedups": [
+            0.993421052631579,
+            0.9967320261437908
+          ],
+          "baseline_median_us": 3.035,
+          "candidate_median_us": 3.05
+        },
+        {
+          "case": [
+            30253,
+            32,
+            2,
+            2,
+            32,
+            1,
+            1,
+            1
+          ],
+          "baseline_medians_us": [
+            3.06,
+            3.0605
+          ],
+          "candidate_medians_us": [
+            3.0705,
+            3.06
+          ],
+          "speedups": [
+            0.9965803615046409,
+            1.0001633986928105
+          ],
+          "baseline_median_us": 3.06025,
+          "candidate_median_us": 3.06525
+        },
+        {
+          "case": [
+            30282,
+            1,
+            4,
+            4,
+            64,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            1.98,
+            2.09
+          ],
+          "candidate_medians_us": [
+            2.12,
+            2.13
+          ],
+          "speedups": [
+            0.9339622641509433,
+            0.9812206572769953
+          ],
+          "baseline_median_us": 2.035,
+          "candidate_median_us": 2.125
+        },
+        {
+          "case": [
+            30283,
+            1,
+            4,
+            4,
+            64,
+            1,
+            0,
+            1
+          ],
+          "baseline_medians_us": [
+            2.0505,
+            1.99
+          ],
+          "candidate_medians_us": [
+            1.93,
+            1.98
+          ],
+          "speedups": [
+            1.0624352331606217,
+            1.005050505050505
+          ],
+          "baseline_median_us": 2.02025,
+          "candidate_median_us": 1.955
+        },
+        {
+          "case": [
+            30284,
+            1,
+            4,
+            4,
+            64,
+            1,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            2.44,
+            2.16
+          ],
+          "candidate_medians_us": [
+            2.1100000000000003,
+            2.1205
+          ],
+          "speedups": [
+            1.1563981042654026,
+            1.0186276821504363
+          ],
+          "baseline_median_us": 2.3,
+          "candidate_median_us": 2.11525
+        },
+        {
+          "case": [
+            30285,
+            1,
+            4,
+            4,
+            64,
+            1,
+            1,
+            1
+          ],
+          "baseline_medians_us": [
+            2.3,
+            2.24
+          ],
+          "candidate_medians_us": [
+            2.24,
+            2.21
+          ],
+          "speedups": [
+            1.0267857142857142,
+            1.0135746606334843
+          ],
+          "baseline_median_us": 2.27,
+          "candidate_median_us": 2.225
+        },
+        {
+          "case": [
+            30298,
+            32,
+            4,
+            4,
+            64,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            3.06,
+            3.0404999999999998
+          ],
+          "candidate_medians_us": [
+            3.041,
+            3.04
+          ],
+          "speedups": [
+            1.0062479447550148,
+            1.0001644736842104
+          ],
+          "baseline_median_us": 3.05025,
+          "candidate_median_us": 3.0404999999999998
+        },
+        {
+          "case": [
+            30299,
+            32,
+            4,
+            4,
+            64,
+            1,
+            0,
+            1
+          ],
+          "baseline_medians_us": [
+            3.06,
+            3.08
+          ],
+          "candidate_medians_us": [
+            3.08,
+            3.05
+          ],
+          "speedups": [
+            0.9935064935064934,
+            1.0098360655737706
+          ],
+          "baseline_median_us": 3.0700000000000003,
+          "candidate_median_us": 3.065
+        },
+        {
+          "case": [
+            30300,
+            32,
+            4,
+            4,
+            64,
+            1,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            3.28,
+            3.3
+          ],
+          "candidate_medians_us": [
+            3.3,
+            3.3
+          ],
+          "speedups": [
+            0.9939393939393939,
+            1.0
+          ],
+          "baseline_median_us": 3.29,
+          "candidate_median_us": 3.3
+        },
+        {
+          "case": [
+            30301,
+            32,
+            4,
+            4,
+            64,
+            1,
+            1,
+            1
+          ],
+          "baseline_medians_us": [
+            3.3,
+            3.32
+          ],
+          "candidate_medians_us": [
+            3.32,
+            3.3099999999999996
+          ],
+          "speedups": [
+            0.9939759036144579,
+            1.0030211480362539
+          ],
+          "baseline_median_us": 3.3099999999999996,
+          "candidate_median_us": 3.3149999999999995
+        },
+        {
+          "case": [
+            30330,
+            1,
+            8,
+            8,
+            64,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            1.94,
+            1.91
+          ],
+          "candidate_medians_us": [
+            1.92,
+            1.92
+          ],
+          "speedups": [
+            1.0104166666666667,
+            0.9947916666666666
+          ],
+          "baseline_median_us": 1.9249999999999998,
+          "candidate_median_us": 1.92
+        },
+        {
+          "case": [
+            30331,
+            1,
+            8,
+            8,
+            64,
+            1,
+            0,
+            1
+          ],
+          "baseline_medians_us": [
+            1.67,
+            1.68
+          ],
+          "candidate_medians_us": [
+            1.7,
+            1.7
+          ],
+          "speedups": [
+            0.9823529411764705,
+            0.9882352941176471
+          ],
+          "baseline_median_us": 1.6749999999999998,
+          "candidate_median_us": 1.7
+        },
+        {
+          "case": [
+            30332,
+            1,
+            8,
+            8,
+            64,
+            1,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            2.2699999999999996,
+            2.2300000000000004
+          ],
+          "candidate_medians_us": [
+            2.25,
+            2.26
+          ],
+          "speedups": [
+            1.0088888888888887,
+            0.9867256637168145
+          ],
+          "baseline_median_us": 2.25,
+          "candidate_median_us": 2.255
+        },
+        {
+          "case": [
+            30333,
+            1,
+            8,
+            8,
+            64,
+            1,
+            1,
+            1
+          ],
+          "baseline_medians_us": [
+            1.88,
+            1.88
+          ],
+          "candidate_medians_us": [
+            1.88,
+            1.87
+          ],
+          "speedups": [
+            1.0,
+            1.0053475935828875
+          ],
+          "baseline_median_us": 1.88,
+          "candidate_median_us": 1.875
+        },
+        {
+          "case": [
+            30346,
+            32,
+            8,
+            8,
+            64,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            3.38,
+            3.36
+          ],
+          "candidate_medians_us": [
+            3.38,
+            3.38
+          ],
+          "speedups": [
+            1.0,
+            0.9940828402366864
+          ],
+          "baseline_median_us": 3.37,
+          "candidate_median_us": 3.38
+        },
+        {
+          "case": [
+            30347,
+            32,
+            8,
+            8,
+            64,
+            1,
+            0,
+            1
+          ],
+          "baseline_medians_us": [
+            3.18,
+            3.2
+          ],
+          "candidate_medians_us": [
+            3.2,
+            3.18
+          ],
+          "speedups": [
+            0.99375,
+            1.0062893081761006
+          ],
+          "baseline_median_us": 3.1900000000000004,
+          "candidate_median_us": 3.1900000000000004
+        },
+        {
+          "case": [
+            30348,
+            32,
+            8,
+            8,
+            64,
+            1,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            3.66,
+            3.6805000000000003
+          ],
+          "candidate_medians_us": [
+            3.7005,
+            3.68
+          ],
+          "speedups": [
+            0.9890555330360763,
+            1.0001358695652174
+          ],
+          "baseline_median_us": 3.6702500000000002,
+          "candidate_median_us": 3.69025
+        },
+        {
+          "case": [
+            30349,
+            32,
+            8,
+            8,
+            64,
+            1,
+            1,
+            1
+          ],
+          "baseline_medians_us": [
+            3.4,
+            3.4
+          ],
+          "candidate_medians_us": [
+            3.48,
+            3.4204999999999997
+          ],
+          "speedups": [
+            0.9770114942528736,
+            0.9940067241631341
+          ],
+          "baseline_median_us": 3.4,
+          "candidate_median_us": 3.4502499999999996
+        },
+        {
+          "case": [
+            30354,
+            1,
+            8,
+            16,
+            128,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            3.2904999999999998,
+            3.3605
+          ],
+          "candidate_medians_us": [
+            3.38,
+            3.3705
+          ],
+          "speedups": [
+            0.9735207100591715,
+            0.9970330811452307
+          ],
+          "baseline_median_us": 3.3255,
+          "candidate_median_us": 3.37525
+        },
+        {
+          "case": [
+            30355,
+            1,
+            8,
+            16,
+            128,
+            1,
+            0,
+            1
+          ],
+          "baseline_medians_us": [
+            2.7,
+            2.8
+          ],
+          "candidate_medians_us": [
+            2.68,
+            2.67
+          ],
+          "speedups": [
+            1.007462686567164,
+            1.048689138576779
+          ],
+          "baseline_median_us": 2.75,
+          "candidate_median_us": 2.675
+        },
+        {
+          "case": [
+            30356,
+            1,
+            8,
+            16,
+            128,
+            1,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            3.58,
+            3.6
+          ],
+          "candidate_medians_us": [
+            3.72,
+            3.66
+          ],
+          "speedups": [
+            0.9623655913978494,
+            0.9836065573770492
+          ],
+          "baseline_median_us": 3.59,
+          "candidate_median_us": 3.6900000000000004
+        },
+        {
+          "case": [
+            30357,
+            1,
+            8,
+            16,
+            128,
+            1,
+            1,
+            1
+          ],
+          "baseline_medians_us": [
+            3.14,
+            3.1
+          ],
+          "candidate_medians_us": [
+            3.2699999999999996,
+            3.18
+          ],
+          "speedups": [
+            0.960244648318043,
+            0.9748427672955975
+          ],
+          "baseline_median_us": 3.12,
+          "candidate_median_us": 3.2249999999999996
+        },
+        {
+          "case": [
+            30370,
+            32,
+            8,
+            16,
+            128,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            4.45,
+            4.441
+          ],
+          "candidate_medians_us": [
+            4.44,
+            4.44
+          ],
+          "speedups": [
+            1.0022522522522521,
+            1.000225225225225
+          ],
+          "baseline_median_us": 4.4455,
+          "candidate_median_us": 4.44
+        },
+        {
+          "case": [
+            30371,
+            32,
+            8,
+            16,
+            128,
+            1,
+            0,
+            1
+          ],
+          "baseline_medians_us": [
+            3.88,
+            3.88
+          ],
+          "candidate_medians_us": [
+            3.91,
+            3.88
+          ],
+          "speedups": [
+            0.9923273657289002,
+            1.0
+          ],
+          "baseline_median_us": 3.88,
+          "candidate_median_us": 3.895
+        },
+        {
+          "case": [
+            30372,
+            32,
+            8,
+            16,
+            128,
+            1,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            4.841,
+            4.86
+          ],
+          "candidate_medians_us": [
+            4.86,
+            4.86
+          ],
+          "speedups": [
+            0.9960905349794238,
+            1.0
+          ],
+          "baseline_median_us": 4.8505,
+          "candidate_median_us": 4.86
+        },
+        {
+          "case": [
+            30373,
+            32,
+            8,
+            16,
+            128,
+            1,
+            1,
+            1
+          ],
+          "baseline_medians_us": [
+            4.2,
+            4.2
+          ],
+          "candidate_medians_us": [
+            4.22,
+            4.22
+          ],
+          "speedups": [
+            0.9952606635071091,
+            0.9952606635071091
+          ],
+          "baseline_median_us": 4.2,
+          "candidate_median_us": 4.22
+        },
+        {
+          "case": [
+            30000,
+            1,
+            1,
+            1,
+            32,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            1.34,
+            1.37
+          ],
+          "candidate_medians_us": [
+            1.42,
+            1.42
+          ],
+          "speedups": [
+            0.943661971830986,
+            0.9647887323943664
+          ],
+          "baseline_median_us": 1.355,
+          "candidate_median_us": 1.42
+        },
+        {
+          "case": [
+            30004,
+            1,
+            1,
+            1,
+            32,
+            2,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            1.18,
+            1.26
+          ],
+          "candidate_medians_us": [
+            1.15,
+            1.14
+          ],
+          "speedups": [
+            1.0260869565217392,
+            1.105263157894737
+          ],
+          "baseline_median_us": 1.22,
+          "candidate_median_us": 1.145
+        },
+        {
+          "case": [
+            30040,
+            1,
+            1,
+            1,
+            72,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            1.18,
+            1.2
+          ],
+          "candidate_medians_us": [
+            1.17,
+            1.16
+          ],
+          "speedups": [
+            1.0085470085470085,
+            1.0344827586206897
+          ],
+          "baseline_median_us": 1.19,
+          "candidate_median_us": 1.165
+        },
+        {
+          "case": [
+            30044,
+            1,
+            1,
+            1,
+            72,
+            2,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            1.24,
+            1.24
+          ],
+          "candidate_medians_us": [
+            1.26,
+            1.24
+          ],
+          "speedups": [
+            0.9841269841269841,
+            1.0
+          ],
+          "baseline_median_us": 1.24,
+          "candidate_median_us": 1.25
+        },
+        {
+          "case": [
+            30096,
+            1,
+            1,
+            1,
+            128,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            1.16,
+            1.19
+          ],
+          "candidate_medians_us": [
+            1.14,
+            1.16
+          ],
+          "speedups": [
+            1.0175438596491229,
+            1.0258620689655173
+          ],
+          "baseline_median_us": 1.1749999999999998,
+          "candidate_median_us": 1.15
+        },
+        {
+          "case": [
+            30100,
+            1,
+            1,
+            1,
+            128,
+            2,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            1.26,
+            1.3
+          ],
+          "candidate_medians_us": [
+            1.23,
+            1.22
+          ],
+          "speedups": [
+            1.024390243902439,
+            1.0655737704918034
+          ],
+          "baseline_median_us": 1.28,
+          "candidate_median_us": 1.225
+        }
+      ]
+    },
+    "small_confirm": {
+      "configurations": 8,
+      "median_reduction_pct": 0.29761904761904656,
+      "worst_reduction_pct": 0.0,
+      "regress_over3pct": 0,
+      "summary": [
+        {
+          "case": [
+            30234,
+            1,
+            2,
+            2,
+            32,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            1.32,
+            1.32,
+            1.32
+          ],
+          "candidate_medians_us": [
+            1.32,
+            1.32,
+            1.32
+          ],
+          "speedups": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "baseline_median_us": 1.32,
+          "candidate_median_us": 1.32
+        },
+        {
+          "case": [
+            30235,
+            1,
+            2,
+            2,
+            32,
+            1,
+            0,
+            1
+          ],
+          "baseline_medians_us": [
+            1.4,
+            1.38,
+            1.38
+          ],
+          "candidate_medians_us": [
+            1.38,
+            1.38,
+            1.4
+          ],
+          "speedups": [
+            1.0144927536231885,
+            1.0,
+            0.9857142857142857
+          ],
+          "baseline_median_us": 1.38,
+          "candidate_median_us": 1.38
+        },
+        {
+          "case": [
+            30236,
+            1,
+            2,
+            2,
+            32,
+            1,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            1.5,
+            1.45,
+            1.46
+          ],
+          "candidate_medians_us": [
+            1.46,
+            1.46,
+            1.46
+          ],
+          "speedups": [
+            1.0273972602739727,
+            0.9931506849315068,
+            1.0
+          ],
+          "baseline_median_us": 1.46,
+          "candidate_median_us": 1.46
+        },
+        {
+          "case": [
+            30282,
+            1,
+            4,
+            4,
+            64,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            1.56,
+            1.54,
+            1.54
+          ],
+          "candidate_medians_us": [
+            1.52,
+            1.52,
+            1.54
+          ],
+          "speedups": [
+            1.0263157894736843,
+            1.013157894736842,
+            1.0
+          ],
+          "baseline_median_us": 1.54,
+          "candidate_median_us": 1.52
+        },
+        {
+          "case": [
+            30356,
+            1,
+            8,
+            16,
+            128,
+            1,
+            1,
+            0
+          ],
+          "baseline_medians_us": [
+            3.36,
+            3.34,
+            3.36
+          ],
+          "candidate_medians_us": [
+            3.34,
+            3.3305,
+            3.3499999999999996
+          ],
+          "speedups": [
+            1.0059880239520957,
+            1.0028524245608768,
+            1.0029850746268658
+          ],
+          "baseline_median_us": 3.36,
+          "candidate_median_us": 3.34
+        },
+        {
+          "case": [
+            30357,
+            1,
+            8,
+            16,
+            128,
+            1,
+            1,
+            1
+          ],
+          "baseline_medians_us": [
+            2.7,
+            2.68,
+            2.7
+          ],
+          "candidate_medians_us": [
+            2.68,
+            2.68,
+            2.68
+          ],
+          "speedups": [
+            1.007462686567164,
+            1.0,
+            1.007462686567164
+          ],
+          "baseline_median_us": 2.7,
+          "candidate_median_us": 2.68
+        },
+        {
+          "case": [
+            30000,
+            1,
+            1,
+            1,
+            32,
+            1,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            0.98,
+            0.96,
+            0.97
+          ],
+          "candidate_medians_us": [
+            0.98,
+            0.96,
+            0.96
+          ],
+          "speedups": [
+            1.0,
+            1.0,
+            1.0104166666666667
+          ],
+          "baseline_median_us": 0.97,
+          "candidate_median_us": 0.96
+        },
+        {
+          "case": [
+            30100,
+            1,
+            1,
+            1,
+            128,
+            2,
+            0,
+            0
+          ],
+          "baseline_medians_us": [
+            1.01,
+            1.0,
+            1.0
+          ],
+          "candidate_medians_us": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "speedups": [
+            1.01,
+            1.0,
+            1.0
+          ],
+          "baseline_median_us": 1.0,
+          "candidate_median_us": 1.0
+        }
+      ]
+    }
+  },
+  "sanitizer": {
+    "san": {
+      "initcheck": {
+        "errors": 604,
+        "warnings": 0,
+        "error_categories": [
+          "uninitialized read of size 4",
+          "uninitialized read of size 4608",
+          "uninitialized read of size 5120",
+          "uninitialized read of size 65536"
+        ],
+        "warning_categories": [],
+        "register_warning_count": 0
+      },
+      "memcheck": {
+        "errors": 0,
+        "warnings": 60,
+        "error_categories": [],
+        "warning_categories": [],
+        "register_warning_count": 60
+      },
+      "racecheck": {
+        "errors": 2,
+        "warnings": 0,
+        "error_categories": [
+          "Potential RAW hazard detected at L0C in \"bmms12opt_b16_tn(unsigned char*, unsigned char*, unsigned char*, unsigned char*, unsigned char*, bmms83::NativePlan, unsigned char*)\" on device 0:",
+          "Potential WAW hazard detected at L0C in \"bmms12opt_b16_tn(unsigned char*, unsigned char*, unsigned char*, unsigned char*, unsigned char*, bmms83::NativePlan, unsigned char*)\" on device 0:"
+        ],
+        "warning_categories": [],
+        "register_warning_count": 0
+      },
+      "synccheck": {
+        "errors": 0,
+        "warnings": 564,
+        "error_categories": [],
+        "warning_categories": [
+          "Redundant wait_flag instructions detected"
+        ],
+        "register_warning_count": 0
+      },
+      "tail_mem": {
+        "errors": 0,
+        "warnings": 60,
+        "error_categories": [],
+        "warning_categories": [],
+        "register_warning_count": 60
+      }
+    },
+    "san_base": {
+      "initcheck": {
+        "errors": 602,
+        "warnings": 0,
+        "error_categories": [
+          "uninitialized read of size 4",
+          "uninitialized read of size 4864",
+          "uninitialized read of size 5120",
+          "uninitialized read of size 65536"
+        ],
+        "warning_categories": [],
+        "register_warning_count": 0
+      },
+      "memcheck": {
+        "errors": 0,
+        "warnings": 60,
+        "error_categories": [],
+        "warning_categories": [],
+        "register_warning_count": 60
+      },
+      "racecheck": {
+        "errors": 2,
+        "warnings": 0,
+        "error_categories": [
+          "Potential RAW hazard detected at L0C in \"bmms1230_b16_tn(unsigned char*, unsigned char*, unsigned char*, unsigned char*, unsigned char*, bmms83::NativePlan, unsigned char*)\" on device 0:",
+          "Potential WAW hazard detected at L0C in \"bmms1230_b16_tn(unsigned char*, unsigned char*, unsigned char*, unsigned char*, unsigned char*, bmms83::NativePlan, unsigned char*)\" on device 0:"
+        ],
+        "warning_categories": [],
+        "register_warning_count": 0
+      },
+      "synccheck": {
+        "errors": 0,
+        "warnings": 564,
+        "error_categories": [],
+        "warning_categories": [
+          "Redundant wait_flag instructions detected"
+        ],
+        "register_warning_count": 0
+      }
+    }
+  }
+}

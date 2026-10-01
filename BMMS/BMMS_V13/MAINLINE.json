@@ -1,0 +1,30 @@
+{
+  "line": "V13",
+  "accepted_sota": "v13_r1_baseline_r72.asc",
+  "accepted_sha256": "7a1c3efec19d4907ae6f1b88a0bb4acbbebfc722555574cd4e8c1b507c0bee6c",
+  "acceptance_basis": "User explicitly reports clear Case2-4 improvement in r72 and promotes it as v13-r1.",
+  "active_candidate": "v13_r2_submit_compact.asc",
+  "candidate_sha256": "e799dbe1443231c957e4b4cc334571742d4fddd3807fe80af883da113de11a6f",
+  "candidate_status": "HTTP 413 upload rejection resolved by 21.02% source compaction; host/device preprocessed tokens identical to locally validated r2; Judge15 pending",
+  "parents": [
+    "v12_r72_small_cases_index_padded.asc",
+    "C12R2_NBIT1.asc"
+  ],
+  "isolation_verified": true,
+  "removed_probe": true,
+  "validation": "VALIDATION.md",
+  "analysis": "CASE12_BRANCH_ANALYSIS.md",
+  "user_case12_feedback": "User reconfirms supplied branch gives approximately 20 us benefit on Judge Case12.",
+  "shape_evidence": "N=4096 follows conditional on all five probes described by teammate; only NBIT1 source provided; original N%64 range retained.",
+  "judge_r2_feedback": {
+    "result": "NOT_EVALUATED",
+    "failure_type": "HTTP 413 Request Entity Too Large",
+    "case": null,
+    "source": "User supplied the HTTP 413 HTML response; this is request rejection, not an operator correctness or runtime failure.",
+    "original_upload_source_sha256": "b450d62b49b7ece6548cd442d82d5c8cdc08d4be54dbf4ab92c26e2e58ceb589"
+  },
+  "recommended_submission": "v13_r2_submit_compact.asc",
+  "readable_candidate_source": "v13_r2_case12_o10.asc",
+  "readable_source_sha256": "b450d62b49b7ece6548cd442d82d5c8cdc08d4be54dbf4ab92c26e2e58ceb589",
+  "upload_fix_report": "R2_UPLOAD_413.md"
+}

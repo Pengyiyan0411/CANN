@@ -1,0 +1,16 @@
+{
+  "candidate": "v12_r10_splitk_full_shard.asc",
+  "sha256": "05faba4305329ad837a0a3762cc76825b6ef886dc02cd78bc9ccbe60ece4547d",
+  "parent": "v12_baseline_r03.asc",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "parent_recovered_byte_for_byte": true,
+  "split_count_workspace_consumer_unchanged": true,
+  "scope": "Narrow Case15 metadata guard; actual build and synthetic correctness/performance recorded in npu_report.",
+  "CANN_compiled": true,
+  "NPU_tested": true,
+  "synthetic_precision_cases": 228,
+  "repeats_per_case": 3,
+  "competition_hidden15_tested": false,
+  "status": "not selected: mixed gains and repeatable regressions on the synthetic Split-K cluster",
+  "npu_report": "../V12_npu_lab/results/split_20260928/REPORT.md"
+}

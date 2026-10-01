@@ -1,0 +1,10 @@
+{
+  "file": "v12_r05_probe_r04_coverage.asc",
+  "purpose": "diagnosis only: full r04 dispatch coverage using original R06 one-group stress",
+  "parent": "v12_baseline_r03.asc",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "sha256": "485147ab95fe70dfed37f8a2848ecb95d5e7d2646cc44e54ce9a6ca3abf0056b",
+  "single_host_function_changed": true,
+  "device_source_unchanged": true,
+  "r03_recovered_byte_for_byte": true
+}

@@ -1,0 +1,26 @@
+{
+  "source_runs": 30,
+  "bitwise_equal_pairs": 15,
+  "old_A_bytes": 2971648,
+  "new_A_bytes": 2267136,
+  "old_B_bytes": 14897152,
+  "new_B_bytes": 14897152,
+  "old_A_descriptors": 214,
+  "new_A_descriptors": 170,
+  "old_B_descriptors": 214,
+  "new_B_descriptors": 214,
+  "ring_reads_elements": 389632,
+  "ready_publications": 88,
+  "arena_peak_bytes": [
+    35168,
+    524288,
+    32768,
+    65536,
+    131072
+  ],
+  "wrong_cache_slot_rejected": "16x272 p=1,1 compact=1: UB uninitialized read",
+  "source_sha256": "d4c0e539ca2145aa520e7b63c7a6bd8b9006ef3d54fa531971b1cf4c67720605",
+  "CANN_compiled": false,
+  "NPU_tested": false,
+  "scope": "actual original and partial-A-cache producer plus unchanged consumer; full target K on small spatial CPU fixtures; logical descriptor counters are not timings"
+}

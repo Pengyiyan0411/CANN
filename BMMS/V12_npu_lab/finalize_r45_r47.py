@@ -1,0 +1,113 @@
+from pathlib import Path
+import json,hashlib,shutil
+r=Path(__file__).resolve().parents[1];v=r/'BMMS_V12';o=r/'V12_npu_lab/results/b_resident_20260929'
+def read(p):return json.loads(p.read_text(encoding='utf-8'))
+def put(p,x):p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+perf=read(o/'PERFORMANCE.json');validation=read(o/'evidence/results/r45_r47_validation_summary.json')
+names={'r45':'v12_r45_case12_b_resident.asc','r46':'v12_r46_case12_fractional_n.asc','r47':'v12_r47_case12_fractional_rows.asc'}
+statuses={
+ 'r45':'Rejected locally: 10/10 active configurations slower; median regression 14.82%; no Judge submission recommended',
+ 'r46':'Research only: active screen median reduction 1.14%, 6/10 wins, worst regression 0.97%; not promoted',
+ 'r47':'Research only: fresh holdout 24/32 wins, median reduction 1.99%, worst regression 2.75%; not promoted or recommended for Judge'}
+base=(v/'v12_baseline_r41.asc').read_bytes()
+assert hashlib.sha256(base).hexdigest()=='1caf7870ac4154c0f555621ba9c41f4601c6ecee96cb2e8d0bf23acc4fc4f373'
+source_hashes={}
+for version,name in names.items():
+    data=(v/name).read_bytes();meta=read(v/f'v12_{version}_manifest.json');h=hashlib.sha256(data).hexdigest()
+    assert h==meta['sha256']
+    assert data==(o/f'evidence/{version}.asc').read_bytes()
+    # The candidate consists only of one inserted namespace module and one hook.
+    ns='12'+version[1:];src=data.decode();a=src.index('// BMMS'+ns+'_BEGIN');b=src.index('// BMMS'+ns+'_END',a)+len('// BMMS'+ns+'_END')
+    src=src[:a]+src[b+2:]
+    hook='    if(bmms'+ns+'::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;\n'
+    assert src.replace(hook,'',1).encode()==base,version
+    meta.update(status=statuses[version],npu_validation=validation[version],performance={k:val for k,val in perf.items() if k.startswith(version)},readme='../V12_npu_lab/results/b_resident_20260929/REPORT.md',judge_tested=False,sanitizer='Not run for these experimental variants; inherited unresolved baseline limitations remain.')
+    put(v/f'v12_{version}_manifest.json',meta);source_hashes[version]=h
+
+summary=dict(accepted_version='v12_r41',recommended_candidate=None,r44_feedback='Case12 113.68us MISS; Case11 82.82us supports accepted r41 gain',performance=perf,precision=validation,source_sha256=source_hashes,static_audits={z:read(o/f'audit_{z}.json') for z in names},evidence_files_verified=len(read(o/'evidence/manifest.json')['files']),sanitizer='No new sanitizer run; none of r45/r46/r47 selected for promotion. Prior r33/r41 limitations remain unresolved.',next_experiment='Keep original r30 compute grid and producer; isolate parallel row-max epilogue against unchanged r41. Stratify by original pN=2,5,20 and use new shapes before selecting a generic plan-state guard.')
+put(o/'SUMMARY.json',summary)
+
+report='''# r44 反馈与 Case12 三轮实验（2026-09-29）
+
+## 决策
+
+主线继续使用 **v12_baseline_r41.asc**，源码未修改。r45 淘汰；r46、r47 保留为研究版本，本轮不推荐新的 Judge 性能提交，也不追加形状探针。r47 有局部收益，但尚不足以覆盖未知 Case12 的退化风险。
+
+最新截图按对 r44 交付的直接回复归属；截图本身没有版本名或源码哈希。15 点全部 Pass，显示误差 0.00%。Case11 为 **82.82μs**，与上次 r41 的 83.65μs 一起支持此前明显收益。Case12 为 **113.68μs**，没有校准后的压力信号，判定 r44 MISS；不能把相对 115.04μs 的小变化认作算法收益。完整截图、15 点数据与归属假设见 `../../../V12_results/2026-09-29_r44_feedback/`。
+
+结合前次 r40 HIT，在输入、核数和运行条件未变的前提下，Case12 未满足 r41 的严格展平门槛：原计划峰值完整宏块数已经等于 `ceil(mTiles*nTiles/cores)`。这只约束 128×256 完整宏块计数，不证明实际元素数、搬运量或结束时间均衡，也不能据此断定具体 pM/pN。
+
+## 同机实测
+
+三个候选均独立基于 r41，删除新增模块与入口后可逐字节恢复原文件。仅修改已知 Case12 区间、原 r30 完整路由条件成立、且 r41 展平门槛为 FALSE 的输入。其余路径保留。
+
+|版本|改动|实际启用配置|耗时下降中位数|范围|结论|
+|---|---|---:|---:|---:|---|
+|r45|B 全 K 面板驻留 L1，跨 M 复用，128×128 子面板|初筛 10|−14.82%|−51.38%～−6.26%|全部变慢，淘汰|
+|r46|128 列调度单位，尽量合并为 256 列计算；并行稀疏行 Max，局部标量求和|初筛 10|+1.14%|−0.97%～+1.86%|6 快、4 慢，不合入|
+|r47|保留 r46 调度和并行行 Max，恢复完整 M 向量 ReduceSum|初筛 10|+2.07%|−0.63%～+5.11%|8 快、2 慢，继续留出验证|
+|r47|相同源码，独立新形状留出集|留出 32|+1.99%|−2.75%～+8.15%|24 快、8 慢，不晋升|
+
+正数表示耗时减少。初筛一共 32 配置，实际仅 10 配置启用新增 kernel；统计排除了 22 个回退路径配置，避免稀释结果。初筛实际启用的是 5 种几何/布局 × FP16/BF16；留出集是 **16 种几何/布局 × 两种 dtype**，不是 32 种独立形状。留出集的 24 个快配置在两个窗口都快。所有新路径均由 profiler 实际 kernel 名核对。
+
+每轮以同一机器上的 r41 公共入口为标杆，串行 A/B、B/A 两个进程窗口，每配置 30 次，舍弃前 5 次，再对每窗口的中位数取中位数。测量为 `msprof --task-time=on --ai-core=off` 的设备任务耗时，一调用一个 kernel；不把 host_call_mean_us 当设备性能。没有两个计时任务并发。不同版本轮次的原始时间可能漂移，所有收益均由各自同期 A/B 计算。
+
+这些均为合成输入，**不能把 r47 的 1.99% 或 8.15% 当作隐藏 Case12 的预期收益**。r47 未继续选小范围白名单来掩盖退化，也未改写已经用于选择的留出集为“独立验证”。
+
+## 数值与结构验证
+
+- r45、r46：各 230 配置 × 3 次，分别 690 次普通 NPU 数值检查，全 Pass。
+- r47：282 配置 × 3 次，共 846 次普通 NPU 数值检查，全 Pass。新增 52 配置包括 32 个留出配置及 20 个特殊值配置；基线 r41 对同一新增 52 配置 × 3 次也全部通过。
+- 20 个特殊值配置覆盖负值、全零、宽尺度、重复列、正负成对相消，分布在两种实际启用的新路径形状上，每种 FP16/BF16 各测。参考来自实际量化后输入的 CPU FP64 计算；容差 `1e-4+1e-4*abs(reference)`，每次运行先用 NaN 毒化输出。r47 最大误差/容差比为 0.076294，小于 1。
+- 性能测量调用也逐例核对数值，以上精度调用数未把计时期间重复验证累计进去。
+- 三版均完成真实 CANN 编译。r45 结构枚举 16,384 配置，其中 6,054 启用；验证 B 面板索引、旧网格分片、输出覆盖和资源边界。L1 最大 516,096B，L0A/B 各 32KiB，L0C 128KiB，显式 UB 最大 54,336B。
+- r46/r47 各枚举相同 16,384 配置、6,054 启用；核对 1,507,063 个计算块、141,676 个行半块及 318,692 个稀疏合并读取。r47 每个输出行恰好写入一次，finalRows 与各组 partials 互不重叠，完整 M 求和缓冲区尺寸覆盖；显式 UB 最大 81,536B。
+
+结构枚举是 CPU 模型检查，不是硬件异步竞争证明。本轮三版未获推荐，未追加昂贵 sanitizer；历史 r33 的 race/init 检测问题与 r41 有限 memcheck 超时仍未关闭，不能声称内存或竞争检查全部通过。
+
+## 新发现与下一方向
+
+对留出集用实际 host planner 计算成本，结果见 `PLAN_COST.json`。原计划呈现 `pM/pN=10/2`、`4/5`、`1/20` 三类。
+
+- 留出集 8 个退化配置全部来自旧 `pM=10,pN=2`；但这一类也存在收益配置，不能直接把 pN=2 等同于必慢。
+- 最大收益形状 `M=1392,N=5120,K=1600` 的旧计划为 `pM=1,pN=20`。r47 峰值实际单元数反而增加约 1.15%，任务时间仍下降约 7.90%/8.15%。因此“最重核计算量下降”不足以解释收益。
+- 同样，部分峰值实际单元数减少的样本反而退化。宏块计数、cells 或 input 中任何单一指标都不能直接作为可靠的时间模型。
+
+**下一实验优先分离 epilogue：保留原 r30 的 producer、宏块尺寸、K 分段和 pM/pN，只修改最终行最大值的并行合并。** 按原计划 pN=2、5、20 分层，在新生成的形状上对比，再用少量代表形状采集计算、搬运和等待证据。这样能判断当前 r47 的收益是否主要来自降低串行合并开销，同时避免细 N 分块带来的额外 partial 写入和同步。现有数据只支持这一假说，不是因果证明。
+
+这一步不依赖新增隐藏形状探针。也不预先把 `M>1280` 或观察到的赢家 shape 写成路由白名单；通用的 plan-state 门槛需要独立数据支持。
+
+## 复现与交付
+
+设备为 Ascend910_9362，20 Cube，CANN9.0.0，dav-2201。使用已有独立 C ABI harness，未改造成 Torch 扩展。`evidence/` 包含源码、构建日志、输入种子/哈希、manifest、数值 JSONL、原始 profiler CSV 与二进制 SHA256。输入大文件不打包，可按生成器重建；先运行普通输入生成器，再运行 `generate_r47.py`，然后参考 `check_r45.sh`、`check_r46.sh`、`check_r47.sh`。同一实验 tag 不可覆盖复用。
+
+`r45_r47_evidence.zip` 已检查 ZIP CRC 及 147 个归档文件 SHA256。本地新增脚本、静态枚举及报告另外列入 `LOCAL_MANIFEST.json`。主线文件 SHA256 为 `1caf7870ac4154c0f555621ba9c41f4601c6ecee96cb2e8d0bf23acc4fc4f373`，未被候选覆盖。
+
+三个实验源码保存在工作目录 `BMMS_V12/`，版本编号连续到 v12_r47。由于筛选结论不足以晋升，没有生成新的性能提交包；可复现源码与失败结果均保留。
+'''
+(o/'REPORT.md').write_text(report,encoding='utf-8')
+
+main=read(v/'MAINLINE.json')
+for version,name in names.items():
+    item=dict(version='v12_'+version,file=name,parent='v12_baseline_r41.asc',sha256=source_hashes[version],status=statuses[version],npu_report='../V12_npu_lab/results/b_resident_20260929/REPORT.md')
+    main['candidates']=[x for x in main['candidates'] if x['version']!=item['version']]+[item]
+main['next_action']=summary['next_experiment'];main['latest_experiment_report']='../V12_npu_lab/results/b_resident_20260929/REPORT.md'
+main['recommended_candidate']=None;main['active_diagnostic']=None
+main['latest_acceptance_corroboration']=dict(feedback='../V12_results/2026-09-29_r44_feedback/RESULTS.json',case11_us=82.82,case12_us=113.68,note='r44 MISS on Case12; preserves r41 Case11 path. Unpaired Judge timing, not a new optimization.')
+put(v/'MAINLINE.json',main)
+
+# Mark older report as historical without rewriting the archived measurement evidence.
+old=r/'V12_npu_lab/results/wide_pingpong_20260929/REPORT.md'
+s=old.read_text(encoding='utf-8')
+notice='> 后续状态：r44 已收到反馈，Case12 113.68μs，判为 MISS。已完成 r45–r47 三轮实验，主线仍为 r41，无推荐性能候选。见 [后续报告](../b_resident_20260929/REPORT.md)。以下为当时的实验记录。\n\n'
+if not s.startswith('> 后续状态：'):old.write_text(notice+s,encoding='utf-8')
+oldj=r/'V12_npu_lab/results/wide_pingpong_20260929/SUMMARY.json';j=read(oldj)
+j['subsequent_update']=dict(report='../b_resident_20260929/REPORT.md',r44='Case12 MISS 113.68us; historical diagnostic completed')
+put(oldj,j)
+
+scripts=o/'scripts';scripts.mkdir(exist_ok=True)
+for name in ['accept_r44_feedback.py','prepare_r45.py','prepare_r46.py','prepare_r47.py','audit_r45.py','audit_r46.py','audit_r47.py','analyze_r45_r47.py','plan_cost_r47.py','finalize_r45_r47.py']:
+    shutil.copyfile(r/'V12_npu_lab'/name,scripts/name)
+files=[p for p in o.rglob('*') if p.is_file() and p.name!='LOCAL_MANIFEST.json' and p.suffix not in ['.exe']]
+put(o/'LOCAL_MANIFEST.json',{'files':{str(p.relative_to(o)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(files)}})
+print(json.dumps({'accepted':main['accepted_version'],'recommended':main['recommended_candidate'],'evidence_files':summary['evidence_files_verified'],'report':str(o/'REPORT.md')},ensure_ascii=False))

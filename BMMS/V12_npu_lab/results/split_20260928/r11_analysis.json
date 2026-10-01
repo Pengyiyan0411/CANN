@@ -1,0 +1,2868 @@
+{
+  "split_r10_event_aa": [
+    {
+      "case": 0,
+      "shape": [
+        1,
+        16,
+        16,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.300156054999999,
+      "candidate_us": 12.28609355,
+      "paired_gain_pct": 0.1155441754028319
+    },
+    {
+      "case": 8,
+      "shape": [
+        1,
+        32,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 8.92874971,
+      "candidate_us": 8.928124794999999,
+      "paired_gain_pct": 0.0454216887374681
+    },
+    {
+      "case": 16,
+      "shape": [
+        1,
+        64,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 11.930781415,
+      "candidate_us": 11.940000115,
+      "paired_gain_pct": -0.028782451730513525
+    },
+    {
+      "case": 24,
+      "shape": [
+        1,
+        32,
+        128,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.233437474999999,
+      "candidate_us": 9.23500024,
+      "paired_gain_pct": 0.0473177955914339
+    },
+    {
+      "case": 32,
+      "shape": [
+        1,
+        48,
+        80,
+        6112,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 13.517031445,
+      "candidate_us": 13.51953112,
+      "paired_gain_pct": 6.351370707147197e-07
+    },
+    {
+      "case": 40,
+      "shape": [
+        1,
+        16,
+        112,
+        8160,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.897187355,
+      "candidate_us": 9.886406359999999,
+      "paired_gain_pct": 0.05363684888439191
+    },
+    {
+      "case": 48,
+      "shape": [
+        1,
+        48,
+        48,
+        4128,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.197187634999999,
+      "candidate_us": 12.209218929999999,
+      "paired_gain_pct": -0.1601157834784206
+    },
+    {
+      "case": 56,
+      "shape": [
+        1,
+        64,
+        48,
+        8192,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 17.0709379,
+      "candidate_us": 17.062187195,
+      "paired_gain_pct": 0.07320757018219326
+    }
+  ],
+  "split_r10_event_holdout": [
+    {
+      "case": 64,
+      "shape": [
+        1,
+        16,
+        16,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 14.38718755,
+      "candidate_us": 13.592187315,
+      "paired_gain_pct": 5.439955814321712
+    },
+    {
+      "case": 65,
+      "shape": [
+        1,
+        16,
+        16,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 18.11687462,
+      "candidate_us": 16.577031464999997,
+      "paired_gain_pct": 8.496942179477085
+    },
+    {
+      "case": 66,
+      "shape": [
+        1,
+        16,
+        32,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 14.553125014999999,
+      "candidate_us": 13.71234376,
+      "paired_gain_pct": 5.796117992778004
+    },
+    {
+      "case": 67,
+      "shape": [
+        1,
+        16,
+        32,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 17.774531619999998,
+      "candidate_us": 16.464686955,
+      "paired_gain_pct": 7.371733187411178
+    },
+    {
+      "case": 68,
+      "shape": [
+        1,
+        16,
+        48,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 10.61343728,
+      "candidate_us": 8.67687492,
+      "paired_gain_pct": 18.25547312777067
+    },
+    {
+      "case": 69,
+      "shape": [
+        1,
+        16,
+        48,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 11.697187555,
+      "candidate_us": 8.965000045,
+      "paired_gain_pct": 23.331086631741048
+    },
+    {
+      "case": 70,
+      "shape": [
+        1,
+        16,
+        64,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 17.12625008,
+      "candidate_us": 14.779999855,
+      "paired_gain_pct": 13.686551728508606
+    },
+    {
+      "case": 71,
+      "shape": [
+        1,
+        16,
+        64,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 21.542499775,
+      "candidate_us": 17.502968199999998,
+      "paired_gain_pct": 18.663341819557072
+    },
+    {
+      "case": 72,
+      "shape": [
+        1,
+        16,
+        80,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 8.75640614,
+      "candidate_us": 8.770625105,
+      "paired_gain_pct": -0.12667430893856801
+    },
+    {
+      "case": 73,
+      "shape": [
+        1,
+        16,
+        80,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.047343395,
+      "candidate_us": 9.238906205,
+      "paired_gain_pct": -1.8001598844423095
+    },
+    {
+      "case": 74,
+      "shape": [
+        1,
+        16,
+        96,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 14.97749984,
+      "candidate_us": 14.915312175,
+      "paired_gain_pct": 0.4413564312137186
+    },
+    {
+      "case": 75,
+      "shape": [
+        1,
+        16,
+        96,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 18.441875465000003,
+      "candidate_us": 17.85484422,
+      "paired_gain_pct": 3.086759649732551
+    },
+    {
+      "case": 76,
+      "shape": [
+        1,
+        16,
+        112,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 11.623125055,
+      "candidate_us": 10.045312809999999,
+      "paired_gain_pct": 13.565749334130606
+    },
+    {
+      "case": 77,
+      "shape": [
+        1,
+        16,
+        112,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 13.179999774999999,
+      "candidate_us": 10.88187471,
+      "paired_gain_pct": 17.423594187286124
+    },
+    {
+      "case": 78,
+      "shape": [
+        1,
+        16,
+        128,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 19.041094,
+      "candidate_us": 15.671562405,
+      "paired_gain_pct": 17.81242880624911
+    },
+    {
+      "case": 79,
+      "shape": [
+        1,
+        16,
+        128,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 24.67249986,
+      "candidate_us": 18.98578182,
+      "paired_gain_pct": 23.000386593366166
+    },
+    {
+      "case": 80,
+      "shape": [
+        1,
+        32,
+        16,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 16.211874785,
+      "candidate_us": 14.882031365,
+      "paired_gain_pct": 8.154581082984542
+    },
+    {
+      "case": 81,
+      "shape": [
+        1,
+        32,
+        16,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 19.889531660000003,
+      "candidate_us": 17.814219,
+      "paired_gain_pct": 10.422205208597152
+    },
+    {
+      "case": 82,
+      "shape": [
+        1,
+        32,
+        32,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 8.621718735,
+      "candidate_us": 8.64187535,
+      "paired_gain_pct": -0.17935096744914336
+    },
+    {
+      "case": 83,
+      "shape": [
+        1,
+        32,
+        32,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 8.825468835,
+      "candidate_us": 8.992343675,
+      "paired_gain_pct": -1.8575685352341442
+    },
+    {
+      "case": 84,
+      "shape": [
+        1,
+        32,
+        48,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.75812462,
+      "candidate_us": 10.433593765,
+      "paired_gain_pct": 18.164389747173978
+    },
+    {
+      "case": 85,
+      "shape": [
+        1,
+        32,
+        48,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 14.100937175,
+      "candidate_us": 10.58031246,
+      "paired_gain_pct": 24.986170085316758
+    },
+    {
+      "case": 86,
+      "shape": [
+        1,
+        32,
+        64,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 11.737187395,
+      "candidate_us": 9.82828159,
+      "paired_gain_pct": 16.225006741216326
+    },
+    {
+      "case": 87,
+      "shape": [
+        1,
+        32,
+        64,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.988749890000001,
+      "candidate_us": 10.085937569999999,
+      "paired_gain_pct": 22.335263077715013
+    },
+    {
+      "case": 88,
+      "shape": [
+        1,
+        32,
+        80,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 10.44562459,
+      "candidate_us": 10.425468905,
+      "paired_gain_pct": 0.2672236010998419
+    },
+    {
+      "case": 89,
+      "shape": [
+        1,
+        32,
+        80,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 11.055312585,
+      "candidate_us": 11.043281295,
+      "paired_gain_pct": 0.11872111176813305
+    },
+    {
+      "case": 90,
+      "shape": [
+        1,
+        32,
+        96,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.88515606,
+      "candidate_us": 10.35328116,
+      "paired_gain_pct": -4.738119290020492
+    },
+    {
+      "case": 91,
+      "shape": [
+        1,
+        32,
+        96,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 10.410625020000001,
+      "candidate_us": 11.04203146,
+      "paired_gain_pct": -6.065019431194707
+    },
+    {
+      "case": 92,
+      "shape": [
+        1,
+        32,
+        112,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 13.922968415,
+      "candidate_us": 12.367187535,
+      "paired_gain_pct": 11.223277695281947
+    },
+    {
+      "case": 93,
+      "shape": [
+        1,
+        32,
+        112,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 15.56843752,
+      "candidate_us": 13.22562527,
+      "paired_gain_pct": 15.093677571923582
+    },
+    {
+      "case": 94,
+      "shape": [
+        1,
+        32,
+        128,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 11.901406105,
+      "candidate_us": 10.7654687,
+      "paired_gain_pct": 9.493608098964085
+    },
+    {
+      "case": 95,
+      "shape": [
+        1,
+        32,
+        128,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 13.612812385,
+      "candidate_us": 11.74062537,
+      "paired_gain_pct": 13.694710744281613
+    },
+    {
+      "case": 96,
+      "shape": [
+        1,
+        48,
+        16,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 18.152500505,
+      "candidate_us": 16.298124565000002,
+      "paired_gain_pct": 10.268629145577723
+    },
+    {
+      "case": 97,
+      "shape": [
+        1,
+        48,
+        16,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 22.38046937,
+      "candidate_us": 19.34999973,
+      "paired_gain_pct": 13.471216595624469
+    },
+    {
+      "case": 98,
+      "shape": [
+        1,
+        48,
+        32,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.84343747,
+      "candidate_us": 9.84781282,
+      "paired_gain_pct": -0.08730301882946545
+    },
+    {
+      "case": 99,
+      "shape": [
+        1,
+        48,
+        32,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 10.16578125,
+      "candidate_us": 10.200468820000001,
+      "paired_gain_pct": -0.2843686604992124
+    },
+    {
+      "case": 100,
+      "shape": [
+        1,
+        48,
+        48,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 15.061249955000001,
+      "candidate_us": 12.127343565,
+      "paired_gain_pct": 19.516526669349282
+    },
+    {
+      "case": 101,
+      "shape": [
+        1,
+        48,
+        48,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 16.641718335,
+      "candidate_us": 12.35343749,
+      "paired_gain_pct": 25.811356819384464
+    },
+    {
+      "case": 102,
+      "shape": [
+        1,
+        48,
+        64,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.770468835,
+      "candidate_us": 11.053124910000001,
+      "paired_gain_pct": 13.455578076173413
+    },
+    {
+      "case": 103,
+      "shape": [
+        1,
+        48,
+        64,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 14.03031219,
+      "candidate_us": 11.44859381,
+      "paired_gain_pct": 18.41850270992595
+    },
+    {
+      "case": 104,
+      "shape": [
+        1,
+        48,
+        80,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.950937265,
+      "candidate_us": 12.20593741,
+      "paired_gain_pct": 5.793114102233504
+    },
+    {
+      "case": 105,
+      "shape": [
+        1,
+        48,
+        80,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 13.808281625,
+      "candidate_us": 12.855156325,
+      "paired_gain_pct": 6.804375199458335
+    },
+    {
+      "case": 106,
+      "shape": [
+        1,
+        64,
+        16,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 17.55953208,
+      "candidate_us": 17.121562734999998,
+      "paired_gain_pct": 2.3984003266378116
+    },
+    {
+      "case": 107,
+      "shape": [
+        1,
+        64,
+        16,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 20.957968195,
+      "candidate_us": 20.11984307,
+      "paired_gain_pct": 3.9657805033511293
+    },
+    {
+      "case": 108,
+      "shape": [
+        1,
+        64,
+        32,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 15.015000010000001,
+      "candidate_us": 11.89906243,
+      "paired_gain_pct": 20.758336550307654
+    },
+    {
+      "case": 109,
+      "shape": [
+        1,
+        64,
+        32,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 16.632655635,
+      "candidate_us": 12.30296865,
+      "paired_gain_pct": 26.033207367529453
+    },
+    {
+      "case": 110,
+      "shape": [
+        1,
+        64,
+        48,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 14.073906000000001,
+      "candidate_us": 12.980937489999999,
+      "paired_gain_pct": 7.634821532598784
+    },
+    {
+      "case": 111,
+      "shape": [
+        1,
+        64,
+        48,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 15.231562315,
+      "candidate_us": 13.546874745,
+      "paired_gain_pct": 11.0624178263567
+    },
+    {
+      "case": 112,
+      "shape": [
+        1,
+        64,
+        64,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 13.897344005,
+      "candidate_us": 12.299687135,
+      "paired_gain_pct": 11.520640045696323
+    },
+    {
+      "case": 113,
+      "shape": [
+        1,
+        64,
+        64,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 15.275312119999999,
+      "candidate_us": 12.914374935,
+      "paired_gain_pct": 15.43177465028917
+    }
+  ],
+  "split_r10_event_layouts": [
+    {
+      "case": 3,
+      "shape": [
+        1,
+        16,
+        16,
+        4096,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.645781504999999,
+      "candidate_us": 11.885312385,
+      "paired_gain_pct": 6.088179122435161
+    },
+    {
+      "case": 7,
+      "shape": [
+        1,
+        16,
+        16,
+        4096,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.641093695,
+      "candidate_us": 11.867031455,
+      "paired_gain_pct": 6.095092253302265
+    },
+    {
+      "case": 11,
+      "shape": [
+        1,
+        32,
+        64,
+        4096,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 9.871094020000001,
+      "candidate_us": 9.167500310000001,
+      "paired_gain_pct": 7.164330205343461
+    },
+    {
+      "case": 15,
+      "shape": [
+        1,
+        32,
+        64,
+        4096,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 9.877656585,
+      "candidate_us": 9.1678123,
+      "paired_gain_pct": 7.071065320681291
+    },
+    {
+      "case": 27,
+      "shape": [
+        1,
+        32,
+        128,
+        4096,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 9.23656253,
+      "candidate_us": 9.497187565,
+      "paired_gain_pct": -2.8541216131713787
+    },
+    {
+      "case": 31,
+      "shape": [
+        1,
+        32,
+        128,
+        4096,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 9.241250345000001,
+      "candidate_us": 9.480624925,
+      "paired_gain_pct": -2.4872334835093324
+    },
+    {
+      "case": 35,
+      "shape": [
+        1,
+        48,
+        80,
+        6112,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 15.59312502,
+      "candidate_us": 12.88156258,
+      "paired_gain_pct": 17.32390478915729
+    },
+    {
+      "case": 39,
+      "shape": [
+        1,
+        48,
+        80,
+        6112,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 15.57359379,
+      "candidate_us": 12.880937665000001,
+      "paired_gain_pct": 17.25704399418835
+    },
+    {
+      "case": 43,
+      "shape": [
+        1,
+        16,
+        112,
+        8160,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 26.034532114999998,
+      "candidate_us": 19.84609384,
+      "paired_gain_pct": 23.745518632753402
+    },
+    {
+      "case": 47,
+      "shape": [
+        1,
+        16,
+        112,
+        8160,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 26.006250639999998,
+      "candidate_us": 19.835781304999998,
+      "paired_gain_pct": 23.801460959522046
+    },
+    {
+      "case": 51,
+      "shape": [
+        1,
+        48,
+        48,
+        4128,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.213593815,
+      "candidate_us": 11.19937515,
+      "paired_gain_pct": 8.2481905196851
+    },
+    {
+      "case": 55,
+      "shape": [
+        1,
+        48,
+        48,
+        4128,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.214687654999999,
+      "candidate_us": 11.21218735,
+      "paired_gain_pct": 8.210521683028976
+    },
+    {
+      "case": 59,
+      "shape": [
+        1,
+        64,
+        48,
+        8192,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 17.519687304999998,
+      "candidate_us": 17.30984356,
+      "paired_gain_pct": 1.184100892219786
+    },
+    {
+      "case": 63,
+      "shape": [
+        1,
+        64,
+        48,
+        8192,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 17.52625033,
+      "candidate_us": 17.31343754,
+      "paired_gain_pct": 1.2165631251472464
+    }
+  ],
+  "split_r10_event_screen1": [
+    {
+      "case": 0,
+      "shape": [
+        1,
+        16,
+        16,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.287031395,
+      "candidate_us": 11.64234383,
+      "paired_gain_pct": 5.246204355016632
+    },
+    {
+      "case": 8,
+      "shape": [
+        1,
+        32,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 8.93781241,
+      "candidate_us": 8.719374890000001,
+      "paired_gain_pct": 2.478961805668783
+    },
+    {
+      "case": 16,
+      "shape": [
+        1,
+        64,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 11.91624999,
+      "candidate_us": 11.45656267,
+      "paired_gain_pct": 3.8494361363915375
+    },
+    {
+      "case": 24,
+      "shape": [
+        1,
+        32,
+        128,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.235468690000001,
+      "candidate_us": 9.593281430000001,
+      "paired_gain_pct": -3.8214855093917532
+    },
+    {
+      "case": 32,
+      "shape": [
+        1,
+        48,
+        80,
+        6112,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 13.502656485,
+      "candidate_us": 12.31765654,
+      "paired_gain_pct": 8.7281262430361
+    },
+    {
+      "case": 40,
+      "shape": [
+        1,
+        16,
+        112,
+        8160,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.91218723,
+      "candidate_us": 10.44187462,
+      "paired_gain_pct": -5.39918711373325
+    },
+    {
+      "case": 48,
+      "shape": [
+        1,
+        48,
+        48,
+        4128,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.191406455,
+      "candidate_us": 11.131718755,
+      "paired_gain_pct": 8.722025735122635
+    },
+    {
+      "case": 56,
+      "shape": [
+        1,
+        64,
+        48,
+        8192,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 17.09484402,
+      "candidate_us": 17.160312275,
+      "paired_gain_pct": -0.3920078469954347
+    }
+  ],
+  "split_r10_event_screen2": [
+    {
+      "case": 0,
+      "shape": [
+        1,
+        16,
+        16,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.339531444999999,
+      "candidate_us": 11.7123439,
+      "paired_gain_pct": 5.086476581285903
+    },
+    {
+      "case": 8,
+      "shape": [
+        1,
+        32,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.122031275,
+      "candidate_us": 8.990625385000001,
+      "paired_gain_pct": 1.5439495147827997
+    },
+    {
+      "case": 16,
+      "shape": [
+        1,
+        64,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.104218825,
+      "candidate_us": 11.600625234999999,
+      "paired_gain_pct": 4.1575778717132525
+    },
+    {
+      "case": 24,
+      "shape": [
+        1,
+        32,
+        128,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.2559373,
+      "candidate_us": 9.76749975,
+      "paired_gain_pct": -5.5125452904684185
+    },
+    {
+      "case": 32,
+      "shape": [
+        1,
+        48,
+        80,
+        6112,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 13.48156249,
+      "candidate_us": 12.372812255,
+      "paired_gain_pct": 8.21572038676532
+    },
+    {
+      "case": 40,
+      "shape": [
+        1,
+        16,
+        112,
+        8160,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.941250085,
+      "candidate_us": 10.44984395,
+      "paired_gain_pct": -5.138990170159596
+    },
+    {
+      "case": 48,
+      "shape": [
+        1,
+        48,
+        48,
+        4128,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.249687685000001,
+      "candidate_us": 11.204062494999999,
+      "paired_gain_pct": 8.448716475600193
+    },
+    {
+      "case": 56,
+      "shape": [
+        1,
+        64,
+        48,
+        8192,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 16.770624554999998,
+      "candidate_us": 17.075312320000002,
+      "paired_gain_pct": -1.8511002145039979
+    }
+  ],
+  "split_r11_event_aa": [
+    {
+      "case": 0,
+      "shape": [
+        1,
+        16,
+        16,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.32703123,
+      "candidate_us": 12.326718775,
+      "paired_gain_pct": 0.04436842291417609
+    },
+    {
+      "case": 8,
+      "shape": [
+        1,
+        32,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.145624935,
+      "candidate_us": 9.140312675,
+      "paired_gain_pct": -0.013644884052871342
+    },
+    {
+      "case": 16,
+      "shape": [
+        1,
+        64,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.134999964999999,
+      "candidate_us": 12.13984378,
+      "paired_gain_pct": -0.14021700408165527
+    },
+    {
+      "case": 24,
+      "shape": [
+        1,
+        32,
+        128,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.2715621,
+      "candidate_us": 9.27124964,
+      "paired_gain_pct": -0.03538314904287798
+    },
+    {
+      "case": 32,
+      "shape": [
+        1,
+        48,
+        80,
+        6112,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 13.498124665,
+      "candidate_us": 13.494062705000001,
+      "paired_gain_pct": 0.05190571691188195
+    },
+    {
+      "case": 40,
+      "shape": [
+        1,
+        16,
+        112,
+        8160,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.964843745,
+      "candidate_us": 9.95937502,
+      "paired_gain_pct": -0.028196184961404303
+    },
+    {
+      "case": 48,
+      "shape": [
+        1,
+        48,
+        48,
+        4128,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.254843955,
+      "candidate_us": 12.265000024999999,
+      "paired_gain_pct": -0.03570888090829172
+    },
+    {
+      "case": 56,
+      "shape": [
+        1,
+        64,
+        48,
+        8192,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 16.895468345,
+      "candidate_us": 16.89546928,
+      "paired_gain_pct": 0.024047175551644706
+    }
+  ],
+  "split_r11_event_holdout": [
+    {
+      "case": 64,
+      "shape": [
+        1,
+        16,
+        16,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 14.428437684999999,
+      "candidate_us": 14.300000390000001,
+      "paired_gain_pct": 0.8619644626345402
+    },
+    {
+      "case": 65,
+      "shape": [
+        1,
+        16,
+        16,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 18.15453172,
+      "candidate_us": 18.041718754999998,
+      "paired_gain_pct": 0.6220326231949236
+    },
+    {
+      "case": 66,
+      "shape": [
+        1,
+        16,
+        32,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 14.426250015,
+      "candidate_us": 14.371562285,
+      "paired_gain_pct": 0.46892265444171133
+    },
+    {
+      "case": 67,
+      "shape": [
+        1,
+        16,
+        32,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 17.769686874999998,
+      "candidate_us": 17.708281055,
+      "paired_gain_pct": 0.39256267003242584
+    },
+    {
+      "case": 68,
+      "shape": [
+        1,
+        16,
+        48,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 10.511406229999999,
+      "candidate_us": 10.183750185000001,
+      "paired_gain_pct": 3.1462851638580593
+    },
+    {
+      "case": 69,
+      "shape": [
+        1,
+        16,
+        48,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 11.671250220000001,
+      "candidate_us": 11.306093539999999,
+      "paired_gain_pct": 3.1966268907010598
+    },
+    {
+      "case": 70,
+      "shape": [
+        1,
+        16,
+        64,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 16.922187989999998,
+      "candidate_us": 16.935312189999998,
+      "paired_gain_pct": -0.048953144311492114
+    },
+    {
+      "case": 71,
+      "shape": [
+        1,
+        16,
+        64,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 21.502656865,
+      "candidate_us": 21.51562553,
+      "paired_gain_pct": -0.09091399512995979
+    },
+    {
+      "case": 72,
+      "shape": [
+        1,
+        16,
+        80,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 8.60765623,
+      "candidate_us": 8.559062145,
+      "paired_gain_pct": 0.5397516553380555
+    },
+    {
+      "case": 73,
+      "shape": [
+        1,
+        16,
+        80,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 8.958281020000001,
+      "candidate_us": 8.846718815,
+      "paired_gain_pct": 1.2506170247158221
+    },
+    {
+      "case": 74,
+      "shape": [
+        1,
+        16,
+        96,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 14.844218735,
+      "candidate_us": 14.71734373,
+      "paired_gain_pct": 0.8661427010228262
+    },
+    {
+      "case": 75,
+      "shape": [
+        1,
+        16,
+        96,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 18.453281375,
+      "candidate_us": 18.3835933,
+      "paired_gain_pct": 0.38251567380087614
+    },
+    {
+      "case": 76,
+      "shape": [
+        1,
+        16,
+        112,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 11.64984377,
+      "candidate_us": 11.257656385,
+      "paired_gain_pct": 3.3465323236270716
+    },
+    {
+      "case": 77,
+      "shape": [
+        1,
+        16,
+        112,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 13.022656085000001,
+      "candidate_us": 12.89593708,
+      "paired_gain_pct": 0.8849392490184071
+    },
+    {
+      "case": 78,
+      "shape": [
+        1,
+        16,
+        128,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 19.01812479,
+      "candidate_us": 19.150312059999997,
+      "paired_gain_pct": -0.7105714623804937
+    },
+    {
+      "case": 79,
+      "shape": [
+        1,
+        16,
+        128,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 24.607656525,
+      "candidate_us": 24.803749285000002,
+      "paired_gain_pct": -0.8166967825824378
+    },
+    {
+      "case": 80,
+      "shape": [
+        1,
+        32,
+        16,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 16.160000115,
+      "candidate_us": 15.25875041,
+      "paired_gain_pct": 5.631908537236097
+    },
+    {
+      "case": 81,
+      "shape": [
+        1,
+        32,
+        16,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 19.870468415,
+      "candidate_us": 18.90984364,
+      "paired_gain_pct": 4.758123671365471
+    },
+    {
+      "case": 82,
+      "shape": [
+        1,
+        32,
+        32,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 8.627812845000001,
+      "candidate_us": 7.56187504,
+      "paired_gain_pct": 12.116299492507887
+    },
+    {
+      "case": 83,
+      "shape": [
+        1,
+        32,
+        32,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 8.88390653,
+      "candidate_us": 8.047031239999999,
+      "paired_gain_pct": 9.367371502544657
+    },
+    {
+      "case": 84,
+      "shape": [
+        1,
+        32,
+        48,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.731562365,
+      "candidate_us": 11.07187523,
+      "paired_gain_pct": 13.045360890938268
+    },
+    {
+      "case": 85,
+      "shape": [
+        1,
+        32,
+        48,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 14.073281085,
+      "candidate_us": 12.465000155,
+      "paired_gain_pct": 11.378231733914301
+    },
+    {
+      "case": 86,
+      "shape": [
+        1,
+        32,
+        64,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 11.67484373,
+      "candidate_us": 10.77921875,
+      "paired_gain_pct": 7.601364499960155
+    },
+    {
+      "case": 87,
+      "shape": [
+        1,
+        32,
+        64,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.97093742,
+      "candidate_us": 12.21718732,
+      "paired_gain_pct": 5.81580123836356
+    },
+    {
+      "case": 88,
+      "shape": [
+        1,
+        32,
+        80,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 10.44921903,
+      "candidate_us": 9.3571879,
+      "paired_gain_pct": 10.425860614068753
+    },
+    {
+      "case": 89,
+      "shape": [
+        1,
+        32,
+        80,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 11.06046839,
+      "candidate_us": 9.954843669999999,
+      "paired_gain_pct": 9.90752275615595
+    },
+    {
+      "case": 90,
+      "shape": [
+        1,
+        32,
+        96,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.899843950000001,
+      "candidate_us": 8.64937529,
+      "paired_gain_pct": 12.558152929843919
+    },
+    {
+      "case": 91,
+      "shape": [
+        1,
+        32,
+        96,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 10.403905994999999,
+      "candidate_us": 9.233593939999999,
+      "paired_gain_pct": 11.224887774783094
+    },
+    {
+      "case": 92,
+      "shape": [
+        1,
+        32,
+        112,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 13.91515601,
+      "candidate_us": 12.292656115,
+      "paired_gain_pct": 11.746918756369713
+    },
+    {
+      "case": 93,
+      "shape": [
+        1,
+        32,
+        112,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 15.3903123,
+      "candidate_us": 13.901875355,
+      "paired_gain_pct": 9.701295598016552
+    },
+    {
+      "case": 94,
+      "shape": [
+        1,
+        32,
+        128,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 11.825781315,
+      "candidate_us": 11.184530795,
+      "paired_gain_pct": 5.421148395847103
+    },
+    {
+      "case": 95,
+      "shape": [
+        1,
+        32,
+        128,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 13.526093679999999,
+      "candidate_us": 13.02250009,
+      "paired_gain_pct": 3.823131536944735
+    },
+    {
+      "case": 96,
+      "shape": [
+        1,
+        48,
+        16,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 18.031249755,
+      "candidate_us": 16.153437085,
+      "paired_gain_pct": 10.401292805641615
+    },
+    {
+      "case": 97,
+      "shape": [
+        1,
+        48,
+        16,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 22.403906095,
+      "candidate_us": 20.624062045000002,
+      "paired_gain_pct": 7.91272350342524
+    },
+    {
+      "case": 98,
+      "shape": [
+        1,
+        48,
+        32,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.85296909,
+      "candidate_us": 8.0537498,
+      "paired_gain_pct": 18.329887376146402
+    },
+    {
+      "case": 99,
+      "shape": [
+        1,
+        48,
+        32,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 10.162656195,
+      "candidate_us": 8.418437560000001,
+      "paired_gain_pct": 17.23832764644257
+    },
+    {
+      "case": 100,
+      "shape": [
+        1,
+        48,
+        48,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 14.901250135000002,
+      "candidate_us": 12.301718815000001,
+      "paired_gain_pct": 17.53052332895141
+    },
+    {
+      "case": 101,
+      "shape": [
+        1,
+        48,
+        48,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 16.613437795,
+      "candidate_us": 14.020937495,
+      "paired_gain_pct": 15.598256141640965
+    },
+    {
+      "case": 102,
+      "shape": [
+        1,
+        48,
+        64,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.737343555,
+      "candidate_us": 11.0262502,
+      "paired_gain_pct": 13.404898848777304
+    },
+    {
+      "case": 103,
+      "shape": [
+        1,
+        48,
+        64,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 14.02703114,
+      "candidate_us": 12.276093939999999,
+      "paired_gain_pct": 12.473010652772341
+    },
+    {
+      "case": 104,
+      "shape": [
+        1,
+        48,
+        80,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.94875005,
+      "candidate_us": 11.056249959999999,
+      "paired_gain_pct": 14.602459043405759
+    },
+    {
+      "case": 105,
+      "shape": [
+        1,
+        48,
+        80,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 13.792656365,
+      "candidate_us": 11.772968805,
+      "paired_gain_pct": 14.626386810958277
+    },
+    {
+      "case": 106,
+      "shape": [
+        1,
+        64,
+        16,
+        5152,
+        1,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 17.424374819999997,
+      "candidate_us": 14.660312325,
+      "paired_gain_pct": 15.894732771394754
+    },
+    {
+      "case": 107,
+      "shape": [
+        1,
+        64,
+        16,
+        7136,
+        2,
+        1,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 20.89281194,
+      "candidate_us": 18.105468715,
+      "paired_gain_pct": 13.329940093342119
+    },
+    {
+      "case": 108,
+      "shape": [
+        1,
+        64,
+        32,
+        5152,
+        1,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 14.86984361,
+      "candidate_us": 12.100937775,
+      "paired_gain_pct": 18.5585710227434
+    },
+    {
+      "case": 109,
+      "shape": [
+        1,
+        64,
+        32,
+        7136,
+        2,
+        0,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 16.5782813,
+      "candidate_us": 13.92187504,
+      "paired_gain_pct": 16.04134254294359
+    },
+    {
+      "case": 110,
+      "shape": [
+        1,
+        64,
+        48,
+        5152,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 14.077968895,
+      "candidate_us": 10.005156045,
+      "paired_gain_pct": 28.90013053762767
+    },
+    {
+      "case": 111,
+      "shape": [
+        1,
+        64,
+        48,
+        7136,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 15.239531175,
+      "candidate_us": 11.130468454999999,
+      "paired_gain_pct": 26.946341741611302
+    },
+    {
+      "case": 112,
+      "shape": [
+        1,
+        64,
+        64,
+        5152,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 13.8312499,
+      "candidate_us": 11.14187529,
+      "paired_gain_pct": 19.488367802963126
+    },
+    {
+      "case": 113,
+      "shape": [
+        1,
+        64,
+        64,
+        7136,
+        2,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 15.248593875,
+      "candidate_us": 12.451250105,
+      "paired_gain_pct": 18.38693177899949
+    }
+  ],
+  "split_r11_event_layouts": [
+    {
+      "case": 3,
+      "shape": [
+        1,
+        16,
+        16,
+        4096,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.465469075000001,
+      "candidate_us": 12.426093685,
+      "paired_gain_pct": 0.27634709637160415
+    },
+    {
+      "case": 7,
+      "shape": [
+        1,
+        16,
+        16,
+        4096,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.46328093,
+      "candidate_us": 12.43031211,
+      "paired_gain_pct": 0.24783371040894564
+    },
+    {
+      "case": 11,
+      "shape": [
+        1,
+        32,
+        64,
+        4096,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 9.86593775,
+      "candidate_us": 9.02703125,
+      "paired_gain_pct": 8.472579677395697
+    },
+    {
+      "case": 15,
+      "shape": [
+        1,
+        32,
+        64,
+        4096,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 9.86843789,
+      "candidate_us": 9.045625105,
+      "paired_gain_pct": 8.46644649373784
+    },
+    {
+      "case": 27,
+      "shape": [
+        1,
+        32,
+        128,
+        4096,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 9.231406265,
+      "candidate_us": 8.670781269999999,
+      "paired_gain_pct": 6.097465984870914
+    },
+    {
+      "case": 31,
+      "shape": [
+        1,
+        32,
+        128,
+        4096,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 9.235156235,
+      "candidate_us": 8.667500225000001,
+      "paired_gain_pct": 6.070673534241888
+    },
+    {
+      "case": 35,
+      "shape": [
+        1,
+        48,
+        80,
+        6112,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 15.596406535,
+      "candidate_us": 13.540468645,
+      "paired_gain_pct": 13.1644366282949
+    },
+    {
+      "case": 39,
+      "shape": [
+        1,
+        48,
+        80,
+        6112,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 15.437187625,
+      "candidate_us": 13.49515654,
+      "paired_gain_pct": 12.545912900074057
+    },
+    {
+      "case": 43,
+      "shape": [
+        1,
+        16,
+        112,
+        8160,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 25.861718689999996,
+      "candidate_us": 25.579063225,
+      "paired_gain_pct": 1.1028155236825044
+    },
+    {
+      "case": 47,
+      "shape": [
+        1,
+        16,
+        112,
+        8160,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 25.858749635000002,
+      "candidate_us": 25.56249965,
+      "paired_gain_pct": 1.1597064494613119
+    },
+    {
+      "case": 51,
+      "shape": [
+        1,
+        48,
+        48,
+        4128,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.125937735,
+      "candidate_us": 9.336718354999999,
+      "paired_gain_pct": 23.062737442290793
+    },
+    {
+      "case": 55,
+      "shape": [
+        1,
+        48,
+        48,
+        4128,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 12.1220313,
+      "candidate_us": 9.340781255,
+      "paired_gain_pct": 22.892676912439757
+    },
+    {
+      "case": 59,
+      "shape": [
+        1,
+        64,
+        48,
+        8192,
+        1,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 17.274530605,
+      "candidate_us": 9.768437595,
+      "paired_gain_pct": 43.45468478740561
+    },
+    {
+      "case": 63,
+      "shape": [
+        1,
+        64,
+        48,
+        8192,
+        2,
+        1,
+        1
+      ],
+      "windows": 20,
+      "baseline_us": 17.262969165,
+      "candidate_us": 9.77171864,
+      "paired_gain_pct": 43.40901785010983
+    }
+  ],
+  "split_r11_event_screen1": [
+    {
+      "case": 0,
+      "shape": [
+        1,
+        16,
+        16,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.275000105,
+      "candidate_us": 12.248593845,
+      "paired_gain_pct": 0.26731832726362703
+    },
+    {
+      "case": 8,
+      "shape": [
+        1,
+        32,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 8.980312385000001,
+      "candidate_us": 8.298750035,
+      "paired_gain_pct": 7.613786878961676
+    },
+    {
+      "case": 16,
+      "shape": [
+        1,
+        64,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 11.98843727,
+      "candidate_us": 9.285469075,
+      "paired_gain_pct": 22.533189276530614
+    },
+    {
+      "case": 24,
+      "shape": [
+        1,
+        32,
+        128,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.23312502,
+      "candidate_us": 8.67968751,
+      "paired_gain_pct": 5.962521348560035
+    },
+    {
+      "case": 32,
+      "shape": [
+        1,
+        48,
+        80,
+        6112,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 13.516406530000001,
+      "candidate_us": 11.51234377,
+      "paired_gain_pct": 14.732423315833081
+    },
+    {
+      "case": 40,
+      "shape": [
+        1,
+        16,
+        112,
+        8160,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.893124924999999,
+      "candidate_us": 9.701406120000001,
+      "paired_gain_pct": 1.9162810939192643
+    },
+    {
+      "case": 48,
+      "shape": [
+        1,
+        48,
+        48,
+        4128,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.183124665000001,
+      "candidate_us": 9.351718705,
+      "paired_gain_pct": 23.17844455652367
+    },
+    {
+      "case": 56,
+      "shape": [
+        1,
+        64,
+        48,
+        8192,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 17.035312955000002,
+      "candidate_us": 9.367968885,
+      "paired_gain_pct": 45.00683546573341
+    }
+  ],
+  "split_r11_event_screen2": [
+    {
+      "case": 0,
+      "shape": [
+        1,
+        16,
+        16,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.319218835000001,
+      "candidate_us": 12.285937555,
+      "paired_gain_pct": 0.15475901883408305
+    },
+    {
+      "case": 8,
+      "shape": [
+        1,
+        32,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.1198436,
+      "candidate_us": 8.122968955,
+      "paired_gain_pct": 10.882577996579347
+    },
+    {
+      "case": 16,
+      "shape": [
+        1,
+        64,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.136562725000001,
+      "candidate_us": 9.342968930000001,
+      "paired_gain_pct": 23.049789156323225
+    },
+    {
+      "case": 24,
+      "shape": [
+        1,
+        32,
+        128,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.27187502,
+      "candidate_us": 8.69359402,
+      "paired_gain_pct": 6.236824371703603
+    },
+    {
+      "case": 32,
+      "shape": [
+        1,
+        48,
+        80,
+        6112,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 13.47562531,
+      "candidate_us": 11.623437514999999,
+      "paired_gain_pct": 13.787699260312758
+    },
+    {
+      "case": 40,
+      "shape": [
+        1,
+        16,
+        112,
+        8160,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 9.94031271,
+      "candidate_us": 9.799531665,
+      "paired_gain_pct": 1.4029387641858626
+    },
+    {
+      "case": 48,
+      "shape": [
+        1,
+        48,
+        48,
+        4128,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 12.255000415,
+      "candidate_us": 9.47906263,
+      "paired_gain_pct": 22.67783525771611
+    },
+    {
+      "case": 56,
+      "shape": [
+        1,
+        64,
+        48,
+        8192,
+        1,
+        0,
+        0
+      ],
+      "windows": 20,
+      "baseline_us": 17.071719285,
+      "candidate_us": 9.348750115,
+      "paired_gain_pct": 45.240729454225004
+    }
+  ],
+  "pipe_r03": {
+    "Task Duration(us)": 6.26,
+    "aic_mac_time(us)": 0.27,
+    "aic_mte1_time(us)": 0.472,
+    "aic_mte2_time(us)": 1.145,
+    "aic_scalar_time(us)": 2.546,
+    "aiv_time(us)": 3.65,
+    "aiv_scalar_time(us)": 1.1,
+    "aiv_vec_time(us)": 0.096
+  },
+  "pipe_r10": {
+    "Task Duration(us)": 6.12,
+    "aic_mac_time(us)": 0.193,
+    "aic_mte1_time(us)": 0.424,
+    "aic_mte2_time(us)": 0.726,
+    "aic_scalar_time(us)": 2.075,
+    "aiv_time(us)": 3.55,
+    "aiv_scalar_time(us)": 1.237,
+    "aiv_vec_time(us)": 0.096
+  },
+  "pipe_r11": {
+    "Task Duration(us)": 5.8,
+    "aic_mac_time(us)": 0.273,
+    "aic_mte1_time(us)": 0.47,
+    "aic_mte2_time(us)": 1.166,
+    "aic_scalar_time(us)": 2.648,
+    "aiv_time(us)": 4.64,
+    "aiv_scalar_time(us)": 1.436,
+    "aiv_vec_time(us)": 0.058
+  }
+}

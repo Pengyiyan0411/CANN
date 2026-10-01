@@ -1,0 +1,28 @@
+{
+  "version": "v12_r51",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "8545539fb7cdce8ff41818ba803f5acf91774c6d9960124433fc7e9a323b8e9a",
+  "K1": 320,
+  "scope": "B=1,1280<=M<1536,4096<=N<6144,K=1536,TB=false,pN=2,pM=mTiles>=8,tasks=blocks=cores,r41 gate false,pitch aligned",
+  "changes": "K1 only; producer implementation byte-identical to r30; original consumer reused",
+  "status": "rejected: TA=false regressions; TA=true gains too small",
+  "parent_byte_recovery": true,
+  "new_device_entries": 4,
+  "numerical_validation": {
+    "configurations": 164,
+    "calls": 492,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "screen": {
+    "configurations": 32,
+    "median_latency_reduction_pct": -0.23004028101741292,
+    "min_pct": -10.736980167793586,
+    "max_pct": 1.9545264455351874,
+    "positive": 16,
+    "above_one_percent": 10,
+    "below_minus_one_percent": 15,
+    "both_windows_faster": 16,
+    "geometric_speedup": 0.9746679477464424
+  },
+  "npu_report": "../V12_npu_lab/results/case12_k1_20261001/REPORT.md"
+}

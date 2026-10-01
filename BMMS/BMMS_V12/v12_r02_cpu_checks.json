@@ -1,0 +1,22 @@
+{
+  "source_runs": 26,
+  "bitwise_equal_pairs": 13,
+  "old_A_bytes": 2217984,
+  "new_A_bytes": 1157120,
+  "old_B_bytes": 11776000,
+  "new_B_bytes": 11776000,
+  "ring_reads_elements": 286208,
+  "ready_publications": 72,
+  "arena_peak_bytes": [
+    35168,
+    516096,
+    32768,
+    65536,
+    131072
+  ],
+  "missing_resident_K_offset_rejected": "16x272 p=1,1 compact=1: numeric result differs from full row-max plus original sum tree",
+  "source_sha256": "30115f185819ec8ef339e2e8414ff0483c4c2503461733dbedd97294637c9252",
+  "CANN_compiled": false,
+  "NPU_tested": false,
+  "scope": "actual original and resident-A producer plus unchanged consumer on small spatial CPU fixtures with full target K; no full-size NPU execution"
+}

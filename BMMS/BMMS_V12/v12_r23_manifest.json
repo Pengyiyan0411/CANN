@@ -1,0 +1,23 @@
+{
+  "version": "v12_r23",
+  "file": "v12_r23_probe_r22_coverage.asc",
+  "sha256": "e20e86a2c4d661b67a47aaeff02d6064b480c0b7ea4e0e942bd604e762bf0942",
+  "parent": "v12_baseline_r19.asc",
+  "parent_sha256": "27ff91a8e886644ba99b68e3a59ed4d5ed0a001039d6c56074df098d4c66c021",
+  "kind": "diagnostic_only",
+  "status": "Judge all15 Pass; Case11/12 both no stress signal",
+  "predicate_source": "v12_r22_dense_nz_pitch.asc",
+  "predicate_source_sha256": "96b12f4eb4b0f2717591b20211213779604ba1dcf71c0886d4153ac1332a6d39",
+  "parent_exactly_recoverable": true,
+  "workspace_allocation_matches_r22": true,
+  "signal": "original R06 pM=pN=tasks=blocks=1 after exact r22 guard and successful allocation",
+  "limitations": [
+    "Negative cannot distinguish metadata/predicate rejection from allocation failure.",
+    "Source attribution of r22 screenshots is inferred from conversation.",
+    "No artificial delay; stress computes the full mathematical output."
+  ],
+  "total_precision_cases": 348,
+  "total_precision_calls": 1044,
+  "report": "../V12_npu_lab/results/r23_20260928/REPORT.md",
+  "feedback": "../V12_results/2026-09-28_r23_feedback/RESULTS.json"
+}

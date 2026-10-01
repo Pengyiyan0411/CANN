@@ -1,0 +1,7 @@
+{
+  "sha256": "d906ec907807717e5e17c8772e4c50ae65608528ab7e35ff05b496f3fadd2e2c",
+  "parent_byte_recovery": true,
+  "raw_word_K0_slices": 96,
+  "layout": "[K/256,BN/16,256,16], gaps for br<BN never read",
+  "resources_same_as_r60": true
+}

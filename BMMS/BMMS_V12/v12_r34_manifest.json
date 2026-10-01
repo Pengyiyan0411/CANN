@@ -1,0 +1,14 @@
+{
+  "version": "v12_r34",
+  "status": "not recommended; no robust broad-domain screening benefit",
+  "parent": "v12_baseline_r33.asc",
+  "file": "v12_r34_shortk_a_resident.asc",
+  "sha256": "ff0a5952463b80e2421e959150226f20a33f20365af2856f76c8650ad0f4e4c3",
+  "parent_byte_recovery": true,
+  "change": "Full-K A panel resident across N macros, B K1=128 double buffer, original grid and reduction",
+  "max_L1_bytes": 516096,
+  "L0A_bytes": 32768,
+  "L0B_bytes": 65536,
+  "L0C_bytes": 131072,
+  "report": "../V12_npu_lab/results/native_macro_20260929/REPORT.md"
+}

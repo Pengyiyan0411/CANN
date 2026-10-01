@@ -1,0 +1,38 @@
+{
+  "host": {
+    "byte_equal": false,
+    "preprocessed_tokens_equal": true,
+    "outputs": {
+      "original": {
+        "bytes": 5279854,
+        "sha256": "3d40fdb2f294a8bd5658b48fc0029aa1839b3909cfbc46eb83985f1be2d43c36",
+        "canonical_sha256": "3ef749b08c1203e766a83b677a93c4acc257bf6cbd1ab75184936f4f54022fa3",
+        "token_chunks": 438790
+      },
+      "compact": {
+        "bytes": 5235024,
+        "sha256": "6e014eef03bf8ffeba14e9bff331febe252f4af574cd7c32d31d0973b6635734",
+        "canonical_sha256": "3ef749b08c1203e766a83b677a93c4acc257bf6cbd1ab75184936f4f54022fa3",
+        "token_chunks": 438790
+      }
+    }
+  },
+  "aicore": {
+    "byte_equal": false,
+    "preprocessed_tokens_equal": true,
+    "outputs": {
+      "original": {
+        "bytes": 13756828,
+        "sha256": "41976341b4a01657c96756434c13c3f376d01b039dedb4d5c1e86405a98180cf",
+        "canonical_sha256": "e8ff7d0cf6d108445a27582904f8ecb5ae18f0674ce7d4afc44ee8c6a123482e",
+        "token_chunks": 1108002
+      },
+      "compact": {
+        "bytes": 13667168,
+        "sha256": "4bd551776283382524ffcd91f539b0f3c2a2463cd5140e8b439afd5bca4982b9",
+        "canonical_sha256": "e8ff7d0cf6d108445a27582904f8ecb5ae18f0674ce7d4afc44ee8c6a123482e",
+        "token_chunks": 1108002
+      }
+    }
+  }
+}

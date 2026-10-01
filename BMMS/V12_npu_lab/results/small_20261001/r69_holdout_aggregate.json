@@ -1,0 +1,70 @@
+{
+  "file": "r69_holdout_summary.json",
+  "all": {
+    "n": 320,
+    "median_reduction_pct": 10.541198211734182,
+    "min_reduction_pct": -10.945273631840813,
+    "max_reduction_pct": 29.468599033816425,
+    "median_delta_us": 0.4474999999999998,
+    "regress_over3pct": 28,
+    "win_over5pct": 198
+  },
+  "B": {
+    "1": {
+      "n": 80,
+      "median_reduction_pct": 0.6146220074654207,
+      "min_reduction_pct": -10.945273631840813,
+      "max_reduction_pct": 26.83982683982683,
+      "median_delta_us": 0.010125000000000162,
+      "regress_over3pct": 28,
+      "win_over5pct": 17
+    },
+    "17": {
+      "n": 80,
+      "median_reduction_pct": 11.02131381186836,
+      "min_reduction_pct": 2.706718346253234,
+      "max_reduction_pct": 29.468599033816425,
+      "median_delta_us": 0.45512499999999956,
+      "regress_over3pct": 0,
+      "win_over5pct": 56
+    },
+    "41": {
+      "n": 80,
+      "median_reduction_pct": 11.79410038198378,
+      "min_reduction_pct": 1.9960079840319334,
+      "max_reduction_pct": 25.622743682310478,
+      "median_delta_us": 0.5949999999999998,
+      "regress_over3pct": 0,
+      "win_over5pct": 56
+    },
+    "64": {
+      "n": 80,
+      "median_reduction_pct": 10.816772003821441,
+      "min_reduction_pct": 2.772073921971252,
+      "max_reduction_pct": 27.945926966292124,
+      "median_delta_us": 0.78525,
+      "regress_over3pct": 0,
+      "win_over5pct": 69
+    }
+  },
+  "dtype": {
+    "1": {
+      "n": 160,
+      "median_reduction_pct": 10.463429089765786,
+      "min_reduction_pct": -10.945273631840813,
+      "max_reduction_pct": 29.30637937295727,
+      "median_delta_us": 0.4375000000000002,
+      "regress_over3pct": 13,
+      "win_over5pct": 100
+    },
+    "2": {
+      "n": 160,
+      "median_reduction_pct": 10.61334289813487,
+      "min_reduction_pct": -10.716289508135413,
+      "max_reduction_pct": 29.468599033816425,
+      "median_delta_us": 0.4474999999999998,
+      "regress_over3pct": 15,
+      "win_over5pct": 98
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "candidate": "v12_r11_splitk_parallel_merge.asc",
+  "sha256": "9928350460d40188b74b613fbee227207d40430394f1517322619104684cb0f8",
+  "parent": "v12_baseline_r03.asc",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "original_recovered_byte_for_byte": true,
+  "producer_change": "Fixpipe destination pitch TN -> N only",
+  "K_partition_and_reduction_tree_preserved": true,
+  "extra_workspace_bytes": "M*4 <=256",
+  "row_owners": "M/8, aligned disjoint 32-byte row maxima; all AIVs participate in both barriers",
+  "CANN_compiled": true,
+  "NPU_tested": true,
+  "synthetic_precision_cases": 228,
+  "repeats_per_case": 3,
+  "competition_hidden15_tested": false,
+  "status": "strong independent epilogue candidate; retained as structural control; r12 evaluated as combined candidate",
+  "npu_report": "../V12_npu_lab/results/split_20260928/REPORT.md",
+  "scope": "Narrow Case15 metadata guard; actual build and synthetic correctness/performance recorded in npu_report."
+}

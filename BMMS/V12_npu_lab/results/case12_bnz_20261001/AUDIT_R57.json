@@ -1,0 +1,9 @@
+{
+  "version": "r57",
+  "N_shapes": 32,
+  "L1_stages_checked": 3888,
+  "each_live_word_written_once": true,
+  "padding_never_loaded": true,
+  "parent_byte_recovery": true,
+  "source_sha256": "feace65ed70b64c883508e5611e6d10cfb18f6d369e6a3e18d3909896387f5b7"
+}

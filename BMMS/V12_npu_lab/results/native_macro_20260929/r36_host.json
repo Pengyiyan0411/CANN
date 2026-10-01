@@ -1,0 +1,12 @@
+{
+  "parent_byte_recovery": true,
+  "original_plan": true,
+  "original_scope": true,
+  "M_shards": 714944,
+  "macros": 1124608,
+  "covered_rows": 121385536,
+  "sha256": "e45b6fd865d8aed6d3e6f427f280198b459904628b617e2a990ca3829feb6622",
+  "max_UB_bytes": 82208,
+  "max_L0A_bytes": 65536,
+  "notes": "Discrete index/ownership/capacity model; does not prove hardware race freedom"
+}

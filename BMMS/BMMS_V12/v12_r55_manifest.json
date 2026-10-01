@@ -1,0 +1,38 @@
+{
+  "version": "v12_r55",
+  "parent": "v12_baseline_r41.asc",
+  "file": "v12_r55_probe_r54_full_gate.asc",
+  "sha256": "dc6121e1d966eeef85f8b0612a983d9a8fb7ea4df4fec4933a09f3c5731e86f8",
+  "status": "Judge15/15Pass; Case12 114.51us, complete r54 guard MISS supported",
+  "new_device_entries": 0,
+  "guard_control": "v12_r54_case12_stride_gated_m256.asc",
+  "parent_byte_recovery": true,
+  "guard_and_candidate_plan_copied_exactly": true,
+  "allocation_size_matches_r54": true,
+  "mechanism": "After the complete r54 guard and allocation, original r30 kernel computes all output on one Cube group. Otherwise exact r41 fallback.",
+  "npu_report": "../V12_npu_lab/results/r55_coverage_20261001/REPORT.md",
+  "numerical_validation": {
+    "configurations": 164,
+    "calls": 492,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "calibration": {
+    "HIT": {
+      "configurations": 16,
+      "windows": 2,
+      "min_ratio": 16.233301243317424,
+      "median_ratio": 16.712767609471864,
+      "max_ratio": 17.613930547040223
+    },
+    "MISS": {
+      "configurations": 16,
+      "windows": 2,
+      "min_ratio": 1.000459136822773,
+      "median_ratio": 1.0062550026017965,
+      "max_ratio": 1.0139252860060364
+    }
+  },
+  "new_sanitizer_run": false,
+  "judge_feedback": "../V12_results/2026-10-01_r55_feedback/RESULTS.json"
+}

@@ -1,0 +1,11 @@
+{
+  "version": "v12_r37",
+  "parent": "v12_baseline_r33.asc",
+  "sha256": "6a78508f57d6341971dda1cd4fee32292f04211b6dd5bde8a9927280d58a2a93",
+  "parent_sha256": "86debd5c403af4bb436d6c042de4530faf05637cf6fd1aeaae6ed6b410d11d80",
+  "status": "Judge all15 Pass, no demonstrated gain on11/12; not promoted",
+  "new_device_entries": 0,
+  "source_byte_recovery": true,
+  "report": "../V12_npu_lab/results/narrow_dense_20260929/REPORT.md",
+  "judge_feedback": "../V12_results/2026-09-29_r37_feedback/RESULTS.json"
+}

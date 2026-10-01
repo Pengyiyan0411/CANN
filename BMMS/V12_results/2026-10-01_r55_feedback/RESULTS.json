@@ -1,0 +1,120 @@
+{
+  "version": "v12_r55",
+  "attribution": "Inferred from direct reply to r55 delivery; screenshot has no source version or hash",
+  "local_source_sha256": "dc6121e1d966eeef85f8b0612a983d9a8fb7ea4df4fec4933a09f3c5731e86f8",
+  "independent_runs": 1,
+  "all_15_pass": true,
+  "rows": [
+    {
+      "case": 1,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 2.34,
+      "displayed_reference_us": 1.37
+    },
+    {
+      "case": 2,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 4.86,
+      "displayed_reference_us": 1.83
+    },
+    {
+      "case": 3,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 4.98,
+      "displayed_reference_us": 2.44
+    },
+    {
+      "case": 4,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 6.4,
+      "displayed_reference_us": 3.23
+    },
+    {
+      "case": 5,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 6.45,
+      "displayed_reference_us": 2.33
+    },
+    {
+      "case": 6,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 14.61,
+      "displayed_reference_us": 7.16
+    },
+    {
+      "case": 7,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 9.22,
+      "displayed_reference_us": 3.69
+    },
+    {
+      "case": 8,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 45.37,
+      "displayed_reference_us": 17.32
+    },
+    {
+      "case": 9,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 65.94,
+      "displayed_reference_us": 50.68
+    },
+    {
+      "case": 10,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 79.35,
+      "displayed_reference_us": 68.65
+    },
+    {
+      "case": 11,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 84.56,
+      "displayed_reference_us": 71.25
+    },
+    {
+      "case": 12,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 114.51,
+      "displayed_reference_us": 85.25
+    },
+    {
+      "case": 13,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 14.65,
+      "displayed_reference_us": 5.21
+    },
+    {
+      "case": 14,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 13.07,
+      "displayed_reference_us": 6.08
+    },
+    {
+      "case": 15,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 11.23,
+      "displayed_reference_us": 8.31
+    }
+  ],
+  "result": "Case12 full r54 guard MISS supported: 114.51us, no calibrated stress response",
+  "limitations": [
+    "Requires comparable hidden input and launch metadata to r54",
+    "MISS does not isolate N residue from plan/core/pitch and other conjuncts"
+  ],
+  "decision": "Retain r41 baseline; r54 was not exercised on Case12 under these conditions; next experiment is B prepack with original r30 grid and broader original metadata coverage"
+}

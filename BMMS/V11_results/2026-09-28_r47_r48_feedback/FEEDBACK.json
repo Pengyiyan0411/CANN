@@ -1,0 +1,378 @@
+{
+  "date": "2026-09-28",
+  "source": "user-labelled screenshots; manually transcribed displayed values",
+  "same_round_R43_control_available": false,
+  "runs": [
+    {
+      "variant": "R48_RESIDUAL_BATCH_OWNER",
+      "repetition": 1,
+      "source_sha256": "7f48ea4ec9346a7cd61745394a8578e97e5c834b126a981982e8bc0f82a87d72",
+      "image_origin": "E:\\Tencent Files\\3232896164\\nt_qq\\nt_data\\Pic\\2026-09\\Ori\\3443fe5c0b72c61248445a51341b9e78.png",
+      "image_copied": true,
+      "cases": [
+        {
+          "case": 1,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 2.52,
+          "platform_best_us": 1.22
+        },
+        {
+          "case": 2,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 5.65,
+          "platform_best_us": 1.58
+        },
+        {
+          "case": 3,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 5.1,
+          "platform_best_us": 2.13
+        },
+        {
+          "case": 4,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 6.48,
+          "platform_best_us": 2.92
+        },
+        {
+          "case": 5,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 6.51,
+          "platform_best_us": 1.89
+        },
+        {
+          "case": 6,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 14.75,
+          "platform_best_us": 7.07
+        },
+        {
+          "case": 7,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 9.44,
+          "platform_best_us": 3.68
+        },
+        {
+          "case": 8,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 63.79,
+          "platform_best_us": 14.88
+        },
+        {
+          "case": 9,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 71.09,
+          "platform_best_us": 51.62
+        },
+        {
+          "case": 10,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 84.81,
+          "platform_best_us": 72.39
+        },
+        {
+          "case": 11,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 101.49,
+          "platform_best_us": 74.82
+        },
+        {
+          "case": 12,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 124.61,
+          "platform_best_us": 91.2
+        },
+        {
+          "case": 13,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 17.22,
+          "platform_best_us": 5.14
+        },
+        {
+          "case": 14,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 13.74,
+          "platform_best_us": 5.4
+        },
+        {
+          "case": 15,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 15.54,
+          "platform_best_us": 4.05
+        }
+      ]
+    },
+    {
+      "variant": "R48_RESIDUAL_BATCH_OWNER",
+      "repetition": 2,
+      "source_sha256": "7f48ea4ec9346a7cd61745394a8578e97e5c834b126a981982e8bc0f82a87d72",
+      "image_origin": "E:\\Tencent Files\\3232896164\\nt_qq\\nt_data\\Pic\\2026-09\\Ori\\dc94858d79caec07786f9037d075cfdd.png",
+      "image_copied": true,
+      "cases": [
+        {
+          "case": 1,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 2.53,
+          "platform_best_us": 1.22
+        },
+        {
+          "case": 2,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 5.68,
+          "platform_best_us": 1.58
+        },
+        {
+          "case": 3,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 5.25,
+          "platform_best_us": 2.13
+        },
+        {
+          "case": 4,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 6.45,
+          "platform_best_us": 2.92
+        },
+        {
+          "case": 5,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 6.39,
+          "platform_best_us": 1.89
+        },
+        {
+          "case": 6,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 15.07,
+          "platform_best_us": 7.07
+        },
+        {
+          "case": 7,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 9.7,
+          "platform_best_us": 3.68
+        },
+        {
+          "case": 8,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 62.3,
+          "platform_best_us": 14.88
+        },
+        {
+          "case": 9,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 69.57,
+          "platform_best_us": 51.62
+        },
+        {
+          "case": 10,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 84.36,
+          "platform_best_us": 72.39
+        },
+        {
+          "case": 11,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 100.82,
+          "platform_best_us": 74.82
+        },
+        {
+          "case": 12,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 123.09,
+          "platform_best_us": 91.2
+        },
+        {
+          "case": 13,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 16.96,
+          "platform_best_us": 5.14
+        },
+        {
+          "case": 14,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 13.61,
+          "platform_best_us": 5.4
+        },
+        {
+          "case": 15,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 15.06,
+          "platform_best_us": 4.05
+        }
+      ]
+    },
+    {
+      "variant": "R47_NATIVE_NARROW_DIRECT",
+      "repetition": 1,
+      "source_sha256": "57dbbc691f4a43e3eaeefed89bf0f8616efd6dfc99d74fdcb69aeecee3725103",
+      "image_origin": "E:\\Tencent Files\\3232896164\\nt_qq\\nt_data\\Pic\\2026-09\\Ori\\401c7029e242c10288a1d675947d6db6.png",
+      "image_copied": true,
+      "cases": [
+        {
+          "case": 1,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 2.5,
+          "platform_best_us": 1.22
+        },
+        {
+          "case": 2,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 5.34,
+          "platform_best_us": 1.58
+        },
+        {
+          "case": 3,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 5.14,
+          "platform_best_us": 2.13
+        },
+        {
+          "case": 4,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 6.5,
+          "platform_best_us": 2.92
+        },
+        {
+          "case": 5,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 6.61,
+          "platform_best_us": 1.89
+        },
+        {
+          "case": 6,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 15.17,
+          "platform_best_us": 7.07
+        },
+        {
+          "case": 7,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 10.8,
+          "platform_best_us": 3.68
+        },
+        {
+          "case": 8,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 62.98,
+          "platform_best_us": 14.88
+        },
+        {
+          "case": 9,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 70.5,
+          "platform_best_us": 51.62
+        },
+        {
+          "case": 10,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 84.57,
+          "platform_best_us": 72.39
+        },
+        {
+          "case": 11,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 100.97,
+          "platform_best_us": 74.82
+        },
+        {
+          "case": 12,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 123.11,
+          "platform_best_us": 91.2
+        },
+        {
+          "case": 13,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 19.23,
+          "platform_best_us": 5.14
+        },
+        {
+          "case": 14,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 13.86,
+          "platform_best_us": 5.4
+        },
+        {
+          "case": 15,
+          "status": "Pass",
+          "displayed_error_percent": 0.0,
+          "latency_us": 15.06,
+          "platform_best_us": 4.05
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "baseline": "R43_CASE8_PADDED_MACRO",
+    "R48": "retain as promising measured candidate; do not silently replace R43 baseline",
+    "R47": "do not adopt; Case13 regression in supplied run"
+  },
+  "observed_summary": {
+    "R48_case7_us": [
+      9.44,
+      9.7
+    ],
+    "R48_case7_mean_and_two_sample_median_us": 9.57,
+    "R47_case13_us": 19.23,
+    "R48_case13_us": [
+      17.22,
+      16.96
+    ],
+    "all_45_displayed_checks_pass": true,
+    "non_target_regression_proven": false,
+    "non_regression_guaranteed": false
+  },
+  "case13_shape_update": {
+    "user_statement": "这边认为点13的M至少是>256",
+    "source": "user follow-up assessment; not a new raw probe log",
+    "working_constraint": "M>256; with established M%16==0, M>=272",
+    "R47_already_requires_M_gt_256": true,
+    "N_48_or_64_not_independently_confirmed_by_this_update": true
+  },
+  "route_execution_instrumented": false,
+  "new_kernel_created": false
+}

@@ -1,0 +1,131 @@
+{
+  "version": "v12_r44",
+  "attribution": "Inferred from direct reply to r44 delivery; screenshot has no source version/hash label",
+  "source_sha256": "07333c30adfcc8b75362500b3276e6a0d15da44f5428ea8dc87f4584c54fcbb2",
+  "all_15_pass": true,
+  "independent_runs": 1,
+  "rows": [
+    {
+      "case": 1,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 2.35,
+      "r41_us": 2.24,
+      "platform_best_us": 1.22
+    },
+    {
+      "case": 2,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 4.89,
+      "r41_us": 4.68,
+      "platform_best_us": 1.58
+    },
+    {
+      "case": 3,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 5.28,
+      "r41_us": 5.02,
+      "platform_best_us": 2.13
+    },
+    {
+      "case": 4,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 6.45,
+      "r41_us": 6.51,
+      "platform_best_us": 2.92
+    },
+    {
+      "case": 5,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 6.37,
+      "r41_us": 6.56,
+      "platform_best_us": 1.89
+    },
+    {
+      "case": 6,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 13.98,
+      "r41_us": 14.32,
+      "platform_best_us": 7.07
+    },
+    {
+      "case": 7,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 8.93,
+      "r41_us": 8.92,
+      "platform_best_us": 3.68
+    },
+    {
+      "case": 8,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 45.71,
+      "r41_us": 46.12,
+      "platform_best_us": 14.88
+    },
+    {
+      "case": 9,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 65.41,
+      "r41_us": 65.25,
+      "platform_best_us": 50.68
+    },
+    {
+      "case": 10,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 79.0,
+      "r41_us": 79.48,
+      "platform_best_us": 72.39
+    },
+    {
+      "case": 11,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 82.82,
+      "r41_us": 83.65,
+      "platform_best_us": 74.82
+    },
+    {
+      "case": 12,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 113.68,
+      "r41_us": 115.04,
+      "platform_best_us": 91.2
+    },
+    {
+      "case": 13,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 14.31,
+      "r41_us": 14.58,
+      "platform_best_us": 5.14
+    },
+    {
+      "case": 14,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 13.04,
+      "r41_us": 13.26,
+      "platform_best_us": 5.4
+    },
+    {
+      "case": 15,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 11.4,
+      "r41_us": 11.41,
+      "platform_best_us": 4.05
+    }
+  ],
+  "decision": "Case12 MISS:113.68us versus r41 115.04us, no stress signal; do not promote diagnostic. Case11 82.82us corroborates retained r41 gain.",
+  "inference": "Together with prior r40 full-domain HIT, supports rejection by the r41 strict peak-tile improvement gate. Exact pM/pN and geometry remain unknown. Under unchanged metadata/core count, old peak tile count equals ceil(total macro tiles/cores), a count lower bound; this does not prove balanced cell/byte work."
+}

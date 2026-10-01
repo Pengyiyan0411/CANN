@@ -1,0 +1,950 @@
+{
+  "precision_configurations": 166,
+  "precision_calls": 498,
+  "all_pass": true,
+  "hit_configurations": 84,
+  "max_tolerance_ratio": 0.00191358175,
+  "calibration": [
+    {
+      "case": [
+        0,
+        1,
+        1536,
+        2752,
+        2176,
+        1,
+        1,
+        1
+      ],
+      "hit": false,
+      "r33_us": 114.278,
+      "r40_us": 113.72800000000001,
+      "ratio": 0.9951871751343216
+    },
+    {
+      "case": [
+        5,
+        1,
+        1600,
+        2112,
+        2176,
+        2,
+        0,
+        1
+      ],
+      "hit": false,
+      "r33_us": 97.148,
+      "r40_us": 96.9585,
+      "ratio": 0.9980493679746367
+    },
+    {
+      "case": [
+        6,
+        1,
+        1664,
+        2112,
+        2176,
+        1,
+        0,
+        0
+      ],
+      "hit": false,
+      "r33_us": 142.067,
+      "r40_us": 141.867,
+      "ratio": 0.9985922135330512
+    },
+    {
+      "case": [
+        9,
+        1,
+        1728,
+        2112,
+        2176,
+        2,
+        0,
+        0
+      ],
+      "hit": false,
+      "r33_us": 142.147,
+      "r40_us": 142.55700000000002,
+      "ratio": 1.002884338044419
+    },
+    {
+      "case": [
+        12,
+        1,
+        1344,
+        4224,
+        1600,
+        1,
+        1,
+        0
+      ],
+      "hit": false,
+      "r33_us": 140.4875,
+      "r40_us": 139.207,
+      "ratio": 0.9908853100809679
+    },
+    {
+      "case": [
+        19,
+        1,
+        1344,
+        5312,
+        1600,
+        2,
+        1,
+        0
+      ],
+      "hit": false,
+      "r33_us": 273.275,
+      "r40_us": 276.764,
+      "ratio": 1.0127673588875676
+    },
+    {
+      "case": [
+        21,
+        1,
+        1344,
+        5440,
+        1600,
+        2,
+        0,
+        1
+      ],
+      "hit": false,
+      "r33_us": 256.755,
+      "r40_us": 258.905,
+      "ratio": 1.008373741504547
+    },
+    {
+      "case": [
+        22,
+        1,
+        1344,
+        5696,
+        1600,
+        1,
+        0,
+        0
+      ],
+      "hit": false,
+      "r33_us": 266.845,
+      "r40_us": 267.21500000000003,
+      "ratio": 1.0013865727294873
+    },
+    {
+      "case": [
+        34,
+        1,
+        1632,
+        3008,
+        2304,
+        1,
+        0,
+        0
+      ],
+      "hit": true,
+      "r33_us": 144.4975,
+      "r40_us": 2156.6270000000004,
+      "ratio": 14.925012543469613
+    },
+    {
+      "case": [
+        35,
+        1,
+        1728,
+        2624,
+        2272,
+        2,
+        1,
+        0
+      ],
+      "hit": true,
+      "r33_us": 181.5465,
+      "r40_us": 2605.758,
+      "ratio": 14.353116143797868
+    },
+    {
+      "case": [
+        46,
+        1,
+        1648,
+        2368,
+        2368,
+        1,
+        0,
+        0
+      ],
+      "hit": true,
+      "r33_us": 144.227,
+      "r40_us": 2167.6165,
+      "ratio": 15.02920049643964
+    },
+    {
+      "case": [
+        50,
+        1,
+        1776,
+        2432,
+        2208,
+        1,
+        0,
+        0
+      ],
+      "hit": true,
+      "r33_us": 128.3075,
+      "r40_us": 2038.9189999999999,
+      "ratio": 15.890879332852716
+    },
+    {
+      "case": [
+        54,
+        1,
+        1568,
+        3008,
+        2496,
+        1,
+        0,
+        0
+      ],
+      "hit": true,
+      "r33_us": 182.166,
+      "r40_us": 2681.946,
+      "ratio": 14.722538783307533
+    },
+    {
+      "case": [
+        58,
+        1,
+        1280,
+        4224,
+        1568,
+        1,
+        0,
+        0
+      ],
+      "hit": true,
+      "r33_us": 117.7975,
+      "r40_us": 1924.4009999999998,
+      "ratio": 16.336518177380672
+    },
+    {
+      "case": [
+        66,
+        1,
+        1520,
+        4672,
+        1600,
+        1,
+        0,
+        0
+      ],
+      "hit": true,
+      "r33_us": 167.61700000000002,
+      "r40_us": 2705.3360000000002,
+      "ratio": 16.139985800962908
+    },
+    {
+      "case": [
+        70,
+        1,
+        1504,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "hit": true,
+      "r33_us": 130.66750000000002,
+      "r40_us": 1865.8325,
+      "ratio": 14.279239290565746
+    },
+    {
+      "case": [
+        74,
+        1,
+        1440,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "hit": true,
+      "r33_us": 110.668,
+      "r40_us": 1559.269,
+      "ratio": 14.089610366140166
+    },
+    {
+      "case": [
+        93,
+        1,
+        1041,
+        1105,
+        1064,
+        1,
+        0,
+        0
+      ],
+      "hit": false,
+      "r33_us": 41.528999999999996,
+      "r40_us": 41.099000000000004,
+      "ratio": 0.9896457896891331
+    },
+    {
+      "case": [
+        95,
+        1,
+        32,
+        64,
+        4096,
+        1,
+        0,
+        0
+      ],
+      "hit": false,
+      "r33_us": 5.119999999999999,
+      "r40_us": 5.029999999999999,
+      "ratio": 0.982421875
+    },
+    {
+      "case": [
+        99,
+        1,
+        1024,
+        2048,
+        1024,
+        1,
+        0,
+        0
+      ],
+      "hit": false,
+      "r33_us": 33.269,
+      "r40_us": 32.8895,
+      "ratio": 0.9885929844600078
+    },
+    {
+      "case": [
+        101,
+        1,
+        1392,
+        5616,
+        1568,
+        1,
+        1,
+        0
+      ],
+      "hit": false,
+      "r33_us": 380.703,
+      "r40_us": 380.72249999999997,
+      "ratio": 1.0000512210305672
+    }
+  ],
+  "profiler_launch": [
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 0,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 5,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 6,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 9,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 12,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 19,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 21,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 22,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 34,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 35,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 46,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 50,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 54,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 58,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 66,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 70,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 74,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 93,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 95,
+      "hit": false,
+      "block_num": [
+        "8"
+      ],
+      "mix_block_num": [
+        "16"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 99,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w0",
+      "case": 101,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 0,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 5,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 6,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 9,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 12,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 19,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 21,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 22,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 34,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 35,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 46,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 50,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 54,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 58,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 66,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 70,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 74,
+      "hit": true,
+      "block_num": [
+        "1"
+      ],
+      "mix_block_num": [
+        "2"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 93,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 95,
+      "hit": false,
+      "block_num": [
+        "8"
+      ],
+      "mix_block_num": [
+        "16"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 99,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    },
+    {
+      "run": "r40_calibration_r40_w1",
+      "case": 101,
+      "hit": false,
+      "block_num": [
+        "20"
+      ],
+      "mix_block_num": [
+        "40"
+      ]
+    }
+  ],
+  "hit_ratio_range": [
+    14.089610366140166,
+    16.336518177380672
+  ],
+  "miss_ratio_range": [
+    0.982421875,
+    1.0127673588875676
+  ],
+  "r39_r40_hit_sets_disjoint_on_166_configurations": true,
+  "evidence_files_sha256_verified": 46,
+  "judge_feedback": {
+    "version": "v12_r40",
+    "version_attribution": "Inferred from direct reply to r40 delivery; screenshot has no version/hash label",
+    "all_15_pass": true,
+    "independent_runs": 1,
+    "source_sha256": "030a5f0c62f109acc968d6191d098616bc04e7179cfbec73864c04f1ee6e0a23",
+    "rows": [
+      {
+        "case": 1,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 2.2,
+        "platform_best_us": 1.22,
+        "r39_us": 2.33
+      },
+      {
+        "case": 2,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 4.49,
+        "platform_best_us": 1.58,
+        "r39_us": 4.34
+      },
+      {
+        "case": 3,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 5.08,
+        "platform_best_us": 2.13,
+        "r39_us": 5.16
+      },
+      {
+        "case": 4,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 6.52,
+        "platform_best_us": 2.92,
+        "r39_us": 6.45
+      },
+      {
+        "case": 5,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 6.64,
+        "platform_best_us": 1.89,
+        "r39_us": 6.6
+      },
+      {
+        "case": 6,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 13.97,
+        "platform_best_us": 7.07,
+        "r39_us": 14.94
+      },
+      {
+        "case": 7,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 8.99,
+        "platform_best_us": 3.68,
+        "r39_us": 9.59
+      },
+      {
+        "case": 8,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 45.98,
+        "platform_best_us": 14.88,
+        "r39_us": 45.88
+      },
+      {
+        "case": 9,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 64.6,
+        "platform_best_us": 50.68,
+        "r39_us": 65.45
+      },
+      {
+        "case": 10,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 79.01,
+        "platform_best_us": 72.39,
+        "r39_us": 79.29
+      },
+      {
+        "case": 11,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 1110.0,
+        "platform_best_us": 74.82,
+        "r39_us": 97.35
+      },
+      {
+        "case": 12,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 1420.0,
+        "platform_best_us": 91.2,
+        "r39_us": 114.93
+      },
+      {
+        "case": 13,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 15.06,
+        "platform_best_us": 5.14,
+        "r39_us": 15.28
+      },
+      {
+        "case": 14,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 13.23,
+        "platform_best_us": 5.4,
+        "r39_us": 13.95
+      },
+      {
+        "case": 15,
+        "status": "Pass",
+        "displayed_error_percent": 0,
+        "latency_us": 11.12,
+        "platform_best_us": 4.05,
+        "r39_us": 11.5
+      }
+    ],
+    "conclusion": "Case11 and Case12 both HIT: full r37 route guards and narrow InDomain hold, but r37 plan equals r33 plan. Keep r33; evaluate actual alternatives rather than repeat shape probes."
+  },
+  "next_candidate": "v12_r41"
+}

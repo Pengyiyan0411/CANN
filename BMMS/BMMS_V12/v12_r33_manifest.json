@@ -1,0 +1,11 @@
+{
+  "version": "v12_r33",
+  "file": "v12_r33_shortk_prefetch_allpitch.asc",
+  "sha256": "86debd5c403af4bb436d6c042de4530faf05637cf6fd1aeaae6ed6b410d11d80",
+  "parent": "v12_baseline_r30.asc",
+  "parent_byte_recovery": true,
+  "status": "Accepted after Judge15/15Pass: Case9 64.91us, Case10 79.42us; prior sanitizer findings remain open",
+  "change": "Extend exact r30 macro-prefetch implementation to B1 M/N[1024,8192] K[1024,1536), all physical pitches allowed by original R06 eligibility; preserve original r30 entry unchanged",
+  "npu_report": "../V12_npu_lab/results/dense_next_20260928/REPORT.md",
+  "judge_feedback": "../V12_results/2026-09-28_r33_feedback/RESULTS.json"
+}

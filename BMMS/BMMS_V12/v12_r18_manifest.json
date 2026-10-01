@@ -1,0 +1,119 @@
+{
+  "candidate": "v12_r18_case8_adaptive_nz.asc",
+  "parent": "v12_baseline_r12.asc",
+  "parent_sha256": "a845fd9538fe71d5f6284fced34781d8fb7e997105c51065a84b344818ddbd2b",
+  "sha256": "75853cabc656f40725f669f12b82c18d49bf53d7ef4cc69fa2fe2bf77705835c",
+  "parent_recovered_byte_for_byte": true,
+  "status": "superseded by r19; research comparison only",
+  "dispatch": "original Case8 eligible AND ((TA && Mp%64 !=0) || (TB ? Kp : Np)%64 !=0)",
+  "pack_tile": [
+    256,
+    128
+  ],
+  "pack_ub_bytes": 131072,
+  "macro_and_plan_unchanged": true,
+  "validation_report": "../V12_npu_lab/results/case8_20260928/R18_REPORT.md",
+  "precision": {
+    "cases": 258,
+    "calls": 774,
+    "all_pass": true
+  },
+  "final40_stats": {
+    "all": {
+      "count": 40,
+      "median_reduction_pct": 15.300516866085944,
+      "min_reduction_pct": -0.0697890017015812,
+      "max_reduction_pct": 38.35314129186121
+    },
+    "nz": {
+      "count": 26,
+      "median_reduction_pct": 27.025125508483217,
+      "min_reduction_pct": 2.2860050664287757,
+      "max_reduction_pct": 38.35314129186121
+    },
+    "fallback": {
+      "count": 14,
+      "median_reduction_pct": 0.03491705454970462,
+      "min_reduction_pct": -0.0697890017015812,
+      "max_reduction_pct": 0.11018485895887276
+    }
+  },
+  "repeat40_stats": {
+    "all": {
+      "count": 40,
+      "median_reduction_pct": 15.490027152716046,
+      "min_reduction_pct": -0.10659798591909908,
+      "max_reduction_pct": 38.32311164785859
+    },
+    "nz": {
+      "count": 26,
+      "median_reduction_pct": 26.67453779190147,
+      "min_reduction_pct": 2.385455099650269,
+      "max_reduction_pct": 38.32311164785859
+    },
+    "fallback": {
+      "count": 14,
+      "median_reduction_pct": -0.002245394593003436,
+      "min_reduction_pct": -0.10659798591909908,
+      "max_reduction_pct": 0.09380469786878232
+    }
+  },
+  "sanitizers": {
+    "racecheck": {
+      "cases": 2,
+      "instrumented": true,
+      "log": "c8_r18_instrumented_racecheck.log",
+      "r18": {
+        "errors": 16,
+        "spaces": {},
+        "has_skipped": false
+      },
+      "r12": {
+        "errors": 24,
+        "spaces": {},
+        "has_skipped": false
+      },
+      "verdict": "findings in both versions; not a clean sanitizer pass"
+    },
+    "initcheck": {
+      "cases": 2,
+      "instrumented": true,
+      "log": "c8_r18_instrumented_initcheck.log",
+      "r18": {
+        "errors": 4596,
+        "spaces": {
+          "GM": 3676,
+          "PRIVATE": 920
+        },
+        "has_skipped": false
+      },
+      "r12": {
+        "errors": 19827,
+        "spaces": {
+          "GM": 18903,
+          "PRIVATE": 920,
+          "UB": 4
+        },
+        "has_skipped": false
+      },
+      "verdict": "findings in both versions; not a clean sanitizer pass"
+    },
+    "memcheck": {
+      "cases": 2,
+      "instrumented": false,
+      "log": "c8_r18_memcheck.log",
+      "warnings": [
+        "FFTS_BASE_ADDR not reset",
+        "missing debug_line"
+      ]
+    },
+    "instrumented_memcheck": {
+      "cases": 2,
+      "r18_errors": 64,
+      "r12_errors": 64,
+      "log": "c8_r18_instrumented_memcheck.log",
+      "verdict": "both versions report UB Max errors; unresolved, not a clean pass",
+      "warnings": "FFTS_BASE_ADDR not reset"
+    }
+  }
+}

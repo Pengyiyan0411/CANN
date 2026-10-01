@@ -1,0 +1,11 @@
+{
+  "parent_byte_recovery": true,
+  "address_fractal_blocks": 91008,
+  "address_checks": 455040,
+  "row_chains": 192,
+  "macros": 1664,
+  "B_loads": 17056,
+  "sha256": "ff0a5952463b80e2421e959150226f20a33f20365af2856f76c8650ad0f4e4c3",
+  "max_L1": 516096,
+  "scope": "Index/capacity/discrete event checks only; no hardware scheduling proof"
+}

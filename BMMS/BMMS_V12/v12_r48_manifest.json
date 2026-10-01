@@ -1,0 +1,21 @@
+{
+  "version": "v12_r48",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "a246e7178c787b18f7fffa62c7cfda1438e371cdede9903a545143cd21929dd0",
+  "status": "Rejected locally: all-active screen median reduction -0.02%; pN2/5 regress, pN20 median +1.03%; no broad benefit",
+  "producer_reused": "bmms1230::MacroMmadProducer",
+  "initial_consumer_byte_equal": true,
+  "parent_byte_recovery": true,
+  "scope": "Case12 r30 domain with r41 flat gate FALSE",
+  "change": "Original compute plan and ring producer; packed strided partial loads, row-parallel Max, baseline-order full-M ReduceSum",
+  "new_device_entries": 8,
+  "precision": {
+    "configurations": 282,
+    "calls": 846,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "judge_tested": false,
+  "report": "../V12_npu_lab/results/parallel_epilogue_20260929/REPORT.md",
+  "sanitizer": "Not rerun: performance candidates rejected; inherited limitations remain open."
+}

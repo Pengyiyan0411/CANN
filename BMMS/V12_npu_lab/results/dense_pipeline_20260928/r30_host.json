@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "parent_byte_recovery": true,
+  "sha256": "9ac17c7b6f793cf043ee8d150479f42a1423a73ffe5c877b2456d16396d1fa17",
+  "chains": 960,
+  "macros": 99680,
+  "loads": 1133860,
+  "scope": "Discrete event ownership and prefetch-coordinate model; not a replacement for hardware racecheck"
+}

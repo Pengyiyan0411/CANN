@@ -1,0 +1,16 @@
+{
+  "shape_layout_pattern_pairs": 1784,
+  "actual_source_runs": 3568,
+  "batch_outputs_compared": 35824,
+  "tiny_pairs": 800,
+  "resident_pairs": 984,
+  "multiwave_pairs": 892,
+  "bitwise_equal_pairs": 1784,
+  "max_abs_vs_fp64_reference": 1.19209289551e-07,
+  "model_UB_peak_bytes": 130624,
+  "wrong_batch_offset_rejected": "baseline output mismatch",
+  "scope": "actual Tiny/Resident and R51 source in CPU arithmetic/storage model; workers replayed with ownership checks, not hardware pipeline emulation",
+  "source_sha256": "2185652d74d4a7710916942672f38eeff23a0f4ca361446abc352b99a06ca697",
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

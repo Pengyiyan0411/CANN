@@ -1,0 +1,23 @@
+{
+  "source_runs": 176,
+  "actual_producer_runs": 32,
+  "ring_reads_elements": 142231552,
+  "ready_publications": 5528,
+  "reduced_rows": 646656,
+  "old_duplicate_elements": 118246656,
+  "new_duplicate_elements": 0,
+  "all_outputs_bitwise_equal": true,
+  "arena_peak_bytes": [
+    131744,
+    393216,
+    32768,
+    65536,
+    131072
+  ],
+  "wrong_pitch_fault_rejected": "80x48 p=1,1 compact=1: uninitialized GM read",
+  "source_sha256": "bc74344c0e847b13ff553aa7ea9437d86fcb063c1e036e7799fd9f69e2f3875d",
+  "scope": "CPU source replay: synthetic macro-ring publisher for large/edge shapes; unchanged actual Cube producer on small M/N with target K and all dtype/transpose bindings; not hardware simulation",
+  "original_R06_fragment_matches_R52": true,
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

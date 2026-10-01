@@ -1,0 +1,8 @@
+{
+  "tested_plans": 32768,
+  "eligible_plans": 9277,
+  "max_stress_workspace": 530368,
+  "parent_byte_recovery": true,
+  "new_device_entries": 0,
+  "source_sha256": "6bf47532cde9c279cef1b0d57f8feeb84da7cec7af3f29fd08c4779b71720d8e"
+}

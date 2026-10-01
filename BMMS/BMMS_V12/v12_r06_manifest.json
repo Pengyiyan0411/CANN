@@ -1,0 +1,16 @@
+{
+  "candidate": "v12_r06_case9_macro_mmad.asc",
+  "sha256": "9b372b1535dd0c9d3156675e241ca0c69f74102463b76bd7e449d655820fb64e",
+  "parent": "v12_baseline_r03.asc",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "parent_recovered_byte_for_byte": true,
+  "guard_identical_to_r04": true,
+  "r02_r04_cache_not_inherited": true,
+  "MMAD_tile": [
+    128,
+    256,
+    64
+  ],
+  "K1": 256,
+  "consumer_and_grid_unchanged": true
+}

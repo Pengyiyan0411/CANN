@@ -1,6 +1,16 @@
 __pycache__/
 *.pyc
 *.exe
+# Local connection settings and generated NPU artifacts are not publication inputs.
+BMMS/V12_npu_lab/env/
+BMMS/V13_npu_lab/env/
+**/.ssh/
+**/CMakeFiles/
+**/CMakeCache.txt
+**/PROF_*/
+*.o
+*.so
+*.a
 BMMS/V9_impl/*_extracted.hpp
 BMMS/V9_impl/d03_cpu/
 BMMS/V9_impl/d04_cpu/

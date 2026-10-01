@@ -1,0 +1,9 @@
+{
+  "version": "v12_r68",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "27152f89a8d19b6fb01e106b181c36e23fef21251ff2fb0d7364043d8173426f",
+  "status": "Rejected: 860 precision configurations pass; no robust short-dot performance gain.",
+  "parent_byte_recovery": true,
+  "new_device_entries": 26,
+  "change": "Short dot: explicit WholeReduceSum and two-part Add; retain original TQue/cast/mul/K domain"
+}

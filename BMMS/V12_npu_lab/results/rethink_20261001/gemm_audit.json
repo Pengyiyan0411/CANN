@@ -1,0 +1,2889 @@
+{
+  "note": "r41 is full fused BMMS; other three are GEMM-only full FP32 C, not equivalent complete operator timings; memory/output protocol and scheduler differ",
+  "repeats": 25,
+  "discard": 5,
+  "summary": [
+    {
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "r41": {
+        "window_medians_us": [
+          77.22149999999999,
+          76.3415
+        ],
+        "median_us": 76.7815
+      },
+      "native": {
+        "window_medians_us": [
+          70.481,
+          70.47149999999999
+        ],
+        "median_us": 70.47625
+      },
+      "cat0": {
+        "window_medians_us": [
+          71.681,
+          71.161
+        ],
+        "median_us": 71.42099999999999
+      },
+      "cat1": {
+        "window_medians_us": [
+          68.8515,
+          71.1515
+        ],
+        "median_us": 70.0015
+      }
+    },
+    {
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "r41": {
+        "window_medians_us": [
+          77.94149999999999,
+          76.702
+        ],
+        "median_us": 77.32175
+      },
+      "native": {
+        "window_medians_us": [
+          70.451,
+          70.5215
+        ],
+        "median_us": 70.48625
+      },
+      "cat0": {
+        "window_medians_us": [
+          71.86099999999999,
+          71.241
+        ],
+        "median_us": 71.55099999999999
+      },
+      "cat1": {
+        "window_medians_us": [
+          69.2415,
+          71.811
+        ],
+        "median_us": 70.52625
+      }
+    },
+    {
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "r41": {
+        "window_medians_us": [
+          98.642,
+          98.05199999999999
+        ],
+        "median_us": 98.347
+      },
+      "native": {
+        "window_medians_us": [
+          96.312,
+          95.622
+        ],
+        "median_us": 95.967
+      },
+      "cat0": {
+        "window_medians_us": [
+          99.822,
+          100.262
+        ],
+        "median_us": 100.042
+      },
+      "cat1": {
+        "window_medians_us": [
+          99.05199999999999,
+          98.77199999999999
+        ],
+        "median_us": 98.91199999999999
+      }
+    },
+    {
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "r41": {
+        "window_medians_us": [
+          108.242,
+          106.0825
+        ],
+        "median_us": 107.16225
+      },
+      "native": {
+        "window_medians_us": [
+          101.982,
+          102.00200000000001
+        ],
+        "median_us": 101.992
+      },
+      "cat0": {
+        "window_medians_us": [
+          109.092,
+          109.18199999999999
+        ],
+        "median_us": 109.137
+      },
+      "cat1": {
+        "window_medians_us": [
+          109.03200000000001,
+          109.02250000000001
+        ],
+        "median_us": 109.02725000000001
+      }
+    },
+    {
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "r41": {
+        "window_medians_us": [
+          94.2115,
+          93.2715
+        ],
+        "median_us": 93.7415
+      },
+      "native": {
+        "window_medians_us": [
+          87.41149999999999,
+          87.332
+        ],
+        "median_us": 87.37174999999999
+      },
+      "cat0": {
+        "window_medians_us": [
+          87.902,
+          87.742
+        ],
+        "median_us": 87.822
+      },
+      "cat1": {
+        "window_medians_us": [
+          84.3315,
+          84.5315
+        ],
+        "median_us": 84.4315
+      }
+    },
+    {
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "r41": {
+        "window_medians_us": [
+          94.6815,
+          93.71199999999999
+        ],
+        "median_us": 94.19675
+      },
+      "native": {
+        "window_medians_us": [
+          87.452,
+          87.3615
+        ],
+        "median_us": 87.40675
+      },
+      "cat0": {
+        "window_medians_us": [
+          87.5715,
+          87.442
+        ],
+        "median_us": 87.50675
+      },
+      "cat1": {
+        "window_medians_us": [
+          84.122,
+          84.3215
+        ],
+        "median_us": 84.22175
+      }
+    },
+    {
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "r41": {
+        "window_medians_us": [
+          134.8425,
+          134.252
+        ],
+        "median_us": 134.54725000000002
+      },
+      "native": {
+        "window_medians_us": [
+          133.013,
+          133.2425
+        ],
+        "median_us": 133.12775
+      },
+      "cat0": {
+        "window_medians_us": [
+          132.003,
+          131.9425
+        ],
+        "median_us": 131.97275
+      },
+      "cat1": {
+        "window_medians_us": [
+          129.843,
+          130.253
+        ],
+        "median_us": 130.048
+      }
+    },
+    {
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "r41": {
+        "window_medians_us": [
+          147.553,
+          146.183
+        ],
+        "median_us": 146.868
+      },
+      "native": {
+        "window_medians_us": [
+          141.913,
+          141.38299999999998
+        ],
+        "median_us": 141.648
+      },
+      "cat0": {
+        "window_medians_us": [
+          144.203,
+          144.523
+        ],
+        "median_us": 144.363
+      },
+      "cat1": {
+        "window_medians_us": [
+          144.023,
+          144.063
+        ],
+        "median_us": 144.043
+      }
+    }
+  ],
+  "runs": [
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 77.22149999999999,
+      "raw_us": [
+        77.362,
+        77.362,
+        77.162,
+        77.062,
+        77.242,
+        77.202,
+        77.062,
+        77.102,
+        77.342,
+        77.242,
+        77.222,
+        77.001,
+        77.041,
+        77.221,
+        76.921,
+        77.541,
+        77.201,
+        77.642,
+        77.562,
+        77.542
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 77.94149999999999,
+      "raw_us": [
+        77.961,
+        77.781,
+        78.101,
+        78.361,
+        77.861,
+        77.461,
+        77.881,
+        76.981,
+        77.462,
+        78.102,
+        77.922,
+        77.762,
+        77.982,
+        77.781,
+        77.501,
+        78.221,
+        78.921,
+        78.382,
+        78.462,
+        78.082
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 98.642,
+      "raw_us": [
+        97.782,
+        98.942,
+        97.402,
+        99.322,
+        99.082,
+        98.402,
+        97.202,
+        99.822,
+        98.282,
+        97.722,
+        98.742,
+        99.302,
+        98.962,
+        98.542,
+        99.622,
+        100.022,
+        97.982,
+        97.602,
+        99.802,
+        98.482
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 108.242,
+      "raw_us": [
+        107.922,
+        108.662,
+        108.043,
+        109.502,
+        109.682,
+        108.162,
+        108.943,
+        108.042,
+        107.242,
+        106.882,
+        106.702,
+        106.582,
+        108.782,
+        108.322,
+        108.743,
+        110.502,
+        107.542,
+        108.662,
+        111.103,
+        107.422
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 94.2115,
+      "raw_us": [
+        94.322,
+        94.042,
+        94.261,
+        94.122,
+        94.342,
+        93.942,
+        94.122,
+        94.462,
+        94.362,
+        94.422,
+        94.122,
+        94.162,
+        94.062,
+        93.702,
+        94.682,
+        94.462,
+        94.022,
+        94.362,
+        94.302,
+        94.082
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 94.6815,
+      "raw_us": [
+        94.442,
+        93.642,
+        94.502,
+        94.822,
+        94.481,
+        95.601,
+        94.682,
+        94.702,
+        94.982,
+        94.822,
+        94.522,
+        94.441,
+        94.681,
+        94.502,
+        95.542,
+        95.142,
+        95.522,
+        94.622,
+        94.882,
+        94.442
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 134.8425,
+      "raw_us": [
+        135.203,
+        134.843,
+        134.423,
+        134.602,
+        135.942,
+        136.903,
+        134.583,
+        135.343,
+        134.622,
+        134.282,
+        135.363,
+        135.063,
+        133.022,
+        133.402,
+        134.083,
+        135.663,
+        134.842,
+        135.123,
+        135.203,
+        133.663
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 147.553,
+      "raw_us": [
+        146.583,
+        148.082,
+        147.663,
+        147.123,
+        147.423,
+        148.543,
+        147.543,
+        145.743,
+        146.323,
+        146.102,
+        148.823,
+        145.683,
+        149.003,
+        147.783,
+        146.783,
+        149.083,
+        147.563,
+        147.403,
+        150.423,
+        152.223
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 0,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 70.481,
+      "raw_us": [
+        70.582,
+        70.582,
+        70.421,
+        70.541,
+        70.481,
+        70.661,
+        70.362,
+        70.482,
+        70.421,
+        70.421,
+        70.481,
+        70.462,
+        70.642,
+        70.622,
+        70.641,
+        70.421,
+        70.461,
+        70.461,
+        71.042,
+        70.422
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb0EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 0,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 70.451,
+      "raw_us": [
+        70.402,
+        70.282,
+        70.582,
+        70.381,
+        70.701,
+        70.461,
+        70.362,
+        70.462,
+        70.562,
+        70.581,
+        70.541,
+        70.441,
+        70.481,
+        70.342,
+        70.542,
+        70.421,
+        70.361,
+        70.521,
+        70.362,
+        70.322
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb1EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 0,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 96.312,
+      "raw_us": [
+        97.842,
+        97.282,
+        96.202,
+        99.402,
+        97.462,
+        95.802,
+        97.022,
+        97.122,
+        95.142,
+        98.222,
+        95.541,
+        96.282,
+        99.082,
+        95.421,
+        95.482,
+        96.182,
+        96.461,
+        95.562,
+        96.242,
+        96.342
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb0EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 0,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 101.982,
+      "raw_us": [
+        101.922,
+        101.362,
+        102.943,
+        101.302,
+        101.562,
+        101.962,
+        101.322,
+        102.882,
+        104.222,
+        103.503,
+        101.342,
+        102.002,
+        102.462,
+        103.162,
+        101.542,
+        102.202,
+        101.302,
+        102.682,
+        101.522,
+        102.022
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb1EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 0,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 87.41149999999999,
+      "raw_us": [
+        87.322,
+        87.401,
+        87.501,
+        87.442,
+        87.682,
+        87.662,
+        87.222,
+        87.542,
+        87.162,
+        87.481,
+        87.461,
+        87.062,
+        87.522,
+        87.382,
+        87.362,
+        87.162,
+        87.541,
+        87.401,
+        87.422,
+        87.342
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb0EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 0,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 87.452,
+      "raw_us": [
+        87.661,
+        87.422,
+        87.242,
+        87.282,
+        87.482,
+        87.342,
+        87.321,
+        87.421,
+        87.642,
+        87.242,
+        87.482,
+        87.562,
+        87.542,
+        87.382,
+        87.541,
+        87.502,
+        87.602,
+        87.182,
+        87.322,
+        87.682
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb1EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 0,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 133.013,
+      "raw_us": [
+        132.362,
+        133.662,
+        132.243,
+        135.743,
+        132.903,
+        131.983,
+        133.103,
+        132.783,
+        134.023,
+        132.823,
+        133.803,
+        133.583,
+        133.083,
+        132.663,
+        133.783,
+        132.563,
+        133.223,
+        132.943,
+        133.383,
+        131.683
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb0EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 0,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 141.913,
+      "raw_us": [
+        140.723,
+        142.763,
+        141.323,
+        143.002,
+        142.063,
+        142.263,
+        141.463,
+        140.863,
+        142.742,
+        141.563,
+        141.423,
+        141.243,
+        142.723,
+        142.842,
+        141.123,
+        142.703,
+        141.763,
+        141.582,
+        142.203,
+        142.463
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb1EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 0,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 71.681,
+      "raw_us": [
+        71.862,
+        71.601,
+        71.701,
+        71.961,
+        71.642,
+        71.982,
+        71.382,
+        71.742,
+        71.501,
+        71.661,
+        71.521,
+        71.562,
+        71.642,
+        71.482,
+        71.881,
+        71.861,
+        71.581,
+        71.702,
+        71.822,
+        71.742
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 0,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 71.86099999999999,
+      "raw_us": [
+        71.741,
+        71.841,
+        72.201,
+        71.881,
+        71.921,
+        71.702,
+        72.402,
+        72.222,
+        71.621,
+        72.141,
+        71.801,
+        72.142,
+        71.742,
+        71.741,
+        71.801,
+        71.881,
+        71.662,
+        72.142,
+        71.802,
+        71.901
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 0,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 99.822,
+      "raw_us": [
+        100.422,
+        98.842,
+        99.382,
+        100.182,
+        98.642,
+        99.182,
+        98.962,
+        100.802,
+        99.722,
+        101.162,
+        99.642,
+        100.022,
+        102.262,
+        98.542,
+        99.042,
+        99.922,
+        100.422,
+        99.982,
+        99.682,
+        101.162
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 0,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 109.092,
+      "raw_us": [
+        109.962,
+        110.062,
+        109.482,
+        109.482,
+        108.182,
+        108.302,
+        107.782,
+        109.923,
+        108.902,
+        107.762,
+        110.202,
+        109.642,
+        109.262,
+        108.922,
+        110.343,
+        108.502,
+        108.482,
+        108.042,
+        109.342,
+        108.742
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 0,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 87.902,
+      "raw_us": [
+        87.901,
+        87.741,
+        88.002,
+        87.762,
+        88.002,
+        87.902,
+        87.781,
+        87.762,
+        87.942,
+        87.762,
+        88.142,
+        87.962,
+        87.741,
+        87.982,
+        87.862,
+        88.002,
+        87.982,
+        87.902,
+        88.061,
+        87.801
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 0,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 87.5715,
+      "raw_us": [
+        87.622,
+        87.542,
+        87.862,
+        87.541,
+        87.601,
+        87.962,
+        87.522,
+        87.542,
+        87.582,
+        87.362,
+        87.541,
+        87.581,
+        87.462,
+        87.702,
+        87.482,
+        87.602,
+        87.582,
+        87.641,
+        87.422,
+        87.562
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 0,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 132.003,
+      "raw_us": [
+        130.722,
+        131.502,
+        132.983,
+        131.283,
+        132.063,
+        130.943,
+        132.223,
+        132.403,
+        131.383,
+        132.283,
+        132.083,
+        131.303,
+        132.003,
+        132.083,
+        132.003,
+        132.163,
+        131.462,
+        130.422,
+        132.182,
+        131.842
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 0,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 144.203,
+      "raw_us": [
+        143.523,
+        143.263,
+        143.522,
+        144.563,
+        145.303,
+        143.523,
+        143.263,
+        144.503,
+        144.183,
+        143.883,
+        144.403,
+        143.983,
+        144.443,
+        144.223,
+        144.023,
+        143.562,
+        145.043,
+        144.823,
+        144.242,
+        144.963
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 0,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 68.8515,
+      "raw_us": [
+        68.761,
+        68.781,
+        68.862,
+        68.902,
+        68.701,
+        68.901,
+        68.801,
+        68.742,
+        68.821,
+        68.901,
+        68.741,
+        68.722,
+        68.942,
+        68.821,
+        68.861,
+        68.901,
+        68.842,
+        69.082,
+        68.921,
+        68.881
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 0,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 69.2415,
+      "raw_us": [
+        69.121,
+        69.681,
+        69.142,
+        69.422,
+        69.161,
+        69.261,
+        69.161,
+        69.042,
+        69.222,
+        69.481,
+        69.341,
+        69.121,
+        69.302,
+        69.102,
+        69.581,
+        69.221,
+        69.261,
+        69.302,
+        69.402,
+        69.201
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 0,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 99.05199999999999,
+      "raw_us": [
+        99.162,
+        97.662,
+        99.362,
+        99.162,
+        98.242,
+        99.962,
+        99.682,
+        100.222,
+        98.402,
+        99.342,
+        98.762,
+        97.142,
+        99.022,
+        99.082,
+        97.682,
+        98.042,
+        99.321,
+        99.522,
+        98.882,
+        98.362
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 0,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 109.03200000000001,
+      "raw_us": [
+        109.022,
+        109.242,
+        109.762,
+        108.083,
+        109.562,
+        109.042,
+        107.162,
+        109.582,
+        109.982,
+        107.722,
+        107.523,
+        109.302,
+        109.422,
+        108.942,
+        108.902,
+        109.803,
+        108.402,
+        110.022,
+        108.942,
+        108.562
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 0,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 84.3315,
+      "raw_us": [
+        84.182,
+        84.422,
+        84.202,
+        84.421,
+        84.282,
+        84.282,
+        84.362,
+        84.602,
+        84.122,
+        84.341,
+        84.481,
+        84.361,
+        84.222,
+        84.322,
+        84.442,
+        84.142,
+        84.462,
+        84.182,
+        84.302,
+        84.601
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 0,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 84.122,
+      "raw_us": [
+        84.262,
+        84.182,
+        84.202,
+        84.122,
+        84.222,
+        84.121,
+        84.141,
+        84.121,
+        84.122,
+        84.082,
+        84.102,
+        84.202,
+        84.362,
+        84.042,
+        84.022,
+        84.161,
+        84.361,
+        83.961,
+        84.002,
+        84.102
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 0,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 129.843,
+      "raw_us": [
+        131.023,
+        130.583,
+        129.823,
+        129.083,
+        130.163,
+        130.883,
+        130.283,
+        129.363,
+        129.543,
+        129.623,
+        129.783,
+        129.523,
+        129.103,
+        130.183,
+        130.183,
+        129.843,
+        129.843,
+        130.243,
+        129.323,
+        129.943
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 0,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 144.023,
+      "raw_us": [
+        143.883,
+        144.342,
+        143.423,
+        144.803,
+        143.663,
+        143.903,
+        144.403,
+        146.923,
+        143.863,
+        143.403,
+        144.863,
+        144.102,
+        144.443,
+        144.043,
+        143.042,
+        144.003,
+        142.743,
+        144.103,
+        144.583,
+        143.363
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 1,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 71.1515,
+      "raw_us": [
+        70.942,
+        71.262,
+        71.202,
+        71.001,
+        70.921,
+        71.281,
+        71.122,
+        71.182,
+        71.282,
+        71.041,
+        71.141,
+        71.381,
+        71.381,
+        71.121,
+        71.342,
+        71.162,
+        71.062,
+        71.341,
+        71.081,
+        71.101
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 1,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 71.811,
+      "raw_us": [
+        71.861,
+        71.541,
+        71.761,
+        71.442,
+        72.042,
+        71.801,
+        72.121,
+        71.681,
+        71.941,
+        71.862,
+        71.722,
+        71.622,
+        72.001,
+        71.821,
+        71.861,
+        72.221,
+        71.702,
+        71.882,
+        71.722,
+        71.681
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 1,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 98.77199999999999,
+      "raw_us": [
+        99.442,
+        98.642,
+        98.902,
+        97.942,
+        98.842,
+        98.522,
+        97.102,
+        98.702,
+        98.682,
+        98.822,
+        98.622,
+        97.622,
+        99.322,
+        101.822,
+        99.442,
+        99.222,
+        98.382,
+        99.302,
+        98.722,
+        98.962
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 1,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 109.02250000000001,
+      "raw_us": [
+        109.362,
+        111.282,
+        109.643,
+        110.082,
+        109.042,
+        108.682,
+        108.422,
+        110.563,
+        110.062,
+        109.402,
+        108.983,
+        108.302,
+        107.583,
+        109.482,
+        108.142,
+        108.982,
+        108.302,
+        107.922,
+        109.003,
+        109.442
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 1,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 84.5315,
+      "raw_us": [
+        84.602,
+        84.442,
+        84.462,
+        84.702,
+        84.602,
+        84.382,
+        84.541,
+        84.501,
+        84.441,
+        84.382,
+        84.482,
+        84.542,
+        85.341,
+        84.501,
+        84.721,
+        84.322,
+        84.522,
+        84.562,
+        84.542,
+        84.642
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 1,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 84.3215,
+      "raw_us": [
+        84.402,
+        84.202,
+        84.262,
+        84.422,
+        84.121,
+        84.541,
+        84.321,
+        84.182,
+        84.222,
+        84.242,
+        84.482,
+        84.202,
+        84.422,
+        84.602,
+        84.141,
+        84.461,
+        84.481,
+        84.322,
+        84.222,
+        84.482
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 1,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 130.253,
+      "raw_us": [
+        130.102,
+        130.882,
+        130.702,
+        130.022,
+        130.082,
+        131.443,
+        131.683,
+        129.683,
+        130.303,
+        131.343,
+        131.283,
+        129.283,
+        130.183,
+        132.123,
+        130.203,
+        130.343,
+        129.923,
+        129.323,
+        130.363,
+        130.103
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat1",
+      "window": 1,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 144.063,
+      "raw_us": [
+        143.163,
+        143.503,
+        144.483,
+        146.423,
+        144.823,
+        143.563,
+        144.323,
+        144.523,
+        143.643,
+        144.003,
+        144.943,
+        145.923,
+        144.643,
+        143.703,
+        144.103,
+        144.023,
+        143.743,
+        144.522,
+        143.623,
+        143.863
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 1,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 71.161,
+      "raw_us": [
+        71.202,
+        71.121,
+        71.361,
+        71.101,
+        71.202,
+        71.182,
+        71.122,
+        71.101,
+        71.161,
+        71.161,
+        71.141,
+        71.422,
+        71.222,
+        71.142,
+        71.182,
+        71.161,
+        71.201,
+        71.141,
+        71.122,
+        71.062
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 1,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 71.241,
+      "raw_us": [
+        71.362,
+        71.161,
+        71.201,
+        71.121,
+        71.141,
+        71.042,
+        71.042,
+        71.341,
+        71.281,
+        71.281,
+        71.101,
+        71.022,
+        71.322,
+        71.541,
+        71.181,
+        71.441,
+        71.382,
+        71.622,
+        71.141,
+        71.321
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 1,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 100.262,
+      "raw_us": [
+        99.382,
+        99.722,
+        100.422,
+        101.182,
+        99.682,
+        100.662,
+        99.602,
+        100.122,
+        98.962,
+        100.422,
+        100.842,
+        100.443,
+        102.442,
+        100.782,
+        100.082,
+        100.082,
+        100.982,
+        99.262,
+        98.862,
+        100.402
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 1,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 109.18199999999999,
+      "raw_us": [
+        107.462,
+        107.822,
+        109.282,
+        109.302,
+        109.462,
+        109.062,
+        109.762,
+        109.062,
+        109.943,
+        108.442,
+        107.722,
+        108.462,
+        108.802,
+        109.222,
+        109.662,
+        109.142,
+        109.502,
+        109.662,
+        108.302,
+        109.522
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 1,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 87.742,
+      "raw_us": [
+        87.702,
+        87.982,
+        87.622,
+        87.742,
+        87.741,
+        87.721,
+        87.922,
+        87.762,
+        87.682,
+        87.902,
+        87.861,
+        87.621,
+        87.862,
+        87.742,
+        87.922,
+        87.762,
+        88.022,
+        87.741,
+        87.662,
+        87.682
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 1,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 87.442,
+      "raw_us": [
+        87.642,
+        87.442,
+        87.382,
+        87.522,
+        87.541,
+        87.722,
+        87.342,
+        87.482,
+        87.402,
+        87.522,
+        87.321,
+        87.361,
+        87.442,
+        87.342,
+        87.342,
+        87.322,
+        87.582,
+        87.321,
+        87.541,
+        87.442
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 1,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 131.9425,
+      "raw_us": [
+        132.542,
+        133.782,
+        130.682,
+        131.962,
+        131.443,
+        132.462,
+        131.862,
+        132.122,
+        130.082,
+        132.142,
+        131.382,
+        131.322,
+        132.442,
+        131.242,
+        132.283,
+        130.903,
+        132.243,
+        131.923,
+        132.503,
+        130.863
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "cat0",
+      "window": 1,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 144.523,
+      "raw_us": [
+        143.923,
+        143.763,
+        143.943,
+        144.683,
+        143.363,
+        143.923,
+        144.523,
+        144.523,
+        144.882,
+        144.743,
+        145.363,
+        143.502,
+        145.283,
+        144.803,
+        144.123,
+        144.343,
+        144.563,
+        144.323,
+        144.903,
+        146.063
+      ],
+      "kernels": [
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb0EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 1,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 70.47149999999999,
+      "raw_us": [
+        70.501,
+        70.361,
+        70.462,
+        70.502,
+        70.501,
+        70.441,
+        70.681,
+        70.702,
+        70.422,
+        70.601,
+        70.481,
+        70.281,
+        70.582,
+        70.462,
+        70.442,
+        70.581,
+        70.361,
+        70.961,
+        70.462,
+        70.442
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb0EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 1,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 70.5215,
+      "raw_us": [
+        70.442,
+        70.521,
+        70.341,
+        70.461,
+        70.561,
+        70.662,
+        70.482,
+        70.581,
+        70.621,
+        70.561,
+        70.522,
+        70.502,
+        70.461,
+        70.561,
+        70.581,
+        70.262,
+        70.662,
+        70.902,
+        70.381,
+        70.421
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb1EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 1,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 95.622,
+      "raw_us": [
+        94.362,
+        95.642,
+        95.062,
+        95.562,
+        95.242,
+        95.822,
+        94.642,
+        95.762,
+        94.862,
+        98.822,
+        96.662,
+        95.242,
+        95.602,
+        97.742,
+        96.362,
+        95.082,
+        96.902,
+        95.642,
+        96.502,
+        95.122
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb0EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 1,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 102.00200000000001,
+      "raw_us": [
+        103.082,
+        101.882,
+        101.242,
+        103.382,
+        101.862,
+        101.662,
+        102.422,
+        102.042,
+        103.362,
+        103.022,
+        102.602,
+        101.423,
+        101.522,
+        101.962,
+        102.682,
+        101.522,
+        102.082,
+        101.822,
+        102.922,
+        101.522
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb1EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 1,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 87.332,
+      "raw_us": [
+        87.342,
+        87.242,
+        87.301,
+        87.462,
+        87.242,
+        87.262,
+        87.262,
+        87.502,
+        87.381,
+        87.461,
+        87.342,
+        87.442,
+        87.042,
+        87.362,
+        87.221,
+        87.441,
+        87.322,
+        87.342,
+        87.302,
+        87.262
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb0EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 1,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 87.3615,
+      "raw_us": [
+        87.442,
+        87.522,
+        87.262,
+        87.162,
+        87.422,
+        87.361,
+        87.241,
+        87.342,
+        87.262,
+        87.382,
+        87.662,
+        87.301,
+        87.542,
+        87.322,
+        87.642,
+        87.362,
+        87.222,
+        87.581,
+        87.562,
+        87.342
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb1EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 1,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 133.2425,
+      "raw_us": [
+        133.203,
+        133.203,
+        133.623,
+        136.663,
+        132.663,
+        133.563,
+        133.303,
+        132.283,
+        133.323,
+        133.902,
+        134.842,
+        134.322,
+        131.722,
+        133.282,
+        132.702,
+        133.403,
+        133.063,
+        132.843,
+        133.183,
+        131.983
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb0EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "native",
+      "window": 1,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 141.38299999999998,
+      "raw_us": [
+        141.763,
+        141.343,
+        142.423,
+        140.863,
+        141.583,
+        140.743,
+        141.343,
+        145.102,
+        141.603,
+        142.723,
+        141.603,
+        141.423,
+        141.143,
+        141.162,
+        141.323,
+        141.023,
+        140.703,
+        142.163,
+        141.963,
+        141.043
+      ],
+      "kernels": [
+        "_ZN10audit_gemm17bmms_audit_nativeIDhLb1EEEvPhS1_S1_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 76.3415,
+      "raw_us": [
+        76.521,
+        76.201,
+        76.381,
+        76.541,
+        76.501,
+        76.241,
+        76.321,
+        76.001,
+        76.942,
+        75.902,
+        75.982,
+        76.242,
+        76.362,
+        76.002,
+        76.142,
+        76.162,
+        76.482,
+        76.362,
+        76.641,
+        76.601
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 76.702,
+      "raw_us": [
+        76.602,
+        76.801,
+        76.241,
+        77.341,
+        76.901,
+        76.501,
+        76.601,
+        76.541,
+        76.861,
+        76.481,
+        76.921,
+        76.501,
+        76.702,
+        76.821,
+        76.642,
+        76.542,
+        76.982,
+        76.842,
+        76.702,
+        77.281
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 98.05199999999999,
+      "raw_us": [
+        96.662,
+        98.922,
+        96.882,
+        96.042,
+        98.762,
+        100.522,
+        98.662,
+        96.542,
+        97.982,
+        98.922,
+        98.422,
+        98.542,
+        97.262,
+        97.902,
+        95.982,
+        97.042,
+        97.262,
+        98.142,
+        99.162,
+        98.122
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 106.0825,
+      "raw_us": [
+        105.343,
+        107.122,
+        105.262,
+        106.882,
+        105.642,
+        107.923,
+        107.262,
+        105.502,
+        105.882,
+        106.942,
+        107.522,
+        105.902,
+        105.462,
+        106.822,
+        106.502,
+        106.163,
+        109.042,
+        105.742,
+        106.002,
+        105.122
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 93.2715,
+      "raw_us": [
+        92.922,
+        93.022,
+        93.622,
+        93.182,
+        92.982,
+        93.362,
+        93.122,
+        93.062,
+        93.202,
+        93.002,
+        93.282,
+        93.842,
+        93.442,
+        93.342,
+        93.162,
+        93.722,
+        93.562,
+        93.261,
+        93.401,
+        93.361
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 93.71199999999999,
+      "raw_us": [
+        93.722,
+        93.442,
+        94.322,
+        93.962,
+        94.422,
+        93.702,
+        94.422,
+        93.662,
+        93.782,
+        94.122,
+        93.562,
+        93.442,
+        93.022,
+        93.342,
+        94.522,
+        94.321,
+        93.942,
+        93.382,
+        93.642,
+        93.682
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_us": 134.252,
+      "raw_us": [
+        134.242,
+        135.443,
+        135.523,
+        134.743,
+        134.262,
+        134.563,
+        135.183,
+        136.563,
+        134.843,
+        132.402,
+        133.643,
+        132.722,
+        133.883,
+        133.143,
+        135.043,
+        132.022,
+        135.183,
+        134.063,
+        133.783,
+        132.102
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_us": 146.183,
+      "raw_us": [
+        147.762,
+        146.183,
+        147.943,
+        146.103,
+        145.683,
+        146.343,
+        144.423,
+        146.203,
+        146.963,
+        146.383,
+        145.283,
+        144.303,
+        146.043,
+        145.983,
+        147.663,
+        149.543,
+        146.203,
+        146.183,
+        146.023,
+        146.143
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "version": "v12_r70",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "5638ce6fbc3b1d82cca7d09789054ce06f79e8cf1224476fcc56906040f49c77",
+  "status": "Rejected: 860 precision configurations pass; short-dot median gain 1.71% below acceptance threshold.",
+  "parent_byte_recovery": true,
+  "new_device_entries": 26,
+  "change": "Short dot single-shot TBuf with explicit dependencies; initialized DMA padding enables a single Cast for all K; direct vector sum for K<=64"
+}

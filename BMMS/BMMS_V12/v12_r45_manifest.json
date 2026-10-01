@@ -1,0 +1,34 @@
+{
+  "version": "v12_r45",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "2c78b3dc13e802978264ee8c8c33d00699af371f675719cc7951e0d8e82befde",
+  "status": "Rejected locally: 10/10 active configurations slower; median regression 14.82%; no Judge submission recommended",
+  "parent_byte_recovery": true,
+  "scope": "Case12 domain plus r30 pitch/family and r41 flat gate FALSE",
+  "change": "Original grid ownership, 128x128 N subpanels, full K B L1 residency across M, A K1=192 pingpong and double L0C",
+  "max_L1_bytes": 516096,
+  "L0A_bytes": 32768,
+  "L0B_bytes": 32768,
+  "L0C_bytes": 131072,
+  "new_device_entries": 8,
+  "npu_validation": {
+    "precision_configurations": 230,
+    "precision_calls": 690,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.00191358175
+  },
+  "performance": {
+    "r45_screen": {
+      "active_configurations": 10,
+      "total_configurations": 32,
+      "wins": 0,
+      "median_reduction_percent": -14.82196364465066,
+      "min_reduction_percent": -51.376173940494056,
+      "max_reduction_percent": -6.260892218688796,
+      "both_windows_faster": 0
+    }
+  },
+  "readme": "../V12_npu_lab/results/b_resident_20260929/REPORT.md",
+  "judge_tested": false,
+  "sanitizer": "Not run for these experimental variants; inherited unresolved baseline limitations remain."
+}

@@ -1,0 +1,629 @@
+{
+  "status": "offline CPU planner/resource analysis only; no SSH, NPU build or timing",
+  "assumptions": [
+    "New report probes use the frozen r41/r30 planner and correctly calibrated encoders.",
+    "B=1, K=1536, TB=false, 1280<=M<1536, 4096<=N<6144, M%16=N%64=0.",
+    "pN=2, pM>=8, tasks=blocks=cores, flatPeak=oldPeak."
+  ],
+  "source_sha256": "1caf7870ac4154c0f555621ba9c41f4601c6ecee96cb2e8d0bf23acc4fc4f373",
+  "new_report_sha256": "2e119b952dea182dafae81ce852c7aceb4b5541c2ec9b3f2cd987ab0c94e207c",
+  "actual_planner_extracted": true,
+  "same_host_planner_as_r33": true,
+  "enumeration_input_count": 65536,
+  "compatible_count_with_TA": 640,
+  "states": [
+    {
+      "cores": 20,
+      "pM": 10,
+      "mTiles": 10,
+      "count": 64
+    },
+    {
+      "cores": 22,
+      "pM": 11,
+      "mTiles": 11,
+      "count": 320
+    },
+    {
+      "cores": 24,
+      "pM": 12,
+      "mTiles": 12,
+      "count": 256
+    }
+  ],
+  "by_core": {
+    "20": {
+      "M": [
+        1280
+      ],
+      "N": [
+        4096,
+        4160,
+        4224,
+        4288,
+        4352,
+        4416,
+        4480,
+        4544,
+        4608,
+        4672,
+        4736,
+        4800,
+        4864,
+        4928,
+        4992,
+        5056,
+        5120,
+        5184,
+        5248,
+        5312,
+        5376,
+        5440,
+        5504,
+        5568,
+        5632,
+        5696,
+        5760,
+        5824,
+        5888,
+        5952,
+        6016,
+        6080
+      ],
+      "TA": [
+        0,
+        1
+      ],
+      "configurations": 64,
+      "MN_pairs": 32
+    },
+    "22": {
+      "M": [
+        1296,
+        1312,
+        1328,
+        1344,
+        1360,
+        1376,
+        1392,
+        1408
+      ],
+      "N": [
+        4096,
+        4160,
+        4224,
+        4288,
+        4352,
+        4416,
+        4480,
+        4544,
+        4608,
+        4672,
+        4736,
+        4800,
+        4864,
+        4928,
+        4992,
+        5056,
+        5120,
+        5184,
+        5248,
+        5312,
+        5376,
+        5440,
+        5504,
+        5568,
+        5632,
+        5696,
+        5760,
+        5824,
+        5888,
+        5952,
+        6016,
+        6080
+      ],
+      "TA": [
+        0,
+        1
+      ],
+      "configurations": 320,
+      "MN_pairs": 256
+    },
+    "24": {
+      "M": [
+        1424,
+        1440,
+        1456,
+        1472,
+        1488,
+        1504,
+        1520
+      ],
+      "N": [
+        4096,
+        4160,
+        4224,
+        4288,
+        4352,
+        4416,
+        4480,
+        4544,
+        4608,
+        4672,
+        4736,
+        4800,
+        4864,
+        4928,
+        4992,
+        5056,
+        5120,
+        5184,
+        5248,
+        5312,
+        5376,
+        5440,
+        5504,
+        5568,
+        5632,
+        5696,
+        5760,
+        5824,
+        5888,
+        5952,
+        6016,
+        6080
+      ],
+      "TA": [
+        0,
+        1
+      ],
+      "configurations": 256,
+      "MN_pairs": 224
+    }
+  },
+  "all_compatible_plans_have_one_M_macro_per_task": true,
+  "K1_analysis": [
+    {
+      "K1": 192,
+      "chunks": [
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192,
+        192
+      ],
+      "stage_count": 8,
+      "load_stage_calls_per_macro": 8,
+      "A_plus_B_nd2nz_calls_per_macro": 16,
+      "K0_mmad_count_per_macro": 24,
+      "L1_A_plus_B_bytes": 294912,
+      "L1_KiB": 288.0,
+      "fits_recorded_512KiB_budget": true,
+      "L1_start_slot_changes_between_macros": false,
+      "full_macro_A_logical_bytes": 393216,
+      "full_macro_B_logical_bytes": 786432
+    },
+    {
+      "K1": 256,
+      "chunks": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "stage_count": 6,
+      "load_stage_calls_per_macro": 6,
+      "A_plus_B_nd2nz_calls_per_macro": 12,
+      "K0_mmad_count_per_macro": 24,
+      "L1_A_plus_B_bytes": 393216,
+      "L1_KiB": 384.0,
+      "fits_recorded_512KiB_budget": true,
+      "L1_start_slot_changes_between_macros": false,
+      "full_macro_A_logical_bytes": 393216,
+      "full_macro_B_logical_bytes": 786432
+    },
+    {
+      "K1": 320,
+      "chunks": [
+        320,
+        320,
+        320,
+        320,
+        256
+      ],
+      "stage_count": 5,
+      "load_stage_calls_per_macro": 5,
+      "A_plus_B_nd2nz_calls_per_macro": 10,
+      "K0_mmad_count_per_macro": 24,
+      "L1_A_plus_B_bytes": 491520,
+      "L1_KiB": 480.0,
+      "fits_recorded_512KiB_budget": true,
+      "L1_start_slot_changes_between_macros": true,
+      "full_macro_A_logical_bytes": 393216,
+      "full_macro_B_logical_bytes": 786432
+    },
+    {
+      "K1": 384,
+      "chunks": [
+        384,
+        384,
+        384,
+        384
+      ],
+      "stage_count": 4,
+      "load_stage_calls_per_macro": 4,
+      "A_plus_B_nd2nz_calls_per_macro": 8,
+      "K0_mmad_count_per_macro": 24,
+      "L1_A_plus_B_bytes": 589824,
+      "L1_KiB": 576.0,
+      "fits_recorded_512KiB_budget": false,
+      "L1_start_slot_changes_between_macros": false,
+      "full_macro_A_logical_bytes": 393216,
+      "full_macro_B_logical_bytes": 786432
+    }
+  ],
+  "cores20_traffic_models_not_HBM_measured_traffic": [
+    {
+      "N": 4096,
+      "nTiles": 16,
+      "macro_count": 160,
+      "A_GM_to_L1_requested_bytes": 62914560,
+      "B_GM_to_L1_requested_bytes": 125829120,
+      "B_distinct_input_bytes": 12582912,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 8,
+      "n_tiles_per_task_max": 8
+    },
+    {
+      "N": 4160,
+      "nTiles": 17,
+      "macro_count": 170,
+      "A_GM_to_L1_requested_bytes": 66846720,
+      "B_GM_to_L1_requested_bytes": 127795200,
+      "B_distinct_input_bytes": 12779520,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 8,
+      "n_tiles_per_task_max": 9
+    },
+    {
+      "N": 4224,
+      "nTiles": 17,
+      "macro_count": 170,
+      "A_GM_to_L1_requested_bytes": 66846720,
+      "B_GM_to_L1_requested_bytes": 129761280,
+      "B_distinct_input_bytes": 12976128,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 8,
+      "n_tiles_per_task_max": 9
+    },
+    {
+      "N": 4288,
+      "nTiles": 17,
+      "macro_count": 170,
+      "A_GM_to_L1_requested_bytes": 66846720,
+      "B_GM_to_L1_requested_bytes": 131727360,
+      "B_distinct_input_bytes": 13172736,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 8,
+      "n_tiles_per_task_max": 9
+    },
+    {
+      "N": 4352,
+      "nTiles": 17,
+      "macro_count": 170,
+      "A_GM_to_L1_requested_bytes": 66846720,
+      "B_GM_to_L1_requested_bytes": 133693440,
+      "B_distinct_input_bytes": 13369344,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 8,
+      "n_tiles_per_task_max": 9
+    },
+    {
+      "N": 4416,
+      "nTiles": 18,
+      "macro_count": 180,
+      "A_GM_to_L1_requested_bytes": 70778880,
+      "B_GM_to_L1_requested_bytes": 135659520,
+      "B_distinct_input_bytes": 13565952,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 9,
+      "n_tiles_per_task_max": 9
+    },
+    {
+      "N": 4480,
+      "nTiles": 18,
+      "macro_count": 180,
+      "A_GM_to_L1_requested_bytes": 70778880,
+      "B_GM_to_L1_requested_bytes": 137625600,
+      "B_distinct_input_bytes": 13762560,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 9,
+      "n_tiles_per_task_max": 9
+    },
+    {
+      "N": 4544,
+      "nTiles": 18,
+      "macro_count": 180,
+      "A_GM_to_L1_requested_bytes": 70778880,
+      "B_GM_to_L1_requested_bytes": 139591680,
+      "B_distinct_input_bytes": 13959168,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 9,
+      "n_tiles_per_task_max": 9
+    },
+    {
+      "N": 4608,
+      "nTiles": 18,
+      "macro_count": 180,
+      "A_GM_to_L1_requested_bytes": 70778880,
+      "B_GM_to_L1_requested_bytes": 141557760,
+      "B_distinct_input_bytes": 14155776,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 9,
+      "n_tiles_per_task_max": 9
+    },
+    {
+      "N": 4672,
+      "nTiles": 19,
+      "macro_count": 190,
+      "A_GM_to_L1_requested_bytes": 74711040,
+      "B_GM_to_L1_requested_bytes": 143523840,
+      "B_distinct_input_bytes": 14352384,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 9,
+      "n_tiles_per_task_max": 10
+    },
+    {
+      "N": 4736,
+      "nTiles": 19,
+      "macro_count": 190,
+      "A_GM_to_L1_requested_bytes": 74711040,
+      "B_GM_to_L1_requested_bytes": 145489920,
+      "B_distinct_input_bytes": 14548992,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 9,
+      "n_tiles_per_task_max": 10
+    },
+    {
+      "N": 4800,
+      "nTiles": 19,
+      "macro_count": 190,
+      "A_GM_to_L1_requested_bytes": 74711040,
+      "B_GM_to_L1_requested_bytes": 147456000,
+      "B_distinct_input_bytes": 14745600,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 9,
+      "n_tiles_per_task_max": 10
+    },
+    {
+      "N": 4864,
+      "nTiles": 19,
+      "macro_count": 190,
+      "A_GM_to_L1_requested_bytes": 74711040,
+      "B_GM_to_L1_requested_bytes": 149422080,
+      "B_distinct_input_bytes": 14942208,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 9,
+      "n_tiles_per_task_max": 10
+    },
+    {
+      "N": 4928,
+      "nTiles": 20,
+      "macro_count": 200,
+      "A_GM_to_L1_requested_bytes": 78643200,
+      "B_GM_to_L1_requested_bytes": 151388160,
+      "B_distinct_input_bytes": 15138816,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 10,
+      "n_tiles_per_task_max": 10
+    },
+    {
+      "N": 4992,
+      "nTiles": 20,
+      "macro_count": 200,
+      "A_GM_to_L1_requested_bytes": 78643200,
+      "B_GM_to_L1_requested_bytes": 153354240,
+      "B_distinct_input_bytes": 15335424,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 10,
+      "n_tiles_per_task_max": 10
+    },
+    {
+      "N": 5056,
+      "nTiles": 20,
+      "macro_count": 200,
+      "A_GM_to_L1_requested_bytes": 78643200,
+      "B_GM_to_L1_requested_bytes": 155320320,
+      "B_distinct_input_bytes": 15532032,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 10,
+      "n_tiles_per_task_max": 10
+    },
+    {
+      "N": 5120,
+      "nTiles": 20,
+      "macro_count": 200,
+      "A_GM_to_L1_requested_bytes": 78643200,
+      "B_GM_to_L1_requested_bytes": 157286400,
+      "B_distinct_input_bytes": 15728640,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 10,
+      "n_tiles_per_task_max": 10
+    },
+    {
+      "N": 5184,
+      "nTiles": 21,
+      "macro_count": 210,
+      "A_GM_to_L1_requested_bytes": 82575360,
+      "B_GM_to_L1_requested_bytes": 159252480,
+      "B_distinct_input_bytes": 15925248,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 10,
+      "n_tiles_per_task_max": 11
+    },
+    {
+      "N": 5248,
+      "nTiles": 21,
+      "macro_count": 210,
+      "A_GM_to_L1_requested_bytes": 82575360,
+      "B_GM_to_L1_requested_bytes": 161218560,
+      "B_distinct_input_bytes": 16121856,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 10,
+      "n_tiles_per_task_max": 11
+    },
+    {
+      "N": 5312,
+      "nTiles": 21,
+      "macro_count": 210,
+      "A_GM_to_L1_requested_bytes": 82575360,
+      "B_GM_to_L1_requested_bytes": 163184640,
+      "B_distinct_input_bytes": 16318464,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 10,
+      "n_tiles_per_task_max": 11
+    },
+    {
+      "N": 5376,
+      "nTiles": 21,
+      "macro_count": 210,
+      "A_GM_to_L1_requested_bytes": 82575360,
+      "B_GM_to_L1_requested_bytes": 165150720,
+      "B_distinct_input_bytes": 16515072,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 10,
+      "n_tiles_per_task_max": 11
+    },
+    {
+      "N": 5440,
+      "nTiles": 22,
+      "macro_count": 220,
+      "A_GM_to_L1_requested_bytes": 86507520,
+      "B_GM_to_L1_requested_bytes": 167116800,
+      "B_distinct_input_bytes": 16711680,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 11,
+      "n_tiles_per_task_max": 11
+    },
+    {
+      "N": 5504,
+      "nTiles": 22,
+      "macro_count": 220,
+      "A_GM_to_L1_requested_bytes": 86507520,
+      "B_GM_to_L1_requested_bytes": 169082880,
+      "B_distinct_input_bytes": 16908288,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 11,
+      "n_tiles_per_task_max": 11
+    },
+    {
+      "N": 5568,
+      "nTiles": 22,
+      "macro_count": 220,
+      "A_GM_to_L1_requested_bytes": 86507520,
+      "B_GM_to_L1_requested_bytes": 171048960,
+      "B_distinct_input_bytes": 17104896,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 11,
+      "n_tiles_per_task_max": 11
+    },
+    {
+      "N": 5632,
+      "nTiles": 22,
+      "macro_count": 220,
+      "A_GM_to_L1_requested_bytes": 86507520,
+      "B_GM_to_L1_requested_bytes": 173015040,
+      "B_distinct_input_bytes": 17301504,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 11,
+      "n_tiles_per_task_max": 11
+    },
+    {
+      "N": 5696,
+      "nTiles": 23,
+      "macro_count": 230,
+      "A_GM_to_L1_requested_bytes": 90439680,
+      "B_GM_to_L1_requested_bytes": 174981120,
+      "B_distinct_input_bytes": 17498112,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 11,
+      "n_tiles_per_task_max": 12
+    },
+    {
+      "N": 5760,
+      "nTiles": 23,
+      "macro_count": 230,
+      "A_GM_to_L1_requested_bytes": 90439680,
+      "B_GM_to_L1_requested_bytes": 176947200,
+      "B_distinct_input_bytes": 17694720,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 11,
+      "n_tiles_per_task_max": 12
+    },
+    {
+      "N": 5824,
+      "nTiles": 23,
+      "macro_count": 230,
+      "A_GM_to_L1_requested_bytes": 90439680,
+      "B_GM_to_L1_requested_bytes": 178913280,
+      "B_distinct_input_bytes": 17891328,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 11,
+      "n_tiles_per_task_max": 12
+    },
+    {
+      "N": 5888,
+      "nTiles": 23,
+      "macro_count": 230,
+      "A_GM_to_L1_requested_bytes": 90439680,
+      "B_GM_to_L1_requested_bytes": 180879360,
+      "B_distinct_input_bytes": 18087936,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 11,
+      "n_tiles_per_task_max": 12
+    },
+    {
+      "N": 5952,
+      "nTiles": 24,
+      "macro_count": 240,
+      "A_GM_to_L1_requested_bytes": 94371840,
+      "B_GM_to_L1_requested_bytes": 182845440,
+      "B_distinct_input_bytes": 18284544,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 12,
+      "n_tiles_per_task_max": 12
+    },
+    {
+      "N": 6016,
+      "nTiles": 24,
+      "macro_count": 240,
+      "A_GM_to_L1_requested_bytes": 94371840,
+      "B_GM_to_L1_requested_bytes": 184811520,
+      "B_distinct_input_bytes": 18481152,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 12,
+      "n_tiles_per_task_max": 12
+    },
+    {
+      "N": 6080,
+      "nTiles": 24,
+      "macro_count": 240,
+      "A_GM_to_L1_requested_bytes": 94371840,
+      "B_GM_to_L1_requested_bytes": 186777600,
+      "B_distinct_input_bytes": 18677760,
+      "partial_bytes": 10240,
+      "n_tiles_per_task_min": 12,
+      "n_tiles_per_task_max": 12
+    }
+  ],
+  "reported_sensitivity_deltas_us": {
+    "A_LOAD_X2": 21.91,
+    "B_LOAD_X2": 32.99,
+    "RINGREAD_X2": 4.72
+  }
+}

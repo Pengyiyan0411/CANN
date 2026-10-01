@@ -1,0 +1,27 @@
+{
+  "states": 65536,
+  "active": 11693,
+  "tiles_checked": 5329557,
+  "max_ub_bytes": 56448,
+  "max_workspace_bytes": 8783808,
+  "layout": {
+    "panel_widths": 8,
+    "k0_operand_slices": 192,
+    "raw_uint16_exact": true
+  },
+  "semantics": {
+    "exact_integer_tiled_checks": 28,
+    "distributions": [
+      "random",
+      "all_negative",
+      "zero",
+      "K_cancellation"
+    ],
+    "scope": "Mathematical scheduling only; not NPU floating point or asynchronous-event validation."
+  },
+  "parent_byte_recovery": true,
+  "new_device_entries": 4,
+  "sha256": "fc670554bdb3cecf10f0b7aed5df57365b5c471640848359528d54aa19ed6787",
+  "L1_bytes": 524288,
+  "scope": "CPU structural and mathematical checks, not device events or NPU accuracy"
+}

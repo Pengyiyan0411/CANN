@@ -1,0 +1,8 @@
+{
+  "candidate": "v12_r04_case9_10_partial_a_cache.asc",
+  "sha256": "d4c0e539ca2145aa520e7b63c7a6bd8b9006ef3d54fa531971b1cf4c67720605",
+  "parent": "v12_r03_case2_static_k.asc",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "parent_recovered_byte_for_byte": true,
+  "r02_not_inherited": true
+}

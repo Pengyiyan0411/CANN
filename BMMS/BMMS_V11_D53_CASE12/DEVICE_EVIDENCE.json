@@ -1,0 +1,10 @@
+{
+  "R06_device_equal_to_D24_R23": true,
+  "normalized_device_sha256": "4c51b46a0e989fde2386de039df2fb25ea04565b4f39c5c9a3404410267cf138",
+  "inherited_report": "V11_diagnostics24/CPU_CHECKS.json",
+  "inherited_report_sha256": "5730b1d3c109b3f7af3448849144f81808c16b8027b21cfdcea572af1d704259",
+  "old_macro_runs": 32,
+  "single_group_macro_runs": 32,
+  "historical_outputs_equal_bitwise": true,
+  "scope": "historical CPU model evidence for byte-identical R06 device and same single-group mutation; not newly replayed, not NPU validation"
+}

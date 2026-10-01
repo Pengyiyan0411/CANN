@@ -1,0 +1,43 @@
+{
+  "version": "v12_r56",
+  "parent": "v12_baseline_r41.asc",
+  "file": "v12_r56_case12_b_nz_prepack.asc",
+  "sha256": "c200e7ddf03784d5598cba4c17584fa00541c4d2959872b5b3a9a8e14e0c4d92",
+  "status": "Rejected as broad Case12 candidate after synthetic NPU screening; do not submit",
+  "change": "B once-packed raw-word NZ in fused AIV stage; original r30 AM128BN256 plan, A load, MMAD order, ring and consumer retained",
+  "gate": "r51 original known Case12 domain, no N%128 or new macro divisibility guard; explicit UB/workspace bound",
+  "parent_byte_recovery": true,
+  "new_device_entries": 4,
+  "numerical_validation": {
+    "configurations": 164,
+    "calls": 492,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "screen": {
+    "all": {
+      "configurations": 32,
+      "median_reduction_pct": -6.831192646986862,
+      "min_pct": -20.683265476563317,
+      "max_pct": 8.954361640670127,
+      "both_windows_faster": 10
+    },
+    "N_mod128_0": {
+      "configurations": 16,
+      "median_reduction_pct": -18.043911969369564,
+      "min_pct": -20.683265476563317,
+      "max_pct": -11.533737600722628,
+      "both_windows_faster": 0
+    },
+    "N_mod128_64": {
+      "configurations": 16,
+      "median_reduction_pct": 3.9177725232238005,
+      "min_pct": -2.1286476932510956,
+      "max_pct": 8.954361640670127,
+      "both_windows_faster": 10
+    }
+  },
+  "holdout_run": false,
+  "new_sanitizer_run": false,
+  "npu_report": "../V12_npu_lab/results/case12_bnz_20261001/REPORT.md"
+}

@@ -1,0 +1,9 @@
+{
+  "candidate": "v12_r13_case8_prepacked_nz.asc",
+  "parent": "v12_baseline_r12.asc",
+  "parent_sha256": "a845fd9538fe71d5f6284fced34781d8fb7e997105c51065a84b344818ddbd2b",
+  "sha256": "802b961d89ed23c38933c0ee3cebd1d9939301634258982cebce01451956bfb8",
+  "parent_recovered_byte_for_byte": true,
+  "status": "rejected: 24/24 synthetic cases pass, but screen median latency increases 26.1%; no Judge submission",
+  "event_summary": "../V12_npu_lab/results/c8_r13_event.summary.json"
+}

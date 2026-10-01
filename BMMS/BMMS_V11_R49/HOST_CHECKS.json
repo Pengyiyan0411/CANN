@@ -1,0 +1,12 @@
+{
+  "dispatch_checks": 34762,
+  "non_target_equal": 30752,
+  "target_epilogue_only_changes": 4010,
+  "Case5_metadata_checks": 128,
+  "R48_Case7_checks": 4704,
+  "SplitK_checks": 310,
+  "R43_Case8_checks": 64,
+  "scope": "actual run_kernel/TryLaunch with recording stubs",
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

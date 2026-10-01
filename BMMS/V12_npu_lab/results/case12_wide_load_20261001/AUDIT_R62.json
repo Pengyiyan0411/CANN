@@ -1,0 +1,15 @@
+{
+  "version": "v12_r62",
+  "parent": "v12_baseline_r41.asc",
+  "file": "v12_r62_case12_wide_load_gap.asc",
+  "sha256": "f782bbf7bbf7a78d7e5a7d71cb9e7076ec796439a285d95537be84c21b69b1a7",
+  "status": "pending NPU validation",
+  "new_device_entries": 4,
+  "parent_byte_recovery": true,
+  "change": "Original r30 N256 geometry/plan/K/floating-point schedule; A LoadData loops swapped with dstGap, 8 to4 commands on full M128 K64 tiles",
+  "address_mapping_states": 64,
+  "L1_bytes": 393216,
+  "L0A_bytes": 32768,
+  "L0B_bytes": 65536,
+  "L0C_bytes": 131072
+}

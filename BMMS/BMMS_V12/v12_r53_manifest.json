@@ -1,0 +1,30 @@
+{
+  "version": "v12_r53",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "9e017d7b034fa7f4c8b1114a98f542a23978233385a84dcef03075a549a6b10f",
+  "status": "ungated research control; superseded by r54 selector",
+  "change": "AM256 BN128 K1=256 K0=64; retain r30 cross-macro L1 prefetch, original per-fractal LoadData and full-K rowmax",
+  "scope": "r51 metadata scope, plus cores divisible by ceil(M/256); one M macro per task",
+  "parent_byte_recovery": true,
+  "L1_bytes": 393216,
+  "L0A_bytes": 65536,
+  "L0B_bytes": 32768,
+  "L0C_bytes": 131072,
+  "numerical_validation": {
+    "configurations": 164,
+    "calls": 492,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "screen": {
+    "configurations": 32,
+    "median_latency_reduction_pct": 5.2760365369305955,
+    "min_pct": -1.7172612452913905,
+    "max_pct": 17.192761087071307,
+    "positive": 22,
+    "above_one_percent": 20,
+    "below_minus_one_percent": 2,
+    "both_windows_faster": 20,
+    "geometric_speedup": 1.0687419023797342
+  },
+  "npu_report": "../V12_npu_lab/results/case12_k1_20261001/REPORT.md"
+}

@@ -1,0 +1,10 @@
+{
+  "version": "v12_r38",
+  "parent": "v12_r37_dense_singlewave_plan.asc",
+  "accepted_baseline": "v12_baseline_r33.asc",
+  "sha256": "ec8b8ce8c423915149cccea1e6e89cb92986dfec3ff18f570ce650ef2c44ec53",
+  "status": "research only; incremental independent active subset median reduction 0.33%; not recommended this round",
+  "new_device_entries": 8,
+  "source_byte_recovery": true,
+  "report": "../V12_npu_lab/results/narrow_dense_20260929/REPORT.md"
+}

@@ -1,0 +1,508 @@
+--- R43_CASE8_PADDED_MACRO.asc
++++ R46_CASE8_FAST_MAIN_TAIL.asc
+@@ -1,3 +1,5 @@
++// R46_CASE8_FAST_MAIN_TAIL: original-stride fast body + overlapping N tail.
++// Based on frozen R43. Candidate only: real CANN/NPU validation pending.
+ // R25_NATIVE_TARGETED: metadata-gated Native K128 consumers on frozen R23.
+ #define BMMS25_SMALL 1
+ #define BMMS25_DENSE 1
+@@ -3989,6 +3991,491 @@
+ } // namespace bmms_c8p43
+ // BMMS_C8P43_END
+ 
++// BMMS_C8F46_BEGIN
++// R46 is confined to the existing R43 metadata domain with ragged N.
++// No whole-input padded copies. Each worker uses one registered SDK object and
++// one Matmul call for its full-width shard. The last N shard overlaps the body.
++// No claim of hardware L0C->UB direct output: the SDK may stage through GM.
++namespace bmms_c8f46 {
++using bmmmaxsum_v43::Plan;
++using bmmmaxsum_v43::MinI;
++using bmmmaxsum_v43::Fence;
++using bmmmaxsum_v43::NEG_INF;
++using bmmmaxsum_v43::CeilDiv;
++using bmmmaxsum_v43::MinH;
++using bmmmaxsum_v43::BuildPlan;
++using bmmmaxsum_v43::FastPlanCost;
++using bmmmaxsum_v43::FastAppUbBytes;
++using bmmmaxsum_v43::PartialBytes;
++using bmmmaxsum_v43::FAST_C_FLOATS;
++using bmmmaxsum_v43::SYSTEM_WORKSPACE_BYTES;
++
++struct MainTailPlan {
++    Plan grid; // logical N is the virtual tile extent, NOT the physical stride
++    int32_t realN;
++};
++
++// BMMS_C8F46_HOST_MODEL_BEGIN
++static inline bool Eligible(int32_t B,int32_t M,int32_t N,int32_t K,
++    int32_t dtype,int32_t cores)
++{
++    return bmms_c8p43::Eligible(B,M,N,K,dtype,cores) && (N%16)!=0;
++}
++
++static inline bool ValidPlan(const MainTailPlan& plan,int32_t cores)
++{
++    const Plan& p=plan.grid;
++    if(p.B!=1||p.M<1||p.K<1||cores<2||cores>64)return false;
++    if(p.tileM<16||p.tileM>128||(p.tileM&(p.tileM-1))!=0)return false;
++    if(p.vecN<16||p.vecN>256||(p.vecN&(p.vecN-1))!=0)return false;
++    if(p.tileM*p.vecN>FAST_C_FLOATS||FastAppUbBytes(p)>97U*1024U)return false;
++    if(plan.realN<17||p.N<=plan.realN||p.N-plan.realN>=p.vecN)return false;
++    if(p.N!=CeilDiv(plan.realN,p.vecN)*p.vecN)return false;
++    if(p.mTiles!=CeilDiv(p.M,p.tileM)||p.nTiles!=p.N/p.vecN)return false;
++    // At least two nonempty N shards: no single window is wider than realN.
++    if(p.pM<1||p.pM>p.mTiles||p.pN<2||p.pN>p.nTiles)return false;
++    if(p.pM*p.pN>cores||p.tasks!=p.pM*p.pN)return false;
++    if(p.blocks!=p.tasks||p.workers!=p.blocks)return false;
++    if(p.nPitch!=CeilDiv(p.nTiles,p.pN)*p.vecN||p.nPitch>plan.realN)return false;
++    if(p.mPitch!=CeilDiv(p.mTiles,p.pM)*p.tileM||p.paddedM!=p.mTiles*p.tileM)return false;
++    if(p.paddedM>8192||p.mPitch>8192||p.direct)return false;
++    if(p.tileM>CeilDiv(MinH(p.mPitch,p.M),16)*16)return false;
++    return PartialBytes(p)<=128ULL*1024ULL*1024ULL;
++}
++
++static inline bool ValidStream(const Plan& p,const TCubeTiling& td)
++{
++    if(td.stepM<=0||td.stepN<=0||(td.iterateOrder!=0&&td.iterateOrder!=1))return false;
++    const int32_t maxMTiles=CeilDiv(p.mTiles,p.pM);
++    // R46 uses uneven N partitions. Use CEIL here; floor can incorrectly
++    // accept a grouped stream whose last N shard has two tiles instead of one.
++    const int32_t maxNTiles=CeilDiv(p.nTiles,p.pN);
++    return maxMTiles<=1||maxNTiles<=1||
++        (td.iterateOrder==1&&td.stepM>=maxMTiles);
++}
++
++static inline double Cost(const MainTailPlan& plan,int32_t cores)
++{
++    const Plan& p=plan.grid;
++    // Inherited shape-only estimate, not fitted timings. Add the difference
++    // between average and critical-shard work for uneven tile partitions.
++    const double meanElems=double(p.M)*p.N/p.workers;
++    const double maxElems=double(MinH(p.mPitch,p.M))*p.nPitch;
++    const double extra=maxElems>meanElems?maxElems-meanElems:0.0;
++    const double meanTiles=double(p.mTiles)*p.nTiles/p.workers;
++    const double maxTiles=double(CeilDiv(p.mTiles,p.pM))*CeilDiv(p.nTiles,p.pN);
++    return FastPlanCost(p,cores)+extra*(2.0*p.K/4000000.0+1.0/700000.0)+
++        (maxTiles-meanTiles)*0.025;
++}
++
++static inline MainTailPlan MakePlan(int32_t M,int32_t N,int32_t K,int32_t cores)
++{
++    MainTailPlan best{};
++    if(M<1||N<17||K<1||cores<2||cores>64||N%16==0)return best;
++    const int32_t ms[4]={16,32,64,128};
++    // Do not turn a 1..15-column tail into many 16-column SDK Iterate calls.
++    // The full-width overlap permits >=64 columns on every returned C tile.
++    const int32_t ns[3]={64,128,256};
++    double bestCost=1.0e100;
++    for(int32_t im=0;im<4;++im){
++        for(int32_t in=0;in<3;++in){
++            const int32_t tm=ms[im],vn=ns[in],virtualN=CeilDiv(N,vn)*vn;
++            if(tm*vn>FAST_C_FLOATS)continue;
++            const int32_t mt=CeilDiv(M,tm),nt=virtualN/vn;
++            const int32_t maxPm=MinH(cores/2,mt);
++            for(int32_t pm=1;pm<=maxPm;++pm){
++                const int32_t maxPn=MinH(cores/pm,nt);
++                for(int32_t pn=2;pn<=maxPn;++pn){
++                    MainTailPlan q{BuildPlan(1,M,virtualN,K,cores,tm,vn,pm,pn),N};
++                    if(!ValidPlan(q,cores))continue;
++                    const double score=Cost(q,cores);
++                    if(score<bestCost){bestCost=score;best=q;}
++                }
++            }
++        }
++    }
++    return best;
++}
++
++static inline MainTailPlan ConservativePlan(int32_t M,int32_t N,int32_t K,int32_t cores)
++{
++    MainTailPlan p{};
++    if(cores<2)return p;
++    // Prefer one M tile per shard. Still verify the real SDK iteration order;
++    // if this plan also fails that check, TryLaunch returns to unchanged R43.
++    const int32_t tm=128,vn=64;
++    const int32_t pm=MinH(CeilDiv(M,tm),cores/2);
++    return MainTailPlan{BuildPlan(1,M,CeilDiv(N,vn)*vn,K,cores,tm,vn,pm,2),N};
++}
++// BMMS_C8F46_HOST_MODEL_END
++
++template <typename T, bool TA, bool TB>
++class FastFusedDevice {
++public:
++    using AType = matmul::MatmulType<AscendC::TPosition::GM, CubeFormat::ND, T, TA>;
++    using BType = matmul::MatmulType<AscendC::TPosition::GM, CubeFormat::ND, T, TB>;
++    using CType = matmul::MatmulType<AscendC::TPosition::VECIN, CubeFormat::ND, float>;
++    matmul::Matmul<AType, BType, CType> mm;
++    TCubeTiling tiling;
++
++    __aicore__ inline void Init(GM_ADDR a, GM_ADDR b, GM_ADDR y,
++        GM_ADDR partials, const MainTailPlan& plan, AscendC::TPipe* pipe)
++    {
++        p = plan.grid;
++        realN = plan.realN;
++        pipe_ = pipe;
++        ga.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(a), int64_t(p.B)*p.M*p.K);
++        gb.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(b), int64_t(p.B)*p.K*realN);
++        gy.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(y), p.B);
++        gp.SetGlobalBuffer(reinterpret_cast<__gm__ float*>(partials),
++            p.direct ? 0 : int64_t(p.B)*p.pN*p.paddedM);
++
++        // Keep application UB within the same ~96 KiB envelope exercised by
++        // the stable path, but spend that budget adaptively: a large C tile is
++        // allowed when this shard needs only a small running/scratch vector.
++        const int32_t cElems = p.tileM * p.vecN;
++        const int32_t runningElems = ((p.M + 7) / 8) * 8;
++        int32_t scratchElems = runningElems;
++        const int32_t rowGroupElems = p.vecN > 64 ? p.tileM * 8 : 8;
++        if (scratchElems < rowGroupElems) scratchElems = rowGroupElems;
++        pipe->InitBuffer(cQueue, 1,
++            static_cast<uint32_t>(cElems)*sizeof(float));
++        // Keep a full-M row-max vector in the fast epilogue. This lets the
++        // final Sum(M) execute once, avoiding accuracy drift from chunk sums.
++        pipe->InitBuffer(runningBuf,
++            static_cast<uint32_t>(runningElems)*sizeof(float));
++        pipe->InitBuffer(scratchBuf,
++            static_cast<uint32_t>(scratchElems)*sizeof(float));
++        pipe->InitBuffer(tileRowBuf,
++            static_cast<uint32_t>(p.tileM)*sizeof(float));
++        pipe->InitBuffer(resultQueue, 1, 32);
++    }
++
++    __aicore__ inline void Process()
++    {
++        const int32_t worker = static_cast<int32_t>(AscendC::GetBlockIdx());
++        const int32_t perBatch = p.pM*p.pN;
++
++        for (int32_t task = worker; task < p.tasks; task += p.workers) {
++            const int32_t batch = task/perBatch;
++            const int32_t slot = task - batch*perBatch;
++            const int32_t ms = slot/p.pN;
++            const int32_t ns = (slot % p.pN + ms) % p.pN;
++
++            const int32_t mTileBegin = (ms*p.mTiles)/p.pM;
++            const int32_t mTileEnd = ((ms+1)*p.mTiles)/p.pM;
++            const int32_t mTilesLocal = mTileEnd-mTileBegin;
++            const int32_t m0 = mTileBegin*p.tileM;
++            const int32_t m1 = MinI(mTileEnd*p.tileM, p.M);
++            const int32_t rows = m1-m0;
++
++            // Partition full-width tiles; shard lengths may differ by one
++            // tile. The last shard shifts left by (virtualN-realN), so it
++            // ends at realN without reading or reducing a padded column.
++            // At most vecN-1 real columns overlap the preceding shard.
++            // Max is idempotent, so the normal row-max merge removes overlap.
++            const int32_t nTileBegin = (ns*p.nTiles)/p.pN;
++            const int32_t nTileEnd = ((ns+1)*p.nTiles)/p.pN;
++            const int32_t nTilesLocal = nTileEnd-nTileBegin;
++            const int32_t cols = nTilesLocal*p.vecN;
++            const int32_t n0 = MinI(nTileBegin*p.vecN, realN-cols);
++
++            ComputeShard(batch, m0, n0, rows, cols,
++                         mTilesLocal, nTilesLocal);
++
++            auto running = runningBuf.Get<float>();
++            if (p.direct) {
++                auto out = resultQueue.AllocTensor<float>();
++                AscendC::ReduceSum(out, running, scratchBuf.Get<float>(), rows);
++                resultQueue.EnQue(out);
++                out = resultQueue.DeQue<float>();
++                AscendC::DataCopyExtParams cp{1, sizeof(float), 0, 0, 0};
++                AscendC::DataCopyPad(gy[batch], out, cp);
++                resultQueue.FreeTensor(out);
++                AscendC::PipeBarrier<PIPE_V>();
++            } else {
++                const int64_t dst =
++                    (int64_t(batch)*p.pN+ns)*p.paddedM+m0;
++                // running was produced by PIPE_V.  Order that write before
++                // PIPE_MTE3 consumes the same UB buffer for the GM partial.
++                Fence<AscendC::HardEvent::V_MTE3>(*pipe_);
++                // M may have a true tail. Copy exactly the semantic rows; the
++                // padded suffix is never read by the final Max/Sum epilogue.
++                AscendC::DataCopyExtParams cp{
++                    1, static_cast<uint32_t>(rows*sizeof(float)), 0, 0, 0};
++                AscendC::DataCopyPad(gp[dst], running, cp);
++                // V7.1: next task must not overwrite this non-queue TBuf
++                // while MTE3 is still reading its partial maxima.
++                Fence<AscendC::HardEvent::MTE3_V>(*pipe_);
++            }
++        }
++
++        if (p.direct) return;
++
++        // Publish all partial row maxima, then merge N-shards deterministically.
++        Fence<AscendC::HardEvent::MTE3_MTE2>(*pipe_);
++        AscendC::SyncAll<true>();
++        for (int32_t batch = worker; batch < p.B; batch += p.workers) {
++            FinishMerged(batch);
++        }
++    }
++
++private:
++    __aicore__ inline void RowMaxTile(
++        const AscendC::LocalTensor<float>& dst,
++        const AscendC::LocalTensor<float>& c,
++        int32_t rows)
++    {
++        if (p.vecN <= 64) {
++            AscendC::WholeReduceMax(
++                dst, c, p.vecN, rows,
++                1, 1, p.vecN/8,
++                AscendC::ReduceOrder::ORDER_ONLY_VALUE);
++            AscendC::PipeBarrier<PIPE_V>();
++            return;
++        }
++
++        // First reduce each 64-float group.  For vecN=128/256, store the
++        // 2/4 group maxima of every row into an 8-float pitch with -INF holes,
++        // then reduce that short pitch once more.
++        auto groups = scratchBuf.Get<float>();
++        constexpr int32_t gPitch = 8;
++        const int32_t groupsPerRow = p.vecN/64;  // 2 or 4
++        const int32_t dstStride = gPitch/groupsPerRow;
++        AscendC::Duplicate(groups, NEG_INF, rows*gPitch);
++        AscendC::PipeBarrier<PIPE_V>();
++
++        const int32_t repeats = rows*groupsPerRow;
++        for (int32_t i = 0; i < repeats; i += 128) {
++            const int32_t nr = MinI(128, repeats-i);
++            AscendC::WholeReduceMax(
++                groups[i*dstStride], c[i*64], 64, nr,
++                dstStride, 1, 8,
++                AscendC::ReduceOrder::ORDER_ONLY_VALUE);
++        }
++        AscendC::PipeBarrier<PIPE_V>();
++        AscendC::WholeReduceMax(
++            dst, groups, gPitch, rows,
++            1, 1, 1,
++            AscendC::ReduceOrder::ORDER_ONLY_VALUE);
++        AscendC::PipeBarrier<PIPE_V>();
++    }
++
++    __aicore__ inline void ComputeShard(
++        int32_t batch, int32_t m0, int32_t n0,
++        int32_t rows, int32_t cols,
++        int32_t mTilesLocal, int32_t nTilesLocal)
++    {
++        const int64_t ao = int64_t(batch)*p.M*p.K +
++            (TA ? int64_t(m0) : int64_t(m0)*p.K);
++        const int64_t bo = int64_t(batch)*p.K*realN +
++            (TB ? int64_t(n0)*p.K : int64_t(n0));
++
++        auto running = runningBuf.Get<float>();
++        AscendC::Duplicate(running, NEG_INF, rows);
++        AscendC::PipeBarrier<PIPE_V>();
++
++        mm.SetOrgShape(p.M, realN, p.K, p.K);
++        mm.SetTensorA(ga[ao], TA);
++        mm.SetTensorB(gb[bo], TB);
++        mm.SetSingleShape(rows, cols, p.K);
++
++        int32_t tileId = 0;
++        while (mm.template Iterate<true>()) {
++            auto c = cQueue.AllocTensor<float>();
++            // N is tail-free. A final M tile may be short; sequential VECIN
++            // still stores its valid rows contiguously with row pitch vecN.
++            mm.template GetTensorC<true>(c, 0, true);
++            cQueue.EnQue(c);
++            c = cQueue.DeQue<float>();
++
++            // CANN 9.0/dav-2201 observation for FIRSTN:
++            // (m0,n0),(m1,n0),...,(m0,n1),...  => M tile varies fastest.
++            const int32_t mLocalTile = tileId % mTilesLocal;
++            const int32_t liveRows =
++                MinI(p.tileM, rows-mLocalTile*p.tileM);
++            auto tileRow = tileRowBuf.Get<float>();
++            RowMaxTile(tileRow, c, liveRows);
++            AscendC::Max(
++                running[mLocalTile*p.tileM],
++                running[mLocalTile*p.tileM],
++                tileRow, liveRows);
++            AscendC::PipeBarrier<PIPE_V>();
++
++            cQueue.FreeTensor(c);
++            ++tileId;
++        }
++        mm.End();
++
++        // nTilesLocal is passed explicitly to make the intended tile count
++        // visible to the compiler/static audit; all legal fast plans are full.
++        (void)nTilesLocal;
++    }
++
++    __aicore__ inline void FinishMerged(int32_t batch)
++    {
++        // Preserve the stable reduction structure: materialize only the final
++        // row-max vector [M] in UB, merge N-shards in bounded DMA chunks, then
++        // execute ONE FP32 ReduceSum over all M rows. SDK may stage C in GM.
++        auto merged = runningBuf.Get<float>();
++        auto tmp = cQueue.AllocTensor<float>();
++        const int32_t cCapacity = p.tileM * p.vecN;
++        const int64_t first = int64_t(batch)*p.pN*p.paddedM;
++
++        AscendC::DataCopyExtParams firstCp{
++            1, static_cast<uint32_t>(p.M*sizeof(float)), 0, 0, 0};
++        AscendC::DataCopyPadExtParams<float> noPad{false, 0, 0, 0.0f};
++        AscendC::DataCopyPad(merged, gp[first], firstCp, noPad);
++        Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
++
++        for (int32_t ns = 1; ns < p.pN; ++ns) {
++            const int64_t src = first + int64_t(ns)*p.paddedM;
++            for (int32_t m0 = 0; m0 < p.M; m0 += cCapacity) {
++                const int32_t live = MinI(cCapacity, p.M-m0);
++                AscendC::DataCopyExtParams cp{
++                    1, static_cast<uint32_t>(live*sizeof(float)), 0, 0, 0};
++                AscendC::DataCopyPad(tmp, gp[src+m0], cp, noPad);
++                Fence<AscendC::HardEvent::MTE2_V>(*pipe_);
++                AscendC::Max(merged[m0], merged[m0], tmp, live);
++                AscendC::PipeBarrier<PIPE_V>();
++                Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++            }
++        }
++
++        auto out = resultQueue.AllocTensor<float>();
++        AscendC::ReduceSum(out, merged, scratchBuf.Get<float>(), p.M);
++        resultQueue.EnQue(out);
++        out = resultQueue.DeQue<float>();
++        AscendC::DataCopyExtParams cp{1, sizeof(float), 0, 0, 0};
++        AscendC::DataCopyPad(gy[batch], out, cp);
++        resultQueue.FreeTensor(out);
++        Fence<AscendC::HardEvent::V_MTE2>(*pipe_);
++        cQueue.FreeTensor(tmp);
++    }
++
++    Plan p;
++    int32_t realN;
++    AscendC::TPipe* pipe_;
++    AscendC::GlobalTensor<T> ga, gb;
++    AscendC::GlobalTensor<float> gy, gp;
++    AscendC::TQue<AscendC::TPosition::VECIN, 1> cQueue;
++    AscendC::TQue<AscendC::TPosition::VECOUT, 1> resultQueue;
++    AscendC::TBuf<AscendC::TPosition::VECCALC> runningBuf, scratchBuf, tileRowBuf;
++};
++
++template <typename T, bool TA, bool TB>
++__aicore__ inline void FastFusedEntry(
++    GM_ADDR a, GM_ADDR b, GM_ADDR y, GM_ADDR partials,
++    TCubeTiling td, MainTailPlan p)
++{
++    AscendC::TPipe pipe;
++    FastFusedDevice<T,TA,TB> op;
++    op.tiling = td;
++    REGIST_MATMUL_OBJ(&pipe, GetSysWorkSpacePtr(), op.mm, &op.tiling);
++    if ASCEND_IS_AIV {
++        op.Init(a,b,y,partials,p,&pipe);
++        op.Process();
++    }
++}
++
++
++static inline bool GetTiling(
++    const MainTailPlan& plan, int32_t dtype, bool ta, bool tb, TCubeTiling& td)
++{
++    const Plan& p=plan.grid;
++    if (p.blocks <= 0 || p.workers <= 0) return false;
++
++    matmul_tiling::MultiCoreMatmulTiling t;
++    if (t.SetDim(p.workers) == -1) return false;
++
++    const auto dt = dtype == 2 ? matmul_tiling::DataType::DT_BFLOAT16
++                               : matmul_tiling::DataType::DT_FLOAT16;
++    t.SetAType(matmul_tiling::TPosition::GM,
++               matmul_tiling::CubeFormat::ND, dt, ta);
++    t.SetBType(matmul_tiling::TPosition::GM,
++               matmul_tiling::CubeFormat::ND, dt, tb);
++    t.SetCType(matmul_tiling::TPosition::VECIN,
++               matmul_tiling::CubeFormat::ND,
++               matmul_tiling::DataType::DT_FLOAT);
++
++    // Host tiling describes the largest shard one worker can see. Runtime
++    // SetSingleShape shrinks M and N for uneven partitions; N stays a full tile multiple.
++    const int32_t sm = MinH(p.mPitch, p.M);
++    const int32_t sn = p.nPitch;
++    t.SetOrgShape(p.M, plan.realN, p.K); // original physical B stride
++    t.SetShape(sm, sn, p.K);
++    if (t.SetSingleShape(sm, sn, p.K) == -1) return false;
++    if (t.SetFixSplit(p.tileM, p.vecN, -1) == -1) return false;
++    if (t.SetTraverse(matmul_tiling::MatrixTraverse::FIRSTN) == -1) return false;
++    t.EnableBias(false);
++    t.SetBufferSpace(-1, -1, 64*1024);
++
++    if (t.GetTiling(td) == -1) return false;
++
++    // Every physical block manually owns a shard; an individual Matmul object
++    // must therefore remain single-core internally.
++    return ValidStream(p, td) && td.usedCoreNum == 1 &&
++           td.baseM == p.tileM && td.baseN == p.vecN &&
++           td.baseK > 0 &&
++           td.singleCoreM >= sm && td.singleCoreN >= sn &&
++           td.singleCoreK >= p.K;
++}
++} // namespace bmms_c8f46
++
++#define BMMS_C8F46_KERNEL(NAME,T,TA,TB) \
++__schedmode__(1) __global__ __mix__(1,1) void NAME( \
++    GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR partials, \
++    __kfc_workspace__ GM_ADDR workspace,TCubeTiling td,bmms_c8f46::MainTailPlan p) \
++{ bmms_c8f46::FastFusedEntry<T,TA,TB>(a,b,y,partials,td,p); }
++BMMS_C8F46_KERNEL(bmms_c8f46_f16_nn,half,false,false)
++BMMS_C8F46_KERNEL(bmms_c8f46_f16_nt,half,false,true)
++BMMS_C8F46_KERNEL(bmms_c8f46_f16_tn,half,true,false)
++BMMS_C8F46_KERNEL(bmms_c8f46_f16_tt,half,true,true)
++BMMS_C8F46_KERNEL(bmms_c8f46_b16_nn,bfloat16_t,false,false)
++BMMS_C8F46_KERNEL(bmms_c8f46_b16_nt,bfloat16_t,false,true)
++BMMS_C8F46_KERNEL(bmms_c8f46_b16_tn,bfloat16_t,true,false)
++BMMS_C8F46_KERNEL(bmms_c8f46_b16_tt,bfloat16_t,true,true)
++#undef BMMS_C8F46_KERNEL
++
++namespace bmms_c8f46 {
++static inline bool TryLaunch(GM_ADDR a,GM_ADDR b,GM_ADDR y,int32_t B,int32_t M,
++    int32_t N,int32_t K,int32_t dtype,bool ta,bool tb,int32_t cores,aclrtStream stream)
++{
++    if(!Eligible(B,M,N,K,dtype,cores))return false;
++    MainTailPlan p=MakePlan(M,N,K,cores);
++    TCubeTiling td{};
++    if(!ValidPlan(p,cores)||!GetTiling(p,dtype,ta,tb,td)){
++        p=ConservativePlan(M,N,K,cores);
++        td=TCubeTiling{};
++        if(!ValidPlan(p,cores)||!GetTiling(p,dtype,ta,tb,td))return false;
++    }
++    uint8_t* ws=nullptr;
++    const uint64_t bytes=SYSTEM_WORKSPACE_BYTES+PartialBytes(p.grid);
++    if(aclrtMalloc(reinterpret_cast<void**>(&ws),bytes,
++        ACL_MEM_MALLOC_HUGE_FIRST)!=ACL_SUCCESS)return false;
++    uint8_t* part=ws+SYSTEM_WORKSPACE_BYTES;
++#define BMMS_C8F46_LAUNCH(NAME) NAME<<<p.grid.blocks,nullptr,stream>>>(a,b,y,part,ws,td,p)
++    if(dtype==1){
++        if(!ta&&!tb){BMMS_C8F46_LAUNCH(bmms_c8f46_f16_nn);}
++        else if(!ta&&tb){BMMS_C8F46_LAUNCH(bmms_c8f46_f16_nt);}
++        else if(ta&&!tb){BMMS_C8F46_LAUNCH(bmms_c8f46_f16_tn);}
++        else{BMMS_C8F46_LAUNCH(bmms_c8f46_f16_tt);}
++    }else{
++        if(!ta&&!tb){BMMS_C8F46_LAUNCH(bmms_c8f46_b16_nn);}
++        else if(!ta&&tb){BMMS_C8F46_LAUNCH(bmms_c8f46_b16_nt);}
++        else if(ta&&!tb){BMMS_C8F46_LAUNCH(bmms_c8f46_b16_tn);}
++        else{BMMS_C8F46_LAUNCH(bmms_c8f46_b16_tt);}
++    }
++#undef BMMS_C8F46_LAUNCH
++    // Runtime failure after launch is not an eligibility failure: do not
++    // launch a second kernel over a partially written result/workspace.
++    if(aclrtSynchronizeStream(stream)!=ACL_SUCCESS)std::abort();
++    if(aclrtFree(ws)!=ACL_SUCCESS)std::abort();
++    return true;
++}
++} // namespace bmms_c8f46
++// BMMS_C8F46_END
++
+ extern "C" void run_kernel(GM_ADDR a,const TensorGroupInfo& ia,GM_ADDR b,const TensorGroupInfo& ib,GM_ADDR y,const TensorGroupInfo& iy,
+     int64_t availableCoreNum,aclrtStream stream,bool ta,bool tb){
+     // Reuse the public input contract; no values or hidden case identifiers are read.
+@@ -4001,6 +4488,7 @@
+     if(bmms11r2::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;
+     if(bmms23::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;
+     if(bmms11d::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;
++    if(bmms_c8f46::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;
+     if(bmms_c8p43::TryLaunch(a,b,y,int(B),int(M),int(N),int(K),x.dtype,ta,tb,cores,stream))return;
+     const auto family=bmms8::Classify(B,M,N,K,ta,tb);
+     const bool tree=BMMS83_ENABLE_TREE&&(family==bmms8::Family::M1_NContig||family==bmms8::Family::N1_MContig);

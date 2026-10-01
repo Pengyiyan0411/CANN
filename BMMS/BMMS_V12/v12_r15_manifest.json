@@ -1,0 +1,14 @@
+{
+  "candidate": "v12_r15_case8_direct_l1.asc",
+  "parent": "v12_baseline_r12.asc",
+  "parent_sha256": "a845fd9538fe71d5f6284fced34781d8fb7e997105c51065a84b344818ddbd2b",
+  "sha256": "3934075e9084a3ef5b4ef59740992af286464b6c71946582ccc39706420bf436",
+  "parent_recovered_byte_for_byte": true,
+  "status": "rejected after device screen: no broad repeatable benefit",
+  "L1_bytes": 393216,
+  "L0A_bytes": 32768,
+  "L0B_bytes": 65536,
+  "L0C_bytes": 131072,
+  "macro_and_plan_unchanged": true,
+  "removed": "whole A/B workspace padding and pack barriers"
+}

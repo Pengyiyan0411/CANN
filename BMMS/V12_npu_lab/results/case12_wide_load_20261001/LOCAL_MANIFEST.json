@@ -1,0 +1,37 @@
+{
+  "baseline_sha256": "1caf7870ac4154c0f555621ba9c41f4601c6ecee96cb2e8d0bf23acc4fc4f373",
+  "archive": {
+    "file": "wide_evidence.tar.gz",
+    "sha256": "7bb74fe6e919ab5b877f3a2ffda04bff5e6dc82fccff2e9573755c8ecbed1b1d",
+    "verified_files": 158
+  },
+  "files": {
+    "V12_npu_lab/results/case12_wide_load_20261001/REPORT.md": "e80881a83a33eaeed283e184840d89a2ef0e27e838383f66862cfcecae40e449",
+    "V12_npu_lab/results/case12_wide_load_20261001/SUMMARY.json": "aa9e13666ba23c2e52319fcba6facae5491592569cc5e678408033474f58d485",
+    "V12_npu_lab/results/case12_wide_load_20261001/PERFORMANCE.csv": "27570e433850997278ff6532e1e166bcc15da6f9798ec48b31d14ad4ba8a546d",
+    "V12_npu_lab/results/case12_wide_load_20261001/PLAN.md": "c5ddb7ec85f53ff6c1d6076a21e9840b4c86af400e7c8037f9986c8f8080935f",
+    "V12_npu_lab/results/case12_wide_load_20261001/MAINLINE_SNAPSHOT.json": "3ba3f267576d702ebaec51d4e60947d0d9cd655dc3755d9bfe8fec4780fc9b70",
+    "V12_npu_lab/finalize_wide.py": "fd01604ef648a6d88476f689457a8d256d93c6d47c28c78c7b2fdc71803a9288",
+    "V12_npu_lab/summarize_wide.py": "8811d2de1e6d7e0a0c61fe1694edc8a7a4adf4eeda714375d48d0304bb1aa45c",
+    "BMMS_V12/v12_r62_case12_wide_load_gap.asc": "f782bbf7bbf7a78d7e5a7d71cb9e7076ec796439a285d95537be84c21b69b1a7",
+    "BMMS_V12/v12_r62_manifest.json": "f55b15b2a73abedaeeea9b864d1c33617cf75c92fa22273da1ed3cfd6b6aee7e",
+    "BMMS_V12/v12_r62_README.md": "c10a86ded4db393021e165c94aa977b7de57c1c91d014fecb304f4472351e2b9",
+    "V12_npu_lab/results/case12_wide_load_20261001/AUDIT_R62.json": "00de7180ae6fde15b115b1e6cb8b466d3a1ecf21c0aaa15fafb38089055286f1",
+    "V12_npu_lab/prepare_r62.py": "c7d6f8f16232a85bd8e6681b0221ecb5e89cb4e1976a29da115ea051500b24df",
+    "V12_npu_lab/results/case12_wide_load_20261001/r62_first8_summary.json": "500e773ae05d62a52a0761566730fc1d8f1cc52616e59177c95880976c4a10db",
+    "BMMS_V12/v12_r63_case12_wide_partial_b.asc": "d18e766a573791a1e4f756ddc7680fdc7418da2c8886535cd48da0005cad3fca",
+    "BMMS_V12/v12_r63_manifest.json": "b1209bf8c104f0b71a335dde5bdd7455f0c00f5eddb392a86dfe627a96b7f938",
+    "BMMS_V12/v12_r63_README.md": "4e54e6f38e10e84af3e6fdb5d38823cd7a36ea14b48b84b0e4dbc329581558d5",
+    "V12_npu_lab/results/case12_wide_load_20261001/AUDIT_R63.json": "ae0c5ea6f9eb018902501b815f37d6b97ed037d8d684dc72a61217bc4283e38c",
+    "V12_npu_lab/prepare_r63.py": "d0250eade7574835b2bf21c1df37e3e41cf2fd2d41aaffbb5106090717165044",
+    "V12_npu_lab/results/case12_wide_load_20261001/r63_first8_summary.json": "0b72a6866c6036069f7e75ed1ed2fed0881e0895acc937dc5fcd4baaf9466799",
+    "BMMS_V12/v12_r64_case12_wide_cached_stage.asc": "892be012d85cee5e50756da556401aa3fe8106aee813843f08ab498327c25ee6",
+    "BMMS_V12/v12_r64_manifest.json": "4ed7cfd5ad1b3512a0cd0c21fb4e65332245bf31e8df2a6ff20fbc339d0ce672",
+    "BMMS_V12/v12_r64_README.md": "025645b304815bda80e626d5769f151f16f3d87ec8bc7585c90a7b092404da68",
+    "V12_npu_lab/results/case12_wide_load_20261001/AUDIT_R64.json": "a48b90323df1d1ee98da3685c614a8d7ccd60749b9bb9779be6699ea302de6d1",
+    "V12_npu_lab/prepare_r64.py": "c53ba0eb048dc85c8637b576d44238894d712534d3eb952e3cade518da1e220c",
+    "V12_npu_lab/results/case12_wide_load_20261001/r64_first8_summary.json": "a9c5dfb57b0dd3f4057ecbb24b59f628c3c72b6584aecd63cd063c189f3e25bf",
+    "V12_npu_lab/audit_r63.py": "0406423ce306a0485897e0301eaae064b3738dc1a55a8a296702d2db212f94bb",
+    "V12_npu_lab/audit_r64.py": "468419e207a4005f550807047064d83e22f6b17c8e18198d480ff59b6d4f53ee"
+  }
+}

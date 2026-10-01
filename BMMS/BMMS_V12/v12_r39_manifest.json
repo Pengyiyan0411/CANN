@@ -1,0 +1,22 @@
+{
+  "version": "v12_r39",
+  "kind": "diagnostic only; intentionally slower on predicate HIT",
+  "parent": "v12_baseline_r33.asc",
+  "sha256": "665e0790663f0faf42d8ebac7debea7fc7b9f22f2f9582ca494800f3f85bfe0e",
+  "predicate": "r37 full route guards AND (old/new pM,pN,tasks,blocks differ)",
+  "new_device_entries": 0,
+  "source_byte_recovery": true,
+  "status": "Judge all15 Pass;11=97.35us,12=114.93us: neither shows stress signal; predicate FALSE supported",
+  "report": "../V12_npu_lab/results/r39_20260929/REPORT.md",
+  "precision_configurations": 166,
+  "precision_calls": 498,
+  "hit_calibration_ratio_range": [
+    10.778105109237915,
+    13.672665977727512
+  ],
+  "miss_calibration_ratio_range": [
+    1.001547774418437,
+    1.0308082188377352
+  ],
+  "judge_feedback": "../V12_results/2026-09-29_r39_feedback/RESULTS.json"
+}

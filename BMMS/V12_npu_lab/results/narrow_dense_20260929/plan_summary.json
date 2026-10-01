@@ -1,0 +1,125 @@
+{
+  "11": {
+    "MN_pairs": 1024,
+    "plans": [
+      {
+        "pM": 2,
+        "pN": 9,
+        "tasks": 18,
+        "blocks": 18,
+        "count": 56
+      },
+      {
+        "pM": 2,
+        "pN": 10,
+        "tasks": 20,
+        "blocks": 20,
+        "count": 240
+      },
+      {
+        "pM": 4,
+        "pN": 5,
+        "tasks": 20,
+        "blocks": 20,
+        "count": 146
+      },
+      {
+        "pM": 5,
+        "pN": 4,
+        "tasks": 20,
+        "blocks": 20,
+        "count": 467
+      },
+      {
+        "pM": 13,
+        "pN": 2,
+        "tasks": 26,
+        "blocks": 20,
+        "count": 38
+      },
+      {
+        "pM": 14,
+        "pN": 2,
+        "tasks": 28,
+        "blocks": 20,
+        "count": 77
+      }
+    ],
+    "peak_tiles": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      12
+    ],
+    "partial_bytes_range": [
+      12416,
+      71040
+    ]
+  },
+  "12": {
+    "MN_pairs": 2048,
+    "plans": [
+      {
+        "pM": 1,
+        "pN": 20,
+        "tasks": 20,
+        "blocks": 20,
+        "count": 224
+      },
+      {
+        "pM": 2,
+        "pN": 10,
+        "tasks": 20,
+        "blocks": 20,
+        "count": 232
+      },
+      {
+        "pM": 4,
+        "pN": 5,
+        "tasks": 20,
+        "blocks": 20,
+        "count": 1112
+      },
+      {
+        "pM": 5,
+        "pN": 4,
+        "tasks": 20,
+        "blocks": 20,
+        "count": 38
+      },
+      {
+        "pM": 10,
+        "pN": 2,
+        "tasks": 20,
+        "blocks": 20,
+        "count": 128
+      },
+      {
+        "pM": 11,
+        "pN": 2,
+        "tasks": 22,
+        "blocks": 20,
+        "count": 314
+      }
+    ],
+    "peak_tiles": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      15,
+      16,
+      18,
+      20,
+      22,
+      24
+    ],
+    "partial_bytes_range": [
+      10240,
+      121600
+    ]
+  }
+}

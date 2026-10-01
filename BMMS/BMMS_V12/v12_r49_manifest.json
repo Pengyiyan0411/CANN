@@ -1,0 +1,20 @@
+{
+  "version": "v12_r49",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "bdfdec94def44f5b5e1dbc7633c2012d2cf4d9b933d65aa3d59dd31d0226a389",
+  "status": "Rejected for promotion: independent active subset 18/20 wins median +3.04%, but one geometry regresses 16.81% in both dtypes",
+  "change": "r47 fractional scheduling and sparse row Max, original r30 plan pN>=4 guard",
+  "device_equal_to": "r47 after namespace normalization",
+  "parent_byte_recovery": true,
+  "new_device_entries": 8,
+  "guard_selected_before": "r48_holdout performance",
+  "precision": {
+    "configurations": 314,
+    "calls": 942,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "judge_tested": false,
+  "report": "../V12_npu_lab/results/parallel_epilogue_20260929/REPORT.md",
+  "sanitizer": "Not rerun: performance candidates rejected; inherited limitations remain open."
+}

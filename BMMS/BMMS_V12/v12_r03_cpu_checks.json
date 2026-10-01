@@ -1,0 +1,14 @@
+{
+  "shape_layout_pattern_pairs": 864,
+  "actual_source_runs": 1728,
+  "tiny_pairs": 432,
+  "resident_pairs": 432,
+  "bitwise_equal_pairs": 864,
+  "max_abs_vs_fp64_reference": 1.19209289551e-07,
+  "model_UB_peak_bytes": 130656,
+  "wrong_contiguous_alias_rejected": "baseline output mismatch",
+  "source_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "CANN_compiled": false,
+  "NPU_tested": false,
+  "scope": "actual old R50 and new static-K vector source on CPU adapters"
+}

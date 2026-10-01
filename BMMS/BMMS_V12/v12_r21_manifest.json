@@ -1,0 +1,195 @@
+{
+  "candidate": "v12_r21_case12_packet_tail.asc",
+  "parent": "v12_baseline_r19.asc",
+  "sha256": "2cb7454a99ee245d69afeb942f3e1835d9f068948fe217820ad47f4ba4a4708c",
+  "parent_sha256": "27ff91a8e886644ba99b68e3a59ed4d5ed0a001039d6c56074df098d4c66c021",
+  "parent_recovered_byte_for_byte": true,
+  "status": "Judge all15 Pass; no clear Case12 gain; not promoted",
+  "change": "r20 packet policy unchanged; explicit final-Max tail in selected Case12 consumer only; producer reused",
+  "precision": [
+    {
+      "group": "screen",
+      "cases": 32,
+      "calls": 96,
+      "max_tolerance_ratio": 0.0022077802
+    },
+    {
+      "group": "holdout",
+      "cases": 32,
+      "calls": 96,
+      "max_tolerance_ratio": 0.00191857973
+    },
+    {
+      "group": "random",
+      "cases": 32,
+      "calls": 96,
+      "max_tolerance_ratio": 0.00301852858
+    },
+    {
+      "group": "original",
+      "cases": 34,
+      "calls": 102,
+      "max_tolerance_ratio": 0.0013939016
+    },
+    {
+      "group": "c8",
+      "cases": 40,
+      "calls": 120,
+      "max_tolerance_ratio": 0.00193150313
+    },
+    {
+      "group": "split",
+      "cases": 128,
+      "calls": 384,
+      "max_tolerance_ratio": 0.00306928135
+    },
+    {
+      "group": "controls",
+      "cases": 10,
+      "calls": 30,
+      "max_tolerance_ratio": 0.000471150534
+    }
+  ],
+  "host_checks": {
+    "shape_core_checks": 3000,
+    "changed": 1359,
+    "out_of_scope_checks": 206,
+    "passed": true
+  },
+  "consumer_audit": {
+    "consumer_only_difference": "Final Max count replaced by 64-wide full repeats plus tail mask",
+    "producer": "original bmms11r2::ReuseProducer reused",
+    "max_repeat": 128,
+    "explicit_tail_masks": [
+      16,
+      32,
+      48
+    ],
+    "passed": true
+  },
+  "performance": {
+    "holdout_event": {
+      "all": {
+        "count": 24,
+        "median": 0.015090330407818708,
+        "min": -0.10674467091560391,
+        "max": 10.678370415342142
+      },
+      "selected": {
+        "count": 4,
+        "median": 8.463286612762749,
+        "min": 6.493723692682963,
+        "max": 10.678370415342142
+      },
+      "fallback": {
+        "count": 20,
+        "median": -0.004201668044701012,
+        "min": -0.10674467091560391,
+        "max": 0.08080072051329656
+      }
+    },
+    "holdout_event_repeat": {
+      "all": {
+        "count": 24,
+        "median": 0.007033825759911183,
+        "min": -0.1494314727744417,
+        "max": 10.301989509220078
+      },
+      "selected": {
+        "count": 4,
+        "median": 8.398910113634738,
+        "min": 6.053706165833173,
+        "max": 10.301989509220078
+      },
+      "fallback": {
+        "count": 20,
+        "median": -0.006510874070431161,
+        "min": -0.1494314727744417,
+        "max": 0.08896061057805937
+      }
+    },
+    "random_event": {
+      "all": {
+        "count": 32,
+        "median": 0.05849742575992911,
+        "min": -0.06444702166157334,
+        "max": 24.68291409593897
+      },
+      "selected": {
+        "count": 13,
+        "median": 16.029252959866724,
+        "min": 7.925238915016686,
+        "max": 24.68291409593897
+      },
+      "fallback": {
+        "count": 19,
+        "median": -0.00038993703612710817,
+        "min": -0.06444702166157334,
+        "max": 0.14541220929250587
+      }
+    },
+    "random_event_repeat": {
+      "all": {
+        "count": 32,
+        "median": 0.04914082425753197,
+        "min": -0.10820322501350343,
+        "max": 24.909510671899014
+      },
+      "selected": {
+        "count": 13,
+        "median": 15.913476501154866,
+        "min": 7.83845009287697,
+        "max": 24.909510671899014
+      },
+      "fallback": {
+        "count": 19,
+        "median": 0.005399848708831367,
+        "min": -0.10820322501350343,
+        "max": 0.15465809507120287
+      }
+    },
+    "aa": {
+      "all": {
+        "count": 1,
+        "median": -0.06801562267180206,
+        "min": -0.06801562267180206,
+        "max": -0.06801562267180206
+      },
+      "fallback": {
+        "count": 1,
+        "median": -0.06801562267180206,
+        "min": -0.06801562267180206,
+        "max": -0.06801562267180206
+      }
+    }
+  },
+  "sanitizers": {
+    "racecheck": {
+      "errors": 16,
+      "spaces": {},
+      "findings_by_source": [
+        {
+          "line": 2743,
+          "count": 32,
+          "source": "AscendC::Mmad(cc,aa[(mo/TM)*TM*K0],bb[(no/TN)*K0*TN],q);"
+        }
+      ],
+      "skipped": false,
+      "finished_kernel_count": 2,
+      "messages": {
+        "Potential RAW hazard detected at L0C": 8,
+        "Potential WAW hazard detected at L0C": 8
+      }
+    },
+    "memcheck": {
+      "errors": 0,
+      "spaces": {},
+      "findings_by_source": [],
+      "skipped": false,
+      "finished_kernel_count": 2,
+      "messages": {}
+    }
+  },
+  "validation_report": "../V12_npu_lab/results/case12_20260928/REPORT.md",
+  "judge_feedback": "../V12_results/2026-09-28_r21_feedback/RESULTS.json"
+}

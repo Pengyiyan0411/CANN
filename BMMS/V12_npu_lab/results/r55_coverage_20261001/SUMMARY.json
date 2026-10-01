@@ -1,0 +1,31 @@
+{
+  "version": "v12_r55",
+  "source_sha256": "dc6121e1d966eeef85f8b0612a983d9a8fb7ea4df4fec4933a09f3c5731e86f8",
+  "synthetic_not_hidden": true,
+  "precision": {
+    "configurations": 164,
+    "calls": 492,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "calibration": {
+    "HIT": {
+      "configurations": 16,
+      "windows": 2,
+      "min_ratio": 16.233301243317424,
+      "median_ratio": 16.712767609471864,
+      "max_ratio": 17.613930547040223
+    },
+    "MISS": {
+      "configurations": 16,
+      "windows": 2,
+      "min_ratio": 1.000459136822773,
+      "median_ratio": 1.0062550026017965,
+      "max_ratio": 1.0139252860060364
+    }
+  },
+  "method": "Public run_kernel entry; serial A/B/B/A, msprof task time, 12 repeats discard3 per case/window",
+  "new_sanitizer_run": false,
+  "known_limitations": "No new sanitizer run. Existing r30 device body unchanged; historical synchronization/FFTS warnings remain.",
+  "status": "calibrated diagnostic ready for one Judge 15-case run; not a performance submission"
+}

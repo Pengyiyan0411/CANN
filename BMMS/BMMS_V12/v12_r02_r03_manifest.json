@@ -1,0 +1,16 @@
+[
+  {
+    "candidate": "v12_r02_case9_10_a_resident.asc",
+    "sha256": "30115f185819ec8ef339e2e8414ff0483c4c2503461733dbedd97294637c9252",
+    "parent_sha256": "3c66689f4a38b4b6b02aa92547b39065a55d3fdfbcf767d6a53a4618f34cc284",
+    "parent_recovered_byte_for_byte": true,
+    "independent_from_other_candidate": true
+  },
+  {
+    "candidate": "v12_r03_case2_static_k.asc",
+    "sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+    "parent_sha256": "3c66689f4a38b4b6b02aa92547b39065a55d3fdfbcf767d6a53a4618f34cc284",
+    "parent_recovered_byte_for_byte": true,
+    "independent_from_other_candidate": true
+  }
+]

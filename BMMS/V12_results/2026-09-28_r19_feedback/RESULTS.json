@@ -1,0 +1,113 @@
+{
+  "version": "v12_r19",
+  "attribution": "Unique preceding candidate; user screenshot, platform source hash not exposed",
+  "source_sha256": "27ff91a8e886644ba99b68e3a59ed4d5ed0a001039d6c56074df098d4c66c021",
+  "all_pass": true,
+  "cases": [
+    {
+      "case": 1,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 2.34,
+      "best_us": 1.22
+    },
+    {
+      "case": 2,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 4.74,
+      "best_us": 1.58
+    },
+    {
+      "case": 3,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 5.25,
+      "best_us": 2.13
+    },
+    {
+      "case": 4,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 6.38,
+      "best_us": 2.92
+    },
+    {
+      "case": 5,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 6.42,
+      "best_us": 1.89
+    },
+    {
+      "case": 6,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 14.93,
+      "best_us": 7.07
+    },
+    {
+      "case": 7,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 9.58,
+      "best_us": 3.68
+    },
+    {
+      "case": 8,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 46.88,
+      "best_us": 14.88
+    },
+    {
+      "case": 9,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 70.04,
+      "best_us": 50.68
+    },
+    {
+      "case": 10,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 84.62,
+      "best_us": 72.39
+    },
+    {
+      "case": 11,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 101.76,
+      "best_us": 74.82
+    },
+    {
+      "case": 12,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 124.47,
+      "best_us": 91.2
+    },
+    {
+      "case": 13,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 15.58,
+      "best_us": 5.14
+    },
+    {
+      "case": 14,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 13.96,
+      "best_us": 5.4
+    },
+    {
+      "case": 15,
+      "pass_": true,
+      "error_pct": 0,
+      "latency_us": 11.29,
+      "best_us": 4.05
+    }
+  ]
+}

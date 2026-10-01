@@ -1,0 +1,21 @@
+{
+  "candidate": "R52_SHORT_DOT_STATIC.asc",
+  "sha256": "3c66689f4a38b4b6b02aa92547b39065a55d3fdfbcf767d6a53a4618f34cc284",
+  "parent_R50_sha256": "97484e6d79152d131ec9f45697611379e98c894aa9a94707638601024c2935ec",
+  "parent_recovered_byte_for_byte": true,
+  "scope": "B=M=N=1, K32..128 step8, both input dtypes",
+  "kernel_variants": 26,
+  "kernel_launches_per_call": 1,
+  "AIV_workers": 1,
+  "GM_workspace_bytes": 0,
+  "arithmetic": "same FP32 Cast/Mul/ReduceSum(K) as original Dot; fused Cast only if K%16==0",
+  "preserved": [
+    "R50 Case2",
+    "R49 Case13",
+    "R48 Case7",
+    "R25 Case5",
+    "R43 Case8",
+    "R23 Case15"
+  ],
+  "includes_R51": false
+}

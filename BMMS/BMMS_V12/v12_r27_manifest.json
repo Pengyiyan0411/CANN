@@ -1,0 +1,10 @@
+{
+  "version": "v12_r27",
+  "file": "v12_r27_dense_kstage320.asc",
+  "sha256": "7dc04978197803f5a22ca7f8c7728c754a59853c4d6b37ebed69e9021b8e1491",
+  "parent": "v12_baseline_r19.asc",
+  "parent_sha256": "27ff91a8e886644ba99b68e3a59ed4d5ed0a001039d6c56074df098d4c66c021",
+  "status": "experimental; insufficient overall screening benefit; not recommended or promoted",
+  "change": "r26 structure; K1 256->320, full L1 double buffer retained. L1 491520 bytes; L0 layout/stride and accumulation unchanged.",
+  "npu_report": "../V12_npu_lab/results/dense_macro_20260928/REPORT.md"
+}

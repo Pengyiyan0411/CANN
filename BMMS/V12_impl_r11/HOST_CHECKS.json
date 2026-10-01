@@ -1,0 +1,9 @@
+{
+  "shape_split_pairs": 50,
+  "max_explicit_UB_bytes": 65824,
+  "every_row_has_one_owner": true,
+  "only_initialized_compact_partials_read": true,
+  "disjoint_aligned_32B_stores": true,
+  "K_sum_before_N_max": true,
+  "note": "Pure integer address/reduction model, not an asynchronous hardware proof"
+}

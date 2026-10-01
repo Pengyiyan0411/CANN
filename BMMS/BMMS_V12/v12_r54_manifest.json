@@ -1,0 +1,111 @@
+{
+  "version": "v12_r54",
+  "parent": "v12_baseline_r41.asc",
+  "file": "v12_r54_case12_stride_gated_m256.asc",
+  "sha256": "24d183f027a78e4637c828dc6766aea07626c351053137ec73919ef9fe8cbaaa",
+  "status": "Judge 15/15 Pass; Case12 115.21us, no clear gain. Full route coverage unknown; not promoted.",
+  "change": "r53 macro geometry only when N%128==64; all other inputs fall through to frozen r41",
+  "parent_byte_recovery": true,
+  "selector_evidence": "r53_screen_summary.json; validate on r53_holdout then independent r54 runs",
+  "new_device_entries": 4,
+  "numerical_validation": {
+    "configurations": 164,
+    "calls": 820,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "screen": {
+    "configurations": 32,
+    "median_latency_reduction_pct": 3.8171906703026286,
+    "min_pct": 0.05489378053467053,
+    "max_pct": 16.752832546799347,
+    "positive": 32,
+    "above_one_percent": 16,
+    "below_minus_one_percent": 0,
+    "both_windows_faster": 31,
+    "geometric_speedup": 1.0674004524811906
+  },
+  "npu_report": "../V12_npu_lab/results/case12_k1_20261001/REPORT.md",
+  "holdout": {
+    "source": "r54_holdout_summary.json",
+    "overall": {
+      "configurations": 96,
+      "median_latency_reduction_pct": 3.788676324286516,
+      "min_pct": -0.04322828859206762,
+      "max_pct": 16.618059871732715,
+      "positive": 95,
+      "above_one_percent": 49,
+      "below_minus_one_percent": 0,
+      "both_windows_faster": 76,
+      "geometric_speedup": 1.0659471499132347
+    },
+    "groups": {
+      "dtype1_TA0": {
+        "configurations": 24,
+        "median_latency_reduction_pct": 3.5707220642187067,
+        "min_pct": -0.04322828859206762,
+        "max_pct": 9.174685777947255,
+        "positive": 23,
+        "above_one_percent": 12,
+        "below_minus_one_percent": 0,
+        "both_windows_faster": 17,
+        "geometric_speedup": 1.044068066086469
+      },
+      "dtype1_TA1": {
+        "configurations": 24,
+        "median_latency_reduction_pct": 7.419773547582537,
+        "min_pct": 0.12523340993967347,
+        "max_pct": 16.290397163849356,
+        "positive": 24,
+        "above_one_percent": 12,
+        "below_minus_one_percent": 0,
+        "both_windows_faster": 20,
+        "geometric_speedup": 1.0881205445418294
+      },
+      "dtype2_TA0": {
+        "configurations": 24,
+        "median_latency_reduction_pct": 3.4139724246630028,
+        "min_pct": 0.06426769927039278,
+        "max_pct": 9.352810430216607,
+        "positive": 24,
+        "above_one_percent": 12,
+        "below_minus_one_percent": 0,
+        "both_windows_faster": 20,
+        "geometric_speedup": 1.0436262598628914
+      },
+      "dtype2_TA1": {
+        "configurations": 24,
+        "median_latency_reduction_pct": 7.784766664484783,
+        "min_pct": 0.1357746915974678,
+        "max_pct": 16.618059871732715,
+        "positive": 24,
+        "above_one_percent": 13,
+        "below_minus_one_percent": 0,
+        "both_windows_faster": 19,
+        "geometric_speedup": 1.0889097081748964
+      }
+    },
+    "N_mod128_64": {
+      "configurations": 48,
+      "median_latency_reduction_pct": 11.858691692542433,
+      "min_pct": 6.490183872094246,
+      "max_pct": 16.618059871732715,
+      "positive": 48,
+      "above_one_percent": 48,
+      "below_minus_one_percent": 0,
+      "both_windows_faster": 48,
+      "geometric_speedup": 1.1332229565376266
+    },
+    "N_mod128_0": {
+      "configurations": 48,
+      "median_latency_reduction_pct": 0.24855598848111393,
+      "min_pct": -0.04322828859206762,
+      "max_pct": 1.0871687764787863,
+      "positive": 47,
+      "above_one_percent": 1,
+      "below_minus_one_percent": 0,
+      "both_windows_faster": 28,
+      "geometric_speedup": 1.0026652918149042
+    }
+  },
+  "judge_feedback": "../V12_results/2026-10-01_r54_feedback/RESULTS.json"
+}

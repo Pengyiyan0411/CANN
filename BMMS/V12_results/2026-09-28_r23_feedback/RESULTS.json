@@ -1,0 +1,118 @@
+{
+  "version": "v12_r23",
+  "attribution": "Inferred from preceding unique diagnostic; screenshot has no source/version label",
+  "source_sha256": "e20e86a2c4d661b67a47aaeff02d6064b480c0b7ea4e0e942bd604e762bf0942",
+  "all_pass": true,
+  "cases": [
+    {
+      "case": 1,
+      "latency_us": 2.36,
+      "best_us": 1.22,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 2,
+      "latency_us": 4.75,
+      "best_us": 1.58,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 3,
+      "latency_us": 5.24,
+      "best_us": 2.13,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 4,
+      "latency_us": 6.48,
+      "best_us": 2.92,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 5,
+      "latency_us": 6.52,
+      "best_us": 1.89,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 6,
+      "latency_us": 14.49,
+      "best_us": 7.07,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 7,
+      "latency_us": 9.53,
+      "best_us": 3.68,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 8,
+      "latency_us": 46.3,
+      "best_us": 14.88,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 9,
+      "latency_us": 69.69,
+      "best_us": 50.68,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 10,
+      "latency_us": 84.1,
+      "best_us": 72.39,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 11,
+      "latency_us": 101.79,
+      "best_us": 74.82,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 12,
+      "latency_us": 123.57,
+      "best_us": 91.2,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 13,
+      "latency_us": 15.06,
+      "best_us": 5.14,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 14,
+      "latency_us": 13.41,
+      "best_us": 5.4,
+      "pass_": true,
+      "error_pct": 0
+    },
+    {
+      "case": 15,
+      "latency_us": 10.84,
+      "best_us": 4.05,
+      "pass_": true,
+      "error_pct": 0
+    }
+  ],
+  "decode": {
+    "11": "NO strong stress signal",
+    "12": "NO strong stress signal"
+  },
+  "interpretation": "This run did not show the calibrated complete-r22-guard stress channel. Prefer=false is plausible but not proved; retain other-guard/allocation/source-attribution alternatives."
+}

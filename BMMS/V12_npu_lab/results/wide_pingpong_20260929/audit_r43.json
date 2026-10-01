@@ -1,0 +1,8 @@
+{
+  "all_pass": true,
+  "pack_host_consumer_byte_identical_after_namespace_normalization": true,
+  "task_sequences": 120,
+  "macros": 544,
+  "l1_stages": 2448,
+  "limits": "Logical ownership model; not proof of hardware asynchronous timing or sanitizer clearance"
+}

@@ -1,0 +1,12 @@
+{
+  "11": {
+    "old_unchanged": 789,
+    "flat_reduces_peak": 348,
+    "not_probability": true
+  },
+  "12": {
+    "old_unchanged": 1421,
+    "flat_reduces_peak": 852,
+    "not_probability": true
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "accepted": "v12_r41",
+  "recommended_candidate": null,
+  "iterations": [
+    {
+      "version": "r48",
+      "status": "Rejected locally: all-active screen median reduction -0.02%; pN2/5 regress, pN20 median +1.03%; no broad benefit",
+      "precision": {
+        "configurations": 282,
+        "calls": 846,
+        "all_pass": true,
+        "max_tolerance_ratio": 0.0762939453
+      }
+    },
+    {
+      "version": "r49",
+      "status": "Rejected for promotion: independent active subset 18/20 wins median +3.04%, but one geometry regresses 16.81% in both dtypes",
+      "precision": {
+        "configurations": 314,
+        "calls": 942,
+        "all_pass": true,
+        "max_tolerance_ratio": 0.0762939453
+      }
+    },
+    {
+      "version": "r50",
+      "status": "Rejected locally: active screen median +0.07%, range -0.67% to +0.47%; no meaningful benefit",
+      "precision": {
+        "configurations": 366,
+        "calls": 1098,
+        "all_pass": true,
+        "max_tolerance_ratio": 0.0762939453
+      }
+    }
+  ],
+  "performance": {
+    "r48_screen": {
+      "all": {
+        "configurations": 32,
+        "wins": 16,
+        "median_reduction_pct": -0.016990039904812848,
+        "min_reduction_pct": -1.8667925499957105,
+        "max_reduction_pct": 1.8172978027115594,
+        "both_windows_win": 13
+      },
+      "2": {
+        "configurations": 10,
+        "wins": 0,
+        "median_reduction_pct": -1.4984944155545188,
+        "min_reduction_pct": -1.8667925499957105,
+        "max_reduction_pct": -0.9652055372531221,
+        "both_windows_win": 0
+      },
+      "5": {
+        "configurations": 6,
+        "wins": 0,
+        "median_reduction_pct": -0.476162310820738,
+        "min_reduction_pct": -0.5620283848770447,
+        "max_reduction_pct": -0.2722079950598699,
+        "both_windows_win": 0
+      },
+      "20": {
+        "configurations": 16,
+        "wins": 16,
+        "median_reduction_pct": 1.0329619153727654,
+        "min_reduction_pct": 0.23822791525024423,
+        "max_reduction_pct": 1.8172978027115594,
+        "both_windows_win": 13
+      }
+    },
+    "r49_holdout": {
+      "all": {
+        "configurations": 20,
+        "wins": 18,
+        "median_reduction_pct": 3.0426930495810023,
+        "min_reduction_pct": -16.812517979076148,
+        "max_reduction_pct": 8.842313678880242,
+        "both_windows_win": 18
+      },
+      "5": {
+        "configurations": 10,
+        "wins": 8,
+        "median_reduction_pct": 2.22037111748587,
+        "min_reduction_pct": -16.812517979076148,
+        "max_reduction_pct": 4.8662107463977815,
+        "both_windows_win": 8
+      },
+      "20": {
+        "configurations": 10,
+        "wins": 10,
+        "median_reduction_pct": 3.0883197655068138,
+        "min_reduction_pct": 0.5356760231412072,
+        "max_reduction_pct": 8.842313678880242,
+        "both_windows_win": 10
+      }
+    },
+    "r50_screen": {
+      "all": {
+        "configurations": 10,
+        "wins": 5,
+        "median_reduction_pct": 0.065291683910218,
+        "min_reduction_pct": -0.6680556645250579,
+        "max_reduction_pct": 0.46861297254596757,
+        "both_windows_win": 3
+      },
+      "20": {
+        "configurations": 10,
+        "wins": 5,
+        "median_reduction_pct": 0.065291683910218,
+        "min_reduction_pct": -0.6680556645250579,
+        "max_reduction_pct": 0.46861297254596757,
+        "both_windows_win": 3
+      }
+    }
+  },
+  "counters": {
+    "PipeUtilization": {
+      "502": {
+        "r41": {
+          "Task Duration(us)": 133.3275,
+          "aicore_time(us)": 119.57,
+          "aic_mac_time(us)": 87.5595,
+          "aic_mte1_time(us)": 64.113,
+          "aic_mte2_time(us)": 105.3695,
+          "aic_fixpipe_time(us)": 9.428,
+          "aic_scalar_time(us)": 61.18,
+          "aiv_time(us)": 130.968,
+          "aiv_vec_time(us)": 8.872,
+          "aiv_mte2_time(us)": 8.843499999999999,
+          "aiv_mte3_time(us)": 0.4155,
+          "aiv_scalar_time(us)": 16.72,
+          "kernel": "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+        },
+        "r49": {
+          "Task Duration(us)": 154.537,
+          "aicore_time(us)": 130.608,
+          "aic_mac_time(us)": 87.72399999999999,
+          "aic_mte1_time(us)": 64.4755,
+          "aic_mte2_time(us)": 116.8035,
+          "aic_fixpipe_time(us)": 9.4835,
+          "aic_scalar_time(us)": 63.602000000000004,
+          "aiv_time(us)": 152.1815,
+          "aiv_vec_time(us)": 9.148,
+          "aiv_mte2_time(us)": 8.844000000000001,
+          "aiv_mte3_time(us)": 0.2635,
+          "aiv_scalar_time(us)": 17.658,
+          "kernel": "_Z15bmms1249_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+        }
+      },
+      "516": {
+        "r41": {
+          "Task Duration(us)": 172.667,
+          "aicore_time(us)": 161.43599999999998,
+          "aic_mac_time(us)": 86.8065,
+          "aic_mte1_time(us)": 62.5535,
+          "aic_mte2_time(us)": 149.048,
+          "aic_fixpipe_time(us)": 9.663499999999999,
+          "aic_scalar_time(us)": 62.499,
+          "aiv_time(us)": 168.09,
+          "aiv_vec_time(us)": 9.272,
+          "aiv_mte2_time(us)": 9.631499999999999,
+          "aiv_mte3_time(us)": 1.8984999999999999,
+          "aiv_scalar_time(us)": 17.7035,
+          "kernel": "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+        },
+        "r49": {
+          "Task Duration(us)": 156.957,
+          "aicore_time(us)": 144.86,
+          "aic_mac_time(us)": 86.803,
+          "aic_mte1_time(us)": 63.01,
+          "aic_mte2_time(us)": 130.266,
+          "aic_fixpipe_time(us)": 9.6305,
+          "aic_scalar_time(us)": 63.2535,
+          "aiv_time(us)": 154.57999999999998,
+          "aiv_vec_time(us)": 9.126,
+          "aiv_mte2_time(us)": 9.120999999999999,
+          "aiv_mte3_time(us)": 0.3135,
+          "aiv_scalar_time(us)": 17.9545,
+          "kernel": "_Z15bmms1249_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+        }
+      }
+    },
+    "Memory": {
+      "502": {
+        "r41": {
+          "Task Duration(us)": 132.808,
+          "aicore_time(us)": 119.285,
+          "aic_l1_read_bw(GB/s)": 215.703,
+          "aic_l1_write_bw(GB/s)": 53.9255,
+          "aic_main_mem_read_bw(GB/s)": 2.801,
+          "aic_main_mem_write_bw(GB/s)": 0.175,
+          "aiv_ub_read_bw(GB/s)": 3.891,
+          "aiv_ub_write_bw(GB/s)": 10.2395,
+          "kernel": "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+        },
+        "r49": {
+          "Task Duration(us)": 153.607,
+          "aicore_time(us)": 129.7425,
+          "aic_l1_read_bw(GB/s)": 200.52249999999998,
+          "aic_l1_write_bw(GB/s)": 50.1305,
+          "aic_main_mem_read_bw(GB/s)": 3.069,
+          "aic_main_mem_write_bw(GB/s)": 0.161,
+          "aiv_ub_read_bw(GB/s)": 3.4905,
+          "aiv_ub_write_bw(GB/s)": 8.9925,
+          "kernel": "_Z15bmms1249_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+        }
+      },
+      "516": {
+        "r41": {
+          "Task Duration(us)": 170.536,
+          "aicore_time(us)": 159.46300000000002,
+          "aic_l1_read_bw(GB/s)": 162.46550000000002,
+          "aic_l1_write_bw(GB/s)": 40.6165,
+          "aic_main_mem_read_bw(GB/s)": 2.6260000000000003,
+          "aic_main_mem_write_bw(GB/s)": 0.132,
+          "aiv_ub_read_bw(GB/s)": 3.176,
+          "aiv_ub_write_bw(GB/s)": 8.211500000000001,
+          "kernel": "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+        },
+        "r49": {
+          "Task Duration(us)": 156.227,
+          "aicore_time(us)": 143.938,
+          "aic_l1_read_bw(GB/s)": 179.9875,
+          "aic_l1_write_bw(GB/s)": 44.997,
+          "aic_main_mem_read_bw(GB/s)": 2.909,
+          "aic_main_mem_write_bw(GB/s)": 0.146,
+          "aiv_ub_read_bw(GB/s)": 3.4165,
+          "aiv_ub_write_bw(GB/s)": 8.8385,
+          "kernel": "_Z15bmms1249_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+        }
+      }
+    }
+  },
+  "evidence_files_verified": 221,
+  "static_audits": {
+    "r48": {
+      "configurations": 16384,
+      "active": 6054,
+      "rows_written": 8724048,
+      "partial_elements_read": 40700336,
+      "max_explicit_ub_bytes": 83872,
+      "all_pass": true
+    },
+    "r49": {
+      "configurations": 16384,
+      "active": 2682,
+      "macros": 692835,
+      "row_halves": 62140,
+      "sparse_merge_reads": 210868,
+      "max_ub_bytes": 81536,
+      "all_pass": true
+    },
+    "r50": {
+      "configurations": 16384,
+      "active": 599,
+      "partial_elements_written": 13278720,
+      "max_explicit_ub_bytes": 87104,
+      "all_pass": true
+    }
+  },
+  "next_action": "Prioritize GM->L1/ND->NZ and layout/task-order interactions; use new pM1 holdout already generated, separate cache evidence from arithmetic and epilogue. pN alone is not a safe selector.",
+  "sanitizer": "No new sanitizer run; all three candidates rejected on performance; historical race/init and limited memcheck concerns remain unresolved."
+}

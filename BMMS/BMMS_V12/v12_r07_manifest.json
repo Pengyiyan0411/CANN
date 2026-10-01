@@ -1,0 +1,18 @@
+{
+  "candidate": "v12_r07_paired_ring_consumer.asc",
+  "sha256": "3058772fa1be40f5b266d159546d77dde72d9c6c6c6f7c54703596a36de6d974",
+  "parent": "v12_baseline_r03.asc",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "parent_recovered_byte_for_byte": true,
+  "address_checks": 147456,
+  "producer_grid_workspace_unchanged": true,
+  "max_consumer_UB_bytes": 131744,
+  "scope": "Host checks plus actual device build/correctness; performance scope and limits in npu_report.",
+  "CANN_compiled": true,
+  "NPU_tested": true,
+  "synthetic_precision_cases": 182,
+  "repeats_per_case": 3,
+  "competition_hidden15_tested": false,
+  "status": "retained candidate; two fresh-process event comparisons positive by about 0.4-2.1% on nine synthetic shapes; hidden15 not tested; no promotion",
+  "npu_report": "../V12_npu_lab/results/followup_20260928/REPORT.md"
+}

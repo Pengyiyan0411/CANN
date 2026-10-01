@@ -1,0 +1,8 @@
+{
+  "plans": 183825,
+  "L1_max_bytes": 327680,
+  "L0A_max_bytes": 65536,
+  "L0B_max_bytes": 65536,
+  "partitions_and_copy_source_bounds": true,
+  "original_consumer": true
+}

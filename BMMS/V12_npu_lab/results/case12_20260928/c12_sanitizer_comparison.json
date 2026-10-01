@@ -1,0 +1,78 @@
+{
+  "r19": {
+    "racecheck": {
+      "errors": 16,
+      "spaces": {},
+      "findings_by_source": [
+        {
+          "line": 2743,
+          "count": 32,
+          "source": "AscendC::Mmad(cc,aa[(mo/TM)*TM*K0],bb[(no/TN)*K0*TN],q);"
+        }
+      ],
+      "skipped": false,
+      "finished_kernel_count": 2,
+      "messages": {
+        "Potential RAW hazard detected at L0C": 8,
+        "Potential WAW hazard detected at L0C": 8
+      }
+    },
+    "memcheck": {
+      "errors": 192,
+      "spaces": {
+        "UB": 192
+      },
+      "findings_by_source": [
+        {
+          "line": 2886,
+          "count": 192,
+          "source": "AscendC::Max(merged,merged,tmp,p.M);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);"
+        }
+      ],
+      "skipped": false,
+      "finished_kernel_count": 2,
+      "messages": {
+        "illegal read of size 64": 96,
+        "illegal write of size 64": 96
+      }
+    }
+  },
+  "r20": {
+    "racecheck": {
+      "errors": 16,
+      "spaces": {},
+      "findings_by_source": [
+        {
+          "line": 2743,
+          "count": 32,
+          "source": "AscendC::Mmad(cc,aa[(mo/TM)*TM*K0],bb[(no/TN)*K0*TN],q);"
+        }
+      ],
+      "skipped": false,
+      "finished_kernel_count": 2,
+      "messages": {
+        "Potential RAW hazard detected at L0C": 8,
+        "Potential WAW hazard detected at L0C": 8
+      }
+    },
+    "memcheck": {
+      "errors": 192,
+      "spaces": {
+        "UB": 192
+      },
+      "findings_by_source": [
+        {
+          "line": 2886,
+          "count": 192,
+          "source": "AscendC::Max(merged,merged,tmp,p.M);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);"
+        }
+      ],
+      "skipped": false,
+      "finished_kernel_count": 2,
+      "messages": {
+        "illegal read of size 64": 96,
+        "illegal write of size 64": 96
+      }
+    }
+  }
+}

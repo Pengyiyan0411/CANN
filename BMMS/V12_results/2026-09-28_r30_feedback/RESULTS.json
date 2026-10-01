@@ -1,0 +1,116 @@
+{
+  "version": "v12_r30",
+  "source_sha256": "9ac17c7b6f793cf043ee8d150479f42a1423a73ffe5c877b2456d16396d1fa17",
+  "source_attribution": "Conversation: response to r30 delivery; user confirms effective",
+  "independent_runs": 1,
+  "duplicate_attachment": true,
+  "cases": [
+    {
+      "case": 1,
+      "error_display_pct": 0,
+      "latency_us": 2.5,
+      "reference_us": 1.22,
+      "pass": true
+    },
+    {
+      "case": 2,
+      "error_display_pct": 0,
+      "latency_us": 4.53,
+      "reference_us": 1.58,
+      "pass": true
+    },
+    {
+      "case": 3,
+      "error_display_pct": 0,
+      "latency_us": 5.1,
+      "reference_us": 2.13,
+      "pass": true
+    },
+    {
+      "case": 4,
+      "error_display_pct": 0,
+      "latency_us": 6.41,
+      "reference_us": 2.92,
+      "pass": true
+    },
+    {
+      "case": 5,
+      "error_display_pct": 0,
+      "latency_us": 6.51,
+      "reference_us": 1.89,
+      "pass": true
+    },
+    {
+      "case": 6,
+      "error_display_pct": 0,
+      "latency_us": 15.01,
+      "reference_us": 7.07,
+      "pass": true
+    },
+    {
+      "case": 7,
+      "error_display_pct": 0,
+      "latency_us": 9.6,
+      "reference_us": 3.68,
+      "pass": true
+    },
+    {
+      "case": 8,
+      "error_display_pct": 0,
+      "latency_us": 46.78,
+      "reference_us": 14.88,
+      "pass": true
+    },
+    {
+      "case": 9,
+      "error_display_pct": 0,
+      "latency_us": 70.62,
+      "reference_us": 50.68,
+      "pass": true
+    },
+    {
+      "case": 10,
+      "error_display_pct": 0,
+      "latency_us": 84.55,
+      "reference_us": 72.39,
+      "pass": true
+    },
+    {
+      "case": 11,
+      "error_display_pct": 0,
+      "latency_us": 97.09,
+      "reference_us": 74.82,
+      "pass": true
+    },
+    {
+      "case": 12,
+      "error_display_pct": 0,
+      "latency_us": 115.12,
+      "reference_us": 91.2,
+      "pass": true
+    },
+    {
+      "case": 13,
+      "error_display_pct": 0,
+      "latency_us": 15.35,
+      "reference_us": 5.14,
+      "pass": true
+    },
+    {
+      "case": 14,
+      "error_display_pct": 0,
+      "latency_us": 13.67,
+      "reference_us": 5.4,
+      "pass": true
+    },
+    {
+      "case": 15,
+      "error_display_pct": 0,
+      "latency_us": 11.37,
+      "reference_us": 4.05,
+      "pass": true
+    }
+  ],
+  "all_15_pass": true,
+  "source_hash_visible_in_screenshot": false
+}

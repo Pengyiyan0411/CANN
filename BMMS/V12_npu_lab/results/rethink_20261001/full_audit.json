@@ -1,0 +1,1477 @@
+{
+  "note": "fullcat1 is three device kernels, includes device scheduling gaps in span; task sum separately shown. r41 fused one kernel. No claim of optimized reduction.",
+  "runs": [
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 76.25,
+      "median_task_sum_us": 76.311,
+      "stage_medians_us": [
+        76.311
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        76.25,
+        76.25,
+        76.5,
+        76.25,
+        76.0,
+        76.5,
+        76.25,
+        76.25,
+        76.25,
+        76.25,
+        76.25,
+        76.0,
+        76.25,
+        76.0,
+        76.5,
+        76.25,
+        76.5,
+        76.5,
+        76.25,
+        76.0
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 77.0,
+      "median_task_sum_us": 77.0615,
+      "stage_medians_us": [
+        77.0615
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        77.25,
+        77.0,
+        77.25,
+        76.5,
+        77.0,
+        76.75,
+        76.75,
+        77.5,
+        76.75,
+        77.0,
+        77.25,
+        77.25,
+        76.75,
+        76.5,
+        76.75,
+        77.0,
+        77.75,
+        77.0,
+        77.25,
+        77.25
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 97.5,
+      "median_task_sum_us": 97.562,
+      "stage_medians_us": [
+        97.562
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        97.0,
+        97.5,
+        98.5,
+        98.25,
+        98.25,
+        98.5,
+        96.75,
+        98.5,
+        98.0,
+        97.0,
+        97.25,
+        98.0,
+        100.0,
+        97.25,
+        97.25,
+        97.25,
+        98.25,
+        97.5,
+        97.25,
+        97.5
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 106.875,
+      "median_task_sum_us": 106.94200000000001,
+      "stage_medians_us": [
+        106.94200000000001
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        106.5,
+        107.75,
+        106.5,
+        109.25,
+        107.0,
+        107.0,
+        107.75,
+        106.0,
+        106.75,
+        106.75,
+        108.5,
+        108.0,
+        106.5,
+        106.25,
+        108.0,
+        106.0,
+        108.5,
+        108.0,
+        106.25,
+        106.75
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 93.25,
+      "median_task_sum_us": 93.302,
+      "stage_medians_us": [
+        93.302
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        93.5,
+        93.5,
+        93.25,
+        93.25,
+        93.25,
+        93.25,
+        93.25,
+        93.5,
+        93.25,
+        93.5,
+        93.25,
+        93.0,
+        93.0,
+        93.25,
+        93.5,
+        93.25,
+        93.75,
+        93.25,
+        93.0,
+        93.25
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 94.25,
+      "median_task_sum_us": 94.202,
+      "stage_medians_us": [
+        94.202
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        94.0,
+        94.75,
+        94.25,
+        94.5,
+        94.25,
+        94.0,
+        94.25,
+        94.25,
+        94.25,
+        94.25,
+        94.0,
+        94.5,
+        94.25,
+        94.25,
+        94.25,
+        94.5,
+        94.5,
+        94.25,
+        94.75,
+        93.75
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 133.875,
+      "median_task_sum_us": 133.9325,
+      "stage_medians_us": [
+        133.9325
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        133.75,
+        135.25,
+        134.25,
+        132.25,
+        133.75,
+        133.25,
+        134.0,
+        133.75,
+        134.75,
+        131.5,
+        135.5,
+        133.5,
+        132.5,
+        131.75,
+        135.5,
+        132.5,
+        134.5,
+        134.75,
+        134.0,
+        134.25
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 0,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 146.25,
+      "median_task_sum_us": 146.183,
+      "stage_medians_us": [
+        146.183
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        145.25,
+        147.75,
+        146.5,
+        146.5,
+        146.5,
+        146.5,
+        145.5,
+        146.0,
+        145.75,
+        145.75,
+        145.5,
+        145.25,
+        145.75,
+        147.25,
+        144.75,
+        149.25,
+        144.75,
+        147.25,
+        146.75,
+        146.75
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 0,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 99.5,
+      "median_task_sum_us": 99.442,
+      "stage_medians_us": [
+        70.902,
+        27.2605,
+        1.3005
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        100.5,
+        100.25,
+        101.0,
+        98.75,
+        98.25,
+        98.75,
+        98.5,
+        100.0,
+        98.5,
+        98.25,
+        98.5,
+        100.25,
+        100.0,
+        101.0,
+        99.75,
+        101.25,
+        99.5,
+        99.5,
+        98.5,
+        98.25
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 0,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 99.75,
+      "median_task_sum_us": 99.69200000000001,
+      "stage_medians_us": [
+        71.8715,
+        26.641,
+        1.1204999999999998
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        100.75,
+        100.75,
+        101.5,
+        99.75,
+        101.5,
+        101.0,
+        100.0,
+        99.75,
+        99.25,
+        99.5,
+        99.75,
+        99.0,
+        100.0,
+        99.75,
+        100.25,
+        99.25,
+        99.0,
+        98.75,
+        98.75,
+        99.75
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 0,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 127.5,
+      "median_task_sum_us": 127.64250000000001,
+      "stage_medians_us": [
+        98.412,
+        27.9005,
+        1.06
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        125.5,
+        129.0,
+        128.25,
+        127.25,
+        127.0,
+        128.5,
+        126.75,
+        127.5,
+        127.75,
+        127.5,
+        126.75,
+        128.0,
+        128.75,
+        127.25,
+        127.5,
+        128.0,
+        128.75,
+        129.0,
+        127.0,
+        126.5
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 0,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 138.375,
+      "median_task_sum_us": 138.33249999999998,
+      "stage_medians_us": [
+        108.98249999999999,
+        27.951,
+        1.03
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        137.25,
+        138.75,
+        139.5,
+        138.75,
+        138.25,
+        139.0,
+        139.75,
+        137.0,
+        138.0,
+        139.25,
+        137.25,
+        138.5,
+        140.25,
+        135.25,
+        137.75,
+        136.25,
+        136.0,
+        140.75,
+        136.5,
+        138.5
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 0,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 115.625,
+      "median_task_sum_us": 115.68200000000002,
+      "stage_medians_us": [
+        84.3515,
+        30.320500000000003,
+        1.03
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        117.25,
+        115.0,
+        116.25,
+        114.5,
+        116.5,
+        117.25,
+        115.25,
+        117.0,
+        116.75,
+        115.0,
+        115.5,
+        117.25,
+        114.5,
+        114.75,
+        115.0,
+        116.25,
+        115.25,
+        116.25,
+        115.0,
+        115.75
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 0,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 115.125,
+      "median_task_sum_us": 115.172,
+      "stage_medians_us": [
+        84.3015,
+        29.72,
+        1.06
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        115.0,
+        115.25,
+        114.75,
+        115.0,
+        114.75,
+        115.0,
+        114.5,
+        114.75,
+        115.5,
+        116.0,
+        116.75,
+        115.75,
+        115.0,
+        115.0,
+        116.0,
+        115.25,
+        116.75,
+        114.5,
+        116.5,
+        116.0
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 0,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 162.875,
+      "median_task_sum_us": 162.833,
+      "stage_medians_us": [
+        129.5625,
+        32.290000000000006,
+        1.0
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        163.0,
+        162.0,
+        163.5,
+        163.5,
+        164.25,
+        162.5,
+        163.5,
+        162.75,
+        162.25,
+        162.25,
+        162.75,
+        161.5,
+        163.75,
+        164.25,
+        162.5,
+        162.0,
+        163.25,
+        161.5,
+        164.5,
+        164.0
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 0,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 177.25,
+      "median_task_sum_us": 177.15300000000002,
+      "stage_medians_us": [
+        143.713,
+        32.2,
+        1.07
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        176.75,
+        178.25,
+        178.5,
+        178.0,
+        177.5,
+        179.0,
+        179.5,
+        177.25,
+        178.25,
+        177.25,
+        177.5,
+        179.25,
+        176.75,
+        176.25,
+        175.75,
+        176.5,
+        176.5,
+        176.25,
+        176.25,
+        176.75
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 1,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 96.75,
+      "median_task_sum_us": 96.80199999999999,
+      "stage_medians_us": [
+        68.581,
+        27.0105,
+        1.3105
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        98.0,
+        96.25,
+        98.5,
+        96.25,
+        96.5,
+        97.75,
+        97.75,
+        97.5,
+        98.5,
+        96.5,
+        96.25,
+        96.0,
+        97.75,
+        96.25,
+        97.0,
+        97.75,
+        96.75,
+        96.75,
+        96.25,
+        96.75
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 1,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 96.625,
+      "median_task_sum_us": 96.702,
+      "stage_medians_us": [
+        68.521,
+        26.950499999999998,
+        1.1400000000000001
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        97.0,
+        96.75,
+        97.5,
+        97.25,
+        98.75,
+        96.0,
+        97.5,
+        96.25,
+        98.5,
+        96.25,
+        96.0,
+        98.5,
+        97.75,
+        96.5,
+        98.75,
+        96.0,
+        96.25,
+        96.0,
+        96.5,
+        96.0
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 1,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 128.0,
+      "median_task_sum_us": 128.0025,
+      "stage_medians_us": [
+        99.132,
+        27.4705,
+        1.05
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        127.0,
+        127.25,
+        126.5,
+        130.25,
+        128.25,
+        128.75,
+        129.25,
+        127.25,
+        126.75,
+        126.5,
+        128.5,
+        127.75,
+        128.5,
+        127.75,
+        129.0,
+        129.0,
+        128.75,
+        126.75,
+        128.75,
+        127.75
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 1,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 138.25,
+      "median_task_sum_us": 138.1325,
+      "stage_medians_us": [
+        109.11250000000001,
+        27.6605,
+        1.02
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        138.75,
+        139.75,
+        138.25,
+        137.0,
+        138.75,
+        138.5,
+        137.5,
+        135.75,
+        139.0,
+        137.0,
+        137.75,
+        139.0,
+        138.5,
+        138.25,
+        136.5,
+        138.25,
+        136.75,
+        139.75,
+        138.0,
+        137.25
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 1,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 116.0,
+      "median_task_sum_us": 115.97200000000001,
+      "stage_medians_us": [
+        84.602,
+        30.32,
+        1.03
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        117.25,
+        115.25,
+        116.5,
+        116.25,
+        116.5,
+        116.75,
+        116.0,
+        116.75,
+        115.0,
+        114.75,
+        116.0,
+        115.25,
+        115.0,
+        115.0,
+        115.0,
+        115.5,
+        116.25,
+        116.25,
+        115.5,
+        117.5
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 1,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 115.25,
+      "median_task_sum_us": 115.23250000000002,
+      "stage_medians_us": [
+        84.35149999999999,
+        29.7205,
+        1.04
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        115.25,
+        116.0,
+        115.0,
+        114.75,
+        114.75,
+        115.0,
+        115.25,
+        115.75,
+        115.75,
+        117.5,
+        115.25,
+        115.25,
+        115.25,
+        116.0,
+        115.5,
+        114.75,
+        115.0,
+        114.75,
+        116.0,
+        115.75
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 1,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 163.125,
+      "median_task_sum_us": 163.23399999999998,
+      "stage_medians_us": [
+        129.503,
+        32.450500000000005,
+        1.0
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout8RowMajorELN7AscendC9TPositionE0EEESG_NSB_IfSD_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SG_SH_vEENSI_8TileMmadISL_SG_SG_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        165.5,
+        164.5,
+        164.0,
+        162.5,
+        162.75,
+        163.25,
+        164.0,
+        162.0,
+        165.25,
+        162.75,
+        162.5,
+        163.75,
+        163.0,
+        163.75,
+        163.75,
+        163.0,
+        163.0,
+        163.0,
+        164.75,
+        162.75
+      ]
+    },
+    {
+      "version": "fullcat1",
+      "window": 1,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 177.5,
+      "median_task_sum_us": 177.4135,
+      "stage_medians_us": [
+        143.54250000000002,
+        32.9105,
+        1.06
+      ],
+      "kernels": [
+        "_Z17bmms_audit_rowmaxPhS_ii",
+        "_Z17bmms_audit_rowsumPhS_i",
+        "_ZN7Catlass13KernelAdapterINS_4Gemm6Kernel11BasicMatmulINS1_5Block9BlockMmadINS1_19MmadAtlasA2PingpongILb1EEENS_9GemmShapeILj128ELj256ELj256EEENS8_ILj128ELj256ELj64EEENS1_8GemmTypeIDhNS_6layout11ColumnMajorELN7AscendC9TPositionE0EEENSB_IDhNSC_8RowMajorELSF_0EEENSB_IfSH_LSF_0EEEvNS1_4Tile8TileCopyINS_4Arch7AtlasA2ESG_SI_SJ_vEENSK_8TileMmadISN_SG_SI_vEEEEvNS4_24GemmIdentityBlockSwizzleILj3ELj1EEEEEEEvNT_6ParamsE"
+      ],
+      "raw_span_us": [
+        178.5,
+        177.25,
+        179.0,
+        180.25,
+        176.25,
+        178.5,
+        178.75,
+        178.25,
+        177.0,
+        176.75,
+        177.25,
+        177.5,
+        183.25,
+        177.5,
+        176.5,
+        178.0,
+        177.25,
+        177.5,
+        176.25,
+        175.75
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1000,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 76.25,
+      "median_task_sum_us": 76.322,
+      "stage_medians_us": [
+        76.322
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        76.25,
+        76.5,
+        76.25,
+        76.25,
+        76.75,
+        76.25,
+        76.75,
+        76.0,
+        76.25,
+        76.5,
+        76.25,
+        76.25,
+        77.0,
+        76.5,
+        76.25,
+        76.5,
+        76.25,
+        76.0,
+        76.25,
+        76.5
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1001,
+        1,
+        1280,
+        4096,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 77.0,
+      "median_task_sum_us": 76.952,
+      "stage_medians_us": [
+        76.952
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        76.75,
+        76.5,
+        76.75,
+        77.0,
+        76.5,
+        77.5,
+        76.75,
+        77.25,
+        77.25,
+        77.25,
+        77.25,
+        76.75,
+        77.0,
+        76.75,
+        77.0,
+        77.75,
+        77.0,
+        77.0,
+        76.75,
+        76.5
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1004,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 98.125,
+      "median_task_sum_us": 98.19200000000001,
+      "stage_medians_us": [
+        98.19200000000001
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        98.75,
+        98.25,
+        100.25,
+        97.5,
+        98.0,
+        98.75,
+        98.75,
+        98.75,
+        97.0,
+        97.25,
+        99.75,
+        96.75,
+        99.5,
+        98.0,
+        97.0,
+        98.5,
+        97.75,
+        98.0,
+        97.5,
+        99.75
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1005,
+        1,
+        1280,
+        4160,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 107.0,
+      "median_task_sum_us": 106.952,
+      "stage_medians_us": [
+        106.952
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        106.75,
+        106.5,
+        107.0,
+        107.0,
+        106.75,
+        106.5,
+        107.75,
+        106.0,
+        106.5,
+        107.0,
+        107.75,
+        107.25,
+        105.75,
+        107.75,
+        105.75,
+        108.5,
+        107.25,
+        106.75,
+        107.25,
+        107.25
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1064,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 93.25,
+      "median_task_sum_us": 93.352,
+      "stage_medians_us": [
+        93.352
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        93.25,
+        93.5,
+        93.5,
+        93.25,
+        93.25,
+        93.5,
+        93.5,
+        93.0,
+        93.75,
+        92.5,
+        93.25,
+        94.0,
+        93.75,
+        93.0,
+        93.5,
+        93.0,
+        93.25,
+        93.25,
+        93.5,
+        93.25
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1065,
+        1,
+        1280,
+        5120,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 94.0,
+      "median_task_sum_us": 94.092,
+      "stage_medians_us": [
+        94.092
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        94.0,
+        94.0,
+        94.25,
+        94.0,
+        94.5,
+        94.25,
+        94.0,
+        94.0,
+        94.0,
+        94.25,
+        94.0,
+        94.5,
+        93.75,
+        94.25,
+        94.5,
+        93.5,
+        93.75,
+        94.5,
+        94.25,
+        93.75
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1124,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "median_span_us": 133.25,
+      "median_task_sum_us": 133.2025,
+      "stage_medians_us": [
+        133.2025
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        133.0,
+        134.0,
+        132.5,
+        133.0,
+        134.0,
+        133.25,
+        133.75,
+        133.0,
+        134.0,
+        135.75,
+        132.0,
+        133.75,
+        134.75,
+        133.25,
+        133.0,
+        132.5,
+        132.25,
+        132.5,
+        133.25,
+        135.5
+      ]
+    },
+    {
+      "version": "r41",
+      "window": 1,
+      "case": [
+        1125,
+        1,
+        1280,
+        6080,
+        1536,
+        1,
+        1,
+        0
+      ],
+      "median_span_us": 146.5,
+      "median_task_sum_us": 146.483,
+      "stage_medians_us": [
+        146.483
+      ],
+      "kernels": [
+        "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      ],
+      "raw_span_us": [
+        146.75,
+        145.75,
+        147.75,
+        145.0,
+        145.0,
+        147.0,
+        146.75,
+        146.0,
+        147.0,
+        147.25,
+        146.25,
+        146.5,
+        146.0,
+        148.0,
+        146.25,
+        145.0,
+        146.5,
+        146.0,
+        147.25,
+        148.75
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+--- R43_CASE8_PADDED_MACRO.asc
++++ R45_CASE8_PACK_TAIL_ZERO.asc
+@@ -1,3 +1,5 @@
++// R45_CASE8_PACK_TAIL_ZERO: independent packing-only ablation of frozen R43.
++// Baseline Case8: user-reported 62.45 us. Device validation is pending.
+ // R25_NATIVE_TARGETED: metadata-gated Native K128 consumers on frozen R23.
+ #define BMMS25_SMALL 1
+ #define BMMS25_DENSE 1
+@@ -3780,18 +3782,32 @@
+         const int j=isA?job:job-p.a.jobs;
+         const int row0=j*d.rowsPerJob;
+         const int rows=MinI(d.rowsPerJob,d.dstRows-row0);
+-        const int realRows=MinI(rows,d.srcRows-row0);
++        const int remainingRows=d.srcRows-row0;
++        const int realRows=remainingRows>0?MinI(rows,remainingRows):0;
+         const int slot=issued&(PACK_SLOTS-1);
+         if(issued>=PACK_SLOTS)AscendC::WaitFlag<AscendC::HardEvent::MTE3_V>(freeId[slot]);
+         auto x=buf.Get<half>()[slot*PACK_SLOT_ELEMS];
+-        AscendC::Duplicate(x,half(0.0f),rows*d.dstCols);
++        const int copiedPitch=(d.srcCols+15)/16*16;
++        const int rowGap=d.dstCols-copiedPitch;
++        // R45: DMA writes every real word and its explicit <=15-word suffix.
++        // Only the extra 16-word row gap (K%32 == 8 or 16) needs vector zero.
++        // One strided Duplicate covers all real rows; no per-row scalar loop.
++        if(realRows>0&&rowGap>0){
++            AscendC::Duplicate(x[copiedPitch],half(0.0f),uint64_t(rowGap),
++                static_cast<uint8_t>(realRows),uint16_t(1),
++                static_cast<uint8_t>(d.dstCols/16));
++        }
++        if(realRows<rows)
++            AscendC::Duplicate(x[realRows*d.dstCols],half(0.0f),
++                (rows-realRows)*d.dstCols);
+         if(realRows>0){
++            // Keep this even when no zeroing is needed: slot reuse still
++            // requires MTE3 -> V -> MTE2 ordering before the next overwrite.
+             bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe);
+-            const int copiedPitch=(d.srcCols+15)/16*16;
+             AscendC::DataCopyExtParams cp{static_cast<uint16_t>(realRows),
+                 uint32_t(d.srcCols*2),0,uint32_t((d.dstCols-copiedPitch)/16),0};
+             // Explicit padding <=15 half elements (<32 bytes). If K rounded
+-            // to 32 requires a further 16 words, the pre-zeroed row gap keeps
++            // to 32 requires a further 16 words, the strided zero above keeps
+             // those words zero too. No out-of-bounds source rows are read.
+             AscendC::DataCopyPadExtParams<half> pd{true,0,
+                 static_cast<uint8_t>(copiedPitch-d.srcCols),half(0.0f)};

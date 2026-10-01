@@ -1,0 +1,15 @@
+{
+  "version": "v12_r35",
+  "status": "not recommended; no robust broad-domain screening benefit",
+  "parent": "v12_baseline_r33.asc",
+  "file": "v12_r35_native_macro256.asc",
+  "sha256": "594051ef4574fc677f45b3b1fe435c4e70aa62f7916944a2cb3a9ba674ebbd04",
+  "parent_byte_recovery": true,
+  "scope": "exact bmms49::Select, original native plan",
+  "change": "up to 256 rows per MMAD/Fixpipe/notification, compact N48/64 consumer; original full-M ReduceSum",
+  "L1_bytes": 163840,
+  "L0A_bytes": 65536,
+  "L0B_bytes": 16384,
+  "L0C_bytes": 65536,
+  "report": "../V12_npu_lab/results/native_macro_20260929/REPORT.md"
+}

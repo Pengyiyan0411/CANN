@@ -1,0 +1,17 @@
+{
+  "candidate": "R50_SINGLE_BATCH_SMALL_VECTOR.asc",
+  "sha256": "97484e6d79152d131ec9f45697611379e98c894aa9a94707638601024c2935ec",
+  "parent_R49_sha256": "8a84f77ecba35da1bff9eec7856ef12f4ea7ea3b85e40166695e82a0302272fc",
+  "parent_recovered_byte_for_byte": true,
+  "kernel_launches": 1,
+  "AIV_workers": 1,
+  "GM_workspace_bytes": 0,
+  "scope": "B1 M/N2..16 K32..128 K%8=0 AND existing Tiny/Resident route",
+  "preserved": [
+    "R49 Case13",
+    "R48 Case7",
+    "R25 Case5",
+    "R43 Case8",
+    "R23 Case15"
+  ]
+}

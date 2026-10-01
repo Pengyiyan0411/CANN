@@ -1,0 +1,25 @@
+{
+  "sha256": "db43944f81a0fa7da47d7a3cd86a83403334136fbdbe938f020577be065be1d7",
+  "parent_byte_recovery": true,
+  "new_module_only_K0_changed": true,
+  "K0": 128,
+  "K_slices": [
+    0,
+    128,
+    256,
+    384,
+    512,
+    640,
+    768,
+    896,
+    1024,
+    1152,
+    1280,
+    1408
+  ],
+  "operand_shapes_checked": 1536,
+  "L0A_bytes": 65536,
+  "L0B_bytes": 65536,
+  "L1_bytes": 524288,
+  "scope": "CPU address bounds and source diff; inherits r59 unchanged host/row coverage"
+}

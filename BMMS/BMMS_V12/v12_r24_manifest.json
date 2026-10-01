@@ -1,0 +1,18 @@
+{
+  "version": "v12_r24",
+  "file": "v12_r24_probe_r22_complement.asc",
+  "sha256": "091071ea490cbc245740b0d11b8f7a9a43542b93af919c4cc74fa08c5218ef08",
+  "parent": "v12_baseline_r19.asc",
+  "parent_sha256": "27ff91a8e886644ba99b68e3a59ed4d5ed0a001039d6c56074df098d4c66c021",
+  "kind": "diagnostic_only",
+  "status": "Judge all15 Pass; both target points HIT, aligned physical pitch predicate confirmed",
+  "predicate": "Eligible && !Prefer && ValidPlan && same workspace allocation success",
+  "purpose": "Positive confirmation of whether physical pitch guard excludes Case11/12",
+  "r23_feedback": "../V12_results/2026-09-28_r23_feedback/RESULTS.json",
+  "device_code_unchanged": true,
+  "parent_byte_recovery": true,
+  "total_precision_cases": 348,
+  "total_precision_calls": 1044,
+  "report": "../V12_npu_lab/results/r24_20260928/REPORT.md",
+  "feedback": "../V12_results/2026-09-28_r24_feedback/RESULTS.json"
+}

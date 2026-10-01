@@ -1,0 +1,13 @@
+{
+  "sha256": "d18e766a573791a1e4f756ddc7680fdc7418da2c8886535cd48da0005cad3fca",
+  "event_traces": 7,
+  "raw_operand_slices": 3072,
+  "flat_coverage_states": 2048,
+  "resources": {
+    "L1": 524288,
+    "L0A": 32768,
+    "L0B": 65536,
+    "L0C": 131072
+  },
+  "caveat": "CPU token model and raw operand identity; does not prove asynchronous hardware races absent"
+}

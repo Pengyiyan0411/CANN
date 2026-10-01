@@ -1,0 +1,24 @@
+{
+  "dispatch_checks": 69524,
+  "unchanged_full_launch_records": 60810,
+  "candidate_selections": [
+    4010,
+    4704
+  ],
+  "Case5_metadata_checks": 256,
+  "SplitK_checks": 620,
+  "R43_Case8_checks": 128,
+  "M_partition_checks": 86890,
+  "baseline_routes": [
+    900,
+    20328,
+    12972,
+    310,
+    32,
+    156,
+    64
+  ],
+  "scope": "actual host dispatch and launch/allocation records; device calls recorded, not executed",
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

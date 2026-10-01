@@ -1,0 +1,18 @@
+{
+  "candidate": "v12_r14_case8_square_pipeline.asc",
+  "parent": "v12_baseline_r12.asc",
+  "parent_sha256": "a845fd9538fe71d5f6284fced34781d8fb7e997105c51065a84b344818ddbd2b",
+  "sha256": "6b11005ff09fc645685ebf3b35eb9d1ad60b9e01415725c6214bb4a562f2a693",
+  "parent_recovered_byte_for_byte": true,
+  "status": "rejected after device screen: no broad repeatable benefit",
+  "macro": [
+    128,
+    128
+  ],
+  "K1": 512,
+  "K0": 128,
+  "L1_bytes": 524288,
+  "L0A_bytes": 65536,
+  "L0B_bytes": 65536,
+  "L0C_bytes": 131072
+}

@@ -1,0 +1,7 @@
+{
+  "selector_comparisons": 32768,
+  "active_plans_all_cores": 128,
+  "active_MN_plans_20_cores": 16,
+  "parent_recovered_exactly": true,
+  "only_difference_from_r53": "N%128==64 host selector plus symbol names"
+}

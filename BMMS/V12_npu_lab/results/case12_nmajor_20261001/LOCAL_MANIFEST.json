@@ -1,0 +1,34 @@
+{
+  "baseline_sha256": "1caf7870ac4154c0f555621ba9c41f4601c6ecee96cb2e8d0bf23acc4fc4f373",
+  "archive": {
+    "file": "r59_r61_evidence.tar.gz",
+    "sha256": "0e2ce97e1d566a440e7b32700cb84f79098bf86cff6e2520e20c201835f1c2ac",
+    "verified_files": 173
+  },
+  "files": {
+    "V12_npu_lab/results/case12_nmajor_20261001/REPORT.md": "0092d2f2e1ef13be85999ccf65dc634ed2f520625b6b52d277b24c7b072a11f8",
+    "V12_npu_lab/results/case12_nmajor_20261001/SUMMARY.json": "8ced6dceb8ca943883cbab13afb59c2902f1636d9056893391d258b66a666274",
+    "V12_npu_lab/results/case12_nmajor_20261001/PERFORMANCE.csv": "813ebc00ad699984afea33fc26615f645bb841b6bef81ff5b5338798a0e54ef4",
+    "V12_npu_lab/summarize_nmajor.py": "6ca746056b420975f6c68c8bf2bc9e6c786e3a1cd098b4c106bfea038bda9964",
+    "V12_npu_lab/finalize_nmajor.py": "00454af0e81de4bfd6f671df73e4c8a653453c005b0f6302e313c3cc8d8f4dec",
+    "BMMS_V12/v12_r59_case12_nmajor_b_resident.asc": "fc670554bdb3cecf10f0b7aed5df57365b5c471640848359528d54aa19ed6787",
+    "BMMS_V12/v12_r59_README.md": "cbbbf464b70ad1bfc983d04110fcebdb60c46852c73d9c4e73ac3649c21811d3",
+    "BMMS_V12/v12_r59_manifest.json": "b00d58c90ebcf82e9926c394f3b566c1e403573023a2b204b7a81d19d76b5b13",
+    "V12_npu_lab/results/case12_nmajor_20261001/AUDIT_R59.json": "22d7a67ee82d3c6ac5cf11f2449e198c3e7317afe7e830a92aa4fdf756bd0692",
+    "V12_npu_lab/prepare_r59.py": "9d76ec41890b57c8859b1eb47b36ac9ef93f40f4eabd61eb7b8ce78ea28883e0",
+    "V12_npu_lab/results/case12_nmajor_20261001/r59_first8_summary.json": "4586af033e8408da6856f99cb1eaf3db0f041ad3174e9d52470e27180241ee17",
+    "BMMS_V12/v12_r60_case12_nmajor_k128.asc": "db43944f81a0fa7da47d7a3cd86a83403334136fbdbe938f020577be065be1d7",
+    "BMMS_V12/v12_r60_README.md": "b69bed22c5b25b9dae424aaa3b8b9473c76229fb8004f47952f913fb4f091a75",
+    "BMMS_V12/v12_r60_manifest.json": "4aaf725ce45fc70576c5d79a99761981c4eb52197b0bbfad0916c0cf1ba93b54",
+    "V12_npu_lab/results/case12_nmajor_20261001/AUDIT_R60.json": "3591339f0eabf92e986f46b791215dc3d6b0755b3445cbbf102e52ae37ff197e",
+    "V12_npu_lab/prepare_r60.py": "481c9faec439ab1294470a3f7caf82a7def0f8d76cfd8281855762a9cb77320e",
+    "V12_npu_lab/results/case12_nmajor_20261001/r60_first8_summary.json": "2e2d4e2d282ae727a3476672a6db76ed6dbdc99cb989059e7e9167fe8414a833",
+    "BMMS_V12/v12_r61_case12_stage_resident_b.asc": "d906ec907807717e5e17c8772e4c50ae65608528ab7e35ff05b496f3fadd2e2c",
+    "BMMS_V12/v12_r61_README.md": "123d81036600542b990d4f61ee7d89e380972b5437511e219e0b519b30273db7",
+    "BMMS_V12/v12_r61_manifest.json": "032c8326c1613b3caa2222ef4ddb36e974f64561821cab0470f2651cd8ba305a",
+    "V12_npu_lab/results/case12_nmajor_20261001/AUDIT_R61.json": "6d393916099a8a9a6101397cf1304f5f2690101393a2c21ab6347bdc69864d7e",
+    "V12_npu_lab/prepare_r61.py": "37055c43eb0255be7ba39d7bd7a3b5f33eacfe4ef86429cb3b3b4ecab560971e",
+    "V12_npu_lab/results/case12_nmajor_20261001/r61_first8_summary.json": "daa8fb8ea41599a885fd3c1e1eaaf3bdb552c47331243204a118fd3f5fbf74fb",
+    "V12_npu_lab/results/case12_nmajor_20261001/MAINLINE_SNAPSHOT.json": "438ed725b7e00ca9c760302fc99cf7ddd3d3b25977cf52061babb59ce5ec66bf"
+  }
+}

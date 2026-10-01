@@ -1,0 +1,39 @@
+{
+  "version": "v12_r47",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "ba3a0f39ee9f939a9a4b6e09f0d24ad2ab4ad5d7d875bd7cf177bfcacf977a99",
+  "status": "Research only: fresh holdout 24/32 wins, median reduction 1.99%, worst regression 2.75%; not promoted or recommended for Judge",
+  "parent_byte_recovery": true,
+  "scope": "Case12 domain, original r30 guards, r41 gate FALSE",
+  "change": "128-column scheduling units and sparse parallel row Max; full-M baseline ReduceSum preserved",
+  "new_device_entries": 8,
+  "npu_validation": {
+    "precision_configurations": 282,
+    "precision_calls": 846,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "performance": {
+    "r47_screen": {
+      "active_configurations": 10,
+      "total_configurations": 32,
+      "wins": 8,
+      "median_reduction_percent": 2.066286277827972,
+      "min_reduction_percent": -0.6311258654313479,
+      "max_reduction_percent": 5.113515617485131,
+      "both_windows_faster": 8
+    },
+    "r47_holdout": {
+      "active_configurations": 32,
+      "total_configurations": 32,
+      "wins": 24,
+      "median_reduction_percent": 1.989193127959682,
+      "min_reduction_percent": -2.7474475759613703,
+      "max_reduction_percent": 8.153780815823009,
+      "both_windows_faster": 24
+    }
+  },
+  "readme": "../V12_npu_lab/results/b_resident_20260929/REPORT.md",
+  "judge_tested": false,
+  "sanitizer": "Not run for these experimental variants; inherited unresolved baseline limitations remain."
+}

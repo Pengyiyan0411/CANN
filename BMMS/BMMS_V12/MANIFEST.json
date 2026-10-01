@@ -1,0 +1,20 @@
+{
+  "candidate": "V12_01_CASE12_DENSE.asc",
+  "sha256": "bc74344c0e847b13ff553aa7ea9437d86fcb063c1e036e7799fd9f69e2f3875d",
+  "parent_R52_sha256": "3c66689f4a38b4b6b02aa92547b39065a55d3fdfbcf767d6a53a4618f34cc284",
+  "R52_recovered_byte_for_byte": true,
+  "scope": "B1 M/N>=1024 and16aligned K1536..2016 step32 original R06 eligible cores>=2",
+  "new_producer": false,
+  "original_R06_K1_K0": [
+    256,
+    64
+  ],
+  "original_R06_AM_BN": [
+    128,
+    256
+  ],
+  "new_consumer": "compact live-column max, unchanged macro ownership and final M sum",
+  "planner": "single wave Pareto bounds versus original peak work, pN never increased; otherwise original plan",
+  "includes_R51": false,
+  "contains_diagnostic_stress": false
+}

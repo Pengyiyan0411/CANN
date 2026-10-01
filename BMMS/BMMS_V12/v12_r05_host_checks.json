@@ -1,0 +1,19 @@
+{
+  "dispatch_triples": 89160,
+  "r05_target_checks": 1524,
+  "r03_target_checks": 21824,
+  "r05_unchanged": 87636,
+  "r03_unchanged": 67336,
+  "r05_single_macro_fallbacks": 252,
+  "R52_checks": 128,
+  "Case5_checks": 160,
+  "R48_checks": 768,
+  "R49_checks": 32,
+  "SplitK_checks": 560,
+  "R43_checks": 8,
+  "source_sha256": "485147ab95fe70dfed37f8a2848ecb95d5e7d2646cc44e54ce9a6ca3abf0056b",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "scope": "actual host dispatch with recording stubs; stress plan coverage/workspace checks; target predicate matches original r04 predicate before plan mutation",
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

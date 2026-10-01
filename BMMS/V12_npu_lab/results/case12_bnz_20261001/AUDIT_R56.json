@@ -1,0 +1,12 @@
+{
+  "compared_plans": 32768,
+  "eligible_plans": 512,
+  "max_app_UB_bytes": 149856,
+  "max_workspace_bytes": 24981376,
+  "parent_byte_recovery": true,
+  "producer_only_B_load_changed": true,
+  "all_N_pack_mappings_checked": 32,
+  "L1_stages_checked": 3888,
+  "mapping_test": "Raw uint16 all-bit patterns, complete NZ coverage exactly once; separate actual NPU precision required",
+  "source_sha256": "c200e7ddf03784d5598cba4c17584fa00541c4d2959872b5b3a9a8e14e0c4d92"
+}

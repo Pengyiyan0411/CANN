@@ -1,0 +1,14 @@
+{
+  "version": "v12_r28",
+  "file": "v12_r28_dense_square_k128.asc",
+  "sha256": "a8a1ce4de2222de9c0d7c40410bede8eb97ec1694dc34167944a3e98faf8dd57",
+  "parent": "v12_baseline_r19.asc",
+  "status": "Rejected locally: screen median regression 25.61%, all 18 configurations slower",
+  "change": "128x128 output, K0=128 K1=512, existing grid planner recomputed with 128-column tiles; same aligned-pitch gate",
+  "L1_bytes": 524288,
+  "L0A_bytes": 65536,
+  "L0B_bytes": 65536,
+  "L0C_bytes": 65536,
+  "parent_byte_recovery": true,
+  "npu_report": "../V12_npu_lab/results/dense_pipeline_20260928/REPORT.md"
+}

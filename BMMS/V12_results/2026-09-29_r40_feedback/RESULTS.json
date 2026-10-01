@@ -1,0 +1,130 @@
+{
+  "version": "v12_r40",
+  "version_attribution": "Inferred from direct reply to r40 delivery; screenshot has no version/hash label",
+  "all_15_pass": true,
+  "independent_runs": 1,
+  "source_sha256": "030a5f0c62f109acc968d6191d098616bc04e7179cfbec73864c04f1ee6e0a23",
+  "rows": [
+    {
+      "case": 1,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 2.2,
+      "platform_best_us": 1.22,
+      "r39_us": 2.33
+    },
+    {
+      "case": 2,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 4.49,
+      "platform_best_us": 1.58,
+      "r39_us": 4.34
+    },
+    {
+      "case": 3,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 5.08,
+      "platform_best_us": 2.13,
+      "r39_us": 5.16
+    },
+    {
+      "case": 4,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 6.52,
+      "platform_best_us": 2.92,
+      "r39_us": 6.45
+    },
+    {
+      "case": 5,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 6.64,
+      "platform_best_us": 1.89,
+      "r39_us": 6.6
+    },
+    {
+      "case": 6,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 13.97,
+      "platform_best_us": 7.07,
+      "r39_us": 14.94
+    },
+    {
+      "case": 7,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 8.99,
+      "platform_best_us": 3.68,
+      "r39_us": 9.59
+    },
+    {
+      "case": 8,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 45.98,
+      "platform_best_us": 14.88,
+      "r39_us": 45.88
+    },
+    {
+      "case": 9,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 64.6,
+      "platform_best_us": 50.68,
+      "r39_us": 65.45
+    },
+    {
+      "case": 10,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 79.01,
+      "platform_best_us": 72.39,
+      "r39_us": 79.29
+    },
+    {
+      "case": 11,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 1110.0,
+      "platform_best_us": 74.82,
+      "r39_us": 97.35
+    },
+    {
+      "case": 12,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 1420.0,
+      "platform_best_us": 91.2,
+      "r39_us": 114.93
+    },
+    {
+      "case": 13,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 15.06,
+      "platform_best_us": 5.14,
+      "r39_us": 15.28
+    },
+    {
+      "case": 14,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 13.23,
+      "platform_best_us": 5.4,
+      "r39_us": 13.95
+    },
+    {
+      "case": 15,
+      "status": "Pass",
+      "displayed_error_percent": 0,
+      "latency_us": 11.12,
+      "platform_best_us": 4.05,
+      "r39_us": 11.5
+    }
+  ],
+  "conclusion": "Case11 and Case12 both HIT: full r37 route guards and narrow InDomain hold, but r37 plan equals r33 plan. Keep r33; evaluate actual alternatives rather than repeat shape probes."
+}

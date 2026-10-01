@@ -1,0 +1,110 @@
+{
+  "PipeUtilization": {
+    "1000": {
+      "r41": {
+        "Task Duration(us)": 77.36099999999999,
+        "aicore_time(us)": 73.701,
+        "aic_mac_time(us)": 60.044,
+        "aic_mte1_time(us)": 45.7185,
+        "aic_mte2_time(us)": 51.670500000000004,
+        "aic_fixpipe_time(us)": 6.8375,
+        "aic_scalar_time(us)": 41.6775,
+        "aiv_time(us)": 75.068,
+        "aiv_vec_time(us)": 6.464,
+        "aiv_mte2_time(us)": 4.653499999999999,
+        "aiv_mte3_time(us)": 0.144,
+        "aiv_scalar_time(us)": 11.247,
+        "kernel": "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      },
+      "r59": {
+        "Task Duration(us)": 87.972,
+        "aicore_time(us)": 82.2145,
+        "aic_mac_time(us)": 63.5955,
+        "aic_mte1_time(us)": 61.9445,
+        "aic_mte2_time(us)": 52.562,
+        "aic_fixpipe_time(us)": 7.8309999999999995,
+        "aic_scalar_time(us)": 64.1135,
+        "aiv_time(us)": 85.63499999999999,
+        "aiv_vec_time(us)": 7.96,
+        "aiv_mte2_time(us)": 7.88,
+        "aiv_mte3_time(us)": 0.3095,
+        "aiv_scalar_time(us)": 17.774,
+        "kernel": "_Z15bmms1259_f16_nnPhS_S_S_S_S_N8bmms12594PlanE"
+      }
+    },
+    "1005": {
+      "r41": {
+        "Task Duration(us)": 107.47200000000001,
+        "aicore_time(us)": 99.7975,
+        "aic_mac_time(us)": 62.563500000000005,
+        "aic_mte1_time(us)": 45.6545,
+        "aic_mte2_time(us)": 93.9925,
+        "aic_fixpipe_time(us)": 7.029999999999999,
+        "aic_scalar_time(us)": 44.3615,
+        "aiv_time(us)": 105.13300000000001,
+        "aiv_vec_time(us)": 6.866,
+        "aiv_mte2_time(us)": 6.670999999999999,
+        "aiv_mte3_time(us)": 0.145,
+        "aiv_scalar_time(us)": 13.368,
+        "kernel": "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      },
+      "r59": {
+        "Task Duration(us)": 99.392,
+        "aicore_time(us)": 89.081,
+        "aic_mac_time(us)": 64.851,
+        "aic_mte1_time(us)": 59.013000000000005,
+        "aic_mte2_time(us)": 71.3195,
+        "aic_fixpipe_time(us)": 8.2315,
+        "aic_scalar_time(us)": 65.0145,
+        "aiv_time(us)": 97.0545,
+        "aiv_vec_time(us)": 8.2,
+        "aiv_mte2_time(us)": 7.6385000000000005,
+        "aiv_mte3_time(us)": 0.308,
+        "aiv_scalar_time(us)": 17.343,
+        "kernel": "_Z15bmms1259_f16_tnPhS_S_S_S_S_N8bmms12594PlanE"
+      }
+    }
+  },
+  "Memory": {
+    "1000": {
+      "r41": {
+        "Task Duration(us)": 78.402,
+        "aicore_time(us)": 74.832,
+        "aic_l1_read_bw(GB/s)": 234.902,
+        "aic_l1_write_bw(GB/s)": 58.7255,
+        "aic_main_mem_read_bw(GB/s)": 1.8355000000000001,
+        "aic_main_mem_write_bw(GB/s)": 0.205,
+        "kernel": "_Z15bmms1230_f16_nnPhS_S_S_S_N6bmms8310NativePlanE"
+      },
+      "r59": {
+        "Task Duration(us)": 88.45150000000001,
+        "aicore_time(us)": 82.6465,
+        "aic_l1_read_bw(GB/s)": 283.586,
+        "aic_l1_write_bw(GB/s)": 40.7655,
+        "aic_main_mem_read_bw(GB/s)": 1.4405000000000001,
+        "aic_main_mem_write_bw(GB/s)": 0.186,
+        "kernel": "_Z15bmms1259_f16_nnPhS_S_S_S_S_N8bmms12594PlanE"
+      }
+    },
+    "1005": {
+      "r41": {
+        "Task Duration(us)": 109.512,
+        "aicore_time(us)": 100.795,
+        "aic_l1_read_bw(GB/s)": 179.84550000000002,
+        "aic_l1_write_bw(GB/s)": 44.9615,
+        "aic_main_mem_read_bw(GB/s)": 3.066,
+        "aic_main_mem_write_bw(GB/s)": 0.157,
+        "kernel": "_Z15bmms1230_f16_tnPhS_S_S_S_N6bmms8310NativePlanE"
+      },
+      "r59": {
+        "Task Duration(us)": 99.582,
+        "aicore_time(us)": 89.465,
+        "aic_l1_read_bw(GB/s)": 268.115,
+        "aic_l1_write_bw(GB/s)": 38.938,
+        "aic_main_mem_read_bw(GB/s)": 2.597,
+        "aic_main_mem_write_bw(GB/s)": 0.1775,
+        "kernel": "_Z15bmms1259_f16_tnPhS_S_S_S_S_N8bmms12594PlanE"
+      }
+    }
+  }
+}

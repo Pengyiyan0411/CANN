@@ -1,0 +1,590 @@
+{
+  "stats": {
+    "all": {
+      "configurations": 20,
+      "wins": 18,
+      "median_reduction_pct": 3.0426930495810023,
+      "min_reduction_pct": -16.812517979076148,
+      "max_reduction_pct": 8.842313678880242,
+      "both_windows_win": 18
+    },
+    "5": {
+      "configurations": 10,
+      "wins": 8,
+      "median_reduction_pct": 2.22037111748587,
+      "min_reduction_pct": -16.812517979076148,
+      "max_reduction_pct": 4.8662107463977815,
+      "both_windows_win": 8
+    },
+    "20": {
+      "configurations": 10,
+      "wins": 10,
+      "median_reduction_pct": 3.0883197655068138,
+      "min_reduction_pct": 0.5356760231412072,
+      "max_reduction_pct": 8.842313678880242,
+      "both_windows_win": 10
+    }
+  },
+  "rows": [
+    {
+      "case": [
+        502,
+        1,
+        1472,
+        4864,
+        1600,
+        1,
+        1,
+        0
+      ],
+      "baseline_medians_us": [
+        132.018,
+        132.178
+      ],
+      "candidate_medians_us": [
+        154.597,
+        154.017
+      ],
+      "speedups": [
+        0.8539493004392064,
+        0.8582039644974256
+      ],
+      "baseline_median_us": 132.098,
+      "candidate_median_us": 154.30700000000002,
+      "old_pN": 5,
+      "reduction_pct": -16.812517979076148
+    },
+    {
+      "case": [
+        503,
+        1,
+        1472,
+        4864,
+        1600,
+        2,
+        1,
+        0
+      ],
+      "baseline_medians_us": [
+        132.138,
+        132.117
+      ],
+      "candidate_medians_us": [
+        154.637,
+        154.037
+      ],
+      "speedups": [
+        0.8545044200288417,
+        0.8576965274576887
+      ],
+      "baseline_median_us": 132.1275,
+      "candidate_median_us": 154.337,
+      "old_pN": 5,
+      "reduction_pct": -16.80914268414977
+    },
+    {
+      "case": [
+        504,
+        1,
+        1488,
+        5024,
+        1536,
+        1,
+        0,
+        1
+      ],
+      "baseline_medians_us": [
+        112.098,
+        111.918
+      ],
+      "candidate_medians_us": [
+        111.938,
+        110.878
+      ],
+      "speedups": [
+        1.0014293626829138,
+        1.0093796785656308
+      ],
+      "baseline_median_us": 112.00800000000001,
+      "candidate_median_us": 111.408,
+      "old_pN": 20,
+      "reduction_pct": 0.5356760231412072
+    },
+    {
+      "case": [
+        505,
+        1,
+        1488,
+        5024,
+        1536,
+        2,
+        0,
+        1
+      ],
+      "baseline_medians_us": [
+        112.138,
+        111.798
+      ],
+      "candidate_medians_us": [
+        111.917,
+        110.818
+      ],
+      "speedups": [
+        1.001974677662911,
+        1.0088433287011136
+      ],
+      "baseline_median_us": 111.968,
+      "candidate_median_us": 111.3675,
+      "old_pN": 20,
+      "reduction_pct": 0.5363139468419487
+    },
+    {
+      "case": [
+        508,
+        1,
+        1440,
+        4672,
+        1632,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        194.236,
+        194.136
+      ],
+      "candidate_medians_us": [
+        185.177,
+        184.296
+      ],
+      "speedups": [
+        1.0489207622976935,
+        1.0533923687980207
+      ],
+      "baseline_median_us": 194.18599999999998,
+      "candidate_median_us": 184.73649999999998,
+      "old_pN": 5,
+      "reduction_pct": 4.8662107463977815
+    },
+    {
+      "case": [
+        509,
+        1,
+        1440,
+        4672,
+        1632,
+        2,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        193.956,
+        194.117
+      ],
+      "candidate_medians_us": [
+        185.276,
+        184.776
+      ],
+      "speedups": [
+        1.0468490252380231,
+        1.0505531021344763
+      ],
+      "baseline_median_us": 194.0365,
+      "candidate_median_us": 185.026,
+      "old_pN": 5,
+      "reduction_pct": 4.643713940418415
+    },
+    {
+      "case": [
+        510,
+        1,
+        1408,
+        4928,
+        1632,
+        1,
+        1,
+        0
+      ],
+      "baseline_medians_us": [
+        148.437,
+        148.177
+      ],
+      "candidate_medians_us": [
+        144.237,
+        143.418
+      ],
+      "speedups": [
+        1.0291187420703427,
+        1.0331827246231295
+      ],
+      "baseline_median_us": 148.30700000000002,
+      "candidate_median_us": 143.8275,
+      "old_pN": 20,
+      "reduction_pct": 3.020423850526288
+    },
+    {
+      "case": [
+        511,
+        1,
+        1408,
+        4928,
+        1632,
+        2,
+        1,
+        0
+      ],
+      "baseline_medians_us": [
+        148.417,
+        148.157
+      ],
+      "candidate_medians_us": [
+        144.517,
+        143.697
+      ],
+      "speedups": [
+        1.026986444501339,
+        1.0310375303590193
+      ],
+      "baseline_median_us": 148.287,
+      "candidate_median_us": 144.107,
+      "old_pN": 20,
+      "reduction_pct": 2.8188580253157736
+    },
+    {
+      "case": [
+        514,
+        1,
+        1472,
+        6048,
+        1600,
+        1,
+        1,
+        1
+      ],
+      "baseline_medians_us": [
+        223.416,
+        222.635
+      ],
+      "candidate_medians_us": [
+        218.456,
+        217.696
+      ],
+      "speedups": [
+        1.0227048009667852,
+        1.0226876010583565
+      ],
+      "baseline_median_us": 223.0255,
+      "candidate_median_us": 218.076,
+      "old_pN": 5,
+      "reduction_pct": 2.219252955379547
+    },
+    {
+      "case": [
+        515,
+        1,
+        1472,
+        6048,
+        1600,
+        2,
+        1,
+        1
+      ],
+      "baseline_medians_us": [
+        223.036,
+        222.656
+      ],
+      "candidate_medians_us": [
+        218.216,
+        217.575
+      ],
+      "speedups": [
+        1.0220882061810317,
+        1.023352866827531
+      ],
+      "baseline_median_us": 222.846,
+      "candidate_median_us": 217.8955,
+      "old_pN": 5,
+      "reduction_pct": 2.2214892795921926
+    },
+    {
+      "case": [
+        516,
+        1,
+        1440,
+        4992,
+        1568,
+        1,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        170.357,
+        170.897
+      ],
+      "candidate_medians_us": [
+        156.497,
+        155.437
+      ],
+      "speedups": [
+        1.088563998031911,
+        1.099461518171349
+      ],
+      "baseline_median_us": 170.627,
+      "candidate_median_us": 155.967,
+      "old_pN": 20,
+      "reduction_pct": 8.591840681720942
+    },
+    {
+      "case": [
+        517,
+        1,
+        1440,
+        4992,
+        1568,
+        2,
+        0,
+        0
+      ],
+      "baseline_medians_us": [
+        171.117,
+        171.316
+      ],
+      "candidate_medians_us": [
+        156.757,
+        155.397
+      ],
+      "speedups": [
+        1.0916067544033121,
+        1.102440845061359
+      ],
+      "baseline_median_us": 171.2165,
+      "candidate_median_us": 156.077,
+      "old_pN": 20,
+      "reduction_pct": 8.842313678880242
+    },
+    {
+      "case": [
+        520,
+        1,
+        1520,
+        4752,
+        1600,
+        1,
+        0,
+        1
+      ],
+      "baseline_medians_us": [
+        166.096,
+        166.757
+      ],
+      "candidate_medians_us": [
+        160.596,
+        159.837
+      ],
+      "speedups": [
+        1.0342474283294727,
+        1.0432941058703555
+      ],
+      "baseline_median_us": 166.4265,
+      "candidate_median_us": 160.2165,
+      "old_pN": 5,
+      "reduction_pct": 3.7313769141332664
+    },
+    {
+      "case": [
+        521,
+        1,
+        1520,
+        4752,
+        1600,
+        2,
+        0,
+        1
+      ],
+      "baseline_medians_us": [
+        166.136,
+        166.157
+      ],
+      "candidate_medians_us": [
+        160.797,
+        159.977
+      ],
+      "speedups": [
+        1.033203355784001,
+        1.0386305531420141
+      ],
+      "baseline_median_us": 166.1465,
+      "candidate_median_us": 160.387,
+      "old_pN": 5,
+      "reduction_pct": 3.466519005817159
+    },
+    {
+      "case": [
+        522,
+        1,
+        1408,
+        5040,
+        1600,
+        1,
+        1,
+        1
+      ],
+      "baseline_medians_us": [
+        147.437,
+        146.938
+      ],
+      "candidate_medians_us": [
+        143.077,
+        142.138
+      ],
+      "speedups": [
+        1.030473101896182,
+        1.0337699981707917
+      ],
+      "baseline_median_us": 147.1875,
+      "candidate_median_us": 142.60750000000002,
+      "old_pN": 20,
+      "reduction_pct": 3.1116772823779115
+    },
+    {
+      "case": [
+        523,
+        1,
+        1408,
+        5040,
+        1600,
+        2,
+        1,
+        1
+      ],
+      "baseline_medians_us": [
+        147.077,
+        147.217
+      ],
+      "candidate_medians_us": [
+        142.917,
+        142.357
+      ],
+      "speedups": [
+        1.029107803830195,
+        1.034139522468161
+      ],
+      "baseline_median_us": 147.147,
+      "candidate_median_us": 142.637,
+      "old_pN": 20,
+      "reduction_pct": 3.0649622486357164
+    },
+    {
+      "case": [
+        526,
+        1,
+        1472,
+        6080,
+        1568,
+        1,
+        1,
+        0
+      ],
+      "baseline_medians_us": [
+        222.196,
+        222.056
+      ],
+      "candidate_medians_us": [
+        219.936,
+        219.236
+      ],
+      "speedups": [
+        1.0102757165720937,
+        1.0128628509916255
+      ],
+      "baseline_median_us": 222.126,
+      "candidate_median_us": 219.586,
+      "old_pN": 5,
+      "reduction_pct": 1.1434951333927579
+    },
+    {
+      "case": [
+        527,
+        1,
+        1472,
+        6080,
+        1568,
+        2,
+        1,
+        0
+      ],
+      "baseline_medians_us": [
+        222.556,
+        222.136
+      ],
+      "candidate_medians_us": [
+        219.855,
+        219.156
+      ],
+      "speedups": [
+        1.0122853699028906,
+        1.013597619960211
+      ],
+      "baseline_median_us": 222.346,
+      "candidate_median_us": 219.50549999999998,
+      "old_pN": 5,
+      "reduction_pct": 1.2775134250222697
+    },
+    {
+      "case": [
+        528,
+        1,
+        1408,
+        4912,
+        1600,
+        1,
+        0,
+        1
+      ],
+      "baseline_medians_us": [
+        163.357,
+        162.897
+      ],
+      "candidate_medians_us": [
+        151.957,
+        150.957
+      ],
+      "speedups": [
+        1.0750212231091691,
+        1.079095371529641
+      ],
+      "baseline_median_us": 163.127,
+      "candidate_median_us": 151.457,
+      "old_pN": 20,
+      "reduction_pct": 7.153935277421897
+    },
+    {
+      "case": [
+        529,
+        1,
+        1408,
+        4912,
+        1600,
+        2,
+        0,
+        1
+      ],
+      "baseline_medians_us": [
+        163.376,
+        162.797
+      ],
+      "candidate_medians_us": [
+        151.997,
+        151.117
+      ],
+      "speedups": [
+        1.0748633196707829,
+        1.0772911055672096
+      ],
+      "baseline_median_us": 163.0865,
+      "candidate_median_us": 151.55700000000002,
+      "old_pN": 20,
+      "reduction_pct": 7.069561245106115
+    }
+  ]
+}

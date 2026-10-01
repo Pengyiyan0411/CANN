@@ -1,0 +1,234 @@
+{
+  "candidate": "v12_r20_case12_packet_plan.asc",
+  "parent": "v12_baseline_r19.asc",
+  "parent_sha256": "27ff91a8e886644ba99b68e3a59ed4d5ed0a001039d6c56074df098d4c66c021",
+  "sha256": "be93902adf688fc7e791747f015984ac2de78ee63b3be0c2d5417af545c1ee2b",
+  "parent_recovered_byte_for_byte": true,
+  "status": "superseded by r21; research control only",
+  "change": "host-only single-macro round-robin plan; 10% peak macro reduction plus no increase in peak cells/input",
+  "precision": [
+    {
+      "group": "screen",
+      "cases": 32,
+      "calls": 96,
+      "max_tolerance_ratio": 0.0022077802
+    },
+    {
+      "group": "holdout",
+      "cases": 32,
+      "calls": 96,
+      "max_tolerance_ratio": 0.00191857973
+    },
+    {
+      "group": "random",
+      "cases": 32,
+      "calls": 96,
+      "max_tolerance_ratio": 0.00301852858
+    },
+    {
+      "group": "original",
+      "cases": 34,
+      "calls": 102,
+      "max_tolerance_ratio": 0.0013939016
+    },
+    {
+      "group": "c8",
+      "cases": 40,
+      "calls": 120,
+      "max_tolerance_ratio": 0.00193150313
+    },
+    {
+      "group": "split",
+      "cases": 128,
+      "calls": 384,
+      "max_tolerance_ratio": 0.00306928135
+    },
+    {
+      "group": "controls",
+      "cases": 10,
+      "calls": 30,
+      "max_tolerance_ratio": 0.000471150534
+    }
+  ],
+  "host_checks": {
+    "shape_core_checks": 3000,
+    "changed": 1359,
+    "out_of_scope_checks": 206,
+    "passed": true
+  },
+  "validation_report": "../V12_npu_lab/results/case12_20260928/R20_REPORT.md",
+  "performance": {
+    "holdout_event": {
+      "all": {
+        "count": 24,
+        "median": 0.019328811151675396,
+        "min": -0.08230907840756085,
+        "max": 9.858853228555997
+      },
+      "selected": {
+        "count": 4,
+        "median": 7.019328430638788,
+        "min": 4.466137290660965,
+        "max": 9.858853228555997
+      },
+      "fallback": {
+        "count": 20,
+        "median": 0.00589762816405881,
+        "min": -0.08230907840756085,
+        "max": 0.12588134863379397
+      }
+    },
+    "holdout_event_repeat": {
+      "all": {
+        "count": 24,
+        "median": -0.0070755559781643385,
+        "min": -0.12008025884104878,
+        "max": 10.11919498090127
+      },
+      "selected": {
+        "count": 4,
+        "median": 7.271275345831329,
+        "min": 4.773905538813839,
+        "max": 10.11919498090127
+      },
+      "fallback": {
+        "count": 20,
+        "median": -0.014744354721318853,
+        "min": -0.12008025884104878,
+        "max": 0.04167352779805844
+      }
+    },
+    "random_event": {
+      "all": {
+        "count": 32,
+        "median": 0.023537909411269764,
+        "min": -0.04086709597566074,
+        "max": 23.96942981275927
+      },
+      "selected": {
+        "count": 13,
+        "median": 15.991523532490836,
+        "min": 7.364758174317498,
+        "max": 23.96942981275927
+      },
+      "fallback": {
+        "count": 19,
+        "median": 0.0025729567685428556,
+        "min": -0.04086709597566074,
+        "max": 0.09138828793648912
+      }
+    },
+    "random_event_repeat": {
+      "all": {
+        "count": 32,
+        "median": 0.040389568122684016,
+        "min": -0.08648645198758853,
+        "max": 23.948380608075926
+      },
+      "selected": {
+        "count": 13,
+        "median": 16.130116261334816,
+        "min": 7.384352657332038,
+        "max": 23.948380608075926
+      },
+      "fallback": {
+        "count": 19,
+        "median": -0.001374821954613914,
+        "min": -0.08648645198758853,
+        "max": 0.12778122580535678
+      }
+    },
+    "aa": {
+      "all": {
+        "count": 1,
+        "median": -0.008979675526710196,
+        "min": -0.008979675526710196,
+        "max": -0.008979675526710196
+      },
+      "fallback": {
+        "count": 1,
+        "median": -0.008979675526710196,
+        "min": -0.008979675526710196,
+        "max": -0.008979675526710196
+      }
+    }
+  },
+  "sanitizers": {
+    "r19": {
+      "racecheck": {
+        "errors": 16,
+        "spaces": {},
+        "findings_by_source": [
+          {
+            "line": 2743,
+            "count": 32,
+            "source": "AscendC::Mmad(cc,aa[(mo/TM)*TM*K0],bb[(no/TN)*K0*TN],q);"
+          }
+        ],
+        "skipped": false,
+        "finished_kernel_count": 2,
+        "messages": {
+          "Potential RAW hazard detected at L0C": 8,
+          "Potential WAW hazard detected at L0C": 8
+        }
+      },
+      "memcheck": {
+        "errors": 192,
+        "spaces": {
+          "UB": 192
+        },
+        "findings_by_source": [
+          {
+            "line": 2886,
+            "count": 192,
+            "source": "AscendC::Max(merged,merged,tmp,p.M);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);"
+          }
+        ],
+        "skipped": false,
+        "finished_kernel_count": 2,
+        "messages": {
+          "illegal read of size 64": 96,
+          "illegal write of size 64": 96
+        }
+      }
+    },
+    "r20": {
+      "racecheck": {
+        "errors": 16,
+        "spaces": {},
+        "findings_by_source": [
+          {
+            "line": 2743,
+            "count": 32,
+            "source": "AscendC::Mmad(cc,aa[(mo/TM)*TM*K0],bb[(no/TN)*K0*TN],q);"
+          }
+        ],
+        "skipped": false,
+        "finished_kernel_count": 2,
+        "messages": {
+          "Potential RAW hazard detected at L0C": 8,
+          "Potential WAW hazard detected at L0C": 8
+        }
+      },
+      "memcheck": {
+        "errors": 192,
+        "spaces": {
+          "UB": 192
+        },
+        "findings_by_source": [
+          {
+            "line": 2886,
+            "count": 192,
+            "source": "AscendC::Max(merged,merged,tmp,p.M);bmms71::Fence<AscendC::HardEvent::V_MTE2>(*pipe_);"
+          }
+        ],
+        "skipped": false,
+        "finished_kernel_count": 2,
+        "messages": {
+          "illegal read of size 64": 96,
+          "illegal write of size 64": 96
+        }
+      }
+    }
+  }
+}

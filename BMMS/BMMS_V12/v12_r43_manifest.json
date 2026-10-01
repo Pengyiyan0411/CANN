@@ -1,0 +1,26 @@
+{
+  "version": "v12_r43",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "0643007916e730846b37fa786e067d64e608910e24a86fbe3a1ca0cba6d4fee2",
+  "status": "Rejected locally: all32screen configs slower; median regression 1.05%; r41 remains accepted",
+  "parent_byte_recovery": true,
+  "change": "r19 route only: next macro first L1 stage prefetch; pack inputs, plan, microtile MMAD and masked consumer unchanged",
+  "new_device_entries": 8,
+  "validation": {
+    "precision_configurations": 314,
+    "precision_calls": 942,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.00262696869
+  },
+  "performance": {
+    "count": 32,
+    "median_reduction_percent": -1.0522503904600855,
+    "minimum": -1.5525471930817547,
+    "maximum": -0.6055670404477187,
+    "improved": 0,
+    "both_windows_improved": 0,
+    "rows": "see experiment report"
+  },
+  "report": "../V12_npu_lab/results/wide_pingpong_20260929/REPORT.md",
+  "sanitizer_run": false
+}

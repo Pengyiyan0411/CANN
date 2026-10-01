@@ -1,0 +1,28 @@
+{
+  "version": "v12_r65",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "c31573d731509322d81383a672730c98e075827ffeeff3ad25452977e3a167dd",
+  "status": "CANN build and 186-configuration precision passed; research only, no Judge submission or promotion",
+  "parent_byte_recovery": true,
+  "new_device_entries": 4,
+  "change": "Only L0C MMAD/FIX ownership via UnitFlag, original K64 order, N256 macro, original pM/pN and consumer/ring",
+  "L1": 393216,
+  "L0A": 32768,
+  "L0B": 65536,
+  "L0C": 131072,
+  "validation": {
+    "configurations": 186,
+    "calls": 602,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453,
+    "max_abs_error": 0.0410700754,
+    "median_reduction_pct": 1.0536001000970519,
+    "min_reduction_pct": 0.00688880775403522,
+    "max_reduction_pct": 2.203452074917367,
+    "both_windows_faster": 6
+  },
+  "report": "../V12_npu_lab/results/rethink_20261001/REPORT.md",
+  "independent_performance_holdout": false,
+  "new_sanitizer_run": false,
+  "judge15": false
+}

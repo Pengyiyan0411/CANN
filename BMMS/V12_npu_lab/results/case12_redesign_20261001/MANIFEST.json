@@ -1,0 +1,11 @@
+{
+  "status": "design_cpu_only",
+  "baseline": "1caf7870ac4154c0f555621ba9c41f4601c6ecee96cb2e8d0bf23acc4fc4f373",
+  "files": {
+    "BMMS_Case12_新技术路径设计_20261001.md": "fb62a9166917c393fee5cc55a51d6a974728a04f6e888d1d438ee09f9d12f3b6",
+    "V12_npu_lab/design_case12_b_stationary.py": "e70651c56a43972529b5e5275972492b4a715ad8d86a589e0a14e580fc1d4200",
+    "V12_npu_lab/results/case12_redesign_20261001/MODEL.csv": "85b97c79039238a58eacce534cdd725513a1064c09c233307cf3f56a7ecc3385",
+    "V12_npu_lab/results/case12_redesign_20261001/MODEL_SUMMARY.json": "e5304eec967e6b76903b85f7018057516e7f3f7565bee7612ab34c215c427ff5",
+    "V12_npu_lab/results/case12_redesign_20261001/run.log": "e2ad05efe5cf9eaba539cc00774107bfa717afe1b418a0161fc99ba92e430492"
+  }
+}

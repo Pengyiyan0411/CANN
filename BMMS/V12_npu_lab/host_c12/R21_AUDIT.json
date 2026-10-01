@@ -1,0 +1,11 @@
+{
+  "consumer_only_difference": "Final Max count replaced by 64-wide full repeats plus tail mask",
+  "producer": "original bmms11r2::ReuseProducer reused",
+  "max_repeat": 128,
+  "explicit_tail_masks": [
+    16,
+    32,
+    48
+  ],
+  "passed": true
+}

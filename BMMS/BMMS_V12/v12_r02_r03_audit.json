@@ -1,0 +1,8 @@
+{
+  "parent_sha256": "3c66689f4a38b4b6b02aa92547b39065a55d3fdfbcf767d6a53a4618f34cc284",
+  "R52_and_R43_frozen_hashes_unchanged": true,
+  "both_parents_recovered_byte_for_byte": true,
+  "test_source_hashes_match_deliverables": true,
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

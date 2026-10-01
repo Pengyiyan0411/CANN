@@ -1,0 +1,44 @@
+{
+  "version": "v12_r57",
+  "parent": "v12_baseline_r41.asc",
+  "control": "v12_r56_case12_b_nz_prepack.asc",
+  "file": "v12_r57_case12_b_panel_nz.asc",
+  "sha256": "feace65ed70b64c883508e5611e6d10cfb18f6d369e6a3e18d3909896387f5b7",
+  "status": "Rejected as broad Case12 candidate after synthetic NPU screening; do not submit",
+  "change": "B prepack to [Nmacro,Kstage,N16,K256,16], then one contiguous DMA per stage; full pack cost included",
+  "gate": "same original r30 metadata gate as r56",
+  "parent_byte_recovery": true,
+  "new_device_entries": 4,
+  "numerical_validation": {
+    "configurations": 164,
+    "calls": 492,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453
+  },
+  "screen": {
+    "all": {
+      "configurations": 32,
+      "median_reduction_pct": -9.621751445860083,
+      "min_pct": -22.198348305794124,
+      "max_pct": 7.916087593434251,
+      "both_windows_faster": 8
+    },
+    "N_mod128_0": {
+      "configurations": 16,
+      "median_reduction_pct": -20.398620793845858,
+      "min_pct": -22.198348305794124,
+      "max_pct": -14.900486788453593,
+      "both_windows_faster": 0
+    },
+    "N_mod128_64": {
+      "configurations": 16,
+      "median_reduction_pct": 2.29974119638382,
+      "min_pct": -4.343016103266573,
+      "max_pct": 7.916087593434251,
+      "both_windows_faster": 8
+    }
+  },
+  "holdout_run": false,
+  "new_sanitizer_run": false,
+  "npu_report": "../V12_npu_lab/results/case12_bnz_20261001/REPORT.md"
+}

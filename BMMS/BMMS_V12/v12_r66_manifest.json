@@ -1,0 +1,28 @@
+{
+  "version": "v12_r66",
+  "parent": "v12_baseline_r41.asc",
+  "sha256": "52482b5dbed5cbf5121b25edf4e0fece3b5e56cc6ac395c32c5b87fdf0a3d523",
+  "status": "CANN build and 186-configuration precision passed; research only, no Judge submission or promotion",
+  "parent_byte_recovery": true,
+  "new_device_entries": 4,
+  "change": "D=B^T*A^T, Cube256x128 with original C128x256 task ownership; column max of D, unchanged pM/pN and final merge; original synchronization",
+  "L1": 393216,
+  "L0A": 65536,
+  "L0B": 32768,
+  "L0C": 131072,
+  "validation": {
+    "configurations": 186,
+    "calls": 602,
+    "all_pass": true,
+    "max_tolerance_ratio": 0.0762939453,
+    "max_abs_error": 0.0410700754,
+    "median_reduction_pct": -1.9427098957206512,
+    "min_reduction_pct": -3.2462439521263153,
+    "max_reduction_pct": -0.4118616144975107,
+    "both_windows_faster": 0
+  },
+  "report": "../V12_npu_lab/results/rethink_20261001/REPORT.md",
+  "independent_performance_holdout": false,
+  "new_sanitizer_run": false,
+  "judge15": false
+}

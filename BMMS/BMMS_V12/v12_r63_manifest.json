@@ -1,0 +1,56 @@
+{
+  "version": "v12_r63",
+  "parent": "v12_baseline_r41.asc",
+  "file": "v12_r63_case12_wide_partial_b.asc",
+  "sha256": "d18e766a573791a1e4f756ddc7680fdc7418da2c8886535cd48da0005cad3fca",
+  "status": "NPU build and precision passed; broad performance regresses; research only",
+  "change": "N256 flat N-major runs; K512 of B cached across M; independent A256 double buffer and B128 double buffer; original K64 accumulation",
+  "new_device_entries": 4,
+  "parent_byte_recovery": true,
+  "L1_bytes": 524288,
+  "L0A_bytes": 32768,
+  "L0B_bytes": 65536,
+  "L0C_bytes": 131072,
+  "report": "../V12_npu_lab/results/case12_wide_load_20261001/REPORT.md",
+  "validation": {
+    "file": "v12_r63_case12_wide_partial_b.asc",
+    "sha256": "d18e766a573791a1e4f756ddc7680fdc7418da2c8886535cd48da0005cad3fca",
+    "source_reproduces_r41_on_removal": true,
+    "build_passed": true,
+    "precision": {
+      "correctness": {
+        "configurations": 164,
+        "calls": 492,
+        "max_abs_error": 0.0410700754,
+        "max_tolerance_ratio": 0.0762939453
+      },
+      "extra_precision": {
+        "configurations": 22,
+        "calls": 110,
+        "max_abs_error": 0.00211229446,
+        "max_tolerance_ratio": 0.00174707946
+      }
+    },
+    "all_precision_passed": true,
+    "precision_configurations": 186,
+    "precision_calls": 602,
+    "max_abs_error": 0.0410700754,
+    "max_tolerance_ratio": 0.0762939453,
+    "target_hits_verified_on_8_performance_shapes": true,
+    "screen": {
+      "shapes": 8,
+      "faster": 3,
+      "slower": 5,
+      "median_time_reduction_pct": -1.728814394980105,
+      "worst_time_reduction_pct": -4.336285511550275,
+      "best_time_reduction_pct": 8.499653285548526,
+      "both_windows_same_direction": true
+    },
+    "decision": "Not admitted for broad Case12 replacement; retain as research only",
+    "holdout_performance_run": false,
+    "mssanitizer_run": false,
+    "judge15_run": false
+  },
+  "readme": "v12_r63_README.md",
+  "recommended_for_judge15": false
+}

@@ -1,0 +1,164 @@
+{
+  "version": "v12_r33",
+  "version_attribution": "Inferred from direct response to r33 delivery; screenshot has no version/hash label",
+  "source": "user screenshot",
+  "source_sha256": "86debd5c403af4bb436d6c042de4530faf05637cf6fd1aeaae6ed6b410d11d80",
+  "source_hash_visible_in_screenshot": false,
+  "independent_runs": 1,
+  "all_15_pass": true,
+  "screenshot_path_supplied": "E:\\Tencent Files\\3232896164\\nt_qq\\nt_data\\Pic\\2026-09\\Ori\\c1ab9c71385d7133c056945f6a75b4f7.png",
+  "screenshot_copied": true,
+  "rows": [
+    {
+      "case": 1,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 2.23,
+      "platform_best_us": 1.22,
+      "r30_us": 2.5,
+      "reduction_us": 0.27,
+      "reduction_pct": 10.799999999999999
+    },
+    {
+      "case": 2,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 4.47,
+      "platform_best_us": 1.58,
+      "r30_us": 4.53,
+      "reduction_us": 0.0600000000000005,
+      "reduction_pct": 1.324503311258285
+    },
+    {
+      "case": 3,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 4.93,
+      "platform_best_us": 2.13,
+      "r30_us": 5.1,
+      "reduction_us": 0.16999999999999993,
+      "reduction_pct": 3.3333333333333326
+    },
+    {
+      "case": 4,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 6.34,
+      "platform_best_us": 2.92,
+      "r30_us": 6.41,
+      "reduction_us": 0.07000000000000028,
+      "reduction_pct": 1.092043681747279
+    },
+    {
+      "case": 5,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 6.34,
+      "platform_best_us": 1.89,
+      "r30_us": 6.51,
+      "reduction_us": 0.16999999999999993,
+      "reduction_pct": 2.611367127496156
+    },
+    {
+      "case": 6,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 14.42,
+      "platform_best_us": 7.07,
+      "r30_us": 15.01,
+      "reduction_us": 0.5899999999999999,
+      "reduction_pct": 3.9307128580945982
+    },
+    {
+      "case": 7,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 8.9,
+      "platform_best_us": 3.68,
+      "r30_us": 9.6,
+      "reduction_us": 0.6999999999999993,
+      "reduction_pct": 7.2916666666666625
+    },
+    {
+      "case": 8,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 45.8,
+      "platform_best_us": 14.88,
+      "r30_us": 46.78,
+      "reduction_us": 0.980000000000004,
+      "reduction_pct": 2.094912355707579
+    },
+    {
+      "case": 9,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 64.91,
+      "platform_best_us": 50.68,
+      "r30_us": 70.62,
+      "reduction_us": 5.710000000000008,
+      "reduction_pct": 8.085528178986134
+    },
+    {
+      "case": 10,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 79.42,
+      "platform_best_us": 72.39,
+      "r30_us": 84.55,
+      "reduction_us": 5.1299999999999955,
+      "reduction_pct": 6.067415730337078
+    },
+    {
+      "case": 11,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 95.64,
+      "platform_best_us": 74.82,
+      "r30_us": 97.09,
+      "reduction_us": 1.4500000000000028,
+      "reduction_pct": 1.4934596765887376
+    },
+    {
+      "case": 12,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 113.08,
+      "platform_best_us": 91.2,
+      "r30_us": 115.12,
+      "reduction_us": 2.0400000000000063,
+      "reduction_pct": 1.7720639332870047
+    },
+    {
+      "case": 13,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 14.72,
+      "platform_best_us": 5.14,
+      "r30_us": 15.35,
+      "reduction_us": 0.629999999999999,
+      "reduction_pct": 4.104234527687289
+    },
+    {
+      "case": 14,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 13.11,
+      "platform_best_us": 5.4,
+      "r30_us": 13.67,
+      "reduction_us": 0.5600000000000005,
+      "reduction_pct": 4.096561814191668
+    },
+    {
+      "case": 15,
+      "status": "Pass",
+      "displayed_error_percent": 0.0,
+      "latency_us": 11.31,
+      "platform_best_us": 4.05,
+      "r30_us": 11.37,
+      "reduction_us": 0.05999999999999872,
+      "reduction_pct": 0.5277044854881119
+    }
+  ],
+  "decision": "Accept r33 as mainline; preserve r30 fallback. Cases9/10 show expected target gains; other changes not attributed to this optimization; prior sanitizer findings remain open."
+}

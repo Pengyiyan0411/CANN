@@ -1,0 +1,27 @@
+{
+  "kind": "CPU static/model checks, not NPU execution",
+  "variants": [
+    {
+      "version": 51,
+      "sha256": "8545539fb7cdce8ff41818ba803f5acf91774c6d9960124433fc7e9a323b8e9a",
+      "parent_recovered_exactly": true,
+      "producer_body_unchanged": true,
+      "consumer_reused": true
+    },
+    {
+      "version": 52,
+      "sha256": "bce52fc8768bd707c4cb6dfddcec72334b1896a1e1275e3c23d052c3c9fa2f54",
+      "parent_recovered_exactly": true,
+      "producer_body_unchanged": true,
+      "consumer_reused": true
+    }
+  ],
+  "host_guard": {
+    "active_metadata_plans_all_cores": 640,
+    "active_metadata_plans_20_cores": 64
+  },
+  "l1_event_traces": 75,
+  "nz_block_coverage_checks": 256,
+  "K0_order_unchanged": true,
+  "limitations": "Sequential ownership model does not establish physical pipeline race freedom; actual CANN compile and numerical tests required."
+}

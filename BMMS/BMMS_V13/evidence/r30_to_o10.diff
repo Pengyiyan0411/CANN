@@ -1,0 +1,115 @@
+--- r41_r30_route
++++ O10_clean
+@@ -1,12 +1,20 @@
+-// BMMS1230_BEGIN
+-namespace bmms1230 {
++// BMMS12OPT_BEGIN
++namespace bmms12opt {
+ using Plan=bmms11r2::Plan;using bmms83::MinI;
+-constexpr int TM=64,TN=128,AM=128,BN=256,K1=256,K0=64,MACRO_ELEMS=4*TM*TN;
++constexpr int TM=64,TN=128,AM=256,BN=128,K1=256,K0=64,MACRO_ELEMS=4*TM*TN;
+ constexpr uint16_t READY=4,FREE=6;
+ static inline bool Eligible(int B,int M,int N,int K,int cores){
+-    return B==1&&M>=1024&&M<2048&&N>=2048&&N<=8192&&K>=1536&&K<4096&&bmms11r2::Eligible(B,M,N,K,cores);
+-}
+-static inline Plan MakePlan(int B,int M,int N,int K,int cores){return bmms11r2::MakePlan(B,M,N,K,cores);}
++    return B==1&&M==1280&&N>=4096&&N<6144&&K==1536&&cores==20&&bmms11r2::Eligible(B,M,N,K,cores);
++}
++static inline Plan MakePlan(int B,int M,int N,int K,int cores){
++    Plan p{};p.B=B;p.M=M;p.N=N;p.K=K;
++    p.mTiles=bmms83::UpH(M,AM);p.nTiles=bmms83::UpH(N,BN);
++    cores=bmms83::MaxH(1,cores);
++    p.pM=bmms83::MinH(p.mTiles,cores);
++    p.pN=bmms83::MinH(p.nTiles,bmms83::MaxH(1,cores/(B*p.pM)));
++    p.tasks=B*p.pM*p.pN;p.blocks=bmms83::MinH(cores,p.tasks);
++    return p;
++}
+ static inline bool AlignedPitch(int M,int N,int K,bool ta,bool tb){return (!ta||M%64==0)&&((tb?K:N)%64==0);}
+ template<class T,bool TA,bool TB>
+ class MacroMmadProducer {
+@@ -206,11 +214,9 @@
+                     AscendC::DataCopyPad(c,ring[off],cp,pd);cq.EnQue(c);c=cq.DeQue<float>();
+                     // The entire half-macro is in UB. Its ring slot can now be reused.
+                     AscendC::CrossCoreSetFlag<0x2,PIPE_MTE2>(FREE+ringSlot);
+-                    AscendC::BinaryRepeatParams rp{1,1,1,32,32,32};
+-                    AscendC::Max(c,c,c[128],64,vr,rp);AscendC::PipeBarrier<PIPE_V>();
+-                    AscendC::Max(c[64],c[64],c[192],64,vr,rp);AscendC::PipeBarrier<PIPE_V>();
++                    AscendC::BinaryRepeatParams rp{1,1,1,16,16,16};
+                     AscendC::Max(c,c,c[64],64,vr,rp);AscendC::PipeBarrier<PIPE_V>();
+-                    AscendC::WholeReduceMax(rows,c,64,vr,1,1,32,AscendC::ReduceOrder::ORDER_ONLY_VALUE);
++                    AscendC::WholeReduceMax(rows,c,64,vr,1,1,16,AscendC::ReduceOrder::ORDER_ONLY_VALUE);
+                     AscendC::PipeBarrier<PIPE_V>();
+                     AscendC::Max(run,run,rows,vr);AscendC::PipeBarrier<PIPE_V>();
+                     cq.FreeTensor(c);++seq;
+@@ -241,9 +247,9 @@
+         }
+     }
+ };
+-} // namespace bmms1230
+-// BMMS1230_CPU_END
+-namespace bmms1230 {
++} // namespace bmms12opt
++// BMMS12OPT_CPU_END
++namespace bmms12opt {
+ template<class T,bool TA,bool TB>
+ __aicore__ inline void Entry(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR ring,GM_ADDR part,Plan p){
+     AscendC::TPipe pipe;
+@@ -251,36 +257,37 @@
+     if ASCEND_IS_AIV {RowMaxConsumer op;op.Init(ring,part,y,p,&pipe);op.Process();}
+ }
+ }
+-#define BMMS1230_KERNEL(NAME,T,TA,TB) \
+-__schedmode__(1) __global__ __mix__(1,2) void NAME(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR ring,GM_ADDR part,bmms1230::Plan p){bmms1230::Entry<T,TA,TB>(a,b,y,ring,part,p);}
+-BMMS1230_KERNEL(bmms1230_f16_nn,half,false,false)
+-BMMS1230_KERNEL(bmms1230_f16_nt,half,false,true)
+-BMMS1230_KERNEL(bmms1230_f16_tn,half,true,false)
+-BMMS1230_KERNEL(bmms1230_f16_tt,half,true,true)
+-BMMS1230_KERNEL(bmms1230_b16_nn,bfloat16_t,false,false)
+-BMMS1230_KERNEL(bmms1230_b16_nt,bfloat16_t,false,true)
+-BMMS1230_KERNEL(bmms1230_b16_tn,bfloat16_t,true,false)
+-BMMS1230_KERNEL(bmms1230_b16_tt,bfloat16_t,true,true)
+-#undef BMMS1230_KERNEL
+-namespace bmms1230 {
++#define BMMS12OPT_KERNEL(NAME,T,TA,TB) \
++__schedmode__(1) __global__ __mix__(1,2) void NAME(GM_ADDR a,GM_ADDR b,GM_ADDR y,GM_ADDR ring,GM_ADDR part,bmms12opt::Plan p){bmms12opt::Entry<T,TA,TB>(a,b,y,ring,part,p);}
++BMMS12OPT_KERNEL(bmms12opt_f16_nn,half,false,false)
++BMMS12OPT_KERNEL(bmms12opt_f16_nt,half,false,true)
++BMMS12OPT_KERNEL(bmms12opt_f16_tn,half,true,false)
++BMMS12OPT_KERNEL(bmms12opt_f16_tt,half,true,true)
++BMMS12OPT_KERNEL(bmms12opt_b16_nn,bfloat16_t,false,false)
++BMMS12OPT_KERNEL(bmms12opt_b16_nt,bfloat16_t,false,true)
++BMMS12OPT_KERNEL(bmms12opt_b16_tn,bfloat16_t,true,false)
++BMMS12OPT_KERNEL(bmms12opt_b16_tt,bfloat16_t,true,true)
++#undef BMMS12OPT_KERNEL
++namespace bmms12opt {
+ static inline bool TryLaunch(GM_ADDR a,GM_ADDR b,GM_ADDR y,int32_t B,int32_t M,int32_t N,int32_t K,
+     int32_t dtype,bool ta,bool tb,int32_t cores,aclrtStream stream){
+-    if((dtype!=1&&dtype!=2)||!Eligible(B,M,N,K,cores)||!AlignedPitch(M,N,K,ta,tb))return false;
++    if(dtype!=2||!ta||tb||!Eligible(B,M,N,K,cores)||!AlignedPitch(M,N,K,ta,tb))return false;
+     const auto family=bmms8::Classify(B,M,N,K,ta,tb);
+     if(family==bmms8::Family::Resident||family==bmms8::Family::Tiny)return false;
+-    const auto p=MakePlan(B,M,N,K,cores);uint8_t* ws=nullptr;
++    auto p=MakePlan(B,M,N,K,cores);
++    uint8_t* ws=nullptr;
+     if(aclrtMalloc(reinterpret_cast<void**>(&ws),bmms11r2::WorkspaceBytes(p),ACL_MEM_MALLOC_HUGE_FIRST)!=ACL_SUCCESS)std::abort();
+     uint8_t* partial=ws+bmms11r2::RingBytes(p);
+-#define BMMS1230_LAUNCH(NAME) NAME<<<p.blocks,nullptr,stream>>>(a,b,y,ws,partial,p)
++#define BMMS12OPT_LAUNCH(NAME) NAME<<<p.blocks,nullptr,stream>>>(a,b,y,ws,partial,p)
+     if(dtype==1){
+-        if(!ta&&!tb){BMMS1230_LAUNCH(bmms1230_f16_nn);}else if(!ta&&tb){BMMS1230_LAUNCH(bmms1230_f16_nt);}
+-        else if(ta&&!tb){BMMS1230_LAUNCH(bmms1230_f16_tn);}else{BMMS1230_LAUNCH(bmms1230_f16_tt);}
++        if(!ta&&!tb){BMMS12OPT_LAUNCH(bmms12opt_f16_nn);}else if(!ta&&tb){BMMS12OPT_LAUNCH(bmms12opt_f16_nt);}
++        else if(ta&&!tb){BMMS12OPT_LAUNCH(bmms12opt_f16_tn);}else{BMMS12OPT_LAUNCH(bmms12opt_f16_tt);}
+     }else{
+-        if(!ta&&!tb){BMMS1230_LAUNCH(bmms1230_b16_nn);}else if(!ta&&tb){BMMS1230_LAUNCH(bmms1230_b16_nt);}
+-        else if(ta&&!tb){BMMS1230_LAUNCH(bmms1230_b16_tn);}else{BMMS1230_LAUNCH(bmms1230_b16_tt);}
+-    }
+-#undef BMMS1230_LAUNCH
++        if(!ta&&!tb){BMMS12OPT_LAUNCH(bmms12opt_b16_nn);}else if(!ta&&tb){BMMS12OPT_LAUNCH(bmms12opt_b16_nt);}
++        else if(ta&&!tb){BMMS12OPT_LAUNCH(bmms12opt_b16_tn);}else{BMMS12OPT_LAUNCH(bmms12opt_b16_tt);}
++    }
++#undef BMMS12OPT_LAUNCH
+     if(aclrtSynchronizeStream(stream)!=ACL_SUCCESS)std::abort();if(aclrtFree(ws)!=ACL_SUCCESS)std::abort();return true;
+ }
+ }
+-// BMMS1230_END+// BMMS12OPT_END

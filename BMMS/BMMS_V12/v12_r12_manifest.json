@@ -1,0 +1,19 @@
+{
+  "candidate": "v12_r12_splitk_adaptive_merge.asc",
+  "sha256": "a845fd9538fe71d5f6284fced34781d8fb7e997105c51065a84b344818ddbd2b",
+  "parent": "v12_baseline_r03.asc",
+  "parent_sha256": "1c9e9726aa43fdd177c98c645c69bb7d57721d2f1b07d00dfb614324286a404c",
+  "original_recovered_byte_for_byte": true,
+  "producer_policy": "whole-shard if N<=64 or TB; original staged otherwise",
+  "consumer": "r11 row-parallel complete K sum then N max then M sum",
+  "scope": "Narrow Case15 metadata guard; actual build and synthetic correctness/performance recorded in npu_report.",
+  "CANN_compiled": true,
+  "NPU_tested": true,
+  "synthetic_precision_cases": 238,
+  "repeats_per_case": 3,
+  "competition_hidden15_tested": false,
+  "status": "accepted after user confirms Case15 stable around11.5us; others essentially unchanged",
+  "npu_report": "../V12_npu_lab/results/split_20260928/REPORT.md",
+  "competition_acceptance_basis": "user textual Judge feedback; no new full15 table supplied",
+  "sanitizer_correction": "prior ordinary-build racecheck skipped; not a clean racecheck pass"
+}

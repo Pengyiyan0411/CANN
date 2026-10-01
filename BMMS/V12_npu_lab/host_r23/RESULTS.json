@@ -1,0 +1,9 @@
+{
+  "guard_checks": 59136,
+  "stress_plan_checks": 3942,
+  "passed": true,
+  "guards_text_identical": true,
+  "allocation_text_identical": true,
+  "parent_byte_recovery": true,
+  "source_sha256": "e20e86a2c4d661b67a47aaeff02d6064b480c0b7ea4e0e942bd604e762bf0942"
+}

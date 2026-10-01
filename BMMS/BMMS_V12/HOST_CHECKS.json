@@ -1,0 +1,18 @@
+{
+  "dispatch_checks": 23839,
+  "non_target_equal": 21610,
+  "target_checks": 2229,
+  "R52_checks": 24,
+  "R50_checks": 24,
+  "Case5_checks": 192,
+  "R48_checks": 768,
+  "R49_checks": 32,
+  "SplitK_checks": 560,
+  "R43_checks": 8,
+  "exact_grid_oracles": 2165,
+  "improved_grid_fixtures": 285,
+  "scope": "actual run_kernel/TryLaunch with recording stubs; independent exact task and microtile work oracle",
+  "source_sha256": "bc74344c0e847b13ff553aa7ea9437d86fcb063c1e036e7799fd9f69e2f3875d",
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

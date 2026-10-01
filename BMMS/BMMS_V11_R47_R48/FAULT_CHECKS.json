@@ -1,0 +1,10 @@
+{
+  "R47_pad_lanes": {
+    "rejected": true,
+    "error": "STRUCTURAL_FAIL 47_f1600_1_272_48_128_3_1: UB uninitialized read"
+  },
+  "R48_zero_tail": {
+    "rejected": true,
+    "error": "STRUCTURAL_FAIL invalid zero padding"
+  }
+}

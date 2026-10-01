@@ -1,0 +1,16 @@
+{
+  "parent_recovered_exactly": true,
+  "host": {
+    "active_metadata_plans": 320,
+    "active20": 64,
+    "partial_element_writes": 1835008
+  },
+  "NZ_layout_checks": 64,
+  "L1_bytes": 393216,
+  "L0A_bytes": 65536,
+  "L0B_bytes": 32768,
+  "L0C_bytes": 131072,
+  "explicit_UB_bytes_max": 84832,
+  "macro_prefetch_event_model": "same r30 K1=256 model as r51/r52 audit",
+  "limitation": "CPU indexing/ownership model, not physical device race proof"
+}

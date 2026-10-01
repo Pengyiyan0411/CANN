@@ -1,0 +1,15 @@
+{
+  "version": "v12_r30",
+  "file": "v12_r30_dense_macro_prefetch.asc",
+  "sha256": "9ac17c7b6f793cf043ee8d150479f42a1423a73ffe5c877b2456d16396d1fa17",
+  "parent": "v12_baseline_r19.asc",
+  "status": "Accepted after user Judge feedback: all15 Pass, Case11 97.09us and Case12 115.12us; original sanitizer limitations remain unresolved",
+  "change": "r26 geometry, original grid; prefetch next macro first K1 slab during current final K1 slab, preserving double-buffer event ownership; explicit final Max full/tail masks",
+  "L1_bytes": 393216,
+  "L0A_bytes": 32768,
+  "L0B_bytes": 65536,
+  "L0C_bytes": 131072,
+  "parent_byte_recovery": true,
+  "npu_report": "../V12_npu_lab/results/dense_pipeline_20260928/REPORT.md",
+  "judge_feedback": "../V12_results/2026-09-28_r30_feedback/RESULTS.json"
+}

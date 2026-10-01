@@ -1,0 +1,106 @@
+{
+  "numeric_runs": 1584,
+  "planner_geometry_checks": 7350,
+  "guard_checks": 36960,
+  "host_tiling_contract_checks": 92,
+  "exact_dyadic_oracle_mismatches": 0,
+  "representative_plans": [
+    [
+      1153,
+      1025,
+      1160,
+      128,
+      64,
+      10,
+      2,
+      20,
+      1088
+    ],
+    [
+      1153,
+      1087,
+      1160,
+      128,
+      64,
+      10,
+      2,
+      20,
+      1088
+    ],
+    [
+      1153,
+      1153,
+      1160,
+      16,
+      256,
+      4,
+      5,
+      20,
+      1280
+    ],
+    [
+      1153,
+      1281,
+      1160,
+      16,
+      128,
+      5,
+      4,
+      20,
+      1408
+    ],
+    [
+      1153,
+      1537,
+      1160,
+      16,
+      64,
+      4,
+      5,
+      20,
+      1600
+    ],
+    [
+      1153,
+      2047,
+      1160,
+      16,
+      256,
+      5,
+      4,
+      20,
+      2048
+    ]
+  ],
+  "source_sha256": "27fc12b75a2ac3c7df0f74fbe789437b4267115e721cfaa94bf7135109993921",
+  "baseline_sha256": "15e2c9a0f73e7534c26400107389dcd8e5cf685b5f6f477c7a3684ad3991df2d",
+  "scope": "Extracted actual C++ planner/consumer with CPU vector/Matmul/host-tiler contract adapters",
+  "original_R43_recovered_byte_identically": true,
+  "dtypes": [
+    "FP16",
+    "BF16"
+  ],
+  "layouts": [
+    "NN",
+    "NT",
+    "TN",
+    "TT"
+  ],
+  "patterns": [
+    "random_dyadic",
+    "all_negative_C",
+    "tail_only_winner",
+    "overlap_winner",
+    "zero",
+    "K_cancellation"
+  ],
+  "faults_detected": {
+    "last_tail_tile_omitted": "M=31 N=33 K=40 tile=16x16 grid=2x2 dtype=FP16 ta=0 tb=0 pattern=2 reverse=0: numerical mismatch",
+    "body_used_as_physical_stride": "M=31 N=33 K=40 tile=16x16 grid=2x2 dtype=FP16 ta=0 tb=0 pattern=2 reverse=0: GM read out of view bounds"
+  },
+  "real_CANN_tiler_run": false,
+  "CANN_compiled": false,
+  "NPU_tested": false,
+  "Cube_rounding_and_async_pipes_modeled": false,
+  "candidate_timing_us": null
+}

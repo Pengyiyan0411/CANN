@@ -1,0 +1,17 @@
+{
+  "original": "v13_r2_case12_o10.asc",
+  "submission": "v13_r2_submit_compact.asc",
+  "original_bytes": 380535,
+  "submission_bytes": 300552,
+  "reduction_pct": 21.018565966336865,
+  "original_sha256": "b450d62b49b7ece6548cd442d82d5c8cdc08d4be54dbf4ab92c26e2e58ceb589",
+  "submission_sha256": "e799dbe1443231c957e4b4cc334571742d4fddd3807fe80af883da113de11a6f",
+  "transformation": "remove comments and redundant whitespace; splice backslash-newline before parsing comments; preserve literal contents and directive boundaries",
+  "lexical_lines_equal": true,
+  "compiler_preprocessing_equivalence": {
+    "tool": "CANN 9.0 Bisheng, dav-2201",
+    "host_tokens_equal": true,
+    "device_tokens_equal": true,
+    "report": "compact_preprocess.json"
+  }
+}

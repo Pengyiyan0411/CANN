@@ -1,0 +1,16 @@
+{
+  "dispatch_checks": 182458,
+  "non_target_equal": 95178,
+  "target_checks": 87280,
+  "R50_Case2_checks": 21884,
+  "Case5_metadata_checks": 176,
+  "R48_Case7_checks": 504,
+  "R49_Case13_checks": 42,
+  "SplitK_checks": 310,
+  "R43_Case8_checks": 64,
+  "exhaustive_target_UB_peak_bytes": 146560,
+  "scope": "actual run_kernel/TryLaunch with recording stubs; original fallback device covered separately by CPU_CHECKS",
+  "source_sha256": "2185652d74d4a7710916942672f38eeff23a0f4ca361446abc352b99a06ca697",
+  "CANN_compiled": false,
+  "NPU_tested": false
+}

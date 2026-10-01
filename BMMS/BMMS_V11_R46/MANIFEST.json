@@ -1,0 +1,27 @@
+{
+  "candidate": "R46_CASE8_FAST_MAIN_TAIL.asc",
+  "candidate_sha256": "27fc12b75a2ac3c7df0f74fbe789437b4267115e721cfaa94bf7135109993921",
+  "baseline": "R43_CASE8_PADDED_MACRO.asc",
+  "baseline_sha256": "15e2c9a0f73e7534c26400107389dcd8e5cf685b5f6f477c7a3684ad3991df2d",
+  "baseline_case8_us_user_reported": 62.45,
+  "baseline_restored_byte_identically_after_removing_R46_additions": true,
+  "R45_PACK_TAIL_ZERO_included": false,
+  "dispatch_guard": "R43 Eligible && N % 16 != 0",
+  "CANN_compiled": false,
+  "NPU_tested": false,
+  "candidate_case8_us": null,
+  "CPU_checks_sha256": "60a5fd4c6a7db7171d50084aab360bd892dec6bc6055386f0913ff9a175e7277",
+  "CPU_numeric_runs": 1584,
+  "R25_preserved_sha256": "7defd06457ddb0e356cbf4cc8407f31cbb7c622acf6efd66070be212fa4eacb2",
+  "representative_plan_columns": [
+    "M",
+    "realN",
+    "K",
+    "tileM",
+    "vecN",
+    "pM",
+    "pN",
+    "workers",
+    "virtualN"
+  ]
+}

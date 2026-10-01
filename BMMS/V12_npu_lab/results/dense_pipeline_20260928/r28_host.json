@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "parent_byte_recovery": true,
+  "sha256": "a8a1ce4de2222de9c0d7c40410bede8eb97ec1694dc34167944a3e98faf8dd57",
+  "index_checks": 10304,
+  "consumer_cells": 331776,
+  "scope": "Host-only exact address/coverage model, not hardware synchronization or FP precision"
+}

@@ -1,0 +1,29 @@
+{
+  "tool": "mssanitizer memcheck",
+  "blocks": "all",
+  "configurations": 4,
+  "shape": [
+    1,
+    1280,
+    4160,
+    1536
+  ],
+  "dtype_TA": "FP16/BF16 x TA=false/true, TB=false",
+  "initial_exit_code": 124,
+  "tail_exit_code": 0,
+  "initial_finishes": 3,
+  "tail_finishes": 1,
+  "completed_kernels": [
+    "bmms1254_b16_nn(unsigned char*, unsigned char*, unsigned char*, unsigned char*, unsigned char*, bmms83::NativePlan, unsigned char*)",
+    "bmms1254_b16_tn(unsigned char*, unsigned char*, unsigned char*, unsigned char*, unsigned char*, bmms83::NativePlan, unsigned char*)",
+    "bmms1254_f16_nn(unsigned char*, unsigned char*, unsigned char*, unsigned char*, unsigned char*, bmms83::NativePlan, unsigned char*)",
+    "bmms1254_f16_tn(unsigned char*, unsigned char*, unsigned char*, unsigned char*, unsigned char*, bmms83::NativePlan, unsigned char*)"
+  ],
+  "warning_count": 293,
+  "warning_types": [
+    "[mssanitizer] Warning:Register FFTS_BASE_ADDR was not reset to default"
+  ],
+  "numerical_pass": true,
+  "scope_limit": "Memcheck only on four configurations. Does not certify racecheck/initcheck/synccheck or all shapes.",
+  "memory_access_errors_reported": false
+}

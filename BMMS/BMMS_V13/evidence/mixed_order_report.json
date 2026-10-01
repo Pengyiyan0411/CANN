@@ -1,0 +1,14 @@
+{
+  "r1": {
+    "returncode": 0,
+    "configurations_with_repeats": 256,
+    "kernel_calls": 512,
+    "failed": []
+  },
+  "r2": {
+    "returncode": 0,
+    "configurations_with_repeats": 256,
+    "kernel_calls": 512,
+    "failed": []
+  }
+}

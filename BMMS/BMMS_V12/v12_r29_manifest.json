@@ -1,0 +1,14 @@
+{
+  "version": "v12_r29",
+  "file": "v12_r29_dense_m256_load2d.asc",
+  "sha256": "59770fd82fa7865fa7b58c4552f29e837c87d8ba5450f99baa1761919dba0bac",
+  "parent": "v12_baseline_r19.asc",
+  "status": "Rejected locally: screen median improvement 0.47%, worst regression 33.42%",
+  "change": "256x128 output K0=64 K1=256; grid retiled; A uses dstGap and TB contiguous B transfer",
+  "L1_bytes": 393216,
+  "L0A_bytes": 65536,
+  "L0B_bytes": 32768,
+  "L0C_bytes": 131072,
+  "parent_byte_recovery": true,
+  "npu_report": "../V12_npu_lab/results/dense_pipeline_20260928/REPORT.md"
+}

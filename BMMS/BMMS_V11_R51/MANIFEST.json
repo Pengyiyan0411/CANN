@@ -1,0 +1,20 @@
+{
+  "candidate": "R51_BATCHED_SMALL_VECTOR.asc",
+  "sha256": "2185652d74d4a7710916942672f38eeff23a0f4ca361446abc352b99a06ca697",
+  "parent_R50_sha256": "97484e6d79152d131ec9f45697611379e98c894aa9a94707638601024c2935ec",
+  "parent_recovered_byte_for_byte": true,
+  "scope": "B2..64 M/N2..16 K32..128 K%8=0 AND original Tiny/Resident",
+  "workers": "min(B,2*normalized_availableCoreNum), identical to original Tiny/Resident",
+  "kernel_launches": 1,
+  "GM_workspace_bytes": 0,
+  "explicit_host_sync": false,
+  "cross_core_barrier": false,
+  "preserved": [
+    "R50 Case2",
+    "R49 Case13",
+    "R48 Case7",
+    "R25 Case5",
+    "R43 Case8",
+    "R23 Case15"
+  ]
+}
